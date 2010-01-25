@@ -1,0 +1,15 @@
+{
+    IBClasses = (
+        {CLASS = BNRStoreDocument; LANGUAGE = ObjC; SUPERCLASS = NSDocument; }, 
+        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {CLASS = GRLGraphView; LANGUAGE = ObjC; SUPERCLASS = NSView; }, 
+        {
+            ACTIONS = {cull = id; jiggle = id; scramble = id; }; 
+            CLASS = MyDocument; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {graphView = GRLGraphView; }; 
+            SUPERCLASS = BNRStoreDocument; 
+        }
+    ); 
+    IBVersion = 1; 
+}
