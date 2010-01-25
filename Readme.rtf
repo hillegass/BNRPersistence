@@ -5,9 +5,13 @@
 \margl1440\margr1440\vieww12000\viewh11400\viewkind0
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
 
-\f0\fs28 \cf0 BNRPersistence\
+\f0\b\fs48 \cf0 BNRPersistence\
+
+\b0\fs28 Aaron Hillegass\
+aaron@bignerdranch.com\
+Jan 25, 2009\
 \
-After a few years of whining that Core Data has all of the shortcomings of the Enterprise Objects Framework with none of the advantages of archiving, I thought I should write a persistence framework that points in the right direction.  And this is it.\
+After a few years of whining that Core Data has all of the shortcomings of the Enterprise Objects Framework with none of the advantages of archiving, I thought I should write a persistence framework that points in what I think is the right direction.  And this is it.\
 \
 One big difference? Objects can have ordered relationships.  For example, a playlist of songs is an ordered collection.  This is awkward to do in Core Data because it uses a relational database.\
 \
@@ -27,15 +31,19 @@ In Terminal.app, untar the tarball and cd into the resulting directory.\
 \
 (You want 64-bit library? In Terminal, set an environment variable for 64-bit builds:\
 \
-export CFLAGS='-arch x86_64'\
-\
+
+\f1 export CFLAGS='-arch x86_64'\
+
+\f0 \
 )\
 \
 Configure, build, and install:\
-./configure\
+
+\f1 ./configure\
 make\
 sudo make install\
-\
+
+\f0 \
 Now, you have a /usr/local/lib//usr/local/lib/libtokyocabinet.a that needs to linked into any project that uses these classes. (I usually use the "Add->Existing Frameworks" menu item to do this.)\
 \
 You'll also need to have /usr/local/include/ among your header search path. (See the Xcode target's build info to add this.)\
@@ -46,7 +54,15 @@ Now just add the classes in the BNRPersistence directory into your project.  (If
 \b\fs36 Using it:\
 
 \b0\fs28 \
-You've used Core Data?  The BNRStore is analogous to NSManagedObjectContext.  BNRStoredObject is analogous to NSManagedObject.  There is no model, instead, like archiving, you must have two methods in you BNRStoredObject subclass.  Here are the methods from a Playlist class:\
+You've used Core Data?  The 
+\b BNRStore
+\b0  is analogous to 
+\b NSManagedObjectContext
+\b0 .  
+\b BNRStoredObject
+\b0  is analogous to 
+\b NSManagedObject
+\b0 .  There is no model, instead, like archiving, you must have two methods in you BNRStoredObject subclass.  Here are the methods from a Playlist class:\
 \
 \pard\tx864\pardeftab864\ql\qnatural\pardirnatural
 
@@ -69,7 +85,11 @@ You've used Core Data?  The BNRStore is analogous to NSManagedObjectContext.  BN
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
 
 \f0\fs28 \cf0 \CocoaLigature1 \
-So, BNRDataBuffers are like NSData, but they have methods for reading and writing different types of data.\
+So, 
+\b BNRDataBuffers
+\b0  are like 
+\b NSData
+\b0 , but they have methods for reading and writing different types of data.\
 \
 (I certainly debate the idea of a model file that would replace these methods, but for now this is fast and simple.  If you would rather have a model file than implement these methods, you are invited to write a BNRPersistenceModelEditor.)\
 \
@@ -90,7 +110,7 @@ To create a store, first you must create a backend.  I have tried BerkeleyDB and
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
 
 \f0\fs28 \cf0 \CocoaLigature1 \
-Now that you have a backend, you can create a store and tell it which classes you are going to be saving or loading.  This is a little lame, I realize, but you also need to make a guess at how many instances you'll be dealing with.  The uniquing table has a hash table for each class, and you get better performance if is bigger, but you get a smaller memory footprint if it is smaller.  It will grow as necessary, but a good guess here is helpful:\
+Now that you have a backend, you can create a store and tell it which classes you are going to be saving or loading.  This is a little lame, I realize, but you also need to make a guess at how many instances you'll be dealing with.  The uniquing table has a hash table for each class, and you get better performance if is bigger, but you get a smaller memory footprint if it is smaller.  It will grow as necessary, but a good guess here is helpful as growing is relatively expensive:\
 \
 \pard\tx864\pardeftab864\ql\qnatural\pardirnatural
 
@@ -98,8 +118,8 @@ Now that you have a backend, you can create a store and tell it which classes yo
     [store setBackend:backend];\
     [backend release];\
     \
-    [store addClass:[Song class] expectedCount:SONG_COUNT];\
-    [store addClass:[Playlist class] expectedCount:playlistCount];\
+    [store addClass:[Song class] expectedCount:123456];\
+    [store addClass:[Playlist class] expectedCount:23456];\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
 
 \f0\fs28 \cf0 \CocoaLigature1 \
@@ -157,7 +177,11 @@ To save all the changes:\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
 
 \f0\fs28 \cf0 \CocoaLigature1 \
-Strange stuff I've done.  Each class in a store can have a version.  This is kept in the BNRClassMetaData object for the class.  You can reach this in your readContentFromBuffer method (because you have access to the store).\
+Strange stuff I've done.  Each class in a store can have a version.  This is kept in the 
+\b BNRClassMetaData
+\b0  object for the class.  You can reach this in your 
+\f1 readContentFromBuffer
+\f0  method (because you have access to the store).\
 \
 In your BNRStoredObject class, you can implement these two methods if you wish:\
 \pard\tx864\pardeftab864\ql\qnatural\pardirnatural
@@ -168,17 +192,42 @@ In your BNRStoredObject class, you can implement these two methods if you wish:\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
 
 \f0\fs28 \cf0 \CocoaLigature1 \
-prepareForDelete is where you implement your delete rule: When a song is deleted, for example, it needs to remove itself from any playlists it is in.\
+
+\f1 prepareForDelete
+\f0  is where you implement your delete rule: When a song is deleted, for example, it needs to remove itself from any playlists it is in.\
 \
-dissolveAllRelationships is a fix for a common problem.  You close the document, but the objects in the document have retain cycles so they don't get deallocated properly.  In dissolveAllRelationships,  your stored objects (the ones in memory) are being asked to release any other stored objects they are retaining.\
+
+\f1 dissolveAllRelationships
+\f0  is a fix for a common problem.  You close the document, but the objects in the document have retain cycles so they don't get deallocated properly.  In dissolveAllRelationships,  your stored objects (the ones in memory) are being asked to release any other stored objects they are retaining.\
 \
 In the directory, you will find TCSpeedTest and CDSpeedTest. These are command-line tools that compare the speed of some tasks in BNRPersistence (TCSpeedTest) and Core Data (CDSpeedTest)\
 \
-I recognize that there is room for improvement here -- the creation of a model-file architecture and editor would be one.  But I think it is an interesting bit of evidence that something like Core Data could be created with more object-friendly semantics.\
+Your mileage may vary,  but I see:\
 \
+Creating 1,000 playlists, 100,000 songs, and 100 songs in each playlist and saving (ComplexInsertTest):\
+BNRPersistence is 10 times faster than CoreData\
 \
+Reading in the playlist and getting the title of the first song in each playlist (ComplexFetchTest):\
+BNRPersistence is 13 times faster than CoreData\
 \
+Creating 1,000,000 songs and inserting them and saving (SimpleInsertTest):\
+BNRPersistence is 17 times faster than CoreData\
 \
+Fetching in 1,000,000 songs (SimpleFetchTest)\
+CoreData is 2 times faster than BNRPersistence\
+(BNRPersistence is single-threaded and CoreData has some clever multi-threading in this case.  I think I can do similar tricks in BNRPersistence and catch up in this case.  In either case, it is very, very fast.  On my machine, fetching a million songs takes 6.2 seconds the first time and 3.9 seconds the second time.)\
 \
+
+\b\fs36 To Do:\
+
+\b0\fs28 \
+I recognize that there is room for improvement here:\
+\
+1) the creation of a model-file architecture and editor\
+2) Better automatic undo support \
+3) Automatic syncing to a webservice\
+4) Easy hooks for QuickLook images and Spotlight metadata\
+\
+But I think it is an interesting bit of evidence that something like Core Data could be created with more object-friendly semantics.\
 \
 }
