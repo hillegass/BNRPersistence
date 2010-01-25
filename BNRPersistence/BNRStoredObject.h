@@ -56,6 +56,8 @@
 - (void)dissolveAllRelationships;
 
 #pragma mark Dealing with store
+
+// Every StoredObject knows the store that is holding it
 - (void)setStore:(BNRStore *)s;
 - (BNRStore *)store;
 
@@ -67,6 +69,9 @@
 // Is the object fetched?
 - (BOOL)hasContent;
 - (void)fetchContent;
+
+// checkForContent is a convenience method that checks to see
+// if the object has fetched its data and fetchs it if necessary.
 - (void)checkForContent;
 
 @end

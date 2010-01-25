@@ -115,6 +115,7 @@
 
 - (NSMutableArray *)readArrayOfClass:(Class)c
                           usingStore:(BNRStore *)s;
+
 - (void)writeArray:(NSArray *)a
            ofClass:(Class)c;
 

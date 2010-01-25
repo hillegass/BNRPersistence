@@ -66,6 +66,7 @@
     
     // This capability is not implemented yet...
     BOOL savesDataForSync;
+    // BNRLogManager *logForSync;
 }
 
 @property (nonatomic) BOOL savesDataForSync;
@@ -90,8 +91,13 @@
 // 'hasUnsavedChanges' is observable
 - (BOOL)hasUnsavedChanges;
 
+// Mark object for insertion into object store
 - (void)insertObject:(BNRStoredObject *)obj;
+
+// Mark object for deletion from object store
 - (void)deleteObject:(BNRStoredObject *)obj;
+
+// Mark object to be updated in object store
 - (void)willUpdateObject:(BNRStoredObject *)obj;
 
 - (BOOL)saveChanges:(NSError **)errorPtr;
@@ -112,6 +118,9 @@
 #pragma mark Retain-cycle breaking
 
 - (void)dissolveAllRelationships;
+
+// See the list of uniquing tables and their counts
+- (void)logStats;
 
 @end
 

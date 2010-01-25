@@ -73,6 +73,15 @@
     }
 }
 
+- (void)logStats
+{
+    NSEnumerator *e = [uniquingTable objectEnumerator];
+    BNRIntDictionary *currentTable;
+    while (currentTable = [e nextObject]){
+        [currentTable logStats];
+    }
+}
+
 - (void)dissolveAllRelationships
 {
     [self makeEveryStoredObjectPerformSelector:@selector(dissolveAllRelationships)];
@@ -146,6 +155,10 @@
 {
     // Fetch!
     BNRBackendCursor *cursor = [backend cursorForClass:c];
+    if (!cursor) {
+        NSLog(@"No database for %@", NSStringFromClass(c));
+        return nil;
+    }
     NSMutableArray *result = [NSMutableArray array];
     BNRDataBuffer *d = [[BNRDataBuffer alloc] initWithCapacity:65536];
 

@@ -50,5 +50,6 @@ struct BucketInfo {
 - (id)objectForInt:(UInt32)c;
 - (void)removeObjectForInt:(UInt32)c;
 - (void)makeEveryObjectPerformSelector:(SEL)s;
+- (void)logStats;
 
 @end
