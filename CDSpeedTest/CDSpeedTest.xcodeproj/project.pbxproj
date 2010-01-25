@@ -1,0 +1,622 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 45;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		93D509EE110D513300E5D2F0 /* All */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 93D50A08110D515400E5D2F0 /* Build configuration list for PBXAggregateTarget "All" */;
+			buildPhases = (
+			);
+			dependencies = (
+				93D509F8110D513F00E5D2F0 /* PBXTargetDependency */,
+				93D509F6110D513F00E5D2F0 /* PBXTargetDependency */,
+				93D509F4110D513F00E5D2F0 /* PBXTargetDependency */,
+				93D509F2110D513F00E5D2F0 /* PBXTargetDependency */,
+			);
+			name = All;
+			productName = All;
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		288AFF370F563DBA0085E73F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288AFF360F563DBA0085E73F /* CoreData.framework */; };
+		8DD76F9C0486AA7600D96B5E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08FB779EFE84155DC02AAC07 /* Foundation.framework */; };
+		93D508F6110D32BE00E5D2F0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08FB779EFE84155DC02AAC07 /* Foundation.framework */; };
+		93D508F7110D32BE00E5D2F0 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288AFF360F563DBA0085E73F /* CoreData.framework */; };
+		93D5090A110D345F00E5D2F0 /* ComplexInsertTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D50909110D345A00E5D2F0 /* ComplexInsertTest.m */; };
+		93D5090B110D346600E5D2F0 /* ComplexFetchTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D50908110D345A00E5D2F0 /* ComplexFetchTest.m */; };
+		93D50975110D4B2D00E5D2F0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08FB779EFE84155DC02AAC07 /* Foundation.framework */; };
+		93D50976110D4B2D00E5D2F0 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288AFF360F563DBA0085E73F /* CoreData.framework */; };
+		93D50989110D4B7500E5D2F0 /* SimpleInsertTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D50988110D4B7500E5D2F0 /* SimpleInsertTest.m */; };
+		93D50991110D4C0700E5D2F0 /* CDSimple.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 93D50990110D4C0700E5D2F0 /* CDSimple.xcdatamodel */; };
+		93D509AD110D4D4200E5D2F0 /* CDComplex.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 93D509AC110D4D4200E5D2F0 /* CDComplex.xcdatamodel */; };
+		93D509AE110D4D4200E5D2F0 /* CDComplex.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 93D509AC110D4D4200E5D2F0 /* CDComplex.xcdatamodel */; };
+		93D509CD110D4FC900E5D2F0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08FB779EFE84155DC02AAC07 /* Foundation.framework */; };
+		93D509CE110D4FC900E5D2F0 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288AFF360F563DBA0085E73F /* CoreData.framework */; };
+		93D509D5110D501D00E5D2F0 /* CDSimple.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 93D50990110D4C0700E5D2F0 /* CDSimple.xcdatamodel */; };
+		93D509E3110D504200E5D2F0 /* SimpleFetchTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D509E2110D504200E5D2F0 /* SimpleFetchTest.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		93D509F1110D513F00E5D2F0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 08FB7793FE84155DC02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 93D509C8110D4FC900E5D2F0 /* SimpleFetchTest */;
+			remoteInfo = SimpleFetchTest;
+		};
+		93D509F3110D513F00E5D2F0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 08FB7793FE84155DC02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 93D50970110D4B2D00E5D2F0 /* SimpleInsertTest */;
+			remoteInfo = SimpleInsertTest;
+		};
+		93D509F5110D513F00E5D2F0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 08FB7793FE84155DC02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 93D508F1110D32BE00E5D2F0 /* ComplexFetchTest */;
+			remoteInfo = ComplexFetchTest;
+		};
+		93D509F7110D513F00E5D2F0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 08FB7793FE84155DC02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8DD76F960486AA7600D96B5E /* ComplexInsertTest */;
+			remoteInfo = ComplexInsertTest;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		8DD76F9E0486AA7600D96B5E /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 8;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+		93D508F8110D32BE00E5D2F0 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 8;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+		93D50977110D4B2D00E5D2F0 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 8;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+		93D509CF110D4FC900E5D2F0 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 8;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		08FB779EFE84155DC02AAC07 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		288AFF340F563D390085E73F /* CDSpeedTest_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDSpeedTest_Prefix.pch; sourceTree = "<group>"; };
+		288AFF360F563DBA0085E73F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		8DD76FA10486AA7600D96B5E /* ComplexInsertTest */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ComplexInsertTest; sourceTree = BUILT_PRODUCTS_DIR; };
+		93D508FC110D32BE00E5D2F0 /* ComplexFetchTest */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ComplexFetchTest; sourceTree = BUILT_PRODUCTS_DIR; };
+		93D50908110D345A00E5D2F0 /* ComplexFetchTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComplexFetchTest.m; sourceTree = SOURCE_ROOT; };
+		93D50909110D345A00E5D2F0 /* ComplexInsertTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComplexInsertTest.m; sourceTree = SOURCE_ROOT; };
+		93D5097B110D4B2D00E5D2F0 /* SimpleInsertTest */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SimpleInsertTest; sourceTree = BUILT_PRODUCTS_DIR; };
+		93D50988110D4B7500E5D2F0 /* SimpleInsertTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleInsertTest.m; sourceTree = SOURCE_ROOT; };
+		93D50990110D4C0700E5D2F0 /* CDSimple.xcdatamodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.xcdatamodel; path = CDSimple.xcdatamodel; sourceTree = SOURCE_ROOT; };
+		93D509AC110D4D4200E5D2F0 /* CDComplex.xcdatamodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.xcdatamodel; path = CDComplex.xcdatamodel; sourceTree = SOURCE_ROOT; };
+		93D509D3110D4FC900E5D2F0 /* SimpleFetchTest */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SimpleFetchTest; sourceTree = BUILT_PRODUCTS_DIR; };
+		93D509E2110D504200E5D2F0 /* SimpleFetchTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleFetchTest.m; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8DD76F9B0486AA7600D96B5E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8DD76F9C0486AA7600D96B5E /* Foundation.framework in Frameworks */,
+				288AFF370F563DBA0085E73F /* CoreData.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		93D508F5110D32BE00E5D2F0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93D508F6110D32BE00E5D2F0 /* Foundation.framework in Frameworks */,
+				93D508F7110D32BE00E5D2F0 /* CoreData.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		93D50974110D4B2D00E5D2F0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93D50975110D4B2D00E5D2F0 /* Foundation.framework in Frameworks */,
+				93D50976110D4B2D00E5D2F0 /* CoreData.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		93D509CC110D4FC900E5D2F0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93D509CD110D4FC900E5D2F0 /* Foundation.framework in Frameworks */,
+				93D509CE110D4FC900E5D2F0 /* CoreData.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		08FB7794FE84155DC02AAC07 /* «PROJECTNAME» */ = {
+			isa = PBXGroup;
+			children = (
+				08FB7795FE84155DC02AAC07 /* Source */,
+				28D1EE350F56433F0089643D /* Model */,
+				08FB779DFE84155DC02AAC07 /* External Frameworks and Libraries */,
+				1AB674ADFE9D54B511CA2CBB /* Products */,
+			);
+			name = "«PROJECTNAME»";
+			sourceTree = "<group>";
+		};
+		08FB7795FE84155DC02AAC07 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				93D509E2110D504200E5D2F0 /* SimpleFetchTest.m */,
+				93D50988110D4B7500E5D2F0 /* SimpleInsertTest.m */,
+				93D50908110D345A00E5D2F0 /* ComplexFetchTest.m */,
+				93D50909110D345A00E5D2F0 /* ComplexInsertTest.m */,
+				288AFF340F563D390085E73F /* CDSpeedTest_Prefix.pch */,
+			);
+			name = Source;
+			sourceTree = "<group>";
+		};
+		08FB779DFE84155DC02AAC07 /* External Frameworks and Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				288AFF360F563DBA0085E73F /* CoreData.framework */,
+				08FB779EFE84155DC02AAC07 /* Foundation.framework */,
+			);
+			name = "External Frameworks and Libraries";
+			sourceTree = "<group>";
+		};
+		1AB674ADFE9D54B511CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8DD76FA10486AA7600D96B5E /* ComplexInsertTest */,
+				93D508FC110D32BE00E5D2F0 /* ComplexFetchTest */,
+				93D5097B110D4B2D00E5D2F0 /* SimpleInsertTest */,
+				93D509D3110D4FC900E5D2F0 /* SimpleFetchTest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		28D1EE350F56433F0089643D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				93D509AC110D4D4200E5D2F0 /* CDComplex.xcdatamodel */,
+				93D50990110D4C0700E5D2F0 /* CDSimple.xcdatamodel */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8DD76F960486AA7600D96B5E /* ComplexInsertTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1DEB927408733DD40010E9CD /* Build configuration list for PBXNativeTarget "ComplexInsertTest" */;
+			buildPhases = (
+				8DD76F990486AA7600D96B5E /* Sources */,
+				8DD76F9B0486AA7600D96B5E /* Frameworks */,
+				8DD76F9E0486AA7600D96B5E /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ComplexInsertTest;
+			productInstallPath = "$(HOME)/bin";
+			productName = "«PROJECTNAME»";
+			productReference = 8DD76FA10486AA7600D96B5E /* ComplexInsertTest */;
+			productType = "com.apple.product-type.tool";
+		};
+		93D508F1110D32BE00E5D2F0 /* ComplexFetchTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 93D508F9110D32BE00E5D2F0 /* Build configuration list for PBXNativeTarget "ComplexFetchTest" */;
+			buildPhases = (
+				93D508F2110D32BE00E5D2F0 /* Sources */,
+				93D508F5110D32BE00E5D2F0 /* Frameworks */,
+				93D508F8110D32BE00E5D2F0 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ComplexFetchTest;
+			productInstallPath = "$(HOME)/bin";
+			productName = "«PROJECTNAME»";
+			productReference = 93D508FC110D32BE00E5D2F0 /* ComplexFetchTest */;
+			productType = "com.apple.product-type.tool";
+		};
+		93D50970110D4B2D00E5D2F0 /* SimpleInsertTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 93D50978110D4B2D00E5D2F0 /* Build configuration list for PBXNativeTarget "SimpleInsertTest" */;
+			buildPhases = (
+				93D50971110D4B2D00E5D2F0 /* Sources */,
+				93D50974110D4B2D00E5D2F0 /* Frameworks */,
+				93D50977110D4B2D00E5D2F0 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SimpleInsertTest;
+			productInstallPath = "$(HOME)/bin";
+			productName = "«PROJECTNAME»";
+			productReference = 93D5097B110D4B2D00E5D2F0 /* SimpleInsertTest */;
+			productType = "com.apple.product-type.tool";
+		};
+		93D509C8110D4FC900E5D2F0 /* SimpleFetchTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 93D509D0110D4FC900E5D2F0 /* Build configuration list for PBXNativeTarget "SimpleFetchTest" */;
+			buildPhases = (
+				93D509C9110D4FC900E5D2F0 /* Sources */,
+				93D509CC110D4FC900E5D2F0 /* Frameworks */,
+				93D509CF110D4FC900E5D2F0 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SimpleFetchTest;
+			productInstallPath = "$(HOME)/bin";
+			productName = "«PROJECTNAME»";
+			productReference = 93D509D3110D4FC900E5D2F0 /* SimpleFetchTest */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		08FB7793FE84155DC02AAC07 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 1DEB927808733DD40010E9CD /* Build configuration list for PBXProject "CDSpeedTest" */;
+			compatibilityVersion = "Xcode 3.1";
+			hasScannedForEncodings = 1;
+			mainGroup = 08FB7794FE84155DC02AAC07 /* «PROJECTNAME» */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				93D509EE110D513300E5D2F0 /* All */,
+				8DD76F960486AA7600D96B5E /* ComplexInsertTest */,
+				93D508F1110D32BE00E5D2F0 /* ComplexFetchTest */,
+				93D50970110D4B2D00E5D2F0 /* SimpleInsertTest */,
+				93D509C8110D4FC900E5D2F0 /* SimpleFetchTest */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8DD76F990486AA7600D96B5E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93D5090A110D345F00E5D2F0 /* ComplexInsertTest.m in Sources */,
+				93D509AE110D4D4200E5D2F0 /* CDComplex.xcdatamodel in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		93D508F2110D32BE00E5D2F0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93D5090B110D346600E5D2F0 /* ComplexFetchTest.m in Sources */,
+				93D509AD110D4D4200E5D2F0 /* CDComplex.xcdatamodel in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		93D50971110D4B2D00E5D2F0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93D50989110D4B7500E5D2F0 /* SimpleInsertTest.m in Sources */,
+				93D50991110D4C0700E5D2F0 /* CDSimple.xcdatamodel in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		93D509C9110D4FC900E5D2F0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93D509D5110D501D00E5D2F0 /* CDSimple.xcdatamodel in Sources */,
+				93D509E3110D504200E5D2F0 /* SimpleFetchTest.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		93D509F2110D513F00E5D2F0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 93D509C8110D4FC900E5D2F0 /* SimpleFetchTest */;
+			targetProxy = 93D509F1110D513F00E5D2F0 /* PBXContainerItemProxy */;
+		};
+		93D509F4110D513F00E5D2F0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 93D50970110D4B2D00E5D2F0 /* SimpleInsertTest */;
+			targetProxy = 93D509F3110D513F00E5D2F0 /* PBXContainerItemProxy */;
+		};
+		93D509F6110D513F00E5D2F0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 93D508F1110D32BE00E5D2F0 /* ComplexFetchTest */;
+			targetProxy = 93D509F5110D513F00E5D2F0 /* PBXContainerItemProxy */;
+		};
+		93D509F8110D513F00E5D2F0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8DD76F960486AA7600D96B5E /* ComplexInsertTest */;
+			targetProxy = 93D509F7110D513F00E5D2F0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		1DEB927508733DD40010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_ENABLE_OBJC_GC = unsupported;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = CDSpeedTest_Prefix.pch;
+				INSTALL_PATH = /usr/local/bin;
+				OTHER_CFLAGS = "";
+				PRODUCT_NAME = ComplexInsertTest;
+			};
+			name = Debug;
+		};
+		1DEB927608733DD40010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_OBJC_GC = unsupported;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = CDSpeedTest_Prefix.pch;
+				INSTALL_PATH = /usr/local/bin;
+				OTHER_CFLAGS = "";
+				PRODUCT_NAME = ComplexInsertTest;
+			};
+			name = Release;
+		};
+		1DEB927908733DD40010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_ENABLE_OBJC_GC = required;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PREBINDING = NO;
+				SDKROOT = macosx10.6;
+			};
+			name = Debug;
+		};
+		1DEB927A08733DD40010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_ENABLE_OBJC_GC = required;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PREBINDING = NO;
+				SDKROOT = macosx10.6;
+			};
+			name = Release;
+		};
+		93D508FA110D32BE00E5D2F0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_ENABLE_OBJC_GC = unsupported;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = CDSpeedTest_Prefix.pch;
+				INSTALL_PATH = /usr/local/bin;
+				OTHER_CFLAGS = "-DFETCH_TEST";
+				PRODUCT_NAME = ComplexFetchTest;
+			};
+			name = Debug;
+		};
+		93D508FB110D32BE00E5D2F0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_OBJC_GC = unsupported;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = CDSpeedTest_Prefix.pch;
+				INSTALL_PATH = /usr/local/bin;
+				OTHER_CFLAGS = "-DFETCH_TEST";
+				PRODUCT_NAME = ComplexFetchTest;
+			};
+			name = Release;
+		};
+		93D50979110D4B2D00E5D2F0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_ENABLE_OBJC_GC = unsupported;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = CDSpeedTest_Prefix.pch;
+				INSTALL_PATH = /usr/local/bin;
+				OTHER_CFLAGS = "";
+				PRODUCT_NAME = SimpleInsertTest;
+			};
+			name = Debug;
+		};
+		93D5097A110D4B2D00E5D2F0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_OBJC_GC = unsupported;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = CDSpeedTest_Prefix.pch;
+				INSTALL_PATH = /usr/local/bin;
+				OTHER_CFLAGS = "";
+				PRODUCT_NAME = SimpleInsertTest;
+			};
+			name = Release;
+		};
+		93D509D1110D4FC900E5D2F0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_ENABLE_OBJC_GC = unsupported;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = CDSpeedTest_Prefix.pch;
+				INSTALL_PATH = /usr/local/bin;
+				OTHER_CFLAGS = "";
+				PRODUCT_NAME = SimpleFetchTest;
+			};
+			name = Debug;
+		};
+		93D509D2110D4FC900E5D2F0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_OBJC_GC = unsupported;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = CDSpeedTest_Prefix.pch;
+				INSTALL_PATH = /usr/local/bin;
+				OTHER_CFLAGS = "";
+				PRODUCT_NAME = SimpleFetchTest;
+			};
+			name = Release;
+		};
+		93D509EF110D513300E5D2F0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				PRODUCT_NAME = All;
+			};
+			name = Debug;
+		};
+		93D509F0110D513300E5D2F0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				PRODUCT_NAME = All;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1DEB927408733DD40010E9CD /* Build configuration list for PBXNativeTarget "ComplexInsertTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB927508733DD40010E9CD /* Debug */,
+				1DEB927608733DD40010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1DEB927808733DD40010E9CD /* Build configuration list for PBXProject "CDSpeedTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB927908733DD40010E9CD /* Debug */,
+				1DEB927A08733DD40010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		93D508F9110D32BE00E5D2F0 /* Build configuration list for PBXNativeTarget "ComplexFetchTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				93D508FA110D32BE00E5D2F0 /* Debug */,
+				93D508FB110D32BE00E5D2F0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		93D50978110D4B2D00E5D2F0 /* Build configuration list for PBXNativeTarget "SimpleInsertTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				93D50979110D4B2D00E5D2F0 /* Debug */,
+				93D5097A110D4B2D00E5D2F0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		93D509D0110D4FC900E5D2F0 /* Build configuration list for PBXNativeTarget "SimpleFetchTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				93D509D1110D4FC900E5D2F0 /* Debug */,
+				93D509D2110D4FC900E5D2F0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		93D50A08110D515400E5D2F0 /* Build configuration list for PBXAggregateTarget "All" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				93D509EF110D513300E5D2F0 /* Debug */,
+				93D509F0110D513300E5D2F0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 08FB7793FE84155DC02AAC07 /* Project object */;
+}

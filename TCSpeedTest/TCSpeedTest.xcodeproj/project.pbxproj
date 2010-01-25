@@ -1,0 +1,924 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 45;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		93D50A37110D52C500E5D2F0 /* All */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 93D50A49110D52E300E5D2F0 /* Build configuration list for PBXAggregateTarget "All" */;
+			buildPhases = (
+			);
+			dependencies = (
+				93D50A41110D52D000E5D2F0 /* PBXTargetDependency */,
+				93D50A3F110D52D000E5D2F0 /* PBXTargetDependency */,
+				93D50A3D110D52D000E5D2F0 /* PBXTargetDependency */,
+				93D50A3B110D52D000E5D2F0 /* PBXTargetDependency */,
+			);
+			name = All;
+			productName = All;
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		93D506FD110BE4B400E5D2F0 /* BNRIntDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D504DA110B883700E5D2F0 /* BNRIntDictionary.m */; };
+		93D50715110BE50300E5D2F0 /* IntDictTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D50714110BE50300E5D2F0 /* IntDictTests.m */; };
+		93D5081A110CB22A00E5D2F0 /* Playlist.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D50515110B8B2700E5D2F0 /* Playlist.m */; };
+		93D5081C110CB22A00E5D2F0 /* Song.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D50517110B8B2700E5D2F0 /* Song.m */; };
+		93D5081F110CB23D00E5D2F0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08FB779EFE84155DC02AAC07 /* Foundation.framework */; };
+		93D50820110CB23D00E5D2F0 /* libtokyocabinet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 93D5050A110B8AB300E5D2F0 /* libtokyocabinet.a */; };
+		93D50825110CB29000E5D2F0 /* ComplexInsertTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D50824110CB29000E5D2F0 /* ComplexInsertTest.m */; };
+		93D50828110CB3E800E5D2F0 /* BNRBackendCursor.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D504D2110B883700E5D2F0 /* BNRBackendCursor.m */; };
+		93D50829110CB3E800E5D2F0 /* BNRClassDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D504D4110B883700E5D2F0 /* BNRClassDictionary.m */; };
+		93D5082A110CB3E800E5D2F0 /* BNRClassMetaData.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D504D6110B883700E5D2F0 /* BNRClassMetaData.m */; };
+		93D5082B110CB3E800E5D2F0 /* BNRDataBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D504D8110B883700E5D2F0 /* BNRDataBuffer.m */; };
+		93D5082C110CB3E800E5D2F0 /* BNRIntDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D504DA110B883700E5D2F0 /* BNRIntDictionary.m */; };
+		93D5082E110CB3E800E5D2F0 /* BNRMapTableEnumerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D504DE110B883700E5D2F0 /* BNRMapTableEnumerator.m */; };
+		93D5082F110CB3E800E5D2F0 /* BNRStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D504E0110B883700E5D2F0 /* BNRStore.m */; };
+		93D50830110CB3E800E5D2F0 /* BNRStoreBackend.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D504E2110B883700E5D2F0 /* BNRStoreBackend.m */; };
+		93D50831110CB3E800E5D2F0 /* BNRStoredObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D504E4110B883700E5D2F0 /* BNRStoredObject.m */; };
+		93D50832110CB3E800E5D2F0 /* BNRTCBackend.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D504F0110B883700E5D2F0 /* BNRTCBackend.m */; };
+		93D50833110CB3E800E5D2F0 /* BNRTCBackendCursor.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D504F2110B883700E5D2F0 /* BNRTCBackendCursor.m */; };
+		93D508A2110D2E3F00E5D2F0 /* BNRBackendCursor.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D504D2110B883700E5D2F0 /* BNRBackendCursor.m */; };
+		93D508A3110D2E3F00E5D2F0 /* BNRClassDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D504D4110B883700E5D2F0 /* BNRClassDictionary.m */; };
+		93D508A4110D2E3F00E5D2F0 /* BNRClassMetaData.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D504D6110B883700E5D2F0 /* BNRClassMetaData.m */; };
+		93D508A5110D2E3F00E5D2F0 /* BNRDataBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D504D8110B883700E5D2F0 /* BNRDataBuffer.m */; };
+		93D508A6110D2E3F00E5D2F0 /* BNRIntDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D504DA110B883700E5D2F0 /* BNRIntDictionary.m */; };
+		93D508A8110D2E3F00E5D2F0 /* BNRMapTableEnumerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D504DE110B883700E5D2F0 /* BNRMapTableEnumerator.m */; };
+		93D508A9110D2E3F00E5D2F0 /* BNRStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D504E0110B883700E5D2F0 /* BNRStore.m */; };
+		93D508AA110D2E3F00E5D2F0 /* BNRStoreBackend.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D504E2110B883700E5D2F0 /* BNRStoreBackend.m */; };
+		93D508AB110D2E3F00E5D2F0 /* BNRStoredObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D504E4110B883700E5D2F0 /* BNRStoredObject.m */; };
+		93D508AC110D2E3F00E5D2F0 /* BNRTCBackend.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D504F0110B883700E5D2F0 /* BNRTCBackend.m */; };
+		93D508AD110D2E3F00E5D2F0 /* BNRTCBackendCursor.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D504F2110B883700E5D2F0 /* BNRTCBackendCursor.m */; };
+		93D508AE110D2E3F00E5D2F0 /* Playlist.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D50515110B8B2700E5D2F0 /* Playlist.m */; };
+		93D508AF110D2E3F00E5D2F0 /* Song.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D50517110B8B2700E5D2F0 /* Song.m */; };
+		93D508B2110D2E3F00E5D2F0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08FB779EFE84155DC02AAC07 /* Foundation.framework */; };
+		93D508B3110D2E3F00E5D2F0 /* libtokyocabinet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 93D5050A110B8AB300E5D2F0 /* libtokyocabinet.a */; };
+		93D508BA110D2E9F00E5D2F0 /* ComplexFetchTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D508B9110D2E9F00E5D2F0 /* ComplexFetchTest.m */; };
+		93D50932110D49BB00E5D2F0 /* BNRBackendCursor.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D504D2110B883700E5D2F0 /* BNRBackendCursor.m */; };
+		93D50933110D49BB00E5D2F0 /* BNRClassDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D504D4110B883700E5D2F0 /* BNRClassDictionary.m */; };
+		93D50934110D49BB00E5D2F0 /* BNRClassMetaData.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D504D6110B883700E5D2F0 /* BNRClassMetaData.m */; };
+		93D50935110D49BB00E5D2F0 /* BNRDataBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D504D8110B883700E5D2F0 /* BNRDataBuffer.m */; };
+		93D50936110D49BB00E5D2F0 /* BNRIntDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D504DA110B883700E5D2F0 /* BNRIntDictionary.m */; };
+		93D50937110D49BB00E5D2F0 /* BNRMapTableEnumerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D504DE110B883700E5D2F0 /* BNRMapTableEnumerator.m */; };
+		93D50938110D49BB00E5D2F0 /* BNRStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D504E0110B883700E5D2F0 /* BNRStore.m */; };
+		93D50939110D49BB00E5D2F0 /* BNRStoreBackend.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D504E2110B883700E5D2F0 /* BNRStoreBackend.m */; };
+		93D5093A110D49BB00E5D2F0 /* BNRStoredObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D504E4110B883700E5D2F0 /* BNRStoredObject.m */; };
+		93D5093B110D49BB00E5D2F0 /* BNRTCBackend.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D504F0110B883700E5D2F0 /* BNRTCBackend.m */; };
+		93D5093C110D49BB00E5D2F0 /* BNRTCBackendCursor.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D504F2110B883700E5D2F0 /* BNRTCBackendCursor.m */; };
+		93D5093E110D49BB00E5D2F0 /* Song.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D50517110B8B2700E5D2F0 /* Song.m */; };
+		93D50941110D49BB00E5D2F0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08FB779EFE84155DC02AAC07 /* Foundation.framework */; };
+		93D50942110D49BB00E5D2F0 /* libtokyocabinet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 93D5050A110B8AB300E5D2F0 /* libtokyocabinet.a */; };
+		93D50957110D4A0F00E5D2F0 /* SimpleInsertTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D50956110D4A0F00E5D2F0 /* SimpleInsertTest.m */; };
+		93D50A0F110D51E000E5D2F0 /* BNRBackendCursor.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D504D2110B883700E5D2F0 /* BNRBackendCursor.m */; };
+		93D50A10110D51E000E5D2F0 /* BNRClassDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D504D4110B883700E5D2F0 /* BNRClassDictionary.m */; };
+		93D50A11110D51E000E5D2F0 /* BNRClassMetaData.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D504D6110B883700E5D2F0 /* BNRClassMetaData.m */; };
+		93D50A12110D51E000E5D2F0 /* BNRDataBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D504D8110B883700E5D2F0 /* BNRDataBuffer.m */; };
+		93D50A13110D51E000E5D2F0 /* BNRIntDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D504DA110B883700E5D2F0 /* BNRIntDictionary.m */; };
+		93D50A14110D51E000E5D2F0 /* BNRMapTableEnumerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D504DE110B883700E5D2F0 /* BNRMapTableEnumerator.m */; };
+		93D50A15110D51E000E5D2F0 /* BNRStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D504E0110B883700E5D2F0 /* BNRStore.m */; };
+		93D50A16110D51E000E5D2F0 /* BNRStoreBackend.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D504E2110B883700E5D2F0 /* BNRStoreBackend.m */; };
+		93D50A17110D51E000E5D2F0 /* BNRStoredObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D504E4110B883700E5D2F0 /* BNRStoredObject.m */; };
+		93D50A18110D51E000E5D2F0 /* BNRTCBackend.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D504F0110B883700E5D2F0 /* BNRTCBackend.m */; };
+		93D50A19110D51E000E5D2F0 /* BNRTCBackendCursor.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D504F2110B883700E5D2F0 /* BNRTCBackendCursor.m */; };
+		93D50A1B110D51E000E5D2F0 /* Song.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D50517110B8B2700E5D2F0 /* Song.m */; };
+		93D50A1E110D51E000E5D2F0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08FB779EFE84155DC02AAC07 /* Foundation.framework */; };
+		93D50A1F110D51E000E5D2F0 /* libtokyocabinet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 93D5050A110B8AB300E5D2F0 /* libtokyocabinet.a */; };
+		93D50A2A110D520D00E5D2F0 /* SimpleFetchTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D50A29110D520D00E5D2F0 /* SimpleFetchTest.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		93D50A3A110D52D000E5D2F0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 08FB7793FE84155DC02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 93D50A0D110D51E000E5D2F0 /* SimpleFetchTest */;
+			remoteInfo = SimpleFetchTest;
+		};
+		93D50A3C110D52D000E5D2F0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 08FB7793FE84155DC02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 93D50930110D49BB00E5D2F0 /* SimpleInsertTest */;
+			remoteInfo = SimpleInsertTest;
+		};
+		93D50A3E110D52D000E5D2F0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 08FB7793FE84155DC02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 93D508A0110D2E3F00E5D2F0 /* ComplexFetchTest */;
+			remoteInfo = ComplexFetchTest;
+		};
+		93D50A40110D52D000E5D2F0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 08FB7793FE84155DC02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 93D50811110CB1D600E5D2F0 /* ComplexInsertTest */;
+			remoteInfo = ComplexInsertTest;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		08FB779EFE84155DC02AAC07 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		93D504D1110B883700E5D2F0 /* BNRBackendCursor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BNRBackendCursor.h; path = ../BNRPersistence/BNRBackendCursor.h; sourceTree = SOURCE_ROOT; };
+		93D504D2110B883700E5D2F0 /* BNRBackendCursor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BNRBackendCursor.m; path = ../BNRPersistence/BNRBackendCursor.m; sourceTree = SOURCE_ROOT; };
+		93D504D3110B883700E5D2F0 /* BNRClassDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BNRClassDictionary.h; path = ../BNRPersistence/BNRClassDictionary.h; sourceTree = SOURCE_ROOT; };
+		93D504D4110B883700E5D2F0 /* BNRClassDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BNRClassDictionary.m; path = ../BNRPersistence/BNRClassDictionary.m; sourceTree = SOURCE_ROOT; };
+		93D504D5110B883700E5D2F0 /* BNRClassMetaData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BNRClassMetaData.h; path = ../BNRPersistence/BNRClassMetaData.h; sourceTree = SOURCE_ROOT; };
+		93D504D6110B883700E5D2F0 /* BNRClassMetaData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BNRClassMetaData.m; path = ../BNRPersistence/BNRClassMetaData.m; sourceTree = SOURCE_ROOT; };
+		93D504D7110B883700E5D2F0 /* BNRDataBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BNRDataBuffer.h; path = ../BNRPersistence/BNRDataBuffer.h; sourceTree = SOURCE_ROOT; };
+		93D504D8110B883700E5D2F0 /* BNRDataBuffer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BNRDataBuffer.m; path = ../BNRPersistence/BNRDataBuffer.m; sourceTree = SOURCE_ROOT; };
+		93D504D9110B883700E5D2F0 /* BNRIntDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BNRIntDictionary.h; path = ../BNRPersistence/BNRIntDictionary.h; sourceTree = SOURCE_ROOT; };
+		93D504DA110B883700E5D2F0 /* BNRIntDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BNRIntDictionary.m; path = ../BNRPersistence/BNRIntDictionary.m; sourceTree = SOURCE_ROOT; };
+		93D504DD110B883700E5D2F0 /* BNRMapTableEnumerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BNRMapTableEnumerator.h; path = ../BNRPersistence/BNRMapTableEnumerator.h; sourceTree = SOURCE_ROOT; };
+		93D504DE110B883700E5D2F0 /* BNRMapTableEnumerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BNRMapTableEnumerator.m; path = ../BNRPersistence/BNRMapTableEnumerator.m; sourceTree = SOURCE_ROOT; };
+		93D504DF110B883700E5D2F0 /* BNRStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BNRStore.h; path = ../BNRPersistence/BNRStore.h; sourceTree = SOURCE_ROOT; };
+		93D504E0110B883700E5D2F0 /* BNRStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BNRStore.m; path = ../BNRPersistence/BNRStore.m; sourceTree = SOURCE_ROOT; };
+		93D504E1110B883700E5D2F0 /* BNRStoreBackend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BNRStoreBackend.h; path = ../BNRPersistence/BNRStoreBackend.h; sourceTree = SOURCE_ROOT; };
+		93D504E2110B883700E5D2F0 /* BNRStoreBackend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BNRStoreBackend.m; path = ../BNRPersistence/BNRStoreBackend.m; sourceTree = SOURCE_ROOT; };
+		93D504E3110B883700E5D2F0 /* BNRStoredObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BNRStoredObject.h; path = ../BNRPersistence/BNRStoredObject.h; sourceTree = SOURCE_ROOT; };
+		93D504E4110B883700E5D2F0 /* BNRStoredObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BNRStoredObject.m; path = ../BNRPersistence/BNRStoredObject.m; sourceTree = SOURCE_ROOT; };
+		93D504EF110B883700E5D2F0 /* BNRTCBackend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BNRTCBackend.h; path = ../BNRPersistence/BNRTCBackend.h; sourceTree = SOURCE_ROOT; };
+		93D504F0110B883700E5D2F0 /* BNRTCBackend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BNRTCBackend.m; path = ../BNRPersistence/BNRTCBackend.m; sourceTree = SOURCE_ROOT; };
+		93D504F1110B883700E5D2F0 /* BNRTCBackendCursor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BNRTCBackendCursor.h; path = ../BNRPersistence/BNRTCBackendCursor.h; sourceTree = SOURCE_ROOT; };
+		93D504F2110B883700E5D2F0 /* BNRTCBackendCursor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BNRTCBackendCursor.m; path = ../BNRPersistence/BNRTCBackendCursor.m; sourceTree = SOURCE_ROOT; };
+		93D5050A110B8AB300E5D2F0 /* libtokyocabinet.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libtokyocabinet.a; path = /usr/local/lib/libtokyocabinet.a; sourceTree = "<absolute>"; };
+		93D50514110B8B2700E5D2F0 /* Playlist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Playlist.h; sourceTree = SOURCE_ROOT; };
+		93D50515110B8B2700E5D2F0 /* Playlist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Playlist.m; sourceTree = SOURCE_ROOT; };
+		93D50516110B8B2700E5D2F0 /* Song.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Song.h; sourceTree = SOURCE_ROOT; };
+		93D50517110B8B2700E5D2F0 /* Song.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Song.m; sourceTree = SOURCE_ROOT; };
+		93D506F5110BE40E00E5D2F0 /* IntDictTest.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IntDictTest.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		93D506F6110BE40E00E5D2F0 /* IntDictTest-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "IntDictTest-Info.plist"; sourceTree = "<group>"; };
+		93D50713110BE50300E5D2F0 /* IntDictTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntDictTests.h; sourceTree = "<group>"; };
+		93D50714110BE50300E5D2F0 /* IntDictTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntDictTests.m; sourceTree = "<group>"; };
+		93D50812110CB1D600E5D2F0 /* ComplexInsertTest */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ComplexInsertTest; sourceTree = BUILT_PRODUCTS_DIR; };
+		93D50824110CB29000E5D2F0 /* ComplexInsertTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComplexInsertTest.m; sourceTree = SOURCE_ROOT; };
+		93D508B7110D2E3F00E5D2F0 /* ComplexFetchTest */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ComplexFetchTest; sourceTree = BUILT_PRODUCTS_DIR; };
+		93D508B9110D2E9F00E5D2F0 /* ComplexFetchTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComplexFetchTest.m; sourceTree = SOURCE_ROOT; };
+		93D50946110D49BB00E5D2F0 /* SimpleInsertTest */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SimpleInsertTest; sourceTree = BUILT_PRODUCTS_DIR; };
+		93D50956110D4A0F00E5D2F0 /* SimpleInsertTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleInsertTest.m; sourceTree = SOURCE_ROOT; };
+		93D50A23110D51E000E5D2F0 /* SimpleFetchTest */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SimpleFetchTest; sourceTree = BUILT_PRODUCTS_DIR; };
+		93D50A29110D520D00E5D2F0 /* SimpleFetchTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleFetchTest.m; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		93D506F2110BE40E00E5D2F0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		93D50810110CB1D600E5D2F0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93D5081F110CB23D00E5D2F0 /* Foundation.framework in Frameworks */,
+				93D50820110CB23D00E5D2F0 /* libtokyocabinet.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		93D508B1110D2E3F00E5D2F0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93D508B2110D2E3F00E5D2F0 /* Foundation.framework in Frameworks */,
+				93D508B3110D2E3F00E5D2F0 /* libtokyocabinet.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		93D50940110D49BB00E5D2F0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93D50941110D49BB00E5D2F0 /* Foundation.framework in Frameworks */,
+				93D50942110D49BB00E5D2F0 /* libtokyocabinet.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		93D50A1D110D51E000E5D2F0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93D50A1E110D51E000E5D2F0 /* Foundation.framework in Frameworks */,
+				93D50A1F110D51E000E5D2F0 /* libtokyocabinet.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		08FB7794FE84155DC02AAC07 /* TCSpeedTest */ = {
+			isa = PBXGroup;
+			children = (
+				93D50701110BE4BD00E5D2F0 /* Unit tests */,
+				93D50506110B888600E5D2F0 /* BNRPersisence */,
+				08FB7795FE84155DC02AAC07 /* Source */,
+				08FB779DFE84155DC02AAC07 /* External Frameworks and Libraries */,
+				1AB674ADFE9D54B511CA2CBB /* Products */,
+				93D506F6110BE40E00E5D2F0 /* IntDictTest-Info.plist */,
+			);
+			name = TCSpeedTest;
+			sourceTree = "<group>";
+		};
+		08FB7795FE84155DC02AAC07 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				93D50A29110D520D00E5D2F0 /* SimpleFetchTest.m */,
+				93D50956110D4A0F00E5D2F0 /* SimpleInsertTest.m */,
+				93D50824110CB29000E5D2F0 /* ComplexInsertTest.m */,
+				93D508B9110D2E9F00E5D2F0 /* ComplexFetchTest.m */,
+				93D50514110B8B2700E5D2F0 /* Playlist.h */,
+				93D50515110B8B2700E5D2F0 /* Playlist.m */,
+				93D50516110B8B2700E5D2F0 /* Song.h */,
+				93D50517110B8B2700E5D2F0 /* Song.m */,
+			);
+			name = Source;
+			sourceTree = "<group>";
+		};
+		08FB779DFE84155DC02AAC07 /* External Frameworks and Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				08FB779EFE84155DC02AAC07 /* Foundation.framework */,
+				93D5050A110B8AB300E5D2F0 /* libtokyocabinet.a */,
+			);
+			name = "External Frameworks and Libraries";
+			sourceTree = "<group>";
+		};
+		1AB674ADFE9D54B511CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				93D506F5110BE40E00E5D2F0 /* IntDictTest.octest */,
+				93D50812110CB1D600E5D2F0 /* ComplexInsertTest */,
+				93D508B7110D2E3F00E5D2F0 /* ComplexFetchTest */,
+				93D50946110D49BB00E5D2F0 /* SimpleInsertTest */,
+				93D50A23110D51E000E5D2F0 /* SimpleFetchTest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		93D50506110B888600E5D2F0 /* BNRPersisence */ = {
+			isa = PBXGroup;
+			children = (
+				93D504D1110B883700E5D2F0 /* BNRBackendCursor.h */,
+				93D504D2110B883700E5D2F0 /* BNRBackendCursor.m */,
+				93D504D3110B883700E5D2F0 /* BNRClassDictionary.h */,
+				93D504D4110B883700E5D2F0 /* BNRClassDictionary.m */,
+				93D504D5110B883700E5D2F0 /* BNRClassMetaData.h */,
+				93D504D6110B883700E5D2F0 /* BNRClassMetaData.m */,
+				93D504D7110B883700E5D2F0 /* BNRDataBuffer.h */,
+				93D504D8110B883700E5D2F0 /* BNRDataBuffer.m */,
+				93D504D9110B883700E5D2F0 /* BNRIntDictionary.h */,
+				93D504DA110B883700E5D2F0 /* BNRIntDictionary.m */,
+				93D504DD110B883700E5D2F0 /* BNRMapTableEnumerator.h */,
+				93D504DE110B883700E5D2F0 /* BNRMapTableEnumerator.m */,
+				93D504DF110B883700E5D2F0 /* BNRStore.h */,
+				93D504E0110B883700E5D2F0 /* BNRStore.m */,
+				93D504E1110B883700E5D2F0 /* BNRStoreBackend.h */,
+				93D504E2110B883700E5D2F0 /* BNRStoreBackend.m */,
+				93D504E3110B883700E5D2F0 /* BNRStoredObject.h */,
+				93D504E4110B883700E5D2F0 /* BNRStoredObject.m */,
+				93D504EF110B883700E5D2F0 /* BNRTCBackend.h */,
+				93D504F0110B883700E5D2F0 /* BNRTCBackend.m */,
+				93D504F1110B883700E5D2F0 /* BNRTCBackendCursor.h */,
+				93D504F2110B883700E5D2F0 /* BNRTCBackendCursor.m */,
+			);
+			name = BNRPersisence;
+			sourceTree = "<group>";
+		};
+		93D50701110BE4BD00E5D2F0 /* Unit tests */ = {
+			isa = PBXGroup;
+			children = (
+				93D50713110BE50300E5D2F0 /* IntDictTests.h */,
+				93D50714110BE50300E5D2F0 /* IntDictTests.m */,
+			);
+			name = "Unit tests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		93D506F4110BE40E00E5D2F0 /* IntDictTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 93D506F9110BE40F00E5D2F0 /* Build configuration list for PBXNativeTarget "IntDictTest" */;
+			buildPhases = (
+				93D506F0110BE40E00E5D2F0 /* Resources */,
+				93D506F1110BE40E00E5D2F0 /* Sources */,
+				93D506F2110BE40E00E5D2F0 /* Frameworks */,
+				93D506F3110BE40E00E5D2F0 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = IntDictTest;
+			productName = IntDictTest;
+			productReference = 93D506F5110BE40E00E5D2F0 /* IntDictTest.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+		93D50811110CB1D600E5D2F0 /* ComplexInsertTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 93D50816110CB1FB00E5D2F0 /* Build configuration list for PBXNativeTarget "ComplexInsertTest" */;
+			buildPhases = (
+				93D5080F110CB1D600E5D2F0 /* Sources */,
+				93D50810110CB1D600E5D2F0 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ComplexInsertTest;
+			productName = ComplexInsertTest;
+			productReference = 93D50812110CB1D600E5D2F0 /* ComplexInsertTest */;
+			productType = "com.apple.product-type.tool";
+		};
+		93D508A0110D2E3F00E5D2F0 /* ComplexFetchTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 93D508B4110D2E3F00E5D2F0 /* Build configuration list for PBXNativeTarget "ComplexFetchTest" */;
+			buildPhases = (
+				93D508A1110D2E3F00E5D2F0 /* Sources */,
+				93D508B1110D2E3F00E5D2F0 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ComplexFetchTest;
+			productName = ComplexInsertTest;
+			productReference = 93D508B7110D2E3F00E5D2F0 /* ComplexFetchTest */;
+			productType = "com.apple.product-type.tool";
+		};
+		93D50930110D49BB00E5D2F0 /* SimpleInsertTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 93D50943110D49BB00E5D2F0 /* Build configuration list for PBXNativeTarget "SimpleInsertTest" */;
+			buildPhases = (
+				93D50931110D49BB00E5D2F0 /* Sources */,
+				93D50940110D49BB00E5D2F0 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SimpleInsertTest;
+			productName = ComplexInsertTest;
+			productReference = 93D50946110D49BB00E5D2F0 /* SimpleInsertTest */;
+			productType = "com.apple.product-type.tool";
+		};
+		93D50A0D110D51E000E5D2F0 /* SimpleFetchTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 93D50A20110D51E000E5D2F0 /* Build configuration list for PBXNativeTarget "SimpleFetchTest" */;
+			buildPhases = (
+				93D50A0E110D51E000E5D2F0 /* Sources */,
+				93D50A1D110D51E000E5D2F0 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SimpleFetchTest;
+			productName = ComplexInsertTest;
+			productReference = 93D50A23110D51E000E5D2F0 /* SimpleFetchTest */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		08FB7793FE84155DC02AAC07 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 1DEB927808733DD40010E9CD /* Build configuration list for PBXProject "TCSpeedTest" */;
+			compatibilityVersion = "Xcode 3.1";
+			hasScannedForEncodings = 1;
+			mainGroup = 08FB7794FE84155DC02AAC07 /* TCSpeedTest */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				93D50A37110D52C500E5D2F0 /* All */,
+				93D506F4110BE40E00E5D2F0 /* IntDictTest */,
+				93D50811110CB1D600E5D2F0 /* ComplexInsertTest */,
+				93D508A0110D2E3F00E5D2F0 /* ComplexFetchTest */,
+				93D50930110D49BB00E5D2F0 /* SimpleInsertTest */,
+				93D50A0D110D51E000E5D2F0 /* SimpleFetchTest */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		93D506F0110BE40E00E5D2F0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		93D506F3110BE40E00E5D2F0 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		93D506F1110BE40E00E5D2F0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93D506FD110BE4B400E5D2F0 /* BNRIntDictionary.m in Sources */,
+				93D50715110BE50300E5D2F0 /* IntDictTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		93D5080F110CB1D600E5D2F0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93D50828110CB3E800E5D2F0 /* BNRBackendCursor.m in Sources */,
+				93D50829110CB3E800E5D2F0 /* BNRClassDictionary.m in Sources */,
+				93D5082A110CB3E800E5D2F0 /* BNRClassMetaData.m in Sources */,
+				93D5082B110CB3E800E5D2F0 /* BNRDataBuffer.m in Sources */,
+				93D5082C110CB3E800E5D2F0 /* BNRIntDictionary.m in Sources */,
+				93D5082E110CB3E800E5D2F0 /* BNRMapTableEnumerator.m in Sources */,
+				93D5082F110CB3E800E5D2F0 /* BNRStore.m in Sources */,
+				93D50830110CB3E800E5D2F0 /* BNRStoreBackend.m in Sources */,
+				93D50831110CB3E800E5D2F0 /* BNRStoredObject.m in Sources */,
+				93D50832110CB3E800E5D2F0 /* BNRTCBackend.m in Sources */,
+				93D50833110CB3E800E5D2F0 /* BNRTCBackendCursor.m in Sources */,
+				93D5081A110CB22A00E5D2F0 /* Playlist.m in Sources */,
+				93D5081C110CB22A00E5D2F0 /* Song.m in Sources */,
+				93D50825110CB29000E5D2F0 /* ComplexInsertTest.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		93D508A1110D2E3F00E5D2F0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93D508A2110D2E3F00E5D2F0 /* BNRBackendCursor.m in Sources */,
+				93D508A3110D2E3F00E5D2F0 /* BNRClassDictionary.m in Sources */,
+				93D508A4110D2E3F00E5D2F0 /* BNRClassMetaData.m in Sources */,
+				93D508A5110D2E3F00E5D2F0 /* BNRDataBuffer.m in Sources */,
+				93D508A6110D2E3F00E5D2F0 /* BNRIntDictionary.m in Sources */,
+				93D508A8110D2E3F00E5D2F0 /* BNRMapTableEnumerator.m in Sources */,
+				93D508A9110D2E3F00E5D2F0 /* BNRStore.m in Sources */,
+				93D508AA110D2E3F00E5D2F0 /* BNRStoreBackend.m in Sources */,
+				93D508AB110D2E3F00E5D2F0 /* BNRStoredObject.m in Sources */,
+				93D508AC110D2E3F00E5D2F0 /* BNRTCBackend.m in Sources */,
+				93D508AD110D2E3F00E5D2F0 /* BNRTCBackendCursor.m in Sources */,
+				93D508AE110D2E3F00E5D2F0 /* Playlist.m in Sources */,
+				93D508AF110D2E3F00E5D2F0 /* Song.m in Sources */,
+				93D508BA110D2E9F00E5D2F0 /* ComplexFetchTest.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		93D50931110D49BB00E5D2F0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93D50932110D49BB00E5D2F0 /* BNRBackendCursor.m in Sources */,
+				93D50933110D49BB00E5D2F0 /* BNRClassDictionary.m in Sources */,
+				93D50934110D49BB00E5D2F0 /* BNRClassMetaData.m in Sources */,
+				93D50935110D49BB00E5D2F0 /* BNRDataBuffer.m in Sources */,
+				93D50936110D49BB00E5D2F0 /* BNRIntDictionary.m in Sources */,
+				93D50937110D49BB00E5D2F0 /* BNRMapTableEnumerator.m in Sources */,
+				93D50938110D49BB00E5D2F0 /* BNRStore.m in Sources */,
+				93D50939110D49BB00E5D2F0 /* BNRStoreBackend.m in Sources */,
+				93D5093A110D49BB00E5D2F0 /* BNRStoredObject.m in Sources */,
+				93D5093B110D49BB00E5D2F0 /* BNRTCBackend.m in Sources */,
+				93D5093C110D49BB00E5D2F0 /* BNRTCBackendCursor.m in Sources */,
+				93D5093E110D49BB00E5D2F0 /* Song.m in Sources */,
+				93D50957110D4A0F00E5D2F0 /* SimpleInsertTest.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		93D50A0E110D51E000E5D2F0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93D50A0F110D51E000E5D2F0 /* BNRBackendCursor.m in Sources */,
+				93D50A10110D51E000E5D2F0 /* BNRClassDictionary.m in Sources */,
+				93D50A11110D51E000E5D2F0 /* BNRClassMetaData.m in Sources */,
+				93D50A12110D51E000E5D2F0 /* BNRDataBuffer.m in Sources */,
+				93D50A13110D51E000E5D2F0 /* BNRIntDictionary.m in Sources */,
+				93D50A14110D51E000E5D2F0 /* BNRMapTableEnumerator.m in Sources */,
+				93D50A15110D51E000E5D2F0 /* BNRStore.m in Sources */,
+				93D50A16110D51E000E5D2F0 /* BNRStoreBackend.m in Sources */,
+				93D50A17110D51E000E5D2F0 /* BNRStoredObject.m in Sources */,
+				93D50A18110D51E000E5D2F0 /* BNRTCBackend.m in Sources */,
+				93D50A19110D51E000E5D2F0 /* BNRTCBackendCursor.m in Sources */,
+				93D50A1B110D51E000E5D2F0 /* Song.m in Sources */,
+				93D50A2A110D520D00E5D2F0 /* SimpleFetchTest.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		93D50A3B110D52D000E5D2F0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 93D50A0D110D51E000E5D2F0 /* SimpleFetchTest */;
+			targetProxy = 93D50A3A110D52D000E5D2F0 /* PBXContainerItemProxy */;
+		};
+		93D50A3D110D52D000E5D2F0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 93D50930110D49BB00E5D2F0 /* SimpleInsertTest */;
+			targetProxy = 93D50A3C110D52D000E5D2F0 /* PBXContainerItemProxy */;
+		};
+		93D50A3F110D52D000E5D2F0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 93D508A0110D2E3F00E5D2F0 /* ComplexFetchTest */;
+			targetProxy = 93D50A3E110D52D000E5D2F0 /* PBXContainerItemProxy */;
+		};
+		93D50A41110D52D000E5D2F0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 93D50811110CB1D600E5D2F0 /* ComplexInsertTest */;
+			targetProxy = 93D50A40110D52D000E5D2F0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		1DEB927908733DD40010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PREBINDING = NO;
+				SDKROOT = macosx10.6;
+			};
+			name = Debug;
+		};
+		1DEB927A08733DD40010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PREBINDING = NO;
+				SDKROOT = macosx10.6;
+			};
+			name = Release;
+		};
+		93D506F7110BE40F00E5D2F0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/Cocoa.framework/Headers/Cocoa.h";
+				INFOPLIST_FILE = "IntDictTest-Info.plist";
+				INSTALL_PATH = "$(USER_LIBRARY_DIR)/Bundles";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Cocoa,
+					"-framework",
+					SenTestingKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = IntDictTest;
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		93D506F8110BE40F00E5D2F0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/Cocoa.framework/Headers/Cocoa.h";
+				INFOPLIST_FILE = "IntDictTest-Info.plist";
+				INSTALL_PATH = "$(USER_LIBRARY_DIR)/Bundles";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Cocoa,
+					"-framework",
+					SenTestingKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = IntDictTest;
+				WRAPPER_EXTENSION = octest;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		93D50814110CB1D700E5D2F0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				HEADER_SEARCH_PATHS = /usr/local/include;
+				INSTALL_PATH = /usr/local/bin;
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = ComplexInsertTest;
+			};
+			name = Debug;
+		};
+		93D50815110CB1D700E5D2F0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				HEADER_SEARCH_PATHS = /usr/local/include;
+				INSTALL_PATH = /usr/local/bin;
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = ComplexInsertTest;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		93D508B5110D2E3F00E5D2F0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				HEADER_SEARCH_PATHS = /usr/local/include;
+				INSTALL_PATH = /usr/local/bin;
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = ComplexFetchTest;
+			};
+			name = Debug;
+		};
+		93D508B6110D2E3F00E5D2F0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				HEADER_SEARCH_PATHS = /usr/local/include;
+				INSTALL_PATH = /usr/local/bin;
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = ComplexFetchTest;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		93D50944110D49BB00E5D2F0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				HEADER_SEARCH_PATHS = /usr/local/include;
+				INSTALL_PATH = /usr/local/bin;
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = SimpleInsertTest;
+			};
+			name = Debug;
+		};
+		93D50945110D49BB00E5D2F0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				HEADER_SEARCH_PATHS = /usr/local/include;
+				INSTALL_PATH = /usr/local/bin;
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = SimpleInsertTest;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		93D50A21110D51E000E5D2F0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				HEADER_SEARCH_PATHS = /usr/local/include;
+				INSTALL_PATH = /usr/local/bin;
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = SimpleFetchTest;
+			};
+			name = Debug;
+		};
+		93D50A22110D51E000E5D2F0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				HEADER_SEARCH_PATHS = /usr/local/include;
+				INSTALL_PATH = /usr/local/bin;
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = SimpleFetchTest;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		93D50A38110D52C500E5D2F0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				PRODUCT_NAME = All;
+			};
+			name = Debug;
+		};
+		93D50A39110D52C500E5D2F0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				PRODUCT_NAME = All;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1DEB927808733DD40010E9CD /* Build configuration list for PBXProject "TCSpeedTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB927908733DD40010E9CD /* Debug */,
+				1DEB927A08733DD40010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		93D506F9110BE40F00E5D2F0 /* Build configuration list for PBXNativeTarget "IntDictTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				93D506F7110BE40F00E5D2F0 /* Debug */,
+				93D506F8110BE40F00E5D2F0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		93D50816110CB1FB00E5D2F0 /* Build configuration list for PBXNativeTarget "ComplexInsertTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				93D50814110CB1D700E5D2F0 /* Debug */,
+				93D50815110CB1D700E5D2F0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		93D508B4110D2E3F00E5D2F0 /* Build configuration list for PBXNativeTarget "ComplexFetchTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				93D508B5110D2E3F00E5D2F0 /* Debug */,
+				93D508B6110D2E3F00E5D2F0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		93D50943110D49BB00E5D2F0 /* Build configuration list for PBXNativeTarget "SimpleInsertTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				93D50944110D49BB00E5D2F0 /* Debug */,
+				93D50945110D49BB00E5D2F0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		93D50A20110D51E000E5D2F0 /* Build configuration list for PBXNativeTarget "SimpleFetchTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				93D50A21110D51E000E5D2F0 /* Debug */,
+				93D50A22110D51E000E5D2F0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		93D50A49110D52E300E5D2F0 /* Build configuration list for PBXAggregateTarget "All" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				93D50A38110D52C500E5D2F0 /* Debug */,
+				93D50A39110D52C500E5D2F0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 08FB7793FE84155DC02AAC07 /* Project object */;
+}
