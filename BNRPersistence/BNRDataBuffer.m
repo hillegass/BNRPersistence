@@ -236,6 +236,8 @@
 - (NSMutableArray *)readArrayOfClass:(Class)c
                           usingStore:(BNRStore *)s
 {
+    // FIXME: I suspect that this could also be made faster with 
+    // clever multithreading
     UInt32 len = [self readUInt32];
     NSMutableArray *result = [[NSMutableArray alloc] initWithCapacity:len];
     [result autorelease];

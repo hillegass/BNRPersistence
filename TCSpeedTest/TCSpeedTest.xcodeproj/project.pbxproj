@@ -95,28 +95,28 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = 08FB7793FE84155DC02AAC07 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 93D50A0D110D51E000E5D2F0 /* SimpleFetchTest */;
+			remoteGlobalIDString = 93D50A0D110D51E000E5D2F0;
 			remoteInfo = SimpleFetchTest;
 		};
 		93D50A3C110D52D000E5D2F0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 08FB7793FE84155DC02AAC07 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 93D50930110D49BB00E5D2F0 /* SimpleInsertTest */;
+			remoteGlobalIDString = 93D50930110D49BB00E5D2F0;
 			remoteInfo = SimpleInsertTest;
 		};
 		93D50A3E110D52D000E5D2F0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 08FB7793FE84155DC02AAC07 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 93D508A0110D2E3F00E5D2F0 /* ComplexFetchTest */;
+			remoteGlobalIDString = 93D508A0110D2E3F00E5D2F0;
 			remoteInfo = ComplexFetchTest;
 		};
 		93D50A40110D52D000E5D2F0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 08FB7793FE84155DC02AAC07 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 93D50811110CB1D600E5D2F0 /* ComplexInsertTest */;
+			remoteGlobalIDString = 93D50811110CB1D600E5D2F0;
 			remoteInfo = ComplexInsertTest;
 		};
 /* End PBXContainerItemProxy section */
