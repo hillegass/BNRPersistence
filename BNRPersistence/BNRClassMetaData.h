@@ -24,6 +24,12 @@
 #import <Cocoa/Cocoa.h>
 @class BNRDataBuffer;
 
+/*!
+ @const kBNRMetadataRowID
+ @abstract Defines the row ID where class metadata are stored.
+ */
+#define kBNRMetadataRowID (1)
+
 /*! 
  @class BNRClassMetaData
  @abstract Holds onto the classID, the last primary key given out, and

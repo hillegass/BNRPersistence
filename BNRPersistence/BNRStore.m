@@ -117,7 +117,7 @@
     
     // Try to find it in the uniquing table
     BNRIntDictionary *u = [uniquingTable objectForClass:c];
-    NSAssert(u != nil, @"No uniquing table for %@", NSStringFromClass(c));
+    NSAssert1(u != nil, @"No uniquing table for %@", NSStringFromClass(c));
     BNRStoredObject *obj = [u objectForInt:n];
 
     if (!obj) {
@@ -145,34 +145,37 @@
 - (NSMutableArray *)allObjectsForClass:(Class)c
 {
     // Fetch!
-    BNRBackendCursor *cursor = [backend cursorForClass:c];
-    NSMutableArray *result = [NSMutableArray array];
-    BNRDataBuffer *d = [[BNRDataBuffer alloc] initWithCapacity:65536];
+    BNRBackendCursor *const cursor = [backend cursorForClass:c];
+    NSMutableArray *const allObjects = [NSMutableArray array];
+    BNRDataBuffer *const buffer = [[[BNRDataBuffer alloc]
+                                    initWithCapacity:(UINT16_MAX + 1)]
+                                   autorelease];
 
     // FIXME: With clever use of threads, the work of this
     // loop could be done at least twice as fast.
     // Put nextBuffer: in one thread 
     // Put objectForClass:rowID:fetchContent: in another
     // Put readContentFromBuffer in another
+    // ???: Do semantics allow to skip copying in data for all objects of the
+    // class that already have content, or only that are dirty?
     UInt32 rowID;
-    while (rowID = [cursor nextBuffer:d]) 
+    while (rowID = [cursor nextBuffer:buffer])
     {
-        // Is this the metadata record?
-        if (rowID == 1) {
-            continue;
+        if (kBNRMetadataRowID == rowID) continue;  // skip metadata
+
+        // Get the next object.
+        BNRStoredObject *storedObject = [self objectForClass:c
+                                                       rowID:rowID
+                                                fetchContent:NO];
+        [allObjects addObject:storedObject];
+        // Possibly read in its stored data.
+        const BOOL hasUnsavedData = [toBeUpdated containsObject:storedObject];
+        if (!hasUnsavedData) {
+            [storedObject readContentFromBuffer:buffer];
+            [storedObject setHasContent:YES];
         }
-        BNRStoredObject *obj = [self objectForClass:c 
-                                              rowID:rowID
-                                       fetchContent:NO];
-        // Don't overwrite unsaved data in a dirty object
-        if (![toBeUpdated containsObject:obj]) {
-            [obj readContentFromBuffer:d];
-            [obj setHasContent:YES];
-        }
-        [result addObject:obj];
      }
-    [d release];
-    return result;
+    return allObjects;
 }
 
 #pragma mark Insert, update, delete
@@ -250,8 +253,8 @@
     
     // Store away current values
     if (undoManager) {
-        
-        BNRDataBuffer *snapshot = [[BNRDataBuffer alloc] initWithCapacity:4096];
+        BNRDataBuffer *snapshot = [[BNRDataBuffer alloc]
+                                   initWithCapacity:PAGE_SIZE];
         [obj writeContentToBuffer:snapshot];
         [snapshot resetCursor];
         //NSLog(@"snapshot for undo = %@", snapshot);
@@ -276,7 +279,8 @@
 {
     // Store away current values
     if (undoManager) {
-        BNRDataBuffer *snapshot = [[BNRDataBuffer alloc] initWithCapacity:4096];
+        BNRDataBuffer *snapshot = [[BNRDataBuffer alloc]
+                                   initWithCapacity:PAGE_SIZE];
         [obj writeContentToBuffer:snapshot];
         [snapshot resetCursor];
         [[undoManager prepareWithInvocationTarget:self] updateObject:obj 
@@ -299,7 +303,8 @@
 - (void)willUpdateObject:(BNRStoredObject *)obj
 {
     if (undoManager) {
-        BNRDataBuffer *snapshot = [[BNRDataBuffer alloc] initWithCapacity:4096];
+        BNRDataBuffer *snapshot = [[BNRDataBuffer alloc]
+                                   initWithCapacity:PAGE_SIZE];
         [obj writeContentToBuffer:snapshot];
         [snapshot resetCursor];
 
