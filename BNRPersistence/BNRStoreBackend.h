@@ -24,8 +24,15 @@
 @class BNRBackendCursor;
 @class BNRDataBuffer;
 
+// BNRStoreBackend is an abstract class.  The concrete subclass uses a particular
+// key-value store.  At different times, these subclasses have used BerkeleyDB, 
+// GDBM, and TokyoCabinent.
+
 @interface BNRStoreBackend : NSObject {
-    // If clientID is not zero, it is used with the rowID as the key
+
+    // In preparation for sync, the clientID, if not zero, is used with 
+    // the rowID as the key.  The idea being: many clients can create objects that 
+    // get shared in a central repository.  The clientID ensures uniqueness of the key.
     UInt32 clientID;
 }
 

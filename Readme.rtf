@@ -44,9 +44,13 @@ make\
 sudo make install\
 
 \f0 \
-Now, you have a /usr/local/lib//usr/local/lib/libtokyocabinet.a that needs to linked into any project that uses these classes. (I usually use the "Add->Existing Frameworks" menu item to do this.)\
+Now, you have a 
+\f1\fs26 /usr/local/lib//usr/local/lib/libtokyocabinet.a
+\f0\fs28  that needs to linked into any project that uses these classes. (I usually use the "Add->Existing Frameworks" menu item to do this.)\
 \
-You'll also need to have /usr/local/include/ among your header search path. (See the Xcode target's build info to add this.)\
+You'll also need to have 
+\f1\fs26 /usr/local/include/
+\f0\fs28  among your header search path. (See the Xcode target's build info to add this.)\
 \
 Now just add the classes in the BNRPersistence directory into your project.  (If you copy them, you won't get the new version when you update your git repository.  This may be exactly what you want, but these are pretty immature, so I would suggest that you link to them instead.)\
 \
@@ -223,11 +227,13 @@ CoreData is 2 times faster than BNRPersistence\
 \b0\fs28 \
 I recognize that there is room for improvement here:\
 \
-1) the creation of a model-file architecture and editor\
-2) Better automatic undo support \
-3) Automatic syncing to a webservice\
-4) Easy hooks for QuickLook images and Spotlight metadata\
-\
-But I think it is an interesting bit of evidence that something like Core Data could be created with more object-friendly semantics.\
+1) The creation of a model-file architecture and editor\
+2) Add Tokyo Distopia to make full-text search fast\
+3) Use B+ trees to make attributes indexable\
+4) Better automatic undo support \
+5) Automatic syncing to a webservice\
+6) Easy hooks for QuickLook images and Spotlight metadata in 
+\b BNRStoreDocument
+\b0 \
 \
 }

@@ -170,5 +170,21 @@ static UInt32 goodPrimes[] = {
     }
 }
 
+- (void)logStats
+{
+    Class objClass = NULL;
+    UInt32 sum = 0;
+    for (int i = 0; i < bucketCount; i++) {
+        struct BucketInfo *bi = bucketArray + i;
+        UInt32 count = bi->itemCount;
+        for (int j = 0; j < count ; j++) {
+            sum++;
+            id object = ((bi->bucket) + j)->object;
+            objClass = [object class];
+        }
+    }
+    NSLog(@"Instances of %@ in uniquing table = %u", NSStringFromClass(objClass), sum);
+}
+
 
 @end

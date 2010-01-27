@@ -25,7 +25,8 @@
 /*!
  @class BNRClassDictionary
  @abstract a collection that holds key-value pairs where the key is a Class and
- the values are objects.
+ the values are objects. 
+ In BNRPersistence, the object is a BNRIntDictionary of rowID->storedObject
  @discussion Objects are retained.
 */
 

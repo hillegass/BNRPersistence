@@ -24,6 +24,8 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		9366D799110E35D0000A897D /* Playlist.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D50515110B8B2700E5D2F0 /* Playlist.m */; };
+		9366D79A110E35DE000A897D /* Playlist.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D50515110B8B2700E5D2F0 /* Playlist.m */; };
 		93D506FD110BE4B400E5D2F0 /* BNRIntDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D504DA110B883700E5D2F0 /* BNRIntDictionary.m */; };
 		93D50715110BE50300E5D2F0 /* IntDictTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D50714110BE50300E5D2F0 /* IntDictTests.m */; };
 		93D5081A110CB22A00E5D2F0 /* Playlist.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D50515110B8B2700E5D2F0 /* Playlist.m */; };
@@ -498,6 +500,7 @@
 				93D5093A110D49BB00E5D2F0 /* BNRStoredObject.m in Sources */,
 				93D5093B110D49BB00E5D2F0 /* BNRTCBackend.m in Sources */,
 				93D5093C110D49BB00E5D2F0 /* BNRTCBackendCursor.m in Sources */,
+				9366D799110E35D0000A897D /* Playlist.m in Sources */,
 				93D5093E110D49BB00E5D2F0 /* Song.m in Sources */,
 				93D50957110D4A0F00E5D2F0 /* SimpleInsertTest.m in Sources */,
 			);
@@ -509,6 +512,7 @@
 			files = (
 				93D50A0F110D51E000E5D2F0 /* BNRBackendCursor.m in Sources */,
 				93D50A10110D51E000E5D2F0 /* BNRClassDictionary.m in Sources */,
+				9366D79A110E35DE000A897D /* Playlist.m in Sources */,
 				93D50A11110D51E000E5D2F0 /* BNRClassMetaData.m in Sources */,
 				93D50A12110D51E000E5D2F0 /* BNRDataBuffer.m in Sources */,
 				93D50A13110D51E000E5D2F0 /* BNRIntDictionary.m in Sources */,
@@ -653,6 +657,7 @@
 				);
 				PREBINDING = NO;
 				PRODUCT_NAME = ComplexInsertTest;
+				RUN_CLANG_STATIC_ANALYZER = YES;
 			};
 			name = Debug;
 		};
@@ -677,6 +682,7 @@
 				);
 				PREBINDING = NO;
 				PRODUCT_NAME = ComplexInsertTest;
+				RUN_CLANG_STATIC_ANALYZER = YES;
 				ZERO_LINK = NO;
 			};
 			name = Release;

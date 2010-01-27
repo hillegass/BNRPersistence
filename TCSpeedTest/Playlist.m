@@ -86,4 +86,10 @@
     [d writeArray:songs ofClass:[Song class]];
 }
 
+- (void)dissolveAllRelationships
+{
+    [songs release];
+    songs = nil;
+}
+
 @end

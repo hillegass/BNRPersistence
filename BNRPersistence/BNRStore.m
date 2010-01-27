@@ -73,6 +73,15 @@
     }
 }
 
+- (void)logStats
+{
+    NSEnumerator *e = [uniquingTable objectEnumerator];
+    BNRIntDictionary *currentTable;
+    while (currentTable = [e nextObject]){
+        [currentTable logStats];
+    }
+}
+
 - (void)dissolveAllRelationships
 {
     [self makeEveryStoredObjectPerformSelector:@selector(dissolveAllRelationships)];
@@ -146,11 +155,14 @@
 {
     // Fetch!
     BNRBackendCursor *const cursor = [backend cursorForClass:c];
+    if (!cursor) {
+        NSLog(@"No database for %@", NSStringFromClass(c));
+        return nil;
+    }
     NSMutableArray *const allObjects = [NSMutableArray array];
     BNRDataBuffer *const buffer = [[[BNRDataBuffer alloc]
                                     initWithCapacity:(UINT16_MAX + 1)]
                                    autorelease];
-
     // FIXME: With clever use of threads, the work of this
     // loop could be done at least twice as fast.
     // Put nextBuffer: in one thread 
