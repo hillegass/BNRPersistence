@@ -97,9 +97,11 @@ static UInt32 goodPrimes[] = {
         UInt32 newCapacity = bi->capacity * 2;
         NSLog(@"resizing bucket %d to %d", bucketIndex, newCapacity);
 
-        struct IntPair *newBucket = (struct IntPair *)malloc(newCapacity * sizeof(struct IntPair));
-        memcpy(newBucket, bi->bucket, bi->capacity);
-        free(bi->bucket);
+        const size_t newSize = newCapacity * sizeof(struct IntPair);
+        void *const oldBucket = bi->bucket;
+        struct IntPair *const newBucket = (struct IntPair *)realloc(oldBucket,
+                                                                    newSize);
+        if (!newBucket && oldBucket) free(oldBucket);
         bi->bucket = newBucket;
     }
 
