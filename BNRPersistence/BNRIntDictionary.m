@@ -21,6 +21,7 @@
 // THE SOFTWARE.
 
 #import "BNRIntDictionary.h"
+#import <inttypes.h>
 
 static UInt32 goodPrimes[] = {
     769, 1543, 3079, 6151, 12289, 24593, 49157, 98317, 196613, 393241, 786433, 
@@ -94,8 +95,9 @@ static UInt32 goodPrimes[] = {
     
     // Is the bucket full?
     if (bi->capacity == bi->itemCount) {
-        UInt32 newCapacity = bi->capacity * 2;
-        NSLog(@"resizing bucket %d to %d", bucketIndex, newCapacity);
+        const size_t newCapacity = bi->capacity * 2;
+        NSLog(@"resizing bucket %"PRIu32" to %"PRIuMAX,
+              bucketIndex, (uintmax_t)newCapacity);
 
         const size_t newSize = newCapacity * sizeof(struct IntPair);
         void *const oldBucket = bi->bucket;
@@ -105,9 +107,9 @@ static UInt32 goodPrimes[] = {
         bi->bucket = newBucket;
     }
 
-    struct IntPair *result = bi->bucket + bi->itemCount;
+    struct IntPair *const result = bi->bucket + bi->itemCount;
     result->key = c;
-    bi->itemCount = bi->itemCount + 1;
+    bi->itemCount += 1;
     return result;
 }
 
