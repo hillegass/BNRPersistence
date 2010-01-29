@@ -7,7 +7,6 @@
 //
 
 #import "IntDictTests.h"
-#import "BNRIntDictionary.h"
 
 @implementation IntDictTests
 

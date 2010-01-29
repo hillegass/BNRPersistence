@@ -11,7 +11,7 @@
 aaron@bignerdranch.com\
 Jan 25, 2009\
 \
-After a few years of whining that Core Data has all of the shortcomings of the Enterprise Objects Framework with none of the advantages of archiving, I thought I should write a persistence framework that points in what I think is the right direction.  And this is it.\
+After a few years of whining that Core Data could have been better, I thought I should write a persistence framework that points in what I think is the right direction.  And this is it.\
 \
 One big difference? Objects can have ordered relationships.  For example, a playlist of songs is an ordered collection.  This is awkward to do in Core Data because it uses a relational database.\
 \
@@ -165,9 +165,9 @@ To delete a playlist:\
 
 \f0\fs28 \cf0 \CocoaLigature1 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
-\cf0 (Yes, this is a place where a model file would make the framework cooler: I could become an observer of this object and get notified when the value changed.  This works OK.\
+\cf0 (Yes, this is a place where a model file would make the framework cooler: I could become an observer of this object and get notified when the value changed.)\
 \
-(As a side-note, there is some experimental support for automatically updating the undo managed.  Just give the store an undo manager.)\
+(As a side-note, there is some experimental support for automatically updating the undo managed.  Just give the store an undo manager.  This also could be made better with a model file.)\
 \
 To save all the changes:\
 \
@@ -231,7 +231,7 @@ I recognize that there is room for improvement here:\
 2) Add Tokyo Distopia to make full-text search fast\
 3) Use B+ trees to make attributes indexable\
 4) Better automatic undo support \
-5) Automatic syncing to a webservice\
+5) Automatic syncing to a web service\
 6) Easy hooks for QuickLook images and Spotlight metadata in 
 \b BNRStoreDocument
 \b0 \

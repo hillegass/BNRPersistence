@@ -22,8 +22,9 @@
 
 // BNRStore tracks objects and stores them to a BNRStoreBackend
 
-#import <Cocoa/Cocoa.h>
+#import <Foundation/Foundation.h>
 @class BNRClassDictionary;
+@class BNRUniquingTable;
 @class BNRStoreBackend;
 @class BNRStoredObject;
 @class BNRDataBuffer;
@@ -43,7 +44,7 @@
     // The Uniquing table holds BNRIntDictionarys.  Thus, if
     // you know an object's class and rowID, you can find it in
     // the uniquingTable
-    BNRClassDictionary *uniquingTable;
+    BNRUniquingTable *uniquingTable;
     
     // The backend actually stores the data
     BNRStoreBackend *backend;
@@ -118,9 +119,6 @@
 #pragma mark Retain-cycle breaking
 
 - (void)dissolveAllRelationships;
-
-// See the list of uniquing tables and their counts
-- (void)logStats;
 
 @end
 

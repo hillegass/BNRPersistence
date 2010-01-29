@@ -22,66 +22,57 @@
 
 #import <Foundation/Foundation.h>
 
-/*!
- @class BNRClassDictionary
- @abstract a collection that holds key-value pairs where the key is a Class and
- the values are objects. 
- In BNRPersistence, the object is a BNRIntDictionary of rowID->storedObject
- @discussion Objects are retained.
- */
-
 #ifdef __cplusplus
 #include <ext/hash_map> using namespace stdext;
 using std::pair;
 using namespace __gnu_cxx;
 
+typedef pair<Class, UInt32> PKey;
 
 namespace __gnu_cxx {
     template<>
-    struct hash<Class>
+    struct hash<PKey>
     {
-        size_t operator()(const Class ptr) const
+        size_t operator()(const PKey keyValue) const
         {
-            return (size_t)ptr;
+            return (size_t)keyValue.first + keyValue.second;
         };
     };
 }    
 
+//struct UniquingHashConfiguration{
+//    enum {              
+//        bucket_size = 4,  // 0 < bucket_size
+//        min_buckets = 262144   // min_buckets = 2 ^^ N, 0 < N
+//    }; 
+//    
+//    size_t operator()(const PKey keyValue) const {
+//        return (size_t)keyValue.first + keyValue.second;        
+//    }
+//    
+//    bool operator()(const PKey left, const PKey right) const {
+//        //here should be the code to compare two VALUE_KEY_CLASS objects
+//        // 
+//        return (left.second == right.second) && (left.first == right.first);
+//    }
+//};
 
-typedef pair<Class, id> HashedPair;
+typedef pair<PKey, id> UniquingHashedPair;
 
 #endif 
 
-@interface BNRClassDictionary : NSObject  //<NSFastEnumeration> to implemented when I know C++ better
-{
+@interface BNRUniquingTable : NSObject {
 #ifdef __cplusplus
-    hash_map<Class, id, hash<Class>, equal_to<Class> > *mapTable;
+    hash_map<PKey, id > *mapTable;
 #else
     void *mapTable; 
 #endif
+    
 }
-/*!
- @method init
- @abstract The designated initializer for this class
-*/
-- (id)init;
-
-/*!
- @method setObject:forClass
- @abstract Puts the key-value pair into the dictionary.  If the Class is already 
- in the dictionary,  its object is replaced with 'obj'
- @param obj An object
- @param c A Class
-*/
-- (void)setObject:(id)obj forClass:(Class)c;
-
-/*!
- @method objectForClass:
- @abstract returns the value for the key 'c'
-*/
-- (id)objectForClass:(Class)c;
-
-//- (NSEnumerator *)objectEnumerator;
-
+- (id)objectForClass:(Class)c rowID:(UInt32)row;
+- (void)setObject:(id)obj forClass:(Class)c rowID:(UInt32)row;
+- (void)removeObjectForClass:(Class)c rowID:(UInt32)row;
+- (NSEnumerator *)objectEnumerator;
+- (NSUInteger)count;
 
 @end

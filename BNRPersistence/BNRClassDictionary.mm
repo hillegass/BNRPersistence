@@ -21,37 +21,44 @@
 // THE SOFTWARE.
 
 #import "BNRClassDictionary.h"
-#import "BNRMapTableEnumerator.h"
+#import "BNRClassDictionaryEnumerator.h"
 
 @implementation BNRClassDictionary
 
 - (id)init
 {
     [super init];
-    mapTable = NSCreateMapTable(NSNonOwnedPointerMapKeyCallBacks,NSObjectMapValueCallBacks, 13);
+    mapTable = new hash_map<Class, id, hash<Class>, equal_to<Class> >(389);
     return self;
 }
 - (void)dealloc
 {
-    NSFreeMapTable(mapTable);
+    delete mapTable;
     [super dealloc];
 }
 
 - (void)setObject:(id)obj forClass:(Class)c
 {
-    NSMapInsert(mapTable, c, obj);
+   // NSMapInsert(mapTable, c, obj);
+    id oldValue = (*mapTable)[c];
+    if (oldValue == obj) {
+        return;
+    }
+    [obj retain];
+    [oldValue release];
+    (*mapTable)[c] = obj;
 }
 
 - (id)objectForClass:(Class)c
 {
-    return (id)NSMapGet(mapTable, c);
+    return (*mapTable)[c];
 }
 
-- (NSEnumerator *)objectEnumerator
-{
-    NSEnumerator *e = [[BNRMapTableEnumerator alloc] initWithMapTable:mapTable];
-    [e autorelease];
-    return e;
-}
+//- (NSEnumerator *)objectEnumerator
+//{
+//    BNRClassDictionaryEnumerator *result = [[BNRClassDictionaryEnumerator alloc] initWithTable:mapTable];
+//    return [result autorelease];
+//    
+//}
 
 @end

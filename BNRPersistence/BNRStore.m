@@ -28,6 +28,7 @@
 #import "BNRBackendCursor.h"
 #import "BNRDataBuffer.h"
 #import "BNRClassMetaData.h"
+#import "BNRUniquingTable.h"
 
 @interface BNRStoredObject (BNRStoreFriend)
 
@@ -43,7 +44,7 @@
 - (id)init
 {
     [super init];
-    uniquingTable = [[BNRClassDictionary alloc] init];
+    uniquingTable = [[BNRUniquingTable alloc] init];
     toBeInserted = [[NSMutableSet alloc] init];
     toBeDeleted = [[NSMutableSet alloc] init];
     toBeUpdated = [[NSMutableSet alloc] init];
@@ -67,24 +68,17 @@
 - (void)makeEveryStoredObjectPerformSelector:(SEL)s
 {
     NSEnumerator *e = [uniquingTable objectEnumerator];
-    BNRIntDictionary *currentTable;
-    while (currentTable = [e nextObject]){
-        [currentTable makeEveryObjectPerformSelector:s];
+    BNRStoredObject *obj;
+    while (obj = [e nextObject]){
+        [obj performSelector:s];
     }
 }
 
-- (void)logStats
-{
-    NSEnumerator *e = [uniquingTable objectEnumerator];
-    BNRIntDictionary *currentTable;
-    while (currentTable = [e nextObject]){
-        [currentTable logStats];
-    }
-}
 
 - (void)dissolveAllRelationships
 {
     [self makeEveryStoredObjectPerformSelector:@selector(dissolveAllRelationships)];
+
 }
 
 - (void)dealloc
@@ -100,15 +94,7 @@
 }
     
 - (void)addClass:(Class)c expectedCount:(UInt32)eCount
-{
-    // If zero, do something reasonable
-    if (eCount == 0) {
-        eCount = 50000;
-    }
-    BNRIntDictionary *u = [[BNRIntDictionary alloc] initWithExpectedCount:eCount];
-    [uniquingTable setObject:u forClass:c];
-    [u release];
-    
+{    
     // Put it in the first empty slot
     int classCount = 0;
     while (classes[classCount] != NULL) {
@@ -125,14 +111,12 @@
 {
     
     // Try to find it in the uniquing table
-    BNRIntDictionary *u = [uniquingTable objectForClass:c];
-    NSAssert(u != nil, @"No uniquing table for %@", NSStringFromClass(c));
-    BNRStoredObject *obj = [u objectForInt:n];
+    BNRStoredObject *obj = [uniquingTable objectForClass:c rowID:n];
 
     if (!obj) {
         obj = [[c alloc] init];
         [obj setRowID:n];
-        [u setObject:obj forInt:n];
+        [uniquingTable setObject:obj forClass:c rowID:n];
         [obj setStore:self];
         [obj setHasContent:NO];
         [obj autorelease];
@@ -210,8 +194,7 @@
     }
     
     // Put it in the uniquing table
-    BNRIntDictionary *u = [uniquingTable objectForClass:c];
-    [u setObject:obj forInt:rowID];
+    [uniquingTable setObject:obj forClass:c rowID:rowID];
 
     if (undoManager) {
         [(BNRStore *)[undoManager prepareWithInvocationTarget:self] deleteObject:obj];
@@ -389,8 +372,7 @@
         
         // Take it out of the uniquing table:
         // Should I remove it from the uniquingTable in deleteObject?
-        BNRIntDictionary *u = [uniquingTable objectForClass:c];
-        [u removeObjectForInt:rowID];
+        [uniquingTable removeObjectForClass:c rowID:rowID];
         [obj setStore:nil];
 
         [backend deleteDataForClass:c

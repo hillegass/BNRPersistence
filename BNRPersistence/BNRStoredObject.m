@@ -23,19 +23,18 @@
 #import "BNRStoredObject.h"
 #import "BNRStore.h"
 #import "BNRStoreBackend.h"
-#import "BNRIntDictionary.h"
-#import "BNRClassDictionary.h"
+#import "BNRUniquingTable.h"
 
 @interface BNRStore (StoredObjectIsFriend)
 
-- (BNRClassDictionary *)uniquingTable;
+- (BNRUniquingTable *)uniquingTable;
 
 @end
 
 
 @implementation BNRStore (StoredObjectIsFriend)
 
-- (BNRClassDictionary *)uniquingTable
+- (BNRUniquingTable *)uniquingTable
 {
     return uniquingTable;
 }
@@ -146,9 +145,8 @@
 - (void)dealloc
 {
     // FIXME: this needs to happen
-    BNRClassDictionary *uniquingTable = [store uniquingTable];
-    BNRIntDictionary *intDict = [uniquingTable objectForClass:[self class]];
-    [intDict removeObjectForInt:[self rowID]];
+    BNRUniquingTable *uniquingTable = [store uniquingTable];
+    [uniquingTable removeObjectForClass:[self class] rowID:[self rowID]];
     [super dealloc];
 }
 

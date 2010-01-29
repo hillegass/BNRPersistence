@@ -62,7 +62,8 @@
         }
     }
     
-    dbTable = NSCreateMapTable(NSNonOwnedPointerMapKeyCallBacks,NSNonOwnedPointerMapValueCallBacks, 13);
+    dbTable = new hash_map<Class, TCHDB *, hash<Class>, equal_to<Class> >(389);
+
     return self;
 }
 
@@ -70,7 +71,7 @@
 {
     [self close];
     [path release];
-    NSFreeMapTable(dbTable);
+    delete dbTable;
     [super dealloc];
 }
 
@@ -99,10 +100,14 @@
 
 #pragma mark Reading and writing
 
+- (void)setFile:(TCHDB *)f forClass:(Class)c
+{
+    (*dbTable)[c] = f;
+}
 
 - (TCHDB *)fileForClass:(Class)c;
 {
-    TCHDB *result = NSMapGet(dbTable,c);
+    TCHDB *result = (*dbTable)[c];
     if (!result) {
         NSString *classPath = [path stringByAppendingPathComponent:NSStringFromClass(c)];
         
@@ -113,10 +118,12 @@
         if (!tchdbopen(result, [classPath cStringUsingEncoding:NSUTF8StringEncoding], mode)) {
             int ecode = tchdbecode(result);
             NSLog(@"Error opening %@: %s\n", classPath, tchdberrmsg(ecode));
+            @throw [NSException exceptionWithName:@"DB Error" 
+                                           reason:@"Unable to open fil"
+                                         userInfo:nil];
             return NULL;
         }
-  
-        NSMapInsert(dbTable,c,result);
+        [self setFile:result forClass:c];
     }
     return result;
 }
@@ -126,15 +133,8 @@
              rowID:(UInt32)n
 {    
     TCHDB *db = [self fileForClass:c];
-    UInt32 key[2];
-    int keySize = sizeof(UInt32);
-    key[0] = CFSwapInt32HostToLittle(n);
-    if (clientID) {
-        key[1] = CFSwapInt32HostToLittle(clientID);
-        keySize += sizeof(UInt32);
-    }
-
-    bool successful = tchdbput(db, key, keySize, [d buffer], [d length]);
+    UInt32 key = CFSwapInt32HostToLittle(n);
+    bool successful = tchdbput(db, &key, sizeof(UInt32), [d buffer], [d length]);
     if (!successful) {
         int ecode = tchdbecode(db);
         NSString *message = [NSString stringWithFormat:@"tchdbput in insertData: %s", tchdberrmsg(ecode)];
@@ -151,15 +151,9 @@
                      rowID:(UInt32)n
 {
     TCHDB * db = [self fileForClass:c];
-    UInt32 key[2];
-    int keySize = sizeof(UInt32);
-    key[0] = CFSwapInt32HostToLittle(n);
-    if (clientID) {
-        key[1] = CFSwapInt32HostToLittle(clientID);
-        keySize += sizeof(UInt32);
-    }
+    UInt32 key = CFSwapInt32HostToLittle(n);
     
-    bool successful = tchdbout(db, key, keySize);
+    bool successful = tchdbout(db, &key, sizeof(UInt32));
     if (!successful) {
         NSLog(@"warning: tried to delete something that wasn't there");
     }
@@ -170,16 +164,9 @@
              rowID:(UInt32)n
 {
     TCHDB *db = [self fileForClass:c];
-    UInt32 key[2];
-    int keySize = sizeof(UInt32);
-    key[0] = CFSwapInt32HostToLittle(n);
-    if (clientID) {
-        key[1] = CFSwapInt32HostToLittle(clientID);
-        keySize += sizeof(UInt32);
-    }
+    UInt32 key = CFSwapInt32HostToLittle(n);    
     
-    
-    bool successful = tchdbput(db, key, keySize, [d buffer], [d length]);
+    bool successful = tchdbput(db, &key, sizeof(UInt32), [d buffer], [d length]);
     if (!successful) {
         int ecode = tchdbecode(db);
         NSString *message = [NSString stringWithFormat:@"tchdbput in updateData: %s", tchdberrmsg(ecode)];
@@ -197,16 +184,10 @@
                           rowID:(UInt32)n
 {
     TCHDB * db = [self fileForClass:c];
-    UInt32 key[2];
-    int keySize = sizeof(UInt32);
-    key[0] = CFSwapInt32HostToLittle(n);
-    if (clientID) {
-        key[1] = CFSwapInt32HostToLittle(clientID);
-        keySize += sizeof(UInt32);
-    }
+    UInt32 key = CFSwapInt32HostToLittle(n);
     
     int bufferSize;
-    void *data = tchdbget(db, key, keySize, &bufferSize);
+    void *data = tchdbget(db, &key, sizeof(UInt32), &bufferSize);
     
     if (data == NULL) {
         return nil;
@@ -231,14 +212,15 @@
 
 - (void)close
 {
-    NSMapEnumerator mapEnum = NSEnumerateMapTable(dbTable);
-    TCHDB * dbp;
-    while (NSNextMapEnumeratorPair(&mapEnum, NULL, (void **)&dbp)){
+    hash_map<Class, TCHDB *, hash<Class>, equal_to<Class> >::iterator iter = dbTable->begin();
+    while (iter != dbTable->end()) {
+        TCFileHashedPair currentPair = *iter;
+        TCHDB * dbp = currentPair.second;
         tchdbclose(dbp);
         tchdbdel(dbp);
+        iter++;
     }
-    NSEndMapTableEnumeration(&mapEnum);
-    NSResetMapTable(dbTable);
+    dbTable->clear();
 }
 
 

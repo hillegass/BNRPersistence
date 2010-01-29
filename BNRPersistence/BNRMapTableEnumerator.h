@@ -21,7 +21,7 @@
 // THE SOFTWARE.
 
 // An emumerator for BNRClassDictionary
-#import <Cocoa/Cocoa.h>
+#import <Foundation/Foundation.h>
 
 
 @interface BNRMapTableEnumerator : NSEnumerator {
