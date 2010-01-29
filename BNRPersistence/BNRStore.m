@@ -32,6 +32,7 @@
 @interface BNRStoredObject (BNRStoreFriend)
 
 - (void)setHasContent:(BOOL)yn;
+- (id)initWithStore:(BNRStore *)s rowID:(UInt32)n buffer:(BNRDataBuffer *)buffer;
 
 @end
 
@@ -125,29 +126,21 @@
 {
     
     // Try to find it in the uniquing table
-    BNRIntDictionary *u = [uniquingTable objectForClass:c];
+    BNRIntDictionary *const u = [uniquingTable objectForClass:c];
     NSAssert1(u != nil, @"No uniquing table for %@", NSStringFromClass(c));
     BNRStoredObject *obj = [u objectForInt:n];
 
-    if (!obj) {
-        obj = [[c alloc] init];
-        [obj setRowID:n];
+    if (obj) {
+        if (mustFetch && ![obj hasContent]) {
+            BNRDataBuffer *const d = [backend dataForClass:c rowID:n];
+            [obj readContentFromBuffer:d];
+            [obj setHasContent:YES];
+        }
+    } else {
+        BNRDataBuffer *const d = mustFetch? [backend dataForClass:c rowID:n] : nil;
+        obj = [[[c alloc] initWithStore:self rowID:n buffer:d] autorelease];
         [u setObject:obj forInt:n];
-        [obj setStore:self];
-        [obj setHasContent:NO];
-        [obj autorelease];
     }
-    
-    // Can I skip the actual fetch?
-    if ((mustFetch == NO) || ([obj hasContent])) {
-        return obj;
-    }
-    
-    // Fetch!
-    BNRDataBuffer *d = [backend dataForClass:c 
-                                       rowID:n];
-    [obj readContentFromBuffer:d];
-    [obj setHasContent:YES];
     return obj;
 }
 
@@ -170,6 +163,11 @@
     // Put readContentFromBuffer in another
     // ???: Do semantics allow to skip copying in data for all objects of the
     // class that already have content, or only that are dirty?
+    //
+    // Profiling indicates most of the slowdown in ComplexFetchTest is due to
+    // the -readArrayOfClass:usingStore: in -[Playlist readContentFromBuffer:],
+    // particularly -objectForClass:rowID:fetchContent:'s interaction with
+    // the uniquing table and intdicts.
     UInt32 rowID;
     while (rowID = [cursor nextBuffer:buffer])
     {

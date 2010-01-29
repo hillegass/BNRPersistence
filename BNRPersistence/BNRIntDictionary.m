@@ -137,7 +137,7 @@ static UInt32 goodPrimes[] = {
 {
     UInt32 bucketIndex = c % bucketCount;
     struct BucketInfo *bi = bucketArray + bucketIndex;
-    
+
     UInt32 i;
     for (i = 0; i < bi->itemCount; i++) {
         struct IntPair *current = bi->bucket + i;
@@ -145,7 +145,7 @@ static UInt32 goodPrimes[] = {
             break;
         }
     }
-    
+
     // Did I get to the end without finding it?
     if (i==bi->itemCount) {
         NSLog(@"didn't find pair for %u", c);
@@ -162,11 +162,15 @@ static UInt32 goodPrimes[] = {
 
 - (void)makeEveryObjectPerformSelector:(SEL)s
 {
-    for (int i = 0; i < bucketCount; i++) {
-        struct BucketInfo *bi = bucketArray + i;
-        UInt32 count = bi->itemCount;
-        for (int j = 0; j < count ; j++) {
-            id object = ((bi->bucket) + j)->object;
+    const struct BucketInfo *const endBuckets = bucketArray + bucketCount;
+    for (const struct BucketInfo *bi = bucketArray;
+         bi < endBuckets;
+         ++bi) {
+        const struct IntPair *const endItems = bi->bucket + bi->itemCount;
+        for (const struct IntPair *itemp = bi->bucket;
+             itemp < endItems;
+             ++itemp) {
+            id object = itemp->object;
             [object performSelector:s];
         }
     }
