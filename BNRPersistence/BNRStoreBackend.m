@@ -26,8 +26,6 @@
 
 @implementation BNRStoreBackend
 
-@synthesize clientID;
-
 #pragma mark Transaction support
 - (BOOL)beginTransaction
 {

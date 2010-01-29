@@ -30,13 +30,8 @@
 
 @interface BNRStoreBackend : NSObject {
 
-    // In preparation for sync, the clientID, if not zero, is used with 
-    // the rowID as the key.  The idea being: many clients can create objects that 
-    // get shared in a central repository.  The clientID ensures uniqueness of the key.
-    UInt32 clientID;
 }
 
-@property (nonatomic) UInt32 clientID;
 
 #pragma mark Transaction support
 - (BOOL)beginTransaction;

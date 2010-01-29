@@ -225,6 +225,8 @@ CoreData is 2 times faster than BNRPersistence\
 \b0\fs28 \
 The first problem is that you need to compile TokyoCabinet for arm.  I tried every configure trick I could come up with and then just created an Xcode static library project and dumped the source into the project.  This project is in the repository.\
 \
+When you link to the resulting static library, you will also need to link in libz, which is part of the iPhone SDK\
+\
 
 \b\fs36 License\
 

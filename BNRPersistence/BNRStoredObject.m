@@ -54,6 +54,8 @@
     if (nil != buffer) {
         [self readContentFromBuffer:buffer];
         [self setHasContent:YES];
+    } else {
+        [self setHasContent:NO];
     }
     return self;
 }
