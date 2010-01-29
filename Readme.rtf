@@ -9,7 +9,7 @@
 
 \b0\fs28 Aaron Hillegass\
 aaron@bignerdranch.com\
-Jan 25, 2009\
+Jan 29, 2009\
 \
 After a few years of whining that Core Data could have been better, I thought I should write a persistence framework that points in what I think is the right direction.  And this is it.\
 \
@@ -122,12 +122,12 @@ Now that you have a backend, you can create a store and tell it which classes yo
     [store setBackend:backend];\
     [backend release];\
     \
-    [store addClass:[Song class] expectedCount:123456];\
-    [store addClass:[Playlist class] expectedCount:23456];\
+    [store addClass:[Song class]];\
+    [store addClass:[Playlist class]];\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
 
 \f0\fs28 \cf0 \CocoaLigature1 \
-(One day I will make the hash table smarter.)\
+(You must add the classes in the same order every time.  The classID of a class (see BNRClassMetaData) is determined by the order)\
 \
 Now to get a list of of the songs in the store:\
 \
@@ -154,8 +154,7 @@ To delete a playlist:\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
 
 \f0\fs28 \cf0 \CocoaLigature1 \
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
-\cf0 To update a playlist:\
+To update a playlist:\
 \
 \pard\tx864\pardeftab864\ql\qnatural\pardirnatural
 
@@ -164,8 +163,7 @@ To delete a playlist:\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
 
 \f0\fs28 \cf0 \CocoaLigature1 \
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
-\cf0 (Yes, this is a place where a model file would make the framework cooler: I could become an observer of this object and get notified when the value changed.)\
+(Yes, this is a place where a model file would make the framework cooler: I could become an observer of this object and get notified when the value changed.)\
 \
 (As a side-note, there is some experimental support for automatically updating the undo managed.  Just give the store an undo manager.  This also could be made better with a model file.)\
 \
@@ -220,6 +218,18 @@ BNRPersistence is 17 times faster than CoreData\
 Fetching in 1,000,000 songs (SimpleFetchTest)\
 CoreData is 2 times faster than BNRPersistence\
 (BNRPersistence is single-threaded and CoreData has some clever multi-threading in this case.  I think I can do similar tricks in BNRPersistence and catch up in this case.  In either case, it is very, very fast.  On my machine, fetching a million songs takes 6.2 seconds the first time and 3.9 seconds the second time.)\
+\
+
+\b\fs36 Getting it on the phone\
+
+\b0\fs28 \
+The first problem is that you need to compile TokyoCabinet for arm.  I tried every configure trick I could come up with and then just created an Xcode static library project and dumped the source into the project.  This project is in the repository.\
+\
+
+\b\fs36 License\
+
+\b0\fs28 \
+My code is under the MIT license and Tokyo Cabinet is under the LGPL.   I think this will enable you to use it how you want to use it.  If something bad happens because of the code, you can't sue us.  And if you make changes to Tokyo Cabinet, I think you need to submit those changes to the author. But I'm not a lawyer...\
 \
 
 \b\fs36 To Do:\
