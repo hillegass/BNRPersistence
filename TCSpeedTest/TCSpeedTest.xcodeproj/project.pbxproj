@@ -24,6 +24,10 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		3F62255011129A84002E5B48 /* SpeedTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F62254F11129A84002E5B48 /* SpeedTest.m */; };
+		3F62255111129A84002E5B48 /* SpeedTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F62254F11129A84002E5B48 /* SpeedTest.m */; };
+		3F62255211129A84002E5B48 /* SpeedTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F62254F11129A84002E5B48 /* SpeedTest.m */; };
+		3F62255311129A84002E5B48 /* SpeedTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F62254F11129A84002E5B48 /* SpeedTest.m */; };
 		9366D799110E35D0000A897D /* Playlist.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D50515110B8B2700E5D2F0 /* Playlist.m */; };
 		9366D79A110E35DE000A897D /* Playlist.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D50515110B8B2700E5D2F0 /* Playlist.m */; };
 		93D506FD110BE4B400E5D2F0 /* BNRIntDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D504DA110B883700E5D2F0 /* BNRIntDictionary.m */; };
@@ -125,6 +129,8 @@
 
 /* Begin PBXFileReference section */
 		08FB779EFE84155DC02AAC07 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		3F62254E11129882002E5B48 /* SpeedTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpeedTest.h; sourceTree = "<group>"; };
+		3F62254F11129A84002E5B48 /* SpeedTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpeedTest.m; sourceTree = "<group>"; };
 		93D504D1110B883700E5D2F0 /* BNRBackendCursor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BNRBackendCursor.h; path = ../BNRPersistence/BNRBackendCursor.h; sourceTree = SOURCE_ROOT; };
 		93D504D2110B883700E5D2F0 /* BNRBackendCursor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BNRBackendCursor.m; path = ../BNRPersistence/BNRBackendCursor.m; sourceTree = SOURCE_ROOT; };
 		93D504D3110B883700E5D2F0 /* BNRClassDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BNRClassDictionary.h; path = ../BNRPersistence/BNRClassDictionary.h; sourceTree = SOURCE_ROOT; };
@@ -217,7 +223,7 @@
 			isa = PBXGroup;
 			children = (
 				93D50701110BE4BD00E5D2F0 /* Unit tests */,
-				93D50506110B888600E5D2F0 /* BNRPersisence */,
+				93D50506110B888600E5D2F0 /* BNRPersistence */,
 				08FB7795FE84155DC02AAC07 /* Source */,
 				08FB779DFE84155DC02AAC07 /* External Frameworks and Libraries */,
 				1AB674ADFE9D54B511CA2CBB /* Products */,
@@ -229,6 +235,8 @@
 		08FB7795FE84155DC02AAC07 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				3F62254E11129882002E5B48 /* SpeedTest.h */,
+				3F62254F11129A84002E5B48 /* SpeedTest.m */,
 				93D50A29110D520D00E5D2F0 /* SimpleFetchTest.m */,
 				93D50956110D4A0F00E5D2F0 /* SimpleInsertTest.m */,
 				93D50824110CB29000E5D2F0 /* ComplexInsertTest.m */,
@@ -262,7 +270,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		93D50506110B888600E5D2F0 /* BNRPersisence */ = {
+		93D50506110B888600E5D2F0 /* BNRPersistence */ = {
 			isa = PBXGroup;
 			children = (
 				93D504D1110B883700E5D2F0 /* BNRBackendCursor.h */,
@@ -288,7 +296,7 @@
 				93D504F1110B883700E5D2F0 /* BNRTCBackendCursor.h */,
 				93D504F2110B883700E5D2F0 /* BNRTCBackendCursor.m */,
 			);
-			name = BNRPersisence;
+			name = BNRPersistence;
 			sourceTree = "<group>";
 		};
 		93D50701110BE4BD00E5D2F0 /* Unit tests */ = {
@@ -461,6 +469,7 @@
 				93D5081A110CB22A00E5D2F0 /* Playlist.m in Sources */,
 				93D5081C110CB22A00E5D2F0 /* Song.m in Sources */,
 				93D50825110CB29000E5D2F0 /* ComplexInsertTest.m in Sources */,
+				3F62255011129A84002E5B48 /* SpeedTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -482,6 +491,7 @@
 				93D508AE110D2E3F00E5D2F0 /* Playlist.m in Sources */,
 				93D508AF110D2E3F00E5D2F0 /* Song.m in Sources */,
 				93D508BA110D2E9F00E5D2F0 /* ComplexFetchTest.m in Sources */,
+				3F62255111129A84002E5B48 /* SpeedTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -503,6 +513,7 @@
 				9366D799110E35D0000A897D /* Playlist.m in Sources */,
 				93D5093E110D49BB00E5D2F0 /* Song.m in Sources */,
 				93D50957110D4A0F00E5D2F0 /* SimpleInsertTest.m in Sources */,
+				3F62255211129A84002E5B48 /* SpeedTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -524,6 +535,7 @@
 				93D50A19110D51E000E5D2F0 /* BNRTCBackendCursor.m in Sources */,
 				93D50A1B110D51E000E5D2F0 /* Song.m in Sources */,
 				93D50A2A110D520D00E5D2F0 /* SimpleFetchTest.m in Sources */,
+				3F62255311129A84002E5B48 /* SpeedTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
