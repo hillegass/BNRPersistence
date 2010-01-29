@@ -93,7 +93,7 @@
     [super dealloc];
 }
     
-- (void)addClass:(Class)c expectedCount:(UInt32)eCount
+- (void)addClass:(Class)c
 {    
     // Put it in the first empty slot
     int classCount = 0;

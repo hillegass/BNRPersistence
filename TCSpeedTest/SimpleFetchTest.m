@@ -27,7 +27,7 @@ int main (int argc, const char * argv[]) {
     [store setBackend:backend];
     [backend release];
     
-    [store addClass:[Song class] expectedCount:SONG_COUNT];
+    [store addClass:[Song class]];
 
     // Get all the song
     NSArray *allSongs = [store allObjectsForClass:[Song class]];

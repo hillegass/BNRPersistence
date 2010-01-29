@@ -1,0 +1,355 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 45;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9366D87C11108CB8000A897D /* tcadb.c in Sources */ = {isa = PBXBuildFile; fileRef = 9366D85D11108CB8000A897D /* tcadb.c */; };
+		9366D87D11108CB8000A897D /* tcadb.h in Headers */ = {isa = PBXBuildFile; fileRef = 9366D85E11108CB8000A897D /* tcadb.h */; };
+		9366D87E11108CB8000A897D /* tcamgr.c in Sources */ = {isa = PBXBuildFile; fileRef = 9366D85F11108CB8000A897D /* tcamgr.c */; };
+		9366D87F11108CB8000A897D /* tcamttest.c in Sources */ = {isa = PBXBuildFile; fileRef = 9366D86011108CB8000A897D /* tcamttest.c */; };
+		9366D88011108CB8000A897D /* tcatest.c in Sources */ = {isa = PBXBuildFile; fileRef = 9366D86111108CB8000A897D /* tcatest.c */; };
+		9366D88111108CB8000A897D /* tcawmgr.c in Sources */ = {isa = PBXBuildFile; fileRef = 9366D86211108CB8000A897D /* tcawmgr.c */; };
+		9366D88211108CB8000A897D /* tcbdb.c in Sources */ = {isa = PBXBuildFile; fileRef = 9366D86311108CB8000A897D /* tcbdb.c */; };
+		9366D88311108CB8000A897D /* tcbdb.h in Headers */ = {isa = PBXBuildFile; fileRef = 9366D86411108CB8000A897D /* tcbdb.h */; };
+		9366D88411108CB8000A897D /* tcbmgr.c in Sources */ = {isa = PBXBuildFile; fileRef = 9366D86511108CB8000A897D /* tcbmgr.c */; };
+		9366D88511108CB8000A897D /* tcbmttest.c in Sources */ = {isa = PBXBuildFile; fileRef = 9366D86611108CB8000A897D /* tcbmttest.c */; };
+		9366D88611108CB8000A897D /* tcbtest.c in Sources */ = {isa = PBXBuildFile; fileRef = 9366D86711108CB8000A897D /* tcbtest.c */; };
+		9366D88711108CB8000A897D /* tcfdb.c in Sources */ = {isa = PBXBuildFile; fileRef = 9366D86811108CB8000A897D /* tcfdb.c */; };
+		9366D88811108CB8000A897D /* tcfdb.h in Headers */ = {isa = PBXBuildFile; fileRef = 9366D86911108CB8000A897D /* tcfdb.h */; };
+		9366D88911108CB8000A897D /* tcfmgr.c in Sources */ = {isa = PBXBuildFile; fileRef = 9366D86A11108CB8000A897D /* tcfmgr.c */; };
+		9366D88A11108CB8000A897D /* tcfmttest.c in Sources */ = {isa = PBXBuildFile; fileRef = 9366D86B11108CB8000A897D /* tcfmttest.c */; };
+		9366D88B11108CB8000A897D /* tcftest.c in Sources */ = {isa = PBXBuildFile; fileRef = 9366D86C11108CB8000A897D /* tcftest.c */; };
+		9366D88C11108CB8000A897D /* tchdb.c in Sources */ = {isa = PBXBuildFile; fileRef = 9366D86D11108CB8000A897D /* tchdb.c */; };
+		9366D88D11108CB8000A897D /* tchdb.h in Headers */ = {isa = PBXBuildFile; fileRef = 9366D86E11108CB8000A897D /* tchdb.h */; };
+		9366D88E11108CB8000A897D /* tchmgr.c in Sources */ = {isa = PBXBuildFile; fileRef = 9366D86F11108CB8000A897D /* tchmgr.c */; };
+		9366D88F11108CB8000A897D /* tchmttest.c in Sources */ = {isa = PBXBuildFile; fileRef = 9366D87011108CB8000A897D /* tchmttest.c */; };
+		9366D89011108CB8000A897D /* tchtest.c in Sources */ = {isa = PBXBuildFile; fileRef = 9366D87111108CB8000A897D /* tchtest.c */; };
+		9366D89111108CB8000A897D /* tctdb.c in Sources */ = {isa = PBXBuildFile; fileRef = 9366D87211108CB8000A897D /* tctdb.c */; };
+		9366D89211108CB8000A897D /* tctdb.h in Headers */ = {isa = PBXBuildFile; fileRef = 9366D87311108CB8000A897D /* tctdb.h */; };
+		9366D89311108CB8000A897D /* tctmgr.c in Sources */ = {isa = PBXBuildFile; fileRef = 9366D87411108CB8000A897D /* tctmgr.c */; };
+		9366D89411108CB8000A897D /* tctmttest.c in Sources */ = {isa = PBXBuildFile; fileRef = 9366D87511108CB8000A897D /* tctmttest.c */; };
+		9366D89511108CB8000A897D /* tcttest.c in Sources */ = {isa = PBXBuildFile; fileRef = 9366D87611108CB8000A897D /* tcttest.c */; };
+		9366D89611108CB8000A897D /* tcucodec.c in Sources */ = {isa = PBXBuildFile; fileRef = 9366D87711108CB8000A897D /* tcucodec.c */; };
+		9366D89711108CB8000A897D /* tcumttest.c in Sources */ = {isa = PBXBuildFile; fileRef = 9366D87811108CB8000A897D /* tcumttest.c */; };
+		9366D89811108CB8000A897D /* tcutest.c in Sources */ = {isa = PBXBuildFile; fileRef = 9366D87911108CB8000A897D /* tcutest.c */; };
+		9366D89911108CB8000A897D /* tcutil.c in Sources */ = {isa = PBXBuildFile; fileRef = 9366D87A11108CB8000A897D /* tcutil.c */; };
+		9366D89A11108CB8000A897D /* tcutil.h in Headers */ = {isa = PBXBuildFile; fileRef = 9366D87B11108CB8000A897D /* tcutil.h */; };
+		9366D89F11108CC3000A897D /* md5.c in Sources */ = {isa = PBXBuildFile; fileRef = 9366D89B11108CC3000A897D /* md5.c */; };
+		9366D8A011108CC3000A897D /* md5.h in Headers */ = {isa = PBXBuildFile; fileRef = 9366D89C11108CC3000A897D /* md5.h */; };
+		9366D8A111108CC3000A897D /* myconf.c in Sources */ = {isa = PBXBuildFile; fileRef = 9366D89D11108CC3000A897D /* myconf.c */; };
+		9366D8A211108CC3000A897D /* myconf.h in Headers */ = {isa = PBXBuildFile; fileRef = 9366D89E11108CC3000A897D /* myconf.h */; };
+		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		9366D85D11108CB8000A897D /* tcadb.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = tcadb.c; sourceTree = SOURCE_ROOT; };
+		9366D85E11108CB8000A897D /* tcadb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tcadb.h; sourceTree = SOURCE_ROOT; };
+		9366D85F11108CB8000A897D /* tcamgr.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = tcamgr.c; sourceTree = SOURCE_ROOT; };
+		9366D86011108CB8000A897D /* tcamttest.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = tcamttest.c; sourceTree = SOURCE_ROOT; };
+		9366D86111108CB8000A897D /* tcatest.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = tcatest.c; sourceTree = SOURCE_ROOT; };
+		9366D86211108CB8000A897D /* tcawmgr.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = tcawmgr.c; sourceTree = SOURCE_ROOT; };
+		9366D86311108CB8000A897D /* tcbdb.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = tcbdb.c; sourceTree = SOURCE_ROOT; };
+		9366D86411108CB8000A897D /* tcbdb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tcbdb.h; sourceTree = SOURCE_ROOT; };
+		9366D86511108CB8000A897D /* tcbmgr.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = tcbmgr.c; sourceTree = SOURCE_ROOT; };
+		9366D86611108CB8000A897D /* tcbmttest.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = tcbmttest.c; sourceTree = SOURCE_ROOT; };
+		9366D86711108CB8000A897D /* tcbtest.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = tcbtest.c; sourceTree = SOURCE_ROOT; };
+		9366D86811108CB8000A897D /* tcfdb.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = tcfdb.c; sourceTree = SOURCE_ROOT; };
+		9366D86911108CB8000A897D /* tcfdb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tcfdb.h; sourceTree = SOURCE_ROOT; };
+		9366D86A11108CB8000A897D /* tcfmgr.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = tcfmgr.c; sourceTree = SOURCE_ROOT; };
+		9366D86B11108CB8000A897D /* tcfmttest.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = tcfmttest.c; sourceTree = SOURCE_ROOT; };
+		9366D86C11108CB8000A897D /* tcftest.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = tcftest.c; sourceTree = SOURCE_ROOT; };
+		9366D86D11108CB8000A897D /* tchdb.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = tchdb.c; sourceTree = SOURCE_ROOT; };
+		9366D86E11108CB8000A897D /* tchdb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tchdb.h; sourceTree = SOURCE_ROOT; };
+		9366D86F11108CB8000A897D /* tchmgr.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = tchmgr.c; sourceTree = SOURCE_ROOT; };
+		9366D87011108CB8000A897D /* tchmttest.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = tchmttest.c; sourceTree = SOURCE_ROOT; };
+		9366D87111108CB8000A897D /* tchtest.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = tchtest.c; sourceTree = SOURCE_ROOT; };
+		9366D87211108CB8000A897D /* tctdb.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = tctdb.c; sourceTree = SOURCE_ROOT; };
+		9366D87311108CB8000A897D /* tctdb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tctdb.h; sourceTree = SOURCE_ROOT; };
+		9366D87411108CB8000A897D /* tctmgr.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = tctmgr.c; sourceTree = SOURCE_ROOT; };
+		9366D87511108CB8000A897D /* tctmttest.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = tctmttest.c; sourceTree = SOURCE_ROOT; };
+		9366D87611108CB8000A897D /* tcttest.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = tcttest.c; sourceTree = SOURCE_ROOT; };
+		9366D87711108CB8000A897D /* tcucodec.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = tcucodec.c; sourceTree = SOURCE_ROOT; };
+		9366D87811108CB8000A897D /* tcumttest.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = tcumttest.c; sourceTree = SOURCE_ROOT; };
+		9366D87911108CB8000A897D /* tcutest.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = tcutest.c; sourceTree = SOURCE_ROOT; };
+		9366D87A11108CB8000A897D /* tcutil.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = tcutil.c; sourceTree = SOURCE_ROOT; };
+		9366D87B11108CB8000A897D /* tcutil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tcutil.h; sourceTree = SOURCE_ROOT; };
+		9366D89B11108CC3000A897D /* md5.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = md5.c; sourceTree = "<group>"; };
+		9366D89C11108CC3000A897D /* md5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = md5.h; sourceTree = "<group>"; };
+		9366D89D11108CC3000A897D /* myconf.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = myconf.c; sourceTree = "<group>"; };
+		9366D89E11108CC3000A897D /* myconf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = myconf.h; sourceTree = "<group>"; };
+		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D2AAC07E0554694100DB518D /* libTokyoCabinet.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libTokyoCabinet.a; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D2AAC07C0554694100DB518D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		034768DFFF38A50411DB9C8B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D2AAC07E0554694100DB518D /* libTokyoCabinet.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0867D691FE84028FC02AAC07 /* TokyoCabinet */ = {
+			isa = PBXGroup;
+			children = (
+				08FB77AEFE84172EC02AAC07 /* Classes */,
+				32C88DFF0371C24200C91783 /* Other Sources */,
+				0867D69AFE84028FC02AAC07 /* Frameworks */,
+				034768DFFF38A50411DB9C8B /* Products */,
+			);
+			name = TokyoCabinet;
+			sourceTree = "<group>";
+		};
+		0867D69AFE84028FC02AAC07 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AACBBE490F95108600F1A2B1 /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		08FB77AEFE84172EC02AAC07 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		32C88DFF0371C24200C91783 /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				9366D89B11108CC3000A897D /* md5.c */,
+				9366D89C11108CC3000A897D /* md5.h */,
+				9366D89D11108CC3000A897D /* myconf.c */,
+				9366D89E11108CC3000A897D /* myconf.h */,
+				9366D85D11108CB8000A897D /* tcadb.c */,
+				9366D85E11108CB8000A897D /* tcadb.h */,
+				9366D85F11108CB8000A897D /* tcamgr.c */,
+				9366D86011108CB8000A897D /* tcamttest.c */,
+				9366D86111108CB8000A897D /* tcatest.c */,
+				9366D86211108CB8000A897D /* tcawmgr.c */,
+				9366D86311108CB8000A897D /* tcbdb.c */,
+				9366D86411108CB8000A897D /* tcbdb.h */,
+				9366D86511108CB8000A897D /* tcbmgr.c */,
+				9366D86611108CB8000A897D /* tcbmttest.c */,
+				9366D86711108CB8000A897D /* tcbtest.c */,
+				9366D86811108CB8000A897D /* tcfdb.c */,
+				9366D86911108CB8000A897D /* tcfdb.h */,
+				9366D86A11108CB8000A897D /* tcfmgr.c */,
+				9366D86B11108CB8000A897D /* tcfmttest.c */,
+				9366D86C11108CB8000A897D /* tcftest.c */,
+				9366D86D11108CB8000A897D /* tchdb.c */,
+				9366D86E11108CB8000A897D /* tchdb.h */,
+				9366D86F11108CB8000A897D /* tchmgr.c */,
+				9366D87011108CB8000A897D /* tchmttest.c */,
+				9366D87111108CB8000A897D /* tchtest.c */,
+				9366D87211108CB8000A897D /* tctdb.c */,
+				9366D87311108CB8000A897D /* tctdb.h */,
+				9366D87411108CB8000A897D /* tctmgr.c */,
+				9366D87511108CB8000A897D /* tctmttest.c */,
+				9366D87611108CB8000A897D /* tcttest.c */,
+				9366D87711108CB8000A897D /* tcucodec.c */,
+				9366D87811108CB8000A897D /* tcumttest.c */,
+				9366D87911108CB8000A897D /* tcutest.c */,
+				9366D87A11108CB8000A897D /* tcutil.c */,
+				9366D87B11108CB8000A897D /* tcutil.h */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		D2AAC07A0554694100DB518D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9366D87D11108CB8000A897D /* tcadb.h in Headers */,
+				9366D88311108CB8000A897D /* tcbdb.h in Headers */,
+				9366D88811108CB8000A897D /* tcfdb.h in Headers */,
+				9366D88D11108CB8000A897D /* tchdb.h in Headers */,
+				9366D89211108CB8000A897D /* tctdb.h in Headers */,
+				9366D89A11108CB8000A897D /* tcutil.h in Headers */,
+				9366D8A011108CC3000A897D /* md5.h in Headers */,
+				9366D8A211108CC3000A897D /* myconf.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		D2AAC07D0554694100DB518D /* TokyoCabinet */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1DEB921E08733DC00010E9CD /* Build configuration list for PBXNativeTarget "TokyoCabinet" */;
+			buildPhases = (
+				D2AAC07A0554694100DB518D /* Headers */,
+				D2AAC07B0554694100DB518D /* Sources */,
+				D2AAC07C0554694100DB518D /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TokyoCabinet;
+			productName = TokyoCabinet;
+			productReference = D2AAC07E0554694100DB518D /* libTokyoCabinet.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0867D690FE84028FC02AAC07 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "TokyoCabinet" */;
+			compatibilityVersion = "Xcode 3.1";
+			hasScannedForEncodings = 1;
+			mainGroup = 0867D691FE84028FC02AAC07 /* TokyoCabinet */;
+			productRefGroup = 034768DFFF38A50411DB9C8B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D2AAC07D0554694100DB518D /* TokyoCabinet */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D2AAC07B0554694100DB518D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9366D87C11108CB8000A897D /* tcadb.c in Sources */,
+				9366D87E11108CB8000A897D /* tcamgr.c in Sources */,
+				9366D87F11108CB8000A897D /* tcamttest.c in Sources */,
+				9366D88011108CB8000A897D /* tcatest.c in Sources */,
+				9366D88111108CB8000A897D /* tcawmgr.c in Sources */,
+				9366D88211108CB8000A897D /* tcbdb.c in Sources */,
+				9366D88411108CB8000A897D /* tcbmgr.c in Sources */,
+				9366D88511108CB8000A897D /* tcbmttest.c in Sources */,
+				9366D88611108CB8000A897D /* tcbtest.c in Sources */,
+				9366D88711108CB8000A897D /* tcfdb.c in Sources */,
+				9366D88911108CB8000A897D /* tcfmgr.c in Sources */,
+				9366D88A11108CB8000A897D /* tcfmttest.c in Sources */,
+				9366D88B11108CB8000A897D /* tcftest.c in Sources */,
+				9366D88C11108CB8000A897D /* tchdb.c in Sources */,
+				9366D88E11108CB8000A897D /* tchmgr.c in Sources */,
+				9366D88F11108CB8000A897D /* tchmttest.c in Sources */,
+				9366D89011108CB8000A897D /* tchtest.c in Sources */,
+				9366D89111108CB8000A897D /* tctdb.c in Sources */,
+				9366D89311108CB8000A897D /* tctmgr.c in Sources */,
+				9366D89411108CB8000A897D /* tctmttest.c in Sources */,
+				9366D89511108CB8000A897D /* tcttest.c in Sources */,
+				9366D89611108CB8000A897D /* tcucodec.c in Sources */,
+				9366D89711108CB8000A897D /* tcumttest.c in Sources */,
+				9366D89811108CB8000A897D /* tcutest.c in Sources */,
+				9366D89911108CB8000A897D /* tcutil.c in Sources */,
+				9366D89F11108CC3000A897D /* md5.c in Sources */,
+				9366D8A111108CC3000A897D /* myconf.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		1DEB921F08733DC00010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = NO;
+				DSTROOT = /tmp/TokyoCabinet.dst;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "";
+				GCC_THUMB_SUPPORT = NO;
+				INSTALL_PATH = /usr/local/lib;
+				PRODUCT_NAME = TokyoCabinet;
+			};
+			name = Debug;
+		};
+		1DEB922008733DC00010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				DSTROOT = /tmp/TokyoCabinet.dst;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "";
+				GCC_THUMB_SUPPORT = NO;
+				INSTALL_PATH = /usr/local/lib;
+				PRODUCT_NAME = TokyoCabinet;
+			};
+			name = Release;
+		};
+		1DEB922308733DC00010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				OTHER_LDFLAGS = "-ObjC";
+				PREBINDING = NO;
+				SDKROOT = iphoneos3.1.2;
+			};
+			name = Debug;
+		};
+		1DEB922408733DC00010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				OTHER_LDFLAGS = "-ObjC";
+				PREBINDING = NO;
+				SDKROOT = iphoneos3.1.2;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1DEB921E08733DC00010E9CD /* Build configuration list for PBXNativeTarget "TokyoCabinet" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB921F08733DC00010E9CD /* Debug */,
+				1DEB922008733DC00010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "TokyoCabinet" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB922308733DC00010E9CD /* Debug */,
+				1DEB922408733DC00010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0867D690FE84028FC02AAC07 /* Project object */;
+}

@@ -32,8 +32,8 @@ int main (int argc, const char * argv[]) {
     [store setBackend:backend];
     [backend release];
     
-    [store addClass:[Song class] expectedCount:SONG_COUNT];
-    [store addClass:[Playlist class] expectedCount:playlistCount];
+    [store addClass:[Song class]];
+    [store addClass:[Playlist class]];
 
     NSMutableArray *songs = [[NSMutableArray alloc] initWithCapacity:SONG_COUNT];
     

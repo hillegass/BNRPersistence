@@ -23,7 +23,6 @@
 		9366D826110F3F98000A897D /* BNRBackendCursor.m in Sources */ = {isa = PBXBuildFile; fileRef = 9366D811110F3F98000A897D /* BNRBackendCursor.m */; };
 		9366D828110F3F98000A897D /* BNRClassMetaData.m in Sources */ = {isa = PBXBuildFile; fileRef = 9366D815110F3F98000A897D /* BNRClassMetaData.m */; };
 		9366D829110F3F98000A897D /* BNRDataBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9366D817110F3F98000A897D /* BNRDataBuffer.m */; };
-		9366D82A110F3F98000A897D /* BNRIntDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 9366D819110F3F98000A897D /* BNRIntDictionary.m */; };
 		9366D82C110F3F98000A897D /* BNRStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 9366D81D110F3F98000A897D /* BNRStore.m */; };
 		9366D82D110F3F98000A897D /* BNRStoreBackend.m in Sources */ = {isa = PBXBuildFile; fileRef = 9366D81F110F3F98000A897D /* BNRStoreBackend.m */; };
 		9366D82E110F3F98000A897D /* BNRStoredObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 9366D821110F3F98000A897D /* BNRStoredObject.m */; };
@@ -61,8 +60,6 @@
 		9366D815110F3F98000A897D /* BNRClassMetaData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BNRClassMetaData.m; path = ../BNRPersistence/BNRClassMetaData.m; sourceTree = SOURCE_ROOT; };
 		9366D816110F3F98000A897D /* BNRDataBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BNRDataBuffer.h; path = ../BNRPersistence/BNRDataBuffer.h; sourceTree = SOURCE_ROOT; };
 		9366D817110F3F98000A897D /* BNRDataBuffer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BNRDataBuffer.m; path = ../BNRPersistence/BNRDataBuffer.m; sourceTree = SOURCE_ROOT; };
-		9366D818110F3F98000A897D /* BNRIntDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BNRIntDictionary.h; path = ../BNRPersistence/BNRIntDictionary.h; sourceTree = SOURCE_ROOT; };
-		9366D819110F3F98000A897D /* BNRIntDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BNRIntDictionary.m; path = ../BNRPersistence/BNRIntDictionary.m; sourceTree = SOURCE_ROOT; };
 		9366D81C110F3F98000A897D /* BNRStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BNRStore.h; path = ../BNRPersistence/BNRStore.h; sourceTree = SOURCE_ROOT; };
 		9366D81D110F3F98000A897D /* BNRStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BNRStore.m; path = ../BNRPersistence/BNRStore.m; sourceTree = SOURCE_ROOT; };
 		9366D81E110F3F98000A897D /* BNRStoreBackend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BNRStoreBackend.h; path = ../BNRPersistence/BNRStoreBackend.h; sourceTree = SOURCE_ROOT; };
@@ -167,7 +164,7 @@
 		9366D80C110F3F58000A897D /* BNRPersistence */ = {
 			isa = PBXGroup;
 			children = (
-				93644B8F11129A5C008CA083 /* BNRTCBackend.mm */,
+				9366D812110F3F98000A897D /* BNRClassDictionary.h */,
 				9366DA6E1112158A000A897D /* BNRClassDictionary.mm */,
 				9366DA6F1112158A000A897D /* BNRUniquingTable.h */,
 				9366DA701112158A000A897D /* BNRUniquingTable.mm */,
@@ -175,13 +172,10 @@
 				9366DA721112158A000A897D /* BNRUniquingTableEnumerator.mm */,
 				9366D810110F3F98000A897D /* BNRBackendCursor.h */,
 				9366D811110F3F98000A897D /* BNRBackendCursor.m */,
-				9366D812110F3F98000A897D /* BNRClassDictionary.h */,
 				9366D814110F3F98000A897D /* BNRClassMetaData.h */,
 				9366D815110F3F98000A897D /* BNRClassMetaData.m */,
 				9366D816110F3F98000A897D /* BNRDataBuffer.h */,
 				9366D817110F3F98000A897D /* BNRDataBuffer.m */,
-				9366D818110F3F98000A897D /* BNRIntDictionary.h */,
-				9366D819110F3F98000A897D /* BNRIntDictionary.m */,
 				9366D81C110F3F98000A897D /* BNRStore.h */,
 				9366D81D110F3F98000A897D /* BNRStore.m */,
 				9366D81E110F3F98000A897D /* BNRStoreBackend.h */,
@@ -189,6 +183,7 @@
 				9366D820110F3F98000A897D /* BNRStoredObject.h */,
 				9366D821110F3F98000A897D /* BNRStoredObject.m */,
 				9366D822110F3F98000A897D /* BNRTCBackend.h */,
+				93644B8F11129A5C008CA083 /* BNRTCBackend.mm */,
 				9366D824110F3F98000A897D /* BNRTCBackendCursor.h */,
 				9366D825110F3F98000A897D /* BNRTCBackendCursor.m */,
 			);
@@ -253,7 +248,6 @@
 				9366D826110F3F98000A897D /* BNRBackendCursor.m in Sources */,
 				9366D828110F3F98000A897D /* BNRClassMetaData.m in Sources */,
 				9366D829110F3F98000A897D /* BNRDataBuffer.m in Sources */,
-				9366D82A110F3F98000A897D /* BNRIntDictionary.m in Sources */,
 				9366D82C110F3F98000A897D /* BNRStore.m in Sources */,
 				9366D82D110F3F98000A897D /* BNRStoreBackend.m in Sources */,
 				9366D82E110F3F98000A897D /* BNRStoredObject.m in Sources */,

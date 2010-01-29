@@ -110,7 +110,7 @@
 
 #pragma mark Class metadata
 
-- (void)addClass:(Class)c expectedCount:(UInt32)eCount;
+- (void)addClass:(Class)c;
 - (unsigned)nextRowIDForClass:(Class)c;
 - (unsigned char)versionForClass:(Class)c;
 - (Class)classForClassID:(unsigned char)c;
