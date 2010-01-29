@@ -27,7 +27,7 @@
 @interface BNRStoredObject : NSObject {
     
     // Weak reference
-    BNRStore *store;
+    __weak BNRStore *store;
     
     // rowID is given out by the store. No other instance
     // of the class will have the same rowID

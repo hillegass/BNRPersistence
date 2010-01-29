@@ -24,6 +24,10 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		93644C6911134E01008CA083 /* SpeedTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 93644C6811134E01008CA083 /* SpeedTest.m */; };
+		93644C6A11134E01008CA083 /* SpeedTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 93644C6811134E01008CA083 /* SpeedTest.m */; };
+		93644C6B11134E01008CA083 /* SpeedTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 93644C6811134E01008CA083 /* SpeedTest.m */; };
+		93644C6C11134E01008CA083 /* SpeedTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 93644C6811134E01008CA083 /* SpeedTest.m */; };
 		9366D799110E35D0000A897D /* Playlist.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D50515110B8B2700E5D2F0 /* Playlist.m */; };
 		9366D79A110E35DE000A897D /* Playlist.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D50515110B8B2700E5D2F0 /* Playlist.m */; };
 		9366D9FC11120568000A897D /* BNRUniquingTable.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9366D9F811120568000A897D /* BNRUniquingTable.mm */; };
@@ -124,6 +128,8 @@
 
 /* Begin PBXFileReference section */
 		08FB779EFE84155DC02AAC07 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		93644C6711134E01008CA083 /* SpeedTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpeedTest.h; sourceTree = SOURCE_ROOT; };
+		93644C6811134E01008CA083 /* SpeedTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpeedTest.m; sourceTree = SOURCE_ROOT; };
 		9366D9F711120568000A897D /* BNRUniquingTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BNRUniquingTable.h; path = ../BNRPersistence/BNRUniquingTable.h; sourceTree = SOURCE_ROOT; };
 		9366D9F811120568000A897D /* BNRUniquingTable.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = BNRUniquingTable.mm; path = ../BNRPersistence/BNRUniquingTable.mm; sourceTree = SOURCE_ROOT; };
 		9366D9F911120568000A897D /* BNRUniquingTableEnumerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BNRUniquingTableEnumerator.h; path = ../BNRPersistence/BNRUniquingTableEnumerator.h; sourceTree = SOURCE_ROOT; };
@@ -216,7 +222,7 @@
 			isa = PBXGroup;
 			children = (
 				93D50701110BE4BD00E5D2F0 /* Unit tests */,
-				93D50506110B888600E5D2F0 /* BNRPersisence */,
+				93D50506110B888600E5D2F0 /* BNRPersistence */,
 				08FB7795FE84155DC02AAC07 /* Source */,
 				08FB779DFE84155DC02AAC07 /* External Frameworks and Libraries */,
 				1AB674ADFE9D54B511CA2CBB /* Products */,
@@ -228,6 +234,8 @@
 		08FB7795FE84155DC02AAC07 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				93644C6711134E01008CA083 /* SpeedTest.h */,
+				93644C6811134E01008CA083 /* SpeedTest.m */,
 				93D50A29110D520D00E5D2F0 /* SimpleFetchTest.m */,
 				93D50956110D4A0F00E5D2F0 /* SimpleInsertTest.m */,
 				93D50824110CB29000E5D2F0 /* ComplexInsertTest.m */,
@@ -274,7 +282,7 @@
 			name = DataStructures;
 			sourceTree = "<group>";
 		};
-		93D50506110B888600E5D2F0 /* BNRPersisence */ = {
+		93D50506110B888600E5D2F0 /* BNRPersistence */ = {
 			isa = PBXGroup;
 			children = (
 				9366DA0711120583000A897D /* DataStructures */,
@@ -295,7 +303,7 @@
 				93D504F1110B883700E5D2F0 /* BNRTCBackendCursor.h */,
 				93D504F2110B883700E5D2F0 /* BNRTCBackendCursor.m */,
 			);
-			name = BNRPersisence;
+			name = BNRPersistence;
 			sourceTree = "<group>";
 		};
 		93D50701110BE4BD00E5D2F0 /* Unit tests */ = {
@@ -467,6 +475,7 @@
 				93D50825110CB29000E5D2F0 /* ComplexInsertTest.m in Sources */,
 				9366DA0511120568000A897D /* BNRUniquingTable.mm in Sources */,
 				9366DA0611120568000A897D /* BNRUniquingTableEnumerator.mm in Sources */,
+				93644C6C11134E01008CA083 /* SpeedTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -488,6 +497,7 @@
 				93D508BA110D2E9F00E5D2F0 /* ComplexFetchTest.m in Sources */,
 				9366DA0211120568000A897D /* BNRUniquingTable.mm in Sources */,
 				9366DA0311120568000A897D /* BNRUniquingTableEnumerator.mm in Sources */,
+				93644C6B11134E01008CA083 /* SpeedTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -509,6 +519,7 @@
 				93D50957110D4A0F00E5D2F0 /* SimpleInsertTest.m in Sources */,
 				9366D9FF11120568000A897D /* BNRUniquingTable.mm in Sources */,
 				9366DA0011120568000A897D /* BNRUniquingTableEnumerator.mm in Sources */,
+				93644C6A11134E01008CA083 /* SpeedTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -530,6 +541,7 @@
 				93D50A2A110D520D00E5D2F0 /* SimpleFetchTest.m in Sources */,
 				9366D9FC11120568000A897D /* BNRUniquingTable.mm in Sources */,
 				9366D9FD11120568000A897D /* BNRUniquingTableEnumerator.mm in Sources */,
+				93644C6911134E01008CA083 /* SpeedTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -569,7 +581,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = NO;
-				SDKROOT = macosx10.6;
+				SDKROOT = macosx10.5;
 			};
 			name = Debug;
 		};
@@ -581,7 +593,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				PREBINDING = NO;
-				SDKROOT = macosx10.6;
+				SDKROOT = macosx10.5;
 			};
 			name = Release;
 		};

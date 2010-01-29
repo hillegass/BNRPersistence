@@ -1,0 +1,9 @@
+# Ignore everything in an .xcodeproj except the project.pbxproj.
+*.xcodeproj/
+!*.xcodeproj/project.pbxproj
+# Ignore all build products.
+build/
+# Ignore commitlog files.
+commitlog
+# Ignore Finder spam.
+\.DS_Store

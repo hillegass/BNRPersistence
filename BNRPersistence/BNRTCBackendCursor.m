@@ -50,13 +50,15 @@
     }
     
     result = CFSwapInt32LittleToHost(*buffer);
-    
-    int bufferSize;
-    void *data = tchdbget(file, buffer, sizeof(UInt32), &bufferSize);
+
+    // Avoid fetching data if possible.
+    if (nil != buff) {
+        int bufferSize;
+        void *data = tchdbget(file, buffer, sizeof(UInt32), &bufferSize);
         
-    [buff setData:data
-           length:bufferSize];
-    
+        [buff setData:data
+               length:bufferSize];
+    }
     return result;
 }
 

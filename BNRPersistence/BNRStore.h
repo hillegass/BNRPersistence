@@ -78,12 +78,15 @@
 
 #pragma mark Fetching
 
-// Fetching a single object
+// Fetches the single object of class |c| at row |n|.
+// The object's content will be fetched if necessary if |yn| is YES.
+// |yn| does not affect any content the object already has.
 - (BNRStoredObject *)objectForClass:(Class)c 
                               rowID:(UInt32)n 
                        fetchContent:(BOOL)yn;
 
-// Fetching all of a particular class
+// Fetches all stored objects of a particular class.
+// All returned objects have content.
 - (NSMutableArray *)allObjectsForClass:(Class)c;
 
 

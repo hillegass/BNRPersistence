@@ -1,36 +1,16 @@
-#import <Foundation/Foundation.h>
-#import "Song.h"
-#import "Playlist.h"
-#import "BNRStore.h"
-#import "BNRTCBackend.h"
-
-#import <mach/mach_time.h>
-
-#define SONG_COUNT (100000)
-#define SONGS_PER_LIST (100)
+#import "SpeedTest.h"
 
 int main (int argc, const char * argv[]) {
-    
     NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
-    int playlistCount = SONG_COUNT/SONGS_PER_LIST;
+    int playlistCount = PLAYLIST_COUNT;
 
-    NSLog(@"BNRPersistence: Inserting %d playlists, %d songs, %d songs per playlist",
-          playlistCount, SONG_COUNT, SONGS_PER_LIST);
-    
+    NSLog(@"%s: Inserting %d playlists, %d songs, %d songs per playlist",
+          getprogname(), playlistCount, SONG_COUNT, SONGS_PER_LIST);
+
     uint64_t start = mach_absolute_time();
-    
-    NSError *error;
-    NSString *path = @"/tmp/complextest/";
-    BNRTCBackend *backend = [[BNRTCBackend alloc] initWithPath:path
-                                                         error:&error];
-    if (!backend) {
-        NSLog(@"Unable to create database at %@", path);
-        exit(-1);
-    }
-    
-    BNRStore *store = [[BNRStore alloc] init];
-    [store setBackend:backend];
-    [backend release];
+
+    BNRStore *store = CreateStoreAtPath(@COMPLEXTEST_PATH);
+    if (!store) exit(EXIT_FAILURE);
     
     [store addClass:[Song class]];
     [store addClass:[Playlist class]];
@@ -61,11 +41,12 @@ int main (int argc, const char * argv[]) {
         [store insertObject:playlist];
         [playlist release];
     }
-    
+
+    NSError *error = nil;
     BOOL success = [store saveChanges:&error];
     if (!success) {
         NSLog(@"error = %@", [error localizedDescription]);
-        return -1;
+        return EXIT_FAILURE;
     }
     
     // Interestingly, it is quicker to release the store before the StoredObjects
@@ -76,17 +57,6 @@ int main (int argc, const char * argv[]) {
     [pool drain];
 
     uint64_t end = mach_absolute_time();
-    uint64_t elapsed = end - start;
-    
-    mach_timebase_info_data_t info;
-    if (mach_timebase_info (&info) != KERN_SUCCESS) {
-        printf ("mach_timebase_info failed\n");
-    }
-    
-    uint64_t nanosecs = elapsed * info.numer / info.denom;
-    uint64_t millisecs = nanosecs / 1000000;
-
-    fprintf(stderr, "Elapsed time: %lu\n", (long unsigned int)millisecs); 
-    
-    return 0;
+    LogElapsedTime(start, end);
+    return EXIT_SUCCESS;
 }

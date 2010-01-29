@@ -22,6 +22,7 @@
 
 #import "BNRClassMetaData.h"
 #import "BNRDataBuffer.h"
+#import <libkern/OSAtomic.h>
 
 @implementation BNRClassMetaData
 
@@ -56,8 +57,10 @@
 }
 - (UInt32)nextPrimaryKey
 {
-    lastPrimaryKey++;
-    return lastPrimaryKey;
+    // FIXME: Write AtomicIncrementUInt32Barrier() using Atomic C&S.
+    UInt32 nextPrimaryKey = (UInt32)OSAtomicIncrement32Barrier(
+                                (volatile int32_t *)&lastPrimaryKey);
+    return nextPrimaryKey;
 }
 
 - (unsigned char)versionNumber

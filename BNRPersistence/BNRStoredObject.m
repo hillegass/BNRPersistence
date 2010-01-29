@@ -40,8 +40,23 @@
 }
 @end
 
+@interface BNRStoredObject ()
+- (void)setHasContent:(BOOL)yn;
+@end
 
 @implementation BNRStoredObject
+// NOT the designated initializer, just a convenience for BNRStore.
+- (id)initWithStore:(BNRStore *)s rowID:(UInt32)n buffer:(BNRDataBuffer *)buffer {
+    self = [self init];
+    // Known to return non-nil, so no test.
+    store = s;
+    rowID = n;
+    if (nil != buffer) {
+        [self readContentFromBuffer:buffer];
+        [self setHasContent:YES];
+    }
+    return self;
+}
 
 - (id)init
 {
@@ -96,33 +111,25 @@
 {
     // Do I currently have content?
     if ([self hasContent]) {
-        if (yn == NO)
-            status--;
-    } else {
-        if (yn == YES)
-            status++;
-    }
+        if (yn == NO) status--;  // just lost content
+    } else if (yn == YES) status++;  // just gained content
 }
 - (void)fetchContent
 {
-    if (rowID == 0) {
-        return;
-    }
+    if (0U == rowID) return;
+
     BNRStoreBackend *backend = [[self store] backend];
     BNRDataBuffer *d = [backend dataForClass:[self class]
                                        rowID:[self rowID]];
-    if (!d) {
-        return;
-    }
+    if (!d) return;
+
     [self readContentFromBuffer:d];
     [self setHasContent:YES];
 }
 
 - (void)checkForContent
 {
-    if (![self hasContent]) {
-        [self fetchContent];
-    }
+    if (![self hasContent]) [self fetchContent];
 }
 
 - (NSUInteger)retainCount
@@ -153,11 +160,7 @@
 - (oneway void)release
 {
     status -= 2;
-
-    if (status < 2) {
-        [self dealloc];
-    }
-    
+    if (status < 2) [self dealloc];
 }
 
 @end

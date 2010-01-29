@@ -24,6 +24,12 @@
 #import <Foundation/Foundation.h>
 @class BNRDataBuffer;
 
+/*!
+ @const kBNRMetadataRowID
+ @abstract Defines the row ID where class metadata are stored.
+ */
+#define kBNRMetadataRowID (1)
+
 /*! 
  @class BNRClassMetaData
  @abstract Holds onto the classID, the last primary key given out, and
@@ -47,7 +53,7 @@
     // These attributes are stored as record 1 in the database
     // for the class
     unsigned char classID;
-    UInt32 lastPrimaryKey;
+    volatile UInt32 lastPrimaryKey;
     unsigned char versionNumber;
 } 
 
@@ -68,8 +74,8 @@
 /*!
  @method nextPrimaryKey
  @abstract Returns a unique row ID for that class
- @discussion This method increments the lastPrimaryKey and returns it.  
- This is not currently threadsafe. 
+ @discussion This method increments the lastPrimaryKey and returns it.
+ Threadsafe.
 */
 - (UInt32)nextPrimaryKey;
 

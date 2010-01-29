@@ -21,7 +21,6 @@
 // THE SOFTWARE.
 
 #import "BNRClassDictionary.h"
-#import "BNRClassDictionaryEnumerator.h"
 
 @implementation BNRClassDictionary
 
