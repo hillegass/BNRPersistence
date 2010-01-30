@@ -6,9 +6,8 @@
 //  Copyright Big Nerd Ranch 2010 . All rights reserved.
 //
 
-NSManagedObjectModel *managedObjectModel();
-NSManagedObjectContext *managedObjectContext();
 #import <mach/mach_time.h>
+#import "SpeedTest.h"
 
 int main (int argc, const char * argv[]) {
     NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
@@ -16,7 +15,7 @@ int main (int argc, const char * argv[]) {
     uint64_t start = mach_absolute_time();
 	
 	// Create the managed object context
-    NSManagedObjectContext *context = managedObjectContext();
+    NSManagedObjectContext *context = managedObjectContext(@"CDComplex");
 
     NSFetchRequest *fr = [[NSFetchRequest alloc] init];
     NSEntityDescription *ed = [NSEntityDescription entityForName:@"Playlist"
@@ -47,67 +46,8 @@ int main (int argc, const char * argv[]) {
     [pool drain];
     
     uint64_t end = mach_absolute_time();
-    uint64_t elapsed = end - start;
     
-    mach_timebase_info_data_t info;
-    mach_timebase_info (&info);    
-    uint64_t nanosecs = elapsed * info.numer / info.denom;
-    uint64_t millisecs = nanosecs / 1000000;
-    fprintf(stderr, "Elapsed time: %lu\n", (long unsigned int)millisecs); 
-    
-    
+    LogElapsedTime(start, end);
     return 0;
-}
-
-
-
-NSManagedObjectModel *managedObjectModel() {
-    
-    static NSManagedObjectModel *model = nil;
-    
-    if (model != nil) {
-        return model;
-    }
-    
-	NSString *path = @"CDComplex.mom";
-	NSURL *modelURL = [NSURL fileURLWithPath:path];
-    model = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
-    if (!model) {
-        NSLog(@"unable to create model");
-    }
-
-    return model;
-}
-
-
-
-NSManagedObjectContext *managedObjectContext() {
-	
-    static NSManagedObjectContext *context = nil;
-    if (context != nil) {
-        return context;
-    }
-    
-    context = [[NSManagedObjectContext alloc] init];
-    NSManagedObjectModel *model = managedObjectModel();
-    NSPersistentStoreCoordinator *coordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:model];
-    [model release];
-    [context setPersistentStoreCoordinator: coordinator];
-    [coordinator release];
-    
-    NSString *STORE_TYPE = NSSQLiteStoreType;
-	
-	NSURL *url = [NSURL fileURLWithPath:@"/tmp/complex.sql"];
-    
-	NSError *error;
-    NSPersistentStore *newStore = [coordinator addPersistentStoreWithType:STORE_TYPE configuration:nil URL:url options:nil error:&error];
-    
-    if (newStore == nil) {
-        NSLog(@"Store Configuration Failure\n%@",
-              ([error localizedDescription] != nil) ?
-              [error localizedDescription] : @"Unknown Error");
-    }
-    
-    return context;
 }
 

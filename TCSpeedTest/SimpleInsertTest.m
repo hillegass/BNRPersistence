@@ -3,7 +3,7 @@
 int main (int argc, const char * argv[]) {    
     NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
 
-    NSLog(@"%s: %d songs", getprogname(), SONG_COUNT);
+    NSLog(@"%s: %d songs", getprogname(), BIG_SONG_COUNT);
 
     uint64_t start = mach_absolute_time();
     
@@ -12,9 +12,9 @@ int main (int argc, const char * argv[]) {
 
     [store addClass:[Song class]];
 
-    NSMutableArray *songs = [[NSMutableArray alloc] initWithCapacity:SONG_COUNT];
+    NSMutableArray *songs = [[NSMutableArray alloc] initWithCapacity:BIG_SONG_COUNT];
 
-    for (int i = 0; i < SONG_COUNT; i++) {
+    for (int i = 0; i < BIG_SONG_COUNT; i++) {
         Song *song = [[Song alloc] init];
         [song setTitle:@"Test Song"];
         [song setSeconds:i];

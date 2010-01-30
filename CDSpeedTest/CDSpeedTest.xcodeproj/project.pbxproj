@@ -26,6 +26,10 @@
 /* Begin PBXBuildFile section */
 		288AFF370F563DBA0085E73F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288AFF360F563DBA0085E73F /* CoreData.framework */; };
 		8DD76F9C0486AA7600D96B5E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08FB779EFE84155DC02AAC07 /* Foundation.framework */; };
+		93644D0E1114C4DD008CA083 /* SpeedTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 93644D0D1114C4DD008CA083 /* SpeedTest.m */; };
+		93644D0F1114C4DD008CA083 /* SpeedTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 93644D0D1114C4DD008CA083 /* SpeedTest.m */; };
+		93644D101114C4DD008CA083 /* SpeedTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 93644D0D1114C4DD008CA083 /* SpeedTest.m */; };
+		93644D111114C4DD008CA083 /* SpeedTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 93644D0D1114C4DD008CA083 /* SpeedTest.m */; };
 		93D508F6110D32BE00E5D2F0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08FB779EFE84155DC02AAC07 /* Foundation.framework */; };
 		93D508F7110D32BE00E5D2F0 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288AFF360F563DBA0085E73F /* CoreData.framework */; };
 		93D5090A110D345F00E5D2F0 /* ComplexInsertTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D50909110D345A00E5D2F0 /* ComplexInsertTest.m */; };
@@ -117,6 +121,8 @@
 		288AFF340F563D390085E73F /* CDSpeedTest_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDSpeedTest_Prefix.pch; sourceTree = "<group>"; };
 		288AFF360F563DBA0085E73F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		8DD76FA10486AA7600D96B5E /* ComplexInsertTest */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ComplexInsertTest; sourceTree = BUILT_PRODUCTS_DIR; };
+		93644D0C1114C4DC008CA083 /* SpeedTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpeedTest.h; sourceTree = SOURCE_ROOT; };
+		93644D0D1114C4DD008CA083 /* SpeedTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpeedTest.m; sourceTree = SOURCE_ROOT; };
 		93D508FC110D32BE00E5D2F0 /* ComplexFetchTest */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ComplexFetchTest; sourceTree = BUILT_PRODUCTS_DIR; };
 		93D50908110D345A00E5D2F0 /* ComplexFetchTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComplexFetchTest.m; sourceTree = SOURCE_ROOT; };
 		93D50909110D345A00E5D2F0 /* ComplexInsertTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComplexInsertTest.m; sourceTree = SOURCE_ROOT; };
@@ -182,6 +188,8 @@
 		08FB7795FE84155DC02AAC07 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				93644D0C1114C4DC008CA083 /* SpeedTest.h */,
+				93644D0D1114C4DD008CA083 /* SpeedTest.m */,
 				93D509E2110D504200E5D2F0 /* SimpleFetchTest.m */,
 				93D50988110D4B7500E5D2F0 /* SimpleInsertTest.m */,
 				93D50908110D345A00E5D2F0 /* ComplexFetchTest.m */,
@@ -323,6 +331,7 @@
 			files = (
 				93D5090A110D345F00E5D2F0 /* ComplexInsertTest.m in Sources */,
 				93D509AE110D4D4200E5D2F0 /* CDComplex.xcdatamodel in Sources */,
+				93644D0E1114C4DD008CA083 /* SpeedTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -332,6 +341,7 @@
 			files = (
 				93D5090B110D346600E5D2F0 /* ComplexFetchTest.m in Sources */,
 				93D509AD110D4D4200E5D2F0 /* CDComplex.xcdatamodel in Sources */,
+				93644D0F1114C4DD008CA083 /* SpeedTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,6 +351,7 @@
 			files = (
 				93D50989110D4B7500E5D2F0 /* SimpleInsertTest.m in Sources */,
 				93D50991110D4C0700E5D2F0 /* CDSimple.xcdatamodel in Sources */,
+				93644D101114C4DD008CA083 /* SpeedTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -350,6 +361,7 @@
 			files = (
 				93D509D5110D501D00E5D2F0 /* CDSimple.xcdatamodel in Sources */,
 				93D509E3110D504200E5D2F0 /* SimpleFetchTest.m in Sources */,
+				93644D111114C4DD008CA083 /* SpeedTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
