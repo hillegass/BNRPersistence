@@ -27,6 +27,10 @@ int main (int argc, const char * argv[]) {
     NSLog(@"allSongs has %d songs", [allSongs count]);
     [fr release];
     
+    for (NSManagedObject *s in allSongs) {
+        [s valueForKey:@"title"];
+    }
+    
     [context release];
     [pool drain];
     

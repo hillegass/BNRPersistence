@@ -11,23 +11,5 @@
 
 @implementation BNRUniquingTableEnumerator
 
-- (id)initWithTable:(hash_map<PKey, id>  *)t;
-{
-    [super init];
-    mapTable = t;
-    iter = mapTable->begin();
-    return self;
-}
-
-- (id)nextObject
-{
-    if (iter == mapTable->end()) {
-        return nil;
-    }
-    UniquingHashedPair currentPair = *iter;
-    id obj = currentPair.second;
-    iter++;
-    return obj;
-}
 
 @end

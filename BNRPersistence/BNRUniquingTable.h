@@ -21,58 +21,22 @@
 // THE SOFTWARE.
 
 #import <Foundation/Foundation.h>
+@class BNRStoredObject;
 
-#ifdef __cplusplus
-#include <ext/hash_map> using namespace stdext;
-using std::pair;
-using namespace __gnu_cxx;
+struct UniquingListNode 
+{
+    BNRStoredObject *storedObject;
+    struct UniquingListNode *next;
+};
 
-typedef pair<Class, UInt32> PKey;
-
-namespace __gnu_cxx {
-    template<>
-    struct hash<PKey>
-    {
-        size_t operator()(const PKey keyValue) const
-        {
-            return (size_t)keyValue.first + keyValue.second;
-        };
-    };
-}    
-
-//struct UniquingHashConfiguration{
-//    enum {              
-//        bucket_size = 4,  // 0 < bucket_size
-//        min_buckets = 262144   // min_buckets = 2 ^^ N, 0 < N
-//    }; 
-//    
-//    size_t operator()(const PKey keyValue) const {
-//        return (size_t)keyValue.first + keyValue.second;        
-//    }
-//    
-//    bool operator()(const PKey left, const PKey right) const {
-//        //here should be the code to compare two VALUE_KEY_CLASS objects
-//        // 
-//        return (left.second == right.second) && (left.first == right.first);
-//    }
-//};
-
-typedef pair<PKey, id> UniquingHashedPair;
-
-#endif 
 
 @interface BNRUniquingTable : NSObject {
-#ifdef __cplusplus
-    hash_map<PKey, id > *mapTable;
-#else
-    void *mapTable; 
-#endif
+    UInt32 tableSize;
+    struct UniquingListNode **table;
     
 }
-- (id)objectForClass:(Class)c rowID:(UInt32)row;
-- (void)setObject:(id)obj forClass:(Class)c rowID:(UInt32)row;
+- (BNRStoredObject *)objectForClass:(Class)c rowID:(UInt32)row;
+- (void)setObject:(BNRStoredObject *)obj forClass:(Class)c rowID:(UInt32)row;
 - (void)removeObjectForClass:(Class)c rowID:(UInt32)row;
-- (NSEnumerator *)objectEnumerator;
-- (NSUInteger)count;
-
+- (void)makeAllObjectsPerformSelector:(SEL)s;
 @end

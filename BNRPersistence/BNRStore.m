@@ -67,11 +67,7 @@
 
 - (void)makeEveryStoredObjectPerformSelector:(SEL)s
 {
-    NSEnumerator *e = [uniquingTable objectEnumerator];
-    BNRStoredObject *obj;
-    while (obj = [e nextObject]){
-        [obj performSelector:s];
-    }
+    [uniquingTable makeAllObjectsPerformSelector:s];
 }
 
 
@@ -83,7 +79,6 @@
 
 - (void)dealloc
 {
-    [self makeEveryStoredObjectPerformSelector:@selector(clearStore)];
     [uniquingTable release];
     [toBeInserted release];
     [toBeDeleted release];

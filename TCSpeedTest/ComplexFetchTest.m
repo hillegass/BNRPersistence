@@ -10,7 +10,7 @@ int main (int argc, const char * argv[]) {
 
     [store addClass:[Song class]];
     [store addClass:[Playlist class]];
-
+    
     // Get all the playlists
     NSArray *allPlaylists = [store allObjectsForClass:[Playlist class]];
     NSLog(@"%s: allPlaylists has %lu playlists",
@@ -22,12 +22,13 @@ int main (int argc, const char * argv[]) {
         Song *song = [[p songs] objectAtIndex:0];
         [titles addObject:[song title]];
     }
+    
     [store release];
 
     [titles release];
 
     [pool drain];
-
+    
     uint64_t end = mach_absolute_time();
     LogElapsedTime(start, end);
     return EXIT_SUCCESS;

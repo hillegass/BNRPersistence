@@ -53,9 +53,11 @@
     rowID = n;
     if (nil != buffer) {
         [self readContentFromBuffer:buffer];
-        [self setHasContent:YES];
+        // Retain count of 1 + 1 for hasContent
+        status = 3;
     } else {
-        [self setHasContent:NO];
+        // Retain count of 1 
+        status = 2;
     }
     return self;
 }
@@ -153,7 +155,6 @@
 
 - (void)dealloc
 {
-    // FIXME: this needs to happen
     BNRUniquingTable *uniquingTable = [store uniquingTable];
     [uniquingTable removeObjectForClass:[self class] rowID:[self rowID]];
     [super dealloc];
