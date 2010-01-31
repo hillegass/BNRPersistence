@@ -13,15 +13,14 @@
 		8D15AC310486D014006FF6A4 /* MyDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A37F4ACFDCFA73011CA2CEA /* MyDocument.m */; settings = {ATTRIBUTES = (); }; };
 		8D15AC320486D014006FF6A4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A37F4B0FDCFA73011CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D15AC340486D014006FF6A4 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A7FEA54F5311CA2CBB /* Cocoa.framework */; };
-		93DC92DE0FB634840051F072 /* BNRTCBackend.m in Sources */ = {isa = PBXBuildFile; fileRef = 93DC92DB0FB634840051F072 /* BNRTCBackend.m */; };
+		934ECF271116390700F8C0E5 /* BNRClassDictionary.mm in Sources */ = {isa = PBXBuildFile; fileRef = 934ECF261116390700F8C0E5 /* BNRClassDictionary.mm */; };
+		934ECF2D1116397100F8C0E5 /* BNRTCBackend.mm in Sources */ = {isa = PBXBuildFile; fileRef = 934ECF2A1116397100F8C0E5 /* BNRTCBackend.mm */; };
+		934ECF2E1116397100F8C0E5 /* BNRUniquingTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 934ECF2C1116397100F8C0E5 /* BNRUniquingTable.m */; };
 		93DC92DF0FB634840051F072 /* BNRTCBackendCursor.m in Sources */ = {isa = PBXBuildFile; fileRef = 93DC92DD0FB634840051F072 /* BNRTCBackendCursor.m */; };
 		93DC92EB0FB63FBC0051F072 /* libtokyocabinet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 93DC92EA0FB63FBC0051F072 /* libtokyocabinet.a */; };
 		93F00F8D0D259A1100410C0E /* BNRBackendCursor.m in Sources */ = {isa = PBXBuildFile; fileRef = 93F00F6E0D259A1100410C0E /* BNRBackendCursor.m */; };
-		93F00F900D259A1100410C0E /* BNRClassDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 93F00F740D259A1100410C0E /* BNRClassDictionary.m */; };
 		93F00F910D259A1100410C0E /* BNRClassMetaData.m in Sources */ = {isa = PBXBuildFile; fileRef = 93F00F760D259A1100410C0E /* BNRClassMetaData.m */; };
 		93F00F920D259A1100410C0E /* BNRDataBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = 93F00F780D259A1100410C0E /* BNRDataBuffer.m */; };
-		93F00F930D259A1100410C0E /* BNRIntDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 93F00F7A0D259A1100410C0E /* BNRIntDictionary.m */; };
-		93F00F940D259A1100410C0E /* BNRMapTableEnumerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 93F00F7C0D259A1100410C0E /* BNRMapTableEnumerator.m */; };
 		93F00F950D259A1100410C0E /* BNRStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 93F00F7E0D259A1100410C0E /* BNRStore.m */; };
 		93F00F960D259A1100410C0E /* BNRStoreBackend.m in Sources */ = {isa = PBXBuildFile; fileRef = 93F00F800D259A1100410C0E /* BNRStoreBackend.m */; };
 		93F00F970D259A1100410C0E /* BNRStoredObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 93F00F820D259A1100410C0E /* BNRStoredObject.m */; };
@@ -46,23 +45,21 @@
 		32DBCF750370BD2300C91783 /* PersistenceTest_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersistenceTest_Prefix.pch; sourceTree = "<group>"; };
 		8D15AC360486D014006FF6A4 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D15AC370486D014006FF6A4 /* PersistenceTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PersistenceTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		934ECF261116390700F8C0E5 /* BNRClassDictionary.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = BNRClassDictionary.mm; path = ../BNRPersistence/BNRClassDictionary.mm; sourceTree = SOURCE_ROOT; };
+		934ECF2A1116397100F8C0E5 /* BNRTCBackend.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = BNRTCBackend.mm; path = ../BNRPersistence/BNRTCBackend.mm; sourceTree = SOURCE_ROOT; };
+		934ECF2B1116397100F8C0E5 /* BNRUniquingTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BNRUniquingTable.h; path = ../BNRPersistence/BNRUniquingTable.h; sourceTree = SOURCE_ROOT; };
+		934ECF2C1116397100F8C0E5 /* BNRUniquingTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BNRUniquingTable.m; path = ../BNRPersistence/BNRUniquingTable.m; sourceTree = SOURCE_ROOT; };
 		93DC92DA0FB634840051F072 /* BNRTCBackend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BNRTCBackend.h; path = ../BNRPersistence/BNRTCBackend.h; sourceTree = SOURCE_ROOT; };
-		93DC92DB0FB634840051F072 /* BNRTCBackend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BNRTCBackend.m; path = ../BNRPersistence/BNRTCBackend.m; sourceTree = SOURCE_ROOT; };
 		93DC92DC0FB634840051F072 /* BNRTCBackendCursor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BNRTCBackendCursor.h; path = ../BNRPersistence/BNRTCBackendCursor.h; sourceTree = SOURCE_ROOT; };
 		93DC92DD0FB634840051F072 /* BNRTCBackendCursor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BNRTCBackendCursor.m; path = ../BNRPersistence/BNRTCBackendCursor.m; sourceTree = SOURCE_ROOT; };
 		93DC92EA0FB63FBC0051F072 /* libtokyocabinet.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libtokyocabinet.a; path = /usr/local/lib/libtokyocabinet.a; sourceTree = "<absolute>"; };
 		93F00F6D0D259A1100410C0E /* BNRBackendCursor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BNRBackendCursor.h; path = ../BNRPersistence/BNRBackendCursor.h; sourceTree = SOURCE_ROOT; };
 		93F00F6E0D259A1100410C0E /* BNRBackendCursor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BNRBackendCursor.m; path = ../BNRPersistence/BNRBackendCursor.m; sourceTree = SOURCE_ROOT; };
 		93F00F730D259A1100410C0E /* BNRClassDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BNRClassDictionary.h; path = ../BNRPersistence/BNRClassDictionary.h; sourceTree = SOURCE_ROOT; };
-		93F00F740D259A1100410C0E /* BNRClassDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BNRClassDictionary.m; path = ../BNRPersistence/BNRClassDictionary.m; sourceTree = SOURCE_ROOT; };
 		93F00F750D259A1100410C0E /* BNRClassMetaData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BNRClassMetaData.h; path = ../BNRPersistence/BNRClassMetaData.h; sourceTree = SOURCE_ROOT; };
 		93F00F760D259A1100410C0E /* BNRClassMetaData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BNRClassMetaData.m; path = ../BNRPersistence/BNRClassMetaData.m; sourceTree = SOURCE_ROOT; };
 		93F00F770D259A1100410C0E /* BNRDataBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BNRDataBuffer.h; path = ../BNRPersistence/BNRDataBuffer.h; sourceTree = SOURCE_ROOT; };
 		93F00F780D259A1100410C0E /* BNRDataBuffer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BNRDataBuffer.m; path = ../BNRPersistence/BNRDataBuffer.m; sourceTree = SOURCE_ROOT; };
-		93F00F790D259A1100410C0E /* BNRIntDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BNRIntDictionary.h; path = ../BNRPersistence/BNRIntDictionary.h; sourceTree = SOURCE_ROOT; };
-		93F00F7A0D259A1100410C0E /* BNRIntDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BNRIntDictionary.m; path = ../BNRPersistence/BNRIntDictionary.m; sourceTree = SOURCE_ROOT; };
-		93F00F7B0D259A1100410C0E /* BNRMapTableEnumerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BNRMapTableEnumerator.h; path = ../BNRPersistence/BNRMapTableEnumerator.h; sourceTree = SOURCE_ROOT; };
-		93F00F7C0D259A1100410C0E /* BNRMapTableEnumerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BNRMapTableEnumerator.m; path = ../BNRPersistence/BNRMapTableEnumerator.m; sourceTree = SOURCE_ROOT; };
 		93F00F7D0D259A1100410C0E /* BNRStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BNRStore.h; path = ../BNRPersistence/BNRStore.h; sourceTree = SOURCE_ROOT; };
 		93F00F7E0D259A1100410C0E /* BNRStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BNRStore.m; path = ../BNRPersistence/BNRStore.m; sourceTree = SOURCE_ROOT; };
 		93F00F7F0D259A1100410C0E /* BNRStoreBackend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BNRStoreBackend.h; path = ../BNRPersistence/BNRStoreBackend.h; sourceTree = SOURCE_ROOT; };
@@ -136,6 +133,8 @@
 		2A37F4ABFDCFA73011CA2CEA /* BNRPersistence */ = {
 			isa = PBXGroup;
 			children = (
+				934ECF2B1116397100F8C0E5 /* BNRUniquingTable.h */,
+				934ECF2C1116397100F8C0E5 /* BNRUniquingTable.m */,
 				93F00F7D0D259A1100410C0E /* BNRStore.h */,
 				93F00F7E0D259A1100410C0E /* BNRStore.m */,
 				93F00F810D259A1100410C0E /* BNRStoredObject.h */,
@@ -187,8 +186,8 @@
 		93DC92830FB633E60051F072 /* Tokyo Cabinet Backend */ = {
 			isa = PBXGroup;
 			children = (
+				934ECF2A1116397100F8C0E5 /* BNRTCBackend.mm */,
 				93DC92DA0FB634840051F072 /* BNRTCBackend.h */,
-				93DC92DB0FB634840051F072 /* BNRTCBackend.m */,
 				93DC92DC0FB634840051F072 /* BNRTCBackendCursor.h */,
 				93DC92DD0FB634840051F072 /* BNRTCBackendCursor.m */,
 			);
@@ -198,14 +197,10 @@
 		93E11C8D0D6E2A860051B3BB /* Private Classes */ = {
 			isa = PBXGroup;
 			children = (
+				934ECF261116390700F8C0E5 /* BNRClassDictionary.mm */,
 				93F00F750D259A1100410C0E /* BNRClassMetaData.h */,
 				93F00F760D259A1100410C0E /* BNRClassMetaData.m */,
 				93F00F730D259A1100410C0E /* BNRClassDictionary.h */,
-				93F00F740D259A1100410C0E /* BNRClassDictionary.m */,
-				93F00F790D259A1100410C0E /* BNRIntDictionary.h */,
-				93F00F7A0D259A1100410C0E /* BNRIntDictionary.m */,
-				93F00F7B0D259A1100410C0E /* BNRMapTableEnumerator.h */,
-				93F00F7C0D259A1100410C0E /* BNRMapTableEnumerator.m */,
 			);
 			name = "Private Classes";
 			sourceTree = "<group>";
@@ -286,11 +281,8 @@
 				8D15AC310486D014006FF6A4 /* MyDocument.m in Sources */,
 				8D15AC320486D014006FF6A4 /* main.m in Sources */,
 				93F00F8D0D259A1100410C0E /* BNRBackendCursor.m in Sources */,
-				93F00F900D259A1100410C0E /* BNRClassDictionary.m in Sources */,
 				93F00F910D259A1100410C0E /* BNRClassMetaData.m in Sources */,
 				93F00F920D259A1100410C0E /* BNRDataBuffer.m in Sources */,
-				93F00F930D259A1100410C0E /* BNRIntDictionary.m in Sources */,
-				93F00F940D259A1100410C0E /* BNRMapTableEnumerator.m in Sources */,
 				93F00F950D259A1100410C0E /* BNRStore.m in Sources */,
 				93F00F960D259A1100410C0E /* BNRStoreBackend.m in Sources */,
 				93F00F970D259A1100410C0E /* BNRStoredObject.m in Sources */,
@@ -299,8 +291,10 @@
 				93F00FA90D259A6500410C0E /* GRLGraph.m in Sources */,
 				93F00FAA0D259A6500410C0E /* GRLGraphView.m in Sources */,
 				93F00FAB0D259A6500410C0E /* GRLNode.m in Sources */,
-				93DC92DE0FB634840051F072 /* BNRTCBackend.m in Sources */,
 				93DC92DF0FB634840051F072 /* BNRTCBackendCursor.m in Sources */,
+				934ECF271116390700F8C0E5 /* BNRClassDictionary.mm in Sources */,
+				934ECF2D1116397100F8C0E5 /* BNRTCBackend.mm in Sources */,
+				934ECF2E1116397100F8C0E5 /* BNRUniquingTable.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

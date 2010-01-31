@@ -62,8 +62,8 @@ float distanceBetweenPoints(NSPoint a, NSPoint b)
 {
     self = [super init];
     if (self) {
-        [[self store] addClass:[GRLEdge class] expectedCount:100000];
-        [[self store] addClass:[GRLNode class] expectedCount:100000];
+        [[self store] addClass:[GRLEdge class]];
+        [[self store] addClass:[GRLNode class]];
         graph = [[GRLGraph alloc] init];
         NSLog(@"graph = %@", graph);
         [[self store] setDelegate:self];
@@ -73,7 +73,7 @@ float distanceBetweenPoints(NSPoint a, NSPoint b)
 
 - (void)dealloc
 {
-    // NSLog(@"releasing graph");
+    [store dissolveAllRelationships];
     [graph release];
     [super dealloc];
 }
@@ -191,7 +191,7 @@ float distanceBetweenPoints(NSPoint a, NSPoint b)
     uint64_t nanos;
     nanos = elapsed * info.numer / info.denom;
     uint64_t millis = nanos / 1000000;
-    printf ("elapsed time to load %d nodes, %d edges was %lld milliseconds\n", [nodes count], [edges count], millis);
+    printf ("elapsed time to load %lu nodes, %lu edges was %llu milliseconds\n", [nodes count], [edges count], millis);
     
     [graph release];
     graph = [[GRLGraph alloc] init];

@@ -12,9 +12,10 @@
 int main (int argc, const char * argv[]) {
     NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
     
+    uint64_t start = mach_absolute_time();
 	
 	// Create the managed object context
-    NSManagedObjectContext *context = managedObjectContext(@"CDSimple");
+    NSManagedObjectContext *context = managedObjectContext(@"CDComplex");
 
     NSFetchRequest *fr = [[NSFetchRequest alloc] init];
     NSEntityDescription *ed = [NSEntityDescription entityForName:@"Song"
@@ -23,16 +24,12 @@ int main (int argc, const char * argv[]) {
     NSArray *allSongs = [context executeFetchRequest:fr
                                                error:NULL];
 
-    int count = [allSongs count];
+    NSLog(@"allSongs has %d songs", [allSongs count]);
+    [fr release];
     
-    NSLog(@"allSongs has %d songs", count);
-    uint64_t start = mach_absolute_time();
-
-    for (int i = 0; i < count; i+=3) {
-        NSManagedObject *s = [allSongs objectAtIndex:i]; 
-        [s setValue:@"New Song Title" forKey:@"title"];
+    for (NSManagedObject *s in allSongs) {
+        [s valueForKey:@"title"];
     }
-    [context save:NULL];
     
     [context release];
     [pool drain];

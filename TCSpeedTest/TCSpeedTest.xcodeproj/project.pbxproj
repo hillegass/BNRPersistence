@@ -17,6 +17,7 @@
 				93D50A3F110D52D000E5D2F0 /* PBXTargetDependency */,
 				93D50A3D110D52D000E5D2F0 /* PBXTargetDependency */,
 				93D50A3B110D52D000E5D2F0 /* PBXTargetDependency */,
+				934ECEB811162D2800F8C0E5 /* PBXTargetDependency */,
 			);
 			name = All;
 			productName = All;
@@ -24,6 +25,22 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		934ECE661116290500F8C0E5 /* BNRBackendCursor.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D504D2110B883700E5D2F0 /* BNRBackendCursor.m */; };
+		934ECE671116290500F8C0E5 /* BNRClassDictionary.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93D504D4110B883700E5D2F0 /* BNRClassDictionary.mm */; };
+		934ECE681116290500F8C0E5 /* BNRClassMetaData.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D504D6110B883700E5D2F0 /* BNRClassMetaData.m */; };
+		934ECE691116290500F8C0E5 /* BNRDataBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D504D8110B883700E5D2F0 /* BNRDataBuffer.m */; };
+		934ECE6A1116290500F8C0E5 /* BNRStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D504E0110B883700E5D2F0 /* BNRStore.m */; };
+		934ECE6B1116290500F8C0E5 /* BNRStoreBackend.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D504E2110B883700E5D2F0 /* BNRStoreBackend.m */; };
+		934ECE6C1116290500F8C0E5 /* BNRStoredObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D504E4110B883700E5D2F0 /* BNRStoredObject.m */; };
+		934ECE6D1116290500F8C0E5 /* BNRTCBackend.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93D504F0110B883700E5D2F0 /* BNRTCBackend.mm */; };
+		934ECE6E1116290500F8C0E5 /* BNRTCBackendCursor.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D504F2110B883700E5D2F0 /* BNRTCBackendCursor.m */; };
+		934ECE6F1116290500F8C0E5 /* Playlist.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D50515110B8B2700E5D2F0 /* Playlist.m */; };
+		934ECE701116290500F8C0E5 /* Song.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D50517110B8B2700E5D2F0 /* Song.m */; };
+		934ECE721116290500F8C0E5 /* BNRUniquingTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 9366D9F811120568000A897D /* BNRUniquingTable.m */; };
+		934ECE731116290500F8C0E5 /* SpeedTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 93644C6811134E01008CA083 /* SpeedTest.m */; };
+		934ECE751116290500F8C0E5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08FB779EFE84155DC02AAC07 /* Foundation.framework */; };
+		934ECE761116290500F8C0E5 /* libtokyocabinet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 93D5050A110B8AB300E5D2F0 /* libtokyocabinet.a */; };
+		934ECE871116296200F8C0E5 /* SimpleUpdateTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 934ECE861116296200F8C0E5 /* SimpleUpdateTest.m */; };
 		93644C6911134E01008CA083 /* SpeedTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 93644C6811134E01008CA083 /* SpeedTest.m */; };
 		93644C6A11134E01008CA083 /* SpeedTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 93644C6811134E01008CA083 /* SpeedTest.m */; };
 		93644C6B11134E01008CA083 /* SpeedTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 93644C6811134E01008CA083 /* SpeedTest.m */; };
@@ -34,7 +51,6 @@
 		9366D9FF11120568000A897D /* BNRUniquingTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 9366D9F811120568000A897D /* BNRUniquingTable.m */; };
 		9366DA0211120568000A897D /* BNRUniquingTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 9366D9F811120568000A897D /* BNRUniquingTable.m */; };
 		9366DA0511120568000A897D /* BNRUniquingTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 9366D9F811120568000A897D /* BNRUniquingTable.m */; };
-		93D50715110BE50300E5D2F0 /* IntDictTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D50714110BE50300E5D2F0 /* IntDictTests.m */; };
 		93D5081A110CB22A00E5D2F0 /* Playlist.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D50515110B8B2700E5D2F0 /* Playlist.m */; };
 		93D5081C110CB22A00E5D2F0 /* Song.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D50517110B8B2700E5D2F0 /* Song.m */; };
 		93D5081F110CB23D00E5D2F0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08FB779EFE84155DC02AAC07 /* Foundation.framework */; };
@@ -92,6 +108,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		934ECEB711162D2800F8C0E5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 08FB7793FE84155DC02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 934ECE641116290500F8C0E5 /* SimpleUpdateTest */;
+			remoteInfo = SimpleUpdateTest;
+		};
 		93D50A3A110D52D000E5D2F0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 08FB7793FE84155DC02AAC07 /* Project object */;
@@ -124,6 +147,8 @@
 
 /* Begin PBXFileReference section */
 		08FB779EFE84155DC02AAC07 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		934ECE7A1116290500F8C0E5 /* SimpleUpdateTest */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SimpleUpdateTest; sourceTree = BUILT_PRODUCTS_DIR; };
+		934ECE861116296200F8C0E5 /* SimpleUpdateTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleUpdateTest.m; sourceTree = "<group>"; };
 		93644C6711134E01008CA083 /* SpeedTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpeedTest.h; sourceTree = SOURCE_ROOT; };
 		93644C6811134E01008CA083 /* SpeedTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpeedTest.m; sourceTree = SOURCE_ROOT; };
 		9366D9F711120568000A897D /* BNRUniquingTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BNRUniquingTable.h; path = ../BNRPersistence/BNRUniquingTable.h; sourceTree = SOURCE_ROOT; };
@@ -151,10 +176,6 @@
 		93D50515110B8B2700E5D2F0 /* Playlist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Playlist.m; sourceTree = SOURCE_ROOT; };
 		93D50516110B8B2700E5D2F0 /* Song.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Song.h; sourceTree = SOURCE_ROOT; };
 		93D50517110B8B2700E5D2F0 /* Song.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Song.m; sourceTree = SOURCE_ROOT; };
-		93D506F5110BE40E00E5D2F0 /* IntDictTest.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IntDictTest.octest; sourceTree = BUILT_PRODUCTS_DIR; };
-		93D506F6110BE40E00E5D2F0 /* IntDictTest-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "IntDictTest-Info.plist"; sourceTree = "<group>"; };
-		93D50713110BE50300E5D2F0 /* IntDictTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntDictTests.h; sourceTree = "<group>"; };
-		93D50714110BE50300E5D2F0 /* IntDictTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntDictTests.m; sourceTree = "<group>"; };
 		93D50812110CB1D600E5D2F0 /* ComplexInsertTest */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ComplexInsertTest; sourceTree = BUILT_PRODUCTS_DIR; };
 		93D50824110CB29000E5D2F0 /* ComplexInsertTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComplexInsertTest.m; sourceTree = SOURCE_ROOT; };
 		93D508B7110D2E3F00E5D2F0 /* ComplexFetchTest */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ComplexFetchTest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -166,10 +187,12 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		93D506F2110BE40E00E5D2F0 /* Frameworks */ = {
+		934ECE741116290500F8C0E5 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				934ECE751116290500F8C0E5 /* Foundation.framework in Frameworks */,
+				934ECE761116290500F8C0E5 /* libtokyocabinet.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -220,7 +243,6 @@
 				08FB7795FE84155DC02AAC07 /* Source */,
 				08FB779DFE84155DC02AAC07 /* External Frameworks and Libraries */,
 				1AB674ADFE9D54B511CA2CBB /* Products */,
-				93D506F6110BE40E00E5D2F0 /* IntDictTest-Info.plist */,
 			);
 			name = TCSpeedTest;
 			sourceTree = "<group>";
@@ -234,6 +256,7 @@
 				93D50956110D4A0F00E5D2F0 /* SimpleInsertTest.m */,
 				93D50824110CB29000E5D2F0 /* ComplexInsertTest.m */,
 				93D508B9110D2E9F00E5D2F0 /* ComplexFetchTest.m */,
+				934ECE861116296200F8C0E5 /* SimpleUpdateTest.m */,
 				93D50514110B8B2700E5D2F0 /* Playlist.h */,
 				93D50515110B8B2700E5D2F0 /* Playlist.m */,
 				93D50516110B8B2700E5D2F0 /* Song.h */,
@@ -254,11 +277,11 @@
 		1AB674ADFE9D54B511CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				93D506F5110BE40E00E5D2F0 /* IntDictTest.octest */,
 				93D50812110CB1D600E5D2F0 /* ComplexInsertTest */,
 				93D508B7110D2E3F00E5D2F0 /* ComplexFetchTest */,
 				93D50946110D49BB00E5D2F0 /* SimpleInsertTest */,
 				93D50A23110D51E000E5D2F0 /* SimpleFetchTest */,
+				934ECE7A1116290500F8C0E5 /* SimpleUpdateTest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -301,8 +324,6 @@
 		93D50701110BE4BD00E5D2F0 /* Unit tests */ = {
 			isa = PBXGroup;
 			children = (
-				93D50713110BE50300E5D2F0 /* IntDictTests.h */,
-				93D50714110BE50300E5D2F0 /* IntDictTests.m */,
 			);
 			name = "Unit tests";
 			sourceTree = "<group>";
@@ -310,23 +331,21 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		93D506F4110BE40E00E5D2F0 /* IntDictTest */ = {
+		934ECE641116290500F8C0E5 /* SimpleUpdateTest */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 93D506F9110BE40F00E5D2F0 /* Build configuration list for PBXNativeTarget "IntDictTest" */;
+			buildConfigurationList = 934ECE771116290500F8C0E5 /* Build configuration list for PBXNativeTarget "SimpleUpdateTest" */;
 			buildPhases = (
-				93D506F0110BE40E00E5D2F0 /* Resources */,
-				93D506F1110BE40E00E5D2F0 /* Sources */,
-				93D506F2110BE40E00E5D2F0 /* Frameworks */,
-				93D506F3110BE40E00E5D2F0 /* ShellScript */,
+				934ECE651116290500F8C0E5 /* Sources */,
+				934ECE741116290500F8C0E5 /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = IntDictTest;
-			productName = IntDictTest;
-			productReference = 93D506F5110BE40E00E5D2F0 /* IntDictTest.octest */;
-			productType = "com.apple.product-type.bundle";
+			name = SimpleUpdateTest;
+			productName = ComplexInsertTest;
+			productReference = 934ECE7A1116290500F8C0E5 /* SimpleUpdateTest */;
+			productType = "com.apple.product-type.tool";
 		};
 		93D50811110CB1D600E5D2F0 /* ComplexInsertTest */ = {
 			isa = PBXNativeTarget;
@@ -405,47 +424,34 @@
 			projectRoot = "";
 			targets = (
 				93D50A37110D52C500E5D2F0 /* All */,
-				93D506F4110BE40E00E5D2F0 /* IntDictTest */,
 				93D50811110CB1D600E5D2F0 /* ComplexInsertTest */,
 				93D508A0110D2E3F00E5D2F0 /* ComplexFetchTest */,
 				93D50930110D49BB00E5D2F0 /* SimpleInsertTest */,
 				93D50A0D110D51E000E5D2F0 /* SimpleFetchTest */,
+				934ECE641116290500F8C0E5 /* SimpleUpdateTest */,
 			);
 		};
 /* End PBXProject section */
 
-/* Begin PBXResourcesBuildPhase section */
-		93D506F0110BE40E00E5D2F0 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		93D506F3110BE40E00E5D2F0 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
-		93D506F1110BE40E00E5D2F0 /* Sources */ = {
+		934ECE651116290500F8C0E5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				93D50715110BE50300E5D2F0 /* IntDictTests.m in Sources */,
+				934ECE661116290500F8C0E5 /* BNRBackendCursor.m in Sources */,
+				934ECE671116290500F8C0E5 /* BNRClassDictionary.mm in Sources */,
+				934ECE681116290500F8C0E5 /* BNRClassMetaData.m in Sources */,
+				934ECE691116290500F8C0E5 /* BNRDataBuffer.m in Sources */,
+				934ECE6A1116290500F8C0E5 /* BNRStore.m in Sources */,
+				934ECE6B1116290500F8C0E5 /* BNRStoreBackend.m in Sources */,
+				934ECE6C1116290500F8C0E5 /* BNRStoredObject.m in Sources */,
+				934ECE6D1116290500F8C0E5 /* BNRTCBackend.mm in Sources */,
+				934ECE6E1116290500F8C0E5 /* BNRTCBackendCursor.m in Sources */,
+				934ECE6F1116290500F8C0E5 /* Playlist.m in Sources */,
+				934ECE701116290500F8C0E5 /* Song.m in Sources */,
+				934ECE721116290500F8C0E5 /* BNRUniquingTable.m in Sources */,
+				934ECE731116290500F8C0E5 /* SpeedTest.m in Sources */,
+				934ECE871116296200F8C0E5 /* SimpleUpdateTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -536,6 +542,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		934ECEB811162D2800F8C0E5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 934ECE641116290500F8C0E5 /* SimpleUpdateTest */;
+			targetProxy = 934ECEB711162D2800F8C0E5 /* PBXContainerItemProxy */;
+		};
 		93D50A3B110D52D000E5D2F0 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 93D50A0D110D51E000E5D2F0 /* SimpleFetchTest */;
@@ -585,58 +596,52 @@
 			};
 			name = Release;
 		};
-		93D506F7110BE40F00E5D2F0 /* Debug */ = {
+		934ECE781116290500F8C0E5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				COPY_PHASE_STRIP = NO;
-				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
 				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_ENABLE_FIX_AND_CONTINUE = NO;
-				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/Cocoa.framework/Headers/Cocoa.h";
-				INFOPLIST_FILE = "IntDictTest-Info.plist";
-				INSTALL_PATH = "$(USER_LIBRARY_DIR)/Bundles";
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				HEADER_SEARCH_PATHS = /usr/local/include;
+				INSTALL_PATH = /usr/local/bin;
 				OTHER_LDFLAGS = (
 					"-framework",
-					Cocoa,
+					Foundation,
 					"-framework",
-					SenTestingKit,
+					AppKit,
 				);
 				PREBINDING = NO;
-				PRODUCT_NAME = IntDictTest;
-				WRAPPER_EXTENSION = octest;
+				PRODUCT_NAME = SimpleUpdateTest;
 			};
 			name = Debug;
 		};
-		93D506F8110BE40F00E5D2F0 /* Release */ = {
+		934ECE791116290500F8C0E5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
-				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/Cocoa.framework/Headers/Cocoa.h";
-				INFOPLIST_FILE = "IntDictTest-Info.plist";
-				INSTALL_PATH = "$(USER_LIBRARY_DIR)/Bundles";
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				HEADER_SEARCH_PATHS = /usr/local/include;
+				INSTALL_PATH = /usr/local/bin;
 				OTHER_LDFLAGS = (
 					"-framework",
-					Cocoa,
+					Foundation,
 					"-framework",
-					SenTestingKit,
+					AppKit,
 				);
 				PREBINDING = NO;
-				PRODUCT_NAME = IntDictTest;
-				WRAPPER_EXTENSION = octest;
+				PRODUCT_NAME = SimpleUpdateTest;
 				ZERO_LINK = NO;
 			};
 			name = Release;
@@ -872,11 +877,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		93D506F9110BE40F00E5D2F0 /* Build configuration list for PBXNativeTarget "IntDictTest" */ = {
+		934ECE771116290500F8C0E5 /* Build configuration list for PBXNativeTarget "SimpleUpdateTest" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				93D506F7110BE40F00E5D2F0 /* Debug */,
-				93D506F8110BE40F00E5D2F0 /* Release */,
+				934ECE781116290500F8C0E5 /* Debug */,
+				934ECE791116290500F8C0E5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

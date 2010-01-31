@@ -13,6 +13,7 @@
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
 		28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow.xib */; };
+		934ECE34111623A700F8C0E5 /* BNRUniquingTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 934ECE33111623A700F8C0E5 /* BNRUniquingTable.m */; };
 		93644B9011129A5C008CA083 /* BNRTCBackend.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93644B8F11129A5C008CA083 /* BNRTCBackend.mm */; };
 		93644B9C11129AE9008CA083 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 93644B9B11129AE9008CA083 /* libz.dylib */; };
 		93644BA011129B6B008CA083 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93644B9F11129B6B008CA083 /* CoreData.framework */; };
@@ -29,8 +30,6 @@
 		9366D830110F3F98000A897D /* BNRTCBackendCursor.m in Sources */ = {isa = PBXBuildFile; fileRef = 9366D825110F3F98000A897D /* BNRTCBackendCursor.m */; };
 		9366D8D81110928B000A897D /* libTokyoCabinet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9366D8D71110928B000A897D /* libTokyoCabinet.a */; };
 		9366DA731112158A000A897D /* BNRClassDictionary.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9366DA6E1112158A000A897D /* BNRClassDictionary.mm */; };
-		9366DA741112158A000A897D /* BNRUniquingTable.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9366DA701112158A000A897D /* BNRUniquingTable.mm */; };
-		9366DA751112158A000A897D /* BNRUniquingTableEnumerator.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9366DA721112158A000A897D /* BNRUniquingTableEnumerator.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +43,7 @@
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* PhoneSpeedTest_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhoneSpeedTest_Prefix.pch; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* PhoneSpeedTest-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "PhoneSpeedTest-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
+		934ECE33111623A700F8C0E5 /* BNRUniquingTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BNRUniquingTable.m; path = ../BNRPersistence/BNRUniquingTable.m; sourceTree = SOURCE_ROOT; };
 		93644B8F11129A5C008CA083 /* BNRTCBackend.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = BNRTCBackend.mm; path = ../BNRPersistence/BNRTCBackend.mm; sourceTree = SOURCE_ROOT; };
 		93644B9B11129AE9008CA083 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		93644B9F11129B6B008CA083 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -72,9 +72,6 @@
 		9366D8D71110928B000A897D /* libTokyoCabinet.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libTokyoCabinet.a; path = "../TokyoCabinet/build/Debug-iphoneos/libTokyoCabinet.a"; sourceTree = SOURCE_ROOT; };
 		9366DA6E1112158A000A897D /* BNRClassDictionary.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = BNRClassDictionary.mm; path = ../BNRPersistence/BNRClassDictionary.mm; sourceTree = SOURCE_ROOT; };
 		9366DA6F1112158A000A897D /* BNRUniquingTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BNRUniquingTable.h; path = ../BNRPersistence/BNRUniquingTable.h; sourceTree = SOURCE_ROOT; };
-		9366DA701112158A000A897D /* BNRUniquingTable.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = BNRUniquingTable.mm; path = ../BNRPersistence/BNRUniquingTable.mm; sourceTree = SOURCE_ROOT; };
-		9366DA711112158A000A897D /* BNRUniquingTableEnumerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BNRUniquingTableEnumerator.h; path = ../BNRPersistence/BNRUniquingTableEnumerator.h; sourceTree = SOURCE_ROOT; };
-		9366DA721112158A000A897D /* BNRUniquingTableEnumerator.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = BNRUniquingTableEnumerator.mm; path = ../BNRPersistence/BNRUniquingTableEnumerator.mm; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,12 +161,10 @@
 		9366D80C110F3F58000A897D /* BNRPersistence */ = {
 			isa = PBXGroup;
 			children = (
+				934ECE33111623A700F8C0E5 /* BNRUniquingTable.m */,
 				9366D812110F3F98000A897D /* BNRClassDictionary.h */,
 				9366DA6E1112158A000A897D /* BNRClassDictionary.mm */,
 				9366DA6F1112158A000A897D /* BNRUniquingTable.h */,
-				9366DA701112158A000A897D /* BNRUniquingTable.mm */,
-				9366DA711112158A000A897D /* BNRUniquingTableEnumerator.h */,
-				9366DA721112158A000A897D /* BNRUniquingTableEnumerator.mm */,
 				9366D810110F3F98000A897D /* BNRBackendCursor.h */,
 				9366D811110F3F98000A897D /* BNRBackendCursor.m */,
 				9366D814110F3F98000A897D /* BNRClassMetaData.h */,
@@ -253,13 +248,12 @@
 				9366D82E110F3F98000A897D /* BNRStoredObject.m in Sources */,
 				9366D830110F3F98000A897D /* BNRTCBackendCursor.m in Sources */,
 				9366DA731112158A000A897D /* BNRClassDictionary.mm in Sources */,
-				9366DA741112158A000A897D /* BNRUniquingTable.mm in Sources */,
-				9366DA751112158A000A897D /* BNRUniquingTableEnumerator.mm in Sources */,
 				93644B9011129A5C008CA083 /* BNRTCBackend.mm in Sources */,
 				93644BB011129DB6008CA083 /* Playlist.m in Sources */,
 				93644BB111129DB6008CA083 /* Song.m in Sources */,
 				93644BD111129F66008CA083 /* CDComplex.xcdatamodel in Sources */,
 				93644BD211129F66008CA083 /* CDSimple.xcdatamodel in Sources */,
+				934ECE34111623A700F8C0E5 /* BNRUniquingTable.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

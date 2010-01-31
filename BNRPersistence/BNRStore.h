@@ -64,13 +64,8 @@
     // Class meta data
     BNRClassDictionary *classMetaData;
     Class classes[256];
-    
-    // This capability is not implemented yet...
-    BOOL savesDataForSync;
-    // BNRLogManager *logForSync;
 }
 
-@property (nonatomic) BOOL savesDataForSync;
 
 - (id)init;
 - (void)setDelegate:(id <BNRStoreDelegate>)obj;

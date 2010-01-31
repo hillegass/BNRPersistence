@@ -17,6 +17,7 @@
 				93D509F6110D513F00E5D2F0 /* PBXTargetDependency */,
 				93D509F4110D513F00E5D2F0 /* PBXTargetDependency */,
 				93D509F2110D513F00E5D2F0 /* PBXTargetDependency */,
+				934ECEB411162D1C00F8C0E5 /* PBXTargetDependency */,
 			);
 			name = All;
 			productName = All;
@@ -26,6 +27,11 @@
 /* Begin PBXBuildFile section */
 		288AFF370F563DBA0085E73F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288AFF360F563DBA0085E73F /* CoreData.framework */; };
 		8DD76F9C0486AA7600D96B5E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08FB779EFE84155DC02AAC07 /* Foundation.framework */; };
+		934ECE9C11162BFD00F8C0E5 /* CDSimple.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 93D50990110D4C0700E5D2F0 /* CDSimple.xcdatamodel */; };
+		934ECE9E11162BFD00F8C0E5 /* SpeedTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 93644D0D1114C4DD008CA083 /* SpeedTest.m */; };
+		934ECEA011162BFD00F8C0E5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08FB779EFE84155DC02AAC07 /* Foundation.framework */; };
+		934ECEA111162BFD00F8C0E5 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288AFF360F563DBA0085E73F /* CoreData.framework */; };
+		934ECEAE11162C6100F8C0E5 /* SimpleUpdateTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 934ECEAD11162C6100F8C0E5 /* SimpleUpdateTest.m */; };
 		93644D0E1114C4DD008CA083 /* SpeedTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 93644D0D1114C4DD008CA083 /* SpeedTest.m */; };
 		93644D0F1114C4DD008CA083 /* SpeedTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 93644D0D1114C4DD008CA083 /* SpeedTest.m */; };
 		93644D101114C4DD008CA083 /* SpeedTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 93644D0D1114C4DD008CA083 /* SpeedTest.m */; };
@@ -47,6 +53,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		934ECEB311162D1C00F8C0E5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 08FB7793FE84155DC02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 934ECE9A11162BFD00F8C0E5 /* SimpleUpdateTest */;
+			remoteInfo = SimpleUpdateTest;
+		};
 		93D509F1110D513F00E5D2F0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 08FB7793FE84155DC02AAC07 /* Project object */;
@@ -79,6 +92,15 @@
 
 /* Begin PBXCopyFilesBuildPhase section */
 		8DD76F9E0486AA7600D96B5E /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 8;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+		934ECEA211162BFD00F8C0E5 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 8;
 			dstPath = /usr/share/man/man1/;
@@ -121,6 +143,8 @@
 		288AFF340F563D390085E73F /* CDSpeedTest_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDSpeedTest_Prefix.pch; sourceTree = "<group>"; };
 		288AFF360F563DBA0085E73F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		8DD76FA10486AA7600D96B5E /* ComplexInsertTest */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ComplexInsertTest; sourceTree = BUILT_PRODUCTS_DIR; };
+		934ECEA611162BFD00F8C0E5 /* SimpleUpdateTest */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SimpleUpdateTest; sourceTree = BUILT_PRODUCTS_DIR; };
+		934ECEAD11162C6100F8C0E5 /* SimpleUpdateTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleUpdateTest.m; sourceTree = SOURCE_ROOT; };
 		93644D0C1114C4DC008CA083 /* SpeedTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpeedTest.h; sourceTree = SOURCE_ROOT; };
 		93644D0D1114C4DD008CA083 /* SpeedTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpeedTest.m; sourceTree = SOURCE_ROOT; };
 		93D508FC110D32BE00E5D2F0 /* ComplexFetchTest */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ComplexFetchTest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -141,6 +165,15 @@
 			files = (
 				8DD76F9C0486AA7600D96B5E /* Foundation.framework in Frameworks */,
 				288AFF370F563DBA0085E73F /* CoreData.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		934ECE9F11162BFD00F8C0E5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				934ECEA011162BFD00F8C0E5 /* Foundation.framework in Frameworks */,
+				934ECEA111162BFD00F8C0E5 /* CoreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -194,6 +227,7 @@
 				93D50988110D4B7500E5D2F0 /* SimpleInsertTest.m */,
 				93D50908110D345A00E5D2F0 /* ComplexFetchTest.m */,
 				93D50909110D345A00E5D2F0 /* ComplexInsertTest.m */,
+				934ECEAD11162C6100F8C0E5 /* SimpleUpdateTest.m */,
 				288AFF340F563D390085E73F /* CDSpeedTest_Prefix.pch */,
 			);
 			name = Source;
@@ -215,6 +249,7 @@
 				93D508FC110D32BE00E5D2F0 /* ComplexFetchTest */,
 				93D5097B110D4B2D00E5D2F0 /* SimpleInsertTest */,
 				93D509D3110D4FC900E5D2F0 /* SimpleFetchTest */,
+				934ECEA611162BFD00F8C0E5 /* SimpleUpdateTest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -247,6 +282,24 @@
 			productInstallPath = "$(HOME)/bin";
 			productName = "«PROJECTNAME»";
 			productReference = 8DD76FA10486AA7600D96B5E /* ComplexInsertTest */;
+			productType = "com.apple.product-type.tool";
+		};
+		934ECE9A11162BFD00F8C0E5 /* SimpleUpdateTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 934ECEA311162BFD00F8C0E5 /* Build configuration list for PBXNativeTarget "SimpleUpdateTest" */;
+			buildPhases = (
+				934ECE9B11162BFD00F8C0E5 /* Sources */,
+				934ECE9F11162BFD00F8C0E5 /* Frameworks */,
+				934ECEA211162BFD00F8C0E5 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SimpleUpdateTest;
+			productInstallPath = "$(HOME)/bin";
+			productName = "«PROJECTNAME»";
+			productReference = 934ECEA611162BFD00F8C0E5 /* SimpleUpdateTest */;
 			productType = "com.apple.product-type.tool";
 		};
 		93D508F1110D32BE00E5D2F0 /* ComplexFetchTest */ = {
@@ -320,6 +373,7 @@
 				93D508F1110D32BE00E5D2F0 /* ComplexFetchTest */,
 				93D50970110D4B2D00E5D2F0 /* SimpleInsertTest */,
 				93D509C8110D4FC900E5D2F0 /* SimpleFetchTest */,
+				934ECE9A11162BFD00F8C0E5 /* SimpleUpdateTest */,
 			);
 		};
 /* End PBXProject section */
@@ -332,6 +386,16 @@
 				93D5090A110D345F00E5D2F0 /* ComplexInsertTest.m in Sources */,
 				93D509AE110D4D4200E5D2F0 /* CDComplex.xcdatamodel in Sources */,
 				93644D0E1114C4DD008CA083 /* SpeedTest.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		934ECE9B11162BFD00F8C0E5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				934ECE9C11162BFD00F8C0E5 /* CDSimple.xcdatamodel in Sources */,
+				934ECE9E11162BFD00F8C0E5 /* SpeedTest.m in Sources */,
+				934ECEAE11162C6100F8C0E5 /* SimpleUpdateTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -368,6 +432,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		934ECEB411162D1C00F8C0E5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 934ECE9A11162BFD00F8C0E5 /* SimpleUpdateTest */;
+			targetProxy = 934ECEB311162D1C00F8C0E5 /* PBXContainerItemProxy */;
+		};
 		93D509F2110D513F00E5D2F0 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 93D509C8110D4FC900E5D2F0 /* SimpleFetchTest */;
@@ -448,6 +517,39 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				PREBINDING = NO;
 				SDKROOT = macosx10.6;
+			};
+			name = Release;
+		};
+		934ECEA411162BFD00F8C0E5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_ENABLE_OBJC_GC = unsupported;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = CDSpeedTest_Prefix.pch;
+				INSTALL_PATH = /usr/local/bin;
+				OTHER_CFLAGS = "";
+				PRODUCT_NAME = SimpleUpdateTest;
+			};
+			name = Debug;
+		};
+		934ECEA511162BFD00F8C0E5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_OBJC_GC = unsupported;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = CDSpeedTest_Prefix.pch;
+				INSTALL_PATH = /usr/local/bin;
+				OTHER_CFLAGS = "";
+				PRODUCT_NAME = SimpleUpdateTest;
 			};
 			name = Release;
 		};
@@ -588,6 +690,15 @@
 			buildConfigurations = (
 				1DEB927908733DD40010E9CD /* Debug */,
 				1DEB927A08733DD40010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		934ECEA311162BFD00F8C0E5 /* Build configuration list for PBXNativeTarget "SimpleUpdateTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				934ECEA411162BFD00F8C0E5 /* Debug */,
+				934ECEA511162BFD00F8C0E5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

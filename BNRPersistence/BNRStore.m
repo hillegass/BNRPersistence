@@ -39,7 +39,6 @@
 
 @implementation BNRStore
 
-@synthesize savesDataForSync;
 
 - (id)init
 {
@@ -49,7 +48,6 @@
     toBeDeleted = [[NSMutableSet alloc] init];
     toBeUpdated = [[NSMutableSet alloc] init];
     classMetaData = [[BNRClassDictionary alloc] init];
-    savesDataForSync = NO;
     return self;
 }
 
@@ -316,15 +314,12 @@
 {
     [self willChangeValueForKey:@"hasUnsavedChanges"];
 
-    NSEnumerator *e; 
-    BNRStoredObject *obj;
     BNRDataBuffer *buffer = [[BNRDataBuffer alloc] initWithCapacity:65536];
     [backend beginTransaction];
     
     //NSLog(@"inserting %d objects", [toBeInserted count]);
      
-    e = [toBeInserted objectEnumerator];
-    while (obj = [e nextObject]) {
+    for (BNRStoredObject *obj in toBeInserted) {
         Class c = [obj class];
         UInt32 rowID = [obj rowID];
         
@@ -338,9 +333,7 @@
     //NSLog(@"updating %d objects", [toBeUpdated count]);
 
     // Updates
-    NSMutableSet *tentativelyUpdated = [[NSMutableSet alloc] init];
-
-    while (obj = [toBeUpdated anyObject]) {
+    for (BNRStoredObject *obj in toBeUpdated) {
         Class c = [obj class];
         UInt32 rowID = [obj rowID];
         
@@ -350,19 +343,11 @@
                    forClass:c
                       rowID:rowID];
         [buffer clearBuffer];
-        [tentativelyUpdated addObject:obj];
-        [toBeUpdated removeObject:obj];
     }
     // Deletes
     
     //NSLog(@"deleting %d objects", [toBeDeleted count]);
-    NSMutableSet *tentativelyDeleted = [[NSMutableSet alloc] init];
-    while (obj = [toBeDeleted anyObject]) {
-        if ([tentativelyDeleted containsObject:obj]) {
-            continue;
-        }
-        [tentativelyDeleted addObject:obj];
-
+    for (BNRStoredObject *obj in toBeDeleted) {
         Class c = [obj class];
         UInt32 rowID = [obj rowID];
         
@@ -373,14 +358,6 @@
 
         [backend deleteDataForClass:c
                               rowID:rowID];
-        
-        if (savesDataForSync) {
-            //UInt8 classID = [self classIDForClass:c];
-            // FIXME: change status of this object to deleted in log
-        }
-        
-        [toBeDeleted removeObject:obj];
-
     }
     
     // Write out class meta data
@@ -406,13 +383,12 @@
     BOOL successful = [backend commitTransaction];
     if (successful) {
         [toBeInserted removeAllObjects];
+        [toBeUpdated removeAllObjects];
+        [toBeDeleted removeAllObjects];
     } else {
-        [toBeUpdated unionSet:tentativelyUpdated];
-        [toBeDeleted unionSet:tentativelyDeleted];
+        NSLog(@"Error: save was not successful");
         [backend abortTransaction];
     }
-    [tentativelyUpdated release];
-    [tentativelyDeleted release];
     
     [self didChangeValueForKey:@"hasUnsavedChanges"];        
     return successful;

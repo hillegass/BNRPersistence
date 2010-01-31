@@ -364,7 +364,7 @@ NSManagedObjectContext *managedObjectContext(NSString *testName) {
     
     uint64_t start = mach_absolute_time();
     
-    NSString *path = docPathWithName(@"ComplexTC");
+    NSString *path = docPathWithName(@"TCComplex");
     BNRStore *store = [self newStoreWithPath:path];
     
     [store addClass:[Song class]];
