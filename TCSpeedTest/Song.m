@@ -30,17 +30,13 @@
 
 - (NSString *)title
 {
-    if (![self hasContent]) {
-        [self fetchContent];
-    }
+    [self checkForContent];
     return title;
 }
 
 - (unsigned int)seconds
 {
-    if (![self hasContent]) {
-        [self fetchContent];
-    }
+    [self checkForContent];
     return seconds;
 }
 

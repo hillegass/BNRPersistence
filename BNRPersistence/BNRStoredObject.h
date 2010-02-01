@@ -24,6 +24,8 @@
 #import "BNRStore.h"
 @class BNRDatamaker;
 
+/*! BNRStoredObject is the superclass for all objects that get saved into the store */
+
 @interface BNRStoredObject : NSObject {
     
     // Weak reference

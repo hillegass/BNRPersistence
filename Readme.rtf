@@ -93,7 +93,7 @@ So,
 \b BNRDataBuffers
 \b0  are like 
 \b NSData
-\b0 , but they have methods for reading and writing different types of data.\
+\b0 , but they have methods for reading and writing different types of data. (It does byte-swapping so you can move the data files from PPC to Intel without a problem.)\
 \
 (I certainly debate the idea of a model file that would replace these methods, but for now this is fast and simple.  If you would rather have a model file than implement these methods, you are invited to write a BNRPersistenceModelEditor.)\
 \
@@ -114,7 +114,7 @@ To create a store, first you must create a backend.  I have tried BerkeleyDB and
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
 
 \f0\fs28 \cf0 \CocoaLigature1 \
-Now that you have a backend, you can create a store and tell it which classes you are going to be saving or loading.  This is a little lame, I realize, but you also need to make a guess at how many instances you'll be dealing with.  The uniquing table has a hash table for each class, and you get better performance if is bigger, but you get a smaller memory footprint if it is smaller.  It will grow as necessary, but a good guess here is helpful as growing is relatively expensive:\
+Now that you have a backend, you can create a store and tell it which classes you are going to be saving or loading:\
 \
 \pard\tx864\pardeftab864\ql\qnatural\pardirnatural
 
@@ -127,9 +127,11 @@ Now that you have a backend, you can create a store and tell it which classes yo
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
 
 \f0\fs28 \cf0 \CocoaLigature1 \
-(You must add the classes in the same order every time.  The classID of a class (see BNRClassMetaData) is determined by the order)\
+(You must add the classes in the same order every time.  The classID of a class (see 
+\b BNRClassMetaData
+\b0 ) is determined by the order)\
 \
-Now to get a list of of the songs in the store:\
+Now to get a list of of the playlists in the store:\
 \
 \pard\tx864\pardeftab864\ql\qnatural\pardirnatural
 
@@ -179,7 +181,7 @@ To save all the changes:\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
 
 \f0\fs28 \cf0 \CocoaLigature1 \
-Strange stuff I've done.  Each class in a store can have a version.  This is kept in the 
+Each class in a store can have a version.  This is kept in the 
 \b BNRClassMetaData
 \b0  object for the class.  You can reach this in your 
 \f1 readContentFromBuffer
@@ -247,5 +249,4 @@ I recognize that there is room for improvement here:\
 6) Easy hooks for QuickLook images and Spotlight metadata in 
 \b BNRStoreDocument
 \b0 \
-\
-}
+7) Hook it up to Tokyo Tyrant for non-local storage}

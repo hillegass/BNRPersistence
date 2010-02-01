@@ -29,6 +29,14 @@ struct UniquingListNode
     struct UniquingListNode *next;
 };
 
+/*! 
+ @class BNRUniquingTable
+ @abstract Essentially a dictionary that maps (Class, int) -> BNRStoredObject.  
+ (Class, int) pairs must be unique.  It is implemented as a hash table.
+ */
+
+// FIXME: this hash table has a fixed number of buckets.  It should grow as the need
+// arises
 
 @interface BNRUniquingTable : NSObject {
     UInt32 tableSize;

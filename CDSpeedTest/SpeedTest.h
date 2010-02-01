@@ -13,7 +13,7 @@
 #import <mach/mach_error.h>
 
 #define BIG_SONG_COUNT (1000000)
-#define SONG_COUNT (1000000)
+#define SONG_COUNT (100000)
 #define SONGS_PER_LIST (100)
 // Ensure playlists is large enough to hold a SONG_COUNT not evenly divisible by
 // SONGS_PER_LIST.

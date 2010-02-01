@@ -52,12 +52,4 @@
 {
     return (*mapTable)[c];
 }
-
-//- (NSEnumerator *)objectEnumerator
-//{
-//    BNRClassDictionaryEnumerator *result = [[BNRClassDictionaryEnumerator alloc] initWithTable:mapTable];
-//    return [result autorelease];
-//    
-//}
-
 @end

@@ -20,7 +20,6 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-// BNRStore tracks objects and stores them to a BNRStoreBackend
 
 #import <Foundation/Foundation.h>
 @class BNRClassDictionary;
@@ -39,22 +38,23 @@
 
 @end
 
+//! BNRStore
+
+
+/*! BNRStore is analogous to NSManagedObjectContext.  You use it to fetch, insert
+ delete, and update objects to the persistent store. It can have a delegate and an undo
+ manager. */
+ 
 @interface BNRStore : NSObject {
     
-    // The Uniquing table holds BNRIntDictionarys.  Thus, if
-    // you know an object's class and rowID, you can find it in
-    // the uniquingTable
-    BNRUniquingTable *uniquingTable;
+    BNRUniquingTable *uniquingTable; /**< Maps (Class, rowID) -> BNRStoreddObject */
     
-    // The backend actually stores the data
-    BNRStoreBackend *backend;
+    BNRStoreBackend *backend; /**< Actually saves the data */
     
-    // If the undo manager is non-nil,  undo actions for inserts,
-    // updates and deletes are automatically registered with it.
-    NSUndoManager *undoManager;
+    NSUndoManager *undoManager; /**< If non-nil, undo actions are automatically registered */
     
-    // The delegate gets told when an object is to be updated, inserted, or deleted
-    id <BNRStoreDelegate> delegate;
+    id <BNRStoreDelegate> delegate; /*< Gets told when an object is to be updated, inserted, or deleted */
+
     
     // Pending edits are stored in the toBe.. sets
     NSMutableSet *toBeInserted;
@@ -62,8 +62,8 @@
     NSMutableSet *toBeUpdated;
     
     // Class meta data
-    BNRClassDictionary *classMetaData;
-    Class classes[256];
+    BNRClassDictionary *classMetaData; /*< Maps Class->BNRClassMetaData */
+    Class classes[256];  /*< Maps int (the class ID) -> Class */
 }
 
 

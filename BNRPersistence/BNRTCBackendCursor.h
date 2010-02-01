@@ -24,9 +24,6 @@
 #include <tcutil.h>
 #include <tchdb.h>
 
-// A little awkard -- interators are implicit in TCHDB.  I hope 
-// I never try to open two iterators on the same file simultaneously.
-
 @interface BNRTCBackendCursor : BNRBackendCursor {
     TCHDB *file;
 }

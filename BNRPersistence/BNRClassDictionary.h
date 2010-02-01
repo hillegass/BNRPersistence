@@ -26,7 +26,6 @@
  @class BNRClassDictionary
  @abstract a collection that holds key-value pairs where the key is a Class and
  the values are objects. 
- In BNRPersistence, the object is a BNRIntDictionary of rowID->storedObject
  @discussion Objects are retained.
  */
 
@@ -52,7 +51,7 @@ typedef pair<Class, id> HashedPair;
 
 #endif 
 
-@interface BNRClassDictionary : NSObject  //<NSFastEnumeration> to implemented when I know C++ better
+@interface BNRClassDictionary : NSObject 
 {
 #ifdef __cplusplus
     hash_map<Class, id, hash<Class>, equal_to<Class> > *mapTable;
@@ -81,7 +80,6 @@ typedef pair<Class, id> HashedPair;
 */
 - (id)objectForClass:(Class)c;
 
-//- (NSEnumerator *)objectEnumerator;
 
 
 @end
