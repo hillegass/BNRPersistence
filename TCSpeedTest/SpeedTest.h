@@ -23,6 +23,7 @@
 
 #define SIMPLETEST_PATH "/tmp/simpletest/"
 #define COMPLEXTEST_PATH "/tmp/complextest/"
+#define TEXTTEST_PATH "/tmp/texttest/"
 
 BNRStore *CreateStoreAtPath(NSString *path);
 void LogElapsedTime(uint64_t start, uint64_t stop);

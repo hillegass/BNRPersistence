@@ -28,6 +28,7 @@
 #import "BNRDataBuffer.h"
 #import "BNRClassMetaData.h"
 #import "BNRUniquingTable.h"
+#import "BNRIndexManager.h"
 
 @interface BNRStoredObject (BNRStoreFriend)
 
@@ -38,7 +39,7 @@
 
 
 @implementation BNRStore
-
+@synthesize undoManager, indexManager, delegate;
 
 - (id)init
 {
@@ -77,10 +78,13 @@
 
 - (void)dealloc
 {
+    NSLog(@"closing store");
     [uniquingTable release];
     [toBeInserted release];
     [toBeDeleted release];
     [toBeUpdated release];
+    [indexManager close];
+    [indexManager release];
     [backend release];
     [classMetaData release];
     [super dealloc];
@@ -162,6 +166,36 @@
         }
      }
     return allObjects;
+}
+
+- (NSMutableArray *)objectsForClass:(Class)c
+                       matchingText:(NSString *)toMatch
+                             forKey:(NSString *)key
+{
+    if (!indexManager) {
+        NSLog(@"No fulltext search without an index manager");
+        return nil;
+    }
+    
+    UInt32 *indexResult;
+    
+    UInt32 rowCount = [indexManager countOfRowsInClass:c 
+                                          matchingText:toMatch
+                                                forKey:key
+                                                  list:&indexResult];
+    
+    NSMutableArray *result = [NSMutableArray array];
+    for (UInt32 i = 0; i < rowCount; i++) {
+        UInt32 rowID = indexResult[i];
+        BNRStoredObject *obj = [self objectForClass:c 
+                                              rowID:rowID
+                                       fetchContent:NO];
+        [result addObject:obj];
+    }
+    if (rowCount > 0) {
+        free(indexResult);
+    }
+    return result;
 }
 
 #pragma mark Insert, update, delete
@@ -328,6 +362,11 @@
                    forClass:c
                       rowID:rowID];
         [buffer clearBuffer];
+        
+        if (indexManager) {
+            [indexManager insertObjectInIndexes:obj];
+        }
+        
     }
     
     //NSLog(@"updating %d objects", [toBeUpdated count]);
@@ -343,6 +382,12 @@
                    forClass:c
                       rowID:rowID];
         [buffer clearBuffer];
+        
+        // FIXME: updating all indexes is inefficient
+        if (indexManager) {
+            [indexManager updateObjectInIndexes:obj];
+        }
+        
     }
     // Deletes
     
@@ -358,6 +403,11 @@
 
         [backend deleteDataForClass:c
                               rowID:rowID];
+        
+        if (indexManager) {
+            [indexManager deleteObjectFromIndexes:obj];
+        }
+        
     }
     
     // Write out class meta data

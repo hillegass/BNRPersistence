@@ -42,6 +42,14 @@
 		9366D8A011108CC3000A897D /* md5.h in Headers */ = {isa = PBXBuildFile; fileRef = 9366D89C11108CC3000A897D /* md5.h */; };
 		9366D8A111108CC3000A897D /* myconf.c in Sources */ = {isa = PBXBuildFile; fileRef = 9366D89D11108CC3000A897D /* myconf.c */; };
 		9366D8A211108CC3000A897D /* myconf.h in Headers */ = {isa = PBXBuildFile; fileRef = 9366D89E11108CC3000A897D /* myconf.h */; };
+		937F34B01131E8920035B7EC /* dystopia.c in Sources */ = {isa = PBXBuildFile; fileRef = 937F34A81131E8920035B7EC /* dystopia.c */; };
+		937F34B11131E8920035B7EC /* dystopia.h in Headers */ = {isa = PBXBuildFile; fileRef = 937F34A91131E8920035B7EC /* dystopia.h */; };
+		937F34B21131E8920035B7EC /* laputa.c in Sources */ = {isa = PBXBuildFile; fileRef = 937F34AA1131E8920035B7EC /* laputa.c */; };
+		937F34B31131E8920035B7EC /* laputa.h in Headers */ = {isa = PBXBuildFile; fileRef = 937F34AB1131E8920035B7EC /* laputa.h */; };
+		937F34B41131E8920035B7EC /* tcqdb.c in Sources */ = {isa = PBXBuildFile; fileRef = 937F34AC1131E8920035B7EC /* tcqdb.c */; };
+		937F34B51131E8920035B7EC /* tcqdb.h in Headers */ = {isa = PBXBuildFile; fileRef = 937F34AD1131E8920035B7EC /* tcqdb.h */; };
+		937F34B61131E8920035B7EC /* tcwdb.c in Sources */ = {isa = PBXBuildFile; fileRef = 937F34AE1131E8920035B7EC /* tcwdb.c */; };
+		937F34B71131E8920035B7EC /* tcwdb.h in Headers */ = {isa = PBXBuildFile; fileRef = 937F34AF1131E8920035B7EC /* tcwdb.h */; };
 		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
@@ -81,6 +89,14 @@
 		9366D89C11108CC3000A897D /* md5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = md5.h; sourceTree = "<group>"; };
 		9366D89D11108CC3000A897D /* myconf.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = myconf.c; sourceTree = "<group>"; };
 		9366D89E11108CC3000A897D /* myconf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = myconf.h; sourceTree = "<group>"; };
+		937F34A81131E8920035B7EC /* dystopia.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = dystopia.c; sourceTree = "<group>"; };
+		937F34A91131E8920035B7EC /* dystopia.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dystopia.h; sourceTree = "<group>"; };
+		937F34AA1131E8920035B7EC /* laputa.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = laputa.c; sourceTree = "<group>"; };
+		937F34AB1131E8920035B7EC /* laputa.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = laputa.h; sourceTree = "<group>"; };
+		937F34AC1131E8920035B7EC /* tcqdb.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = tcqdb.c; sourceTree = "<group>"; };
+		937F34AD1131E8920035B7EC /* tcqdb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tcqdb.h; sourceTree = "<group>"; };
+		937F34AE1131E8920035B7EC /* tcwdb.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = tcwdb.c; sourceTree = "<group>"; };
+		937F34AF1131E8920035B7EC /* tcwdb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tcwdb.h; sourceTree = "<group>"; };
 		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D2AAC07E0554694100DB518D /* libTokyoCabinet.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libTokyoCabinet.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -134,6 +150,14 @@
 		32C88DFF0371C24200C91783 /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
+				937F34A81131E8920035B7EC /* dystopia.c */,
+				937F34A91131E8920035B7EC /* dystopia.h */,
+				937F34AA1131E8920035B7EC /* laputa.c */,
+				937F34AB1131E8920035B7EC /* laputa.h */,
+				937F34AC1131E8920035B7EC /* tcqdb.c */,
+				937F34AD1131E8920035B7EC /* tcqdb.h */,
+				937F34AE1131E8920035B7EC /* tcwdb.c */,
+				937F34AF1131E8920035B7EC /* tcwdb.h */,
 				9366D89B11108CC3000A897D /* md5.c */,
 				9366D89C11108CC3000A897D /* md5.h */,
 				9366D89D11108CC3000A897D /* myconf.c */,
@@ -188,6 +212,10 @@
 				9366D89A11108CB8000A897D /* tcutil.h in Headers */,
 				9366D8A011108CC3000A897D /* md5.h in Headers */,
 				9366D8A211108CC3000A897D /* myconf.h in Headers */,
+				937F34B11131E8920035B7EC /* dystopia.h in Headers */,
+				937F34B31131E8920035B7EC /* laputa.h in Headers */,
+				937F34B51131E8920035B7EC /* tcqdb.h in Headers */,
+				937F34B71131E8920035B7EC /* tcwdb.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,6 +289,10 @@
 				9366D89911108CB8000A897D /* tcutil.c in Sources */,
 				9366D89F11108CC3000A897D /* md5.c in Sources */,
 				9366D8A111108CC3000A897D /* myconf.c in Sources */,
+				937F34B01131E8920035B7EC /* dystopia.c in Sources */,
+				937F34B21131E8920035B7EC /* laputa.c in Sources */,
+				937F34B41131E8920035B7EC /* tcqdb.c in Sources */,
+				937F34B61131E8920035B7EC /* tcwdb.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

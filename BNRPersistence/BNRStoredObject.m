@@ -98,6 +98,11 @@
     // NOOP, may be overridden by subclass 
 }
 
++ (NSSet *)textIndexedAttributes
+{
+    return nil;
+}
+
 - (UInt32)rowID
 {
     return rowID;

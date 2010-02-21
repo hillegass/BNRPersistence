@@ -1,8 +1,8 @@
-{\rtf1\ansi\ansicpg1252\cocoartf1038\cocoasubrtf110
+{\rtf1\ansi\ansicpg1252\cocoartf1038\cocoasubrtf250
 {\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 Monaco;}
 {\colortbl;\red255\green255\blue255;\red118\green15\blue80;\red137\green19\blue21;\red0\green0\blue255;
 }
-\margl1440\margr1440\vieww12000\viewh11400\viewkind0
+\margl1440\margr1440\vieww20300\viewh11640\viewkind0
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
 
 \f0\b\fs48 \cf0 BNRPersistence\
@@ -52,7 +52,11 @@ You'll also need to have
 \f1\fs26 /usr/local/include/
 \f0\fs28  among your header search path. (See the Xcode target's build info to add this.)\
 \
+(If you want full-text searching, you will also need to install Tokyo Distopia.)\
+\
 Now just add the classes in the BNRPersistence directory into your project.  (If you copy them, you won't get the new version when you update your git repository.  This may be exactly what you want, but these are pretty immature, so I would suggest that you link to them instead.)\
+\
+If you have not linked in Tokyo Distopia, leave out BNRTCIndexManager or you will get linker errors.\
 \
 
 \b\fs36 Using it:\
@@ -222,10 +226,67 @@ CoreData is 2 times faster than BNRPersistence\
 (BNRPersistence is single-threaded and CoreData has some clever multi-threading in this case.  I think I can do similar tricks in BNRPersistence and catch up in this case.  In either case, it is very, very fast.  On my machine, fetching a million songs takes 6.2 seconds the first time and 3.9 seconds the second time.)\
 \
 
+\b\fs36 Full-text search\
+\
+
+\b0\fs28 To do full-text search, you need to give the 
+\b BNRStore
+\b0  an instance of 
+\b BNRTCIndexManager
+\b0 .  I usually have it put the index in the same directory as the data itself:\
+\
+\pard\tx864\pardeftab864\ql\qnatural\pardirnatural
+
+\f1\fs26 \cf0 \CocoaLigature0     BNRStore *store = ...    \
+    NSError *err;\
+    BNRTCIndexManager *indexManager = [[BNRTCIndexManager alloc] initWithPath:@"/tmp/foo"\
+                                                                        error:&err];\
+    [store setIndexManager:indexManager];\
+    [indexManager release];\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
+
+\f0\fs28 \cf0 \CocoaLigature1 \
+Then the 
+\b BNRStoredObject
+\b0  subclass identifies which attributes need to be full-text indexed:\
+\
+\pard\tx864\pardeftab864\ql\qnatural\pardirnatural
+
+\f1\fs26 \cf0 \CocoaLigature0 + (NSSet *)textIndexedAttributes\
+\{\
+    \cf2 static\cf0  NSSet *textKeys = \cf2 nil\cf0 ;\
+    \cf2 if\cf0  (!textKeys) \{\
+        textKeys = [[NSSet alloc] initWithObjects:\cf3 @"title"\cf0 , \cf2 nil\cf0 ];\
+    \}\
+    \cf2 return\cf0  textKeys;\
+\}\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
+
+\f0\fs28 \cf0 \CocoaLigature1 \
+Now you can search using Tokyo-Dystopia-style search strings:\
+\
+\pard\tx864\pardeftab864\ql\qnatural\pardirnatural
+
+\f1\fs26 \cf0 \CocoaLigature0     NSMutableArray *songsThatMatch = [store objectsForClass:[Song class]\
+                                              matchingText:\cf3 @"[[*choice*]]"\cf0 \
+                                                    forKey:\cf3 @"title"\cf0 ];\
+\pard\tx864\pardeftab864\ql\qnatural\pardirnatural
+
+\f0\fs28 \cf0 \CocoaLigature1 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
+\cf0 On my system, I can search 1M records and fetch the 727 that match in 0.1 seconds.  The same operation on Core Data takes 1.3 seconds.\
+
+\b\fs36 \
+The size of things\
+
+\b0\fs28 \
+The database files are not small.  Nor are the full-text indexes.  For the million-song database, the Tokyo Cabinet data file is more than twice as large as the Core Data file.  And that doesn't include the index which is that also about twice as large as the Core Data file.\
+\
+
 \b\fs36 Getting it on the phone\
 
 \b0\fs28 \
-The first problem is that you need to compile TokyoCabinet for arm.  I tried every configure trick I could come up with and then just created an Xcode static library project and dumped the source into the project.  This project is in the repository.\
+The first problem is that you need to compile TokyoCabinet/TokyoDystopia for arm.  I tried every configure trick I could come up with and then just created an Xcode static library project and dumped the source to both libraries into the project.  This project is in the repository.\
 \
 When you link to the resulting static library, you will also need to link in libz, which is part of the iPhone SDK\
 \
@@ -233,7 +294,9 @@ When you link to the resulting static library, you will also need to link in lib
 \b\fs36 License\
 
 \b0\fs28 \
-My code is under the MIT license and Tokyo Cabinet is under the LGPL.   I think this will enable you to use it how you want to use it.  If something bad happens because of the code, you can't sue us.  And if you make changes to Tokyo Cabinet, I think you need to submit those changes to the author. But I'm not a lawyer...\
+My code is under the MIT license and Tokyo Cabinet is under the LGPL.   I think this will enable you to use it how you want to use it.  If something bad happens because of the code, you can't sue us.  And if you make changes to Tokyo Cabinet, I think you need to submit those changes to the author. \
+\
+There has been some concern over the fact that Tokyo Cabinet and Tokyo Dystopia are under the LGPL.  I wrote to Mikio Hirabayashi, the author of Tokyo Cabinet and Tokyo Dystopia.  He made it very clear that he was fine with both libraries being used in commercial products.\
 \
 
 \b\fs36 To Do:\
@@ -241,11 +304,10 @@ My code is under the MIT license and Tokyo Cabinet is under the LGPL.   I think 
 \b0\fs28 \
 I recognize that there is room for improvement here:\
 \
-1) The creation of a model-file architecture and editor\
-2) Add Tokyo Distopia to make full-text search fast\
-3) Use B+ trees to make attributes indexable\
+1) The creation of a model-file architecture\
+3) Use B+ trees to make attributes indexable and add support for NSPredicate\
 4) Better automatic undo support \
-5) Automatic syncing to a web service\
+5) Automatic syncing to the cloud\
 6) Easy hooks for QuickLook images and Spotlight metadata in 
 \b BNRStoreDocument
 \b0 \

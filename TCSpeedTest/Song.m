@@ -26,6 +26,15 @@
 
 @implementation Song
 
++ (NSSet *)textIndexedAttributes
+{
+    static NSSet *textKeys = nil;
+    if (!textKeys) {
+        textKeys = [[NSSet alloc] initWithObjects:@"title", nil];
+    }
+    return textKeys;
+}
+
 @synthesize title, seconds;
 
 - (NSString *)title
@@ -57,19 +66,5 @@
     [d writeUInt32:seconds];
 }
 
-- (void)prepareForDelete
-{
-    // Check all playlists
-    BNRStore *objStore = [self store];
-    NSArray *allPlaylists = [objStore allObjectsForClass:[Playlist class]];
-    for (Playlist *pl in allPlaylists) {
-        NSMutableArray *songs = (NSMutableArray *)[pl songs];
-        int countBefore = [songs count];
-        [songs removeObjectIdenticalTo:self];
-        if (countBefore != [songs count]) {
-            [objStore willUpdateObject:pl];
-        }
-    }
-}
 
 @end

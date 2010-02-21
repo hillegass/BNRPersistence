@@ -57,6 +57,12 @@
 // might be retain-cycles
 - (void)dissolveAllRelationships;
 
+#pragma mark Full-text Indexing
+
+// Should return a set of strings.  Each string is the name of
+// a property of a string type
++ (NSSet *)textIndexedAttributes;
+
 #pragma mark Dealing with store
 
 // Every StoredObject knows the store that is holding it

@@ -548,6 +548,134 @@ void *_tc_recdecode(const void *ptr, int size, int *sp, void *op);
 
 
 
+
+#define TDNUMBUFSIZ    32                // size of a buffer for a number
+
+/* set a buffer for a variable length number */
+#define TDSETVNUMBUF(TD_len, TD_buf, TD_num) \
+do { \
+int _TD_num = (TD_num); \
+if(_TD_num == 0){ \
+((signed char *)(TD_buf))[0] = 0; \
+(TD_len) = 1; \
+} else { \
+(TD_len) = 0; \
+while(_TD_num > 0){ \
+int _TD_rem = _TD_num & 0x7f; \
+_TD_num >>= 7; \
+if(_TD_num > 0){ \
+((signed char *)(TD_buf))[(TD_len)] = -_TD_rem - 1; \
+} else { \
+((signed char *)(TD_buf))[(TD_len)] = _TD_rem; \
+} \
+(TD_len)++; \
+} \
+} \
+} while(false)
+
+/* set a buffer for a variable length number of 64-bit */
+#define TDSETVNUMBUF64(TD_len, TD_buf, TD_num) \
+do { \
+long long int _TD_num = (TD_num); \
+if(_TD_num == 0){ \
+((signed char *)(TD_buf))[0] = 0; \
+(TD_len) = 1; \
+} else { \
+(TD_len) = 0; \
+while(_TD_num > 0){ \
+int _TD_rem = _TD_num & 0x7f; \
+_TD_num >>= 7; \
+if(_TD_num > 0){ \
+((signed char *)(TD_buf))[(TD_len)] = -_TD_rem - 1; \
+} else { \
+((signed char *)(TD_buf))[(TD_len)] = _TD_rem; \
+} \
+(TD_len)++; \
+} \
+} \
+} while(false)
+
+/* read a variable length buffer */
+#define TDREADVNUMBUF(TD_buf, TD_num, TD_step) \
+do { \
+TD_num = 0; \
+int _TD_base = 1; \
+int _TD_i = 0; \
+while(true){ \
+if(((signed char *)(TD_buf))[_TD_i] >= 0){ \
+TD_num += ((signed char *)(TD_buf))[_TD_i] * _TD_base; \
+break; \
+} \
+TD_num += _TD_base * (((signed char *)(TD_buf))[_TD_i] + 1) * -1; \
+_TD_base <<= 7; \
+_TD_i++; \
+} \
+(TD_step) = _TD_i + 1; \
+} while(false)
+
+/* read a variable length buffer */
+#define TDREADVNUMBUF64(TD_buf, TD_num, TD_step) \
+do { \
+TD_num = 0; \
+long long int _TD_base = 1; \
+int _TD_i = 0; \
+while(true){ \
+if(((signed char *)(TD_buf))[_TD_i] >= 0){ \
+TD_num += ((signed char *)(TD_buf))[_TD_i] * _TD_base; \
+break; \
+} \
+TD_num += _TD_base * (((signed char *)(TD_buf))[_TD_i] + 1) * -1; \
+_TD_base <<= 7; \
+_TD_i++; \
+} \
+(TD_step) = _TD_i + 1; \
+} while(false)
+
+
+#define TDSWAB16(TD_num) \
+( \
+((TD_num & 0x00ffU) << 8) | \
+((TD_num & 0xff00U) >> 8) \
+)
+
+#define TDSWAB32(TD_num) \
+( \
+((TD_num & 0x000000ffUL) << 24) | \
+((TD_num & 0x0000ff00UL) << 8) | \
+((TD_num & 0x00ff0000UL) >> 8) | \
+((TD_num & 0xff000000UL) >> 24) \
+)
+
+#define TDSWAB64(TD_num) \
+( \
+((TD_num & 0x00000000000000ffULL) << 56) | \
+((TD_num & 0x000000000000ff00ULL) << 40) | \
+((TD_num & 0x0000000000ff0000ULL) << 24) | \
+((TD_num & 0x00000000ff000000ULL) << 8) | \
+((TD_num & 0x000000ff00000000ULL) >> 8) | \
+((TD_num & 0x0000ff0000000000ULL) >> 24) | \
+((TD_num & 0x00ff000000000000ULL) >> 40) | \
+((TD_num & 0xff00000000000000ULL) >> 56) \
+)
+
+#if defined(_MYBIGEND) || defined(_MYSWAB)
+#define TDBIGEND       1
+#define TDHTOIS(TD_num)   TDSWAB16(TD_num)
+#define TDHTOIL(TD_num)   TDSWAB32(TD_num)
+#define TDHTOILL(TD_num)  TDSWAB64(TD_num)
+#define TDITOHS(TD_num)   TDSWAB16(TD_num)
+#define TDITOHL(TD_num)   TDSWAB32(TD_num)
+#define TDITOHLL(TD_num)  TDSWAB64(TD_num)
+#else
+#define TDBIGEND       0
+#define TDHTOIS(TD_num)   (TD_num)
+#define TDHTOIL(TD_num)   (TD_num)
+#define TDHTOILL(TD_num)  (TD_num)
+#define TDITOHS(TD_num)   (TD_num)
+#define TDITOHL(TD_num)   (TD_num)
+#define TDITOHLL(TD_num)  (TD_num)
+#endif
+
 #endif                                   // duplication check
 
 

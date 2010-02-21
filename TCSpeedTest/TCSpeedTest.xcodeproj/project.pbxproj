@@ -13,6 +13,8 @@
 			buildPhases = (
 			);
 			dependencies = (
+				937F33981131CC0F0035B7EC /* PBXTargetDependency */,
+				937F32B611319A400035B7EC /* PBXTargetDependency */,
 				93D50A41110D52D000E5D2F0 /* PBXTargetDependency */,
 				93D50A3F110D52D000E5D2F0 /* PBXTargetDependency */,
 				93D50A3D110D52D000E5D2F0 /* PBXTargetDependency */,
@@ -41,6 +43,11 @@
 		934ECE751116290500F8C0E5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08FB779EFE84155DC02AAC07 /* Foundation.framework */; };
 		934ECE761116290500F8C0E5 /* libtokyocabinet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 93D5050A110B8AB300E5D2F0 /* libtokyocabinet.a */; };
 		934ECE871116296200F8C0E5 /* SimpleUpdateTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 934ECE861116296200F8C0E5 /* SimpleUpdateTest.m */; };
+		934ECFC7111B3C7F00F8C0E5 /* BNRIndexManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 934ECFC6111B3C7F00F8C0E5 /* BNRIndexManager.m */; };
+		934ECFC8111B3C7F00F8C0E5 /* BNRIndexManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 934ECFC6111B3C7F00F8C0E5 /* BNRIndexManager.m */; };
+		934ECFC9111B3C7F00F8C0E5 /* BNRIndexManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 934ECFC6111B3C7F00F8C0E5 /* BNRIndexManager.m */; };
+		934ECFCA111B3C7F00F8C0E5 /* BNRIndexManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 934ECFC6111B3C7F00F8C0E5 /* BNRIndexManager.m */; };
+		934ECFCB111B3C7F00F8C0E5 /* BNRIndexManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 934ECFC6111B3C7F00F8C0E5 /* BNRIndexManager.m */; };
 		93644C6911134E01008CA083 /* SpeedTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 93644C6811134E01008CA083 /* SpeedTest.m */; };
 		93644C6A11134E01008CA083 /* SpeedTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 93644C6811134E01008CA083 /* SpeedTest.m */; };
 		93644C6B11134E01008CA083 /* SpeedTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 93644C6811134E01008CA083 /* SpeedTest.m */; };
@@ -51,6 +58,42 @@
 		9366D9FF11120568000A897D /* BNRUniquingTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 9366D9F811120568000A897D /* BNRUniquingTable.m */; };
 		9366DA0211120568000A897D /* BNRUniquingTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 9366D9F811120568000A897D /* BNRUniquingTable.m */; };
 		9366DA0511120568000A897D /* BNRUniquingTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 9366D9F811120568000A897D /* BNRUniquingTable.m */; };
+		937F31EC11318E6B0035B7EC /* BNRBackendCursor.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D504D2110B883700E5D2F0 /* BNRBackendCursor.m */; };
+		937F31ED11318E6B0035B7EC /* BNRClassDictionary.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93D504D4110B883700E5D2F0 /* BNRClassDictionary.mm */; };
+		937F31EE11318E6B0035B7EC /* BNRClassMetaData.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D504D6110B883700E5D2F0 /* BNRClassMetaData.m */; };
+		937F31EF11318E6B0035B7EC /* BNRDataBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D504D8110B883700E5D2F0 /* BNRDataBuffer.m */; };
+		937F31F011318E6B0035B7EC /* BNRStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D504E0110B883700E5D2F0 /* BNRStore.m */; };
+		937F31F111318E6B0035B7EC /* BNRStoreBackend.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D504E2110B883700E5D2F0 /* BNRStoreBackend.m */; };
+		937F31F211318E6B0035B7EC /* BNRStoredObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D504E4110B883700E5D2F0 /* BNRStoredObject.m */; };
+		937F31F311318E6B0035B7EC /* BNRTCBackend.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93D504F0110B883700E5D2F0 /* BNRTCBackend.mm */; };
+		937F31F411318E6B0035B7EC /* BNRTCBackendCursor.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D504F2110B883700E5D2F0 /* BNRTCBackendCursor.m */; };
+		937F31F811318E6B0035B7EC /* BNRUniquingTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 9366D9F811120568000A897D /* BNRUniquingTable.m */; };
+		937F31F911318E6B0035B7EC /* SpeedTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 93644C6811134E01008CA083 /* SpeedTest.m */; };
+		937F31FA11318E6B0035B7EC /* BNRIndexManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 934ECFC6111B3C7F00F8C0E5 /* BNRIndexManager.m */; };
+		937F31FB11318E6B0035B7EC /* BNRTCIndexManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9324D3661129AB7D00E8C193 /* BNRTCIndexManager.m */; };
+		937F31FD11318E6B0035B7EC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08FB779EFE84155DC02AAC07 /* Foundation.framework */; };
+		937F31FE11318E6B0035B7EC /* libtokyocabinet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 93D5050A110B8AB300E5D2F0 /* libtokyocabinet.a */; };
+		937F320711318EA60035B7EC /* FullTextInsertTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 937F320611318EA60035B7EC /* FullTextInsertTest.m */; };
+		937F32C311319BAE0035B7EC /* libtokyodystopia.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9324D36C1129ABD900E8C193 /* libtokyodystopia.a */; };
+		937F33171131AAA60035B7EC /* BNRBackendCursor.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D504D2110B883700E5D2F0 /* BNRBackendCursor.m */; };
+		937F33181131AAA60035B7EC /* BNRClassDictionary.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93D504D4110B883700E5D2F0 /* BNRClassDictionary.mm */; };
+		937F33191131AAA60035B7EC /* BNRClassMetaData.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D504D6110B883700E5D2F0 /* BNRClassMetaData.m */; };
+		937F331A1131AAA60035B7EC /* BNRDataBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D504D8110B883700E5D2F0 /* BNRDataBuffer.m */; };
+		937F331B1131AAA60035B7EC /* BNRStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D504E0110B883700E5D2F0 /* BNRStore.m */; };
+		937F331C1131AAA60035B7EC /* BNRStoreBackend.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D504E2110B883700E5D2F0 /* BNRStoreBackend.m */; };
+		937F331D1131AAA60035B7EC /* BNRStoredObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D504E4110B883700E5D2F0 /* BNRStoredObject.m */; };
+		937F331E1131AAA60035B7EC /* BNRTCBackend.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93D504F0110B883700E5D2F0 /* BNRTCBackend.mm */; };
+		937F331F1131AAA60035B7EC /* BNRTCBackendCursor.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D504F2110B883700E5D2F0 /* BNRTCBackendCursor.m */; };
+		937F33201131AAA60035B7EC /* BNRUniquingTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 9366D9F811120568000A897D /* BNRUniquingTable.m */; };
+		937F33211131AAA60035B7EC /* SpeedTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 93644C6811134E01008CA083 /* SpeedTest.m */; };
+		937F33221131AAA60035B7EC /* BNRIndexManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 934ECFC6111B3C7F00F8C0E5 /* BNRIndexManager.m */; };
+		937F33231131AAA60035B7EC /* BNRTCIndexManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9324D3661129AB7D00E8C193 /* BNRTCIndexManager.m */; };
+		937F33271131AAA60035B7EC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08FB779EFE84155DC02AAC07 /* Foundation.framework */; };
+		937F33281131AAA60035B7EC /* libtokyocabinet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 93D5050A110B8AB300E5D2F0 /* libtokyocabinet.a */; };
+		937F33291131AAA60035B7EC /* libtokyodystopia.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9324D36C1129ABD900E8C193 /* libtokyodystopia.a */; };
+		937F33341131AB210035B7EC /* FullTextFetchText.m in Sources */ = {isa = PBXBuildFile; fileRef = 937F33331131AB210035B7EC /* FullTextFetchText.m */; };
+		937F33751131CA600035B7EC /* Song.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D50517110B8B2700E5D2F0 /* Song.m */; };
+		937F33761131CA690035B7EC /* Song.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D50517110B8B2700E5D2F0 /* Song.m */; };
 		93D5081A110CB22A00E5D2F0 /* Playlist.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D50515110B8B2700E5D2F0 /* Playlist.m */; };
 		93D5081C110CB22A00E5D2F0 /* Song.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D50517110B8B2700E5D2F0 /* Song.m */; };
 		93D5081F110CB23D00E5D2F0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08FB779EFE84155DC02AAC07 /* Foundation.framework */; };
@@ -112,8 +155,22 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = 08FB7793FE84155DC02AAC07 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 934ECE641116290500F8C0E5 /* SimpleUpdateTest */;
+			remoteGlobalIDString = 934ECE641116290500F8C0E5;
 			remoteInfo = SimpleUpdateTest;
+		};
+		937F32B511319A400035B7EC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 08FB7793FE84155DC02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 937F31EA11318E6B0035B7EC /* FullTextInsertTest */;
+			remoteInfo = FullTextInsertTest;
+		};
+		937F33971131CC0F0035B7EC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 08FB7793FE84155DC02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 937F33151131AAA60035B7EC /* FullTextFetchTest */;
+			remoteInfo = FullTextFetchTest;
 		};
 		93D50A3A110D52D000E5D2F0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -145,14 +202,44 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		937F32A51131911F0035B7EC /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 7;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		937F332A1131AAA60035B7EC /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 7;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		08FB779EFE84155DC02AAC07 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		9324D3651129AB7D00E8C193 /* BNRTCIndexManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BNRTCIndexManager.h; path = ../BNRPersistence/BNRTCIndexManager.h; sourceTree = SOURCE_ROOT; };
+		9324D3661129AB7D00E8C193 /* BNRTCIndexManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BNRTCIndexManager.m; path = ../BNRPersistence/BNRTCIndexManager.m; sourceTree = SOURCE_ROOT; };
+		9324D36C1129ABD900E8C193 /* libtokyodystopia.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libtokyodystopia.a; path = /usr/local/lib/libtokyodystopia.a; sourceTree = "<absolute>"; };
 		934ECE7A1116290500F8C0E5 /* SimpleUpdateTest */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SimpleUpdateTest; sourceTree = BUILT_PRODUCTS_DIR; };
 		934ECE861116296200F8C0E5 /* SimpleUpdateTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleUpdateTest.m; sourceTree = "<group>"; };
+		934ECFC5111B3C7F00F8C0E5 /* BNRIndexManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BNRIndexManager.h; path = ../BNRPersistence/BNRIndexManager.h; sourceTree = SOURCE_ROOT; };
+		934ECFC6111B3C7F00F8C0E5 /* BNRIndexManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BNRIndexManager.m; path = ../BNRPersistence/BNRIndexManager.m; sourceTree = SOURCE_ROOT; };
 		93644C6711134E01008CA083 /* SpeedTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpeedTest.h; sourceTree = SOURCE_ROOT; };
 		93644C6811134E01008CA083 /* SpeedTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpeedTest.m; sourceTree = SOURCE_ROOT; };
 		9366D9F711120568000A897D /* BNRUniquingTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BNRUniquingTable.h; path = ../BNRPersistence/BNRUniquingTable.h; sourceTree = SOURCE_ROOT; };
 		9366D9F811120568000A897D /* BNRUniquingTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BNRUniquingTable.m; path = ../BNRPersistence/BNRUniquingTable.m; sourceTree = SOURCE_ROOT; };
+		937F320211318E6B0035B7EC /* FullTextInsertTest */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = FullTextInsertTest; sourceTree = BUILT_PRODUCTS_DIR; };
+		937F320611318EA60035B7EC /* FullTextInsertTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FullTextInsertTest.m; sourceTree = "<group>"; };
+		937F332E1131AAA60035B7EC /* FullTextFetchTest */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = FullTextFetchTest; sourceTree = BUILT_PRODUCTS_DIR; };
+		937F33331131AB210035B7EC /* FullTextFetchText.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FullTextFetchText.m; sourceTree = "<group>"; };
 		93D504D1110B883700E5D2F0 /* BNRBackendCursor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BNRBackendCursor.h; path = ../BNRPersistence/BNRBackendCursor.h; sourceTree = SOURCE_ROOT; };
 		93D504D2110B883700E5D2F0 /* BNRBackendCursor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BNRBackendCursor.m; path = ../BNRPersistence/BNRBackendCursor.m; sourceTree = SOURCE_ROOT; };
 		93D504D3110B883700E5D2F0 /* BNRClassDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BNRClassDictionary.h; path = ../BNRPersistence/BNRClassDictionary.h; sourceTree = SOURCE_ROOT; };
@@ -193,6 +280,26 @@
 			files = (
 				934ECE751116290500F8C0E5 /* Foundation.framework in Frameworks */,
 				934ECE761116290500F8C0E5 /* libtokyocabinet.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		937F31FC11318E6B0035B7EC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				937F31FD11318E6B0035B7EC /* Foundation.framework in Frameworks */,
+				937F31FE11318E6B0035B7EC /* libtokyocabinet.a in Frameworks */,
+				937F32C311319BAE0035B7EC /* libtokyodystopia.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		937F33261131AAA60035B7EC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				937F33271131AAA60035B7EC /* Foundation.framework in Frameworks */,
+				937F33281131AAA60035B7EC /* libtokyocabinet.a in Frameworks */,
+				937F33291131AAA60035B7EC /* libtokyodystopia.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,6 +364,8 @@
 				93D50824110CB29000E5D2F0 /* ComplexInsertTest.m */,
 				93D508B9110D2E9F00E5D2F0 /* ComplexFetchTest.m */,
 				934ECE861116296200F8C0E5 /* SimpleUpdateTest.m */,
+				937F320611318EA60035B7EC /* FullTextInsertTest.m */,
+				937F33331131AB210035B7EC /* FullTextFetchText.m */,
 				93D50514110B8B2700E5D2F0 /* Playlist.h */,
 				93D50515110B8B2700E5D2F0 /* Playlist.m */,
 				93D50516110B8B2700E5D2F0 /* Song.h */,
@@ -270,6 +379,7 @@
 			children = (
 				08FB779EFE84155DC02AAC07 /* Foundation.framework */,
 				93D5050A110B8AB300E5D2F0 /* libtokyocabinet.a */,
+				9324D36C1129ABD900E8C193 /* libtokyodystopia.a */,
 			);
 			name = "External Frameworks and Libraries";
 			sourceTree = "<group>";
@@ -282,8 +392,17 @@
 				93D50946110D49BB00E5D2F0 /* SimpleInsertTest */,
 				93D50A23110D51E000E5D2F0 /* SimpleFetchTest */,
 				934ECE7A1116290500F8C0E5 /* SimpleUpdateTest */,
+				937F320211318E6B0035B7EC /* FullTextInsertTest */,
+				937F332E1131AAA60035B7EC /* FullTextFetchTest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		9324D33F1129A96400E8C193 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 		9366DA0711120583000A897D /* DataStructures */ = {
@@ -300,6 +419,7 @@
 		93D50506110B888600E5D2F0 /* BNRPersistence */ = {
 			isa = PBXGroup;
 			children = (
+				9324D33F1129A96400E8C193 /* Model */,
 				9366DA0711120583000A897D /* DataStructures */,
 				93D504D1110B883700E5D2F0 /* BNRBackendCursor.h */,
 				93D504D2110B883700E5D2F0 /* BNRBackendCursor.m */,
@@ -317,6 +437,10 @@
 				93D504F0110B883700E5D2F0 /* BNRTCBackend.mm */,
 				93D504F1110B883700E5D2F0 /* BNRTCBackendCursor.h */,
 				93D504F2110B883700E5D2F0 /* BNRTCBackendCursor.m */,
+				934ECFC5111B3C7F00F8C0E5 /* BNRIndexManager.h */,
+				934ECFC6111B3C7F00F8C0E5 /* BNRIndexManager.m */,
+				9324D3651129AB7D00E8C193 /* BNRTCIndexManager.h */,
+				9324D3661129AB7D00E8C193 /* BNRTCIndexManager.m */,
 			);
 			name = BNRPersistence;
 			sourceTree = "<group>";
@@ -345,6 +469,40 @@
 			name = SimpleUpdateTest;
 			productName = ComplexInsertTest;
 			productReference = 934ECE7A1116290500F8C0E5 /* SimpleUpdateTest */;
+			productType = "com.apple.product-type.tool";
+		};
+		937F31EA11318E6B0035B7EC /* FullTextInsertTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 937F31FF11318E6B0035B7EC /* Build configuration list for PBXNativeTarget "FullTextInsertTest" */;
+			buildPhases = (
+				937F31EB11318E6B0035B7EC /* Sources */,
+				937F31FC11318E6B0035B7EC /* Frameworks */,
+				937F32A51131911F0035B7EC /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FullTextInsertTest;
+			productName = ComplexInsertTest;
+			productReference = 937F320211318E6B0035B7EC /* FullTextInsertTest */;
+			productType = "com.apple.product-type.tool";
+		};
+		937F33151131AAA60035B7EC /* FullTextFetchTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 937F332B1131AAA60035B7EC /* Build configuration list for PBXNativeTarget "FullTextFetchTest" */;
+			buildPhases = (
+				937F33161131AAA60035B7EC /* Sources */,
+				937F33261131AAA60035B7EC /* Frameworks */,
+				937F332A1131AAA60035B7EC /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FullTextFetchTest;
+			productName = ComplexInsertTest;
+			productReference = 937F332E1131AAA60035B7EC /* FullTextFetchTest */;
 			productType = "com.apple.product-type.tool";
 		};
 		93D50811110CB1D600E5D2F0 /* ComplexInsertTest */ = {
@@ -429,6 +587,8 @@
 				93D50930110D49BB00E5D2F0 /* SimpleInsertTest */,
 				93D50A0D110D51E000E5D2F0 /* SimpleFetchTest */,
 				934ECE641116290500F8C0E5 /* SimpleUpdateTest */,
+				937F31EA11318E6B0035B7EC /* FullTextInsertTest */,
+				937F33151131AAA60035B7EC /* FullTextFetchTest */,
 			);
 		};
 /* End PBXProject section */
@@ -452,6 +612,51 @@
 				934ECE721116290500F8C0E5 /* BNRUniquingTable.m in Sources */,
 				934ECE731116290500F8C0E5 /* SpeedTest.m in Sources */,
 				934ECE871116296200F8C0E5 /* SimpleUpdateTest.m in Sources */,
+				934ECFC7111B3C7F00F8C0E5 /* BNRIndexManager.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		937F31EB11318E6B0035B7EC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				937F33751131CA600035B7EC /* Song.m in Sources */,
+				937F31EC11318E6B0035B7EC /* BNRBackendCursor.m in Sources */,
+				937F31ED11318E6B0035B7EC /* BNRClassDictionary.mm in Sources */,
+				937F31EE11318E6B0035B7EC /* BNRClassMetaData.m in Sources */,
+				937F31EF11318E6B0035B7EC /* BNRDataBuffer.m in Sources */,
+				937F31F011318E6B0035B7EC /* BNRStore.m in Sources */,
+				937F31F111318E6B0035B7EC /* BNRStoreBackend.m in Sources */,
+				937F31F211318E6B0035B7EC /* BNRStoredObject.m in Sources */,
+				937F31F311318E6B0035B7EC /* BNRTCBackend.mm in Sources */,
+				937F31F411318E6B0035B7EC /* BNRTCBackendCursor.m in Sources */,
+				937F31F811318E6B0035B7EC /* BNRUniquingTable.m in Sources */,
+				937F31F911318E6B0035B7EC /* SpeedTest.m in Sources */,
+				937F31FA11318E6B0035B7EC /* BNRIndexManager.m in Sources */,
+				937F31FB11318E6B0035B7EC /* BNRTCIndexManager.m in Sources */,
+				937F320711318EA60035B7EC /* FullTextInsertTest.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		937F33161131AAA60035B7EC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				937F33761131CA690035B7EC /* Song.m in Sources */,
+				937F33171131AAA60035B7EC /* BNRBackendCursor.m in Sources */,
+				937F33181131AAA60035B7EC /* BNRClassDictionary.mm in Sources */,
+				937F33191131AAA60035B7EC /* BNRClassMetaData.m in Sources */,
+				937F331A1131AAA60035B7EC /* BNRDataBuffer.m in Sources */,
+				937F331B1131AAA60035B7EC /* BNRStore.m in Sources */,
+				937F331C1131AAA60035B7EC /* BNRStoreBackend.m in Sources */,
+				937F331D1131AAA60035B7EC /* BNRStoredObject.m in Sources */,
+				937F331E1131AAA60035B7EC /* BNRTCBackend.mm in Sources */,
+				937F331F1131AAA60035B7EC /* BNRTCBackendCursor.m in Sources */,
+				937F33201131AAA60035B7EC /* BNRUniquingTable.m in Sources */,
+				937F33211131AAA60035B7EC /* SpeedTest.m in Sources */,
+				937F33221131AAA60035B7EC /* BNRIndexManager.m in Sources */,
+				937F33231131AAA60035B7EC /* BNRTCIndexManager.m in Sources */,
+				937F33341131AB210035B7EC /* FullTextFetchText.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -473,6 +678,7 @@
 				93D50825110CB29000E5D2F0 /* ComplexInsertTest.m in Sources */,
 				9366DA0511120568000A897D /* BNRUniquingTable.m in Sources */,
 				93644C6C11134E01008CA083 /* SpeedTest.m in Sources */,
+				934ECFCA111B3C7F00F8C0E5 /* BNRIndexManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -494,6 +700,7 @@
 				93D508BA110D2E9F00E5D2F0 /* ComplexFetchTest.m in Sources */,
 				9366DA0211120568000A897D /* BNRUniquingTable.m in Sources */,
 				93644C6B11134E01008CA083 /* SpeedTest.m in Sources */,
+				934ECFCB111B3C7F00F8C0E5 /* BNRIndexManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -515,6 +722,7 @@
 				93D50957110D4A0F00E5D2F0 /* SimpleInsertTest.m in Sources */,
 				9366D9FF11120568000A897D /* BNRUniquingTable.m in Sources */,
 				93644C6A11134E01008CA083 /* SpeedTest.m in Sources */,
+				934ECFC9111B3C7F00F8C0E5 /* BNRIndexManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -536,6 +744,7 @@
 				93D50A2A110D520D00E5D2F0 /* SimpleFetchTest.m in Sources */,
 				9366D9FC11120568000A897D /* BNRUniquingTable.m in Sources */,
 				93644C6911134E01008CA083 /* SpeedTest.m in Sources */,
+				934ECFC8111B3C7F00F8C0E5 /* BNRIndexManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -546,6 +755,16 @@
 			isa = PBXTargetDependency;
 			target = 934ECE641116290500F8C0E5 /* SimpleUpdateTest */;
 			targetProxy = 934ECEB711162D2800F8C0E5 /* PBXContainerItemProxy */;
+		};
+		937F32B611319A400035B7EC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 937F31EA11318E6B0035B7EC /* FullTextInsertTest */;
+			targetProxy = 937F32B511319A400035B7EC /* PBXContainerItemProxy */;
+		};
+		937F33981131CC0F0035B7EC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 937F33151131AAA60035B7EC /* FullTextFetchTest */;
+			targetProxy = 937F33971131CC0F0035B7EC /* PBXContainerItemProxy */;
 		};
 		93D50A3B110D52D000E5D2F0 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -642,6 +861,102 @@
 				);
 				PREBINDING = NO;
 				PRODUCT_NAME = SimpleUpdateTest;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		937F320011318E6B0035B7EC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "";
+				HEADER_SEARCH_PATHS = /usr/local/include;
+				INSTALL_PATH = /usr/local/bin;
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = FullTextInsertTest;
+				RUN_CLANG_STATIC_ANALYZER = NO;
+			};
+			name = Debug;
+		};
+		937F320111318E6B0035B7EC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "";
+				HEADER_SEARCH_PATHS = /usr/local/include;
+				INSTALL_PATH = /usr/local/bin;
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = FullTextInsertTest;
+				RUN_CLANG_STATIC_ANALYZER = NO;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		937F332C1131AAA60035B7EC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "";
+				HEADER_SEARCH_PATHS = /usr/local/include;
+				INSTALL_PATH = /usr/local/bin;
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = FullTextFetchTest;
+				RUN_CLANG_STATIC_ANALYZER = NO;
+			};
+			name = Debug;
+		};
+		937F332D1131AAA60035B7EC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "";
+				HEADER_SEARCH_PATHS = /usr/local/include;
+				INSTALL_PATH = /usr/local/bin;
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = FullTextFetchTest;
+				RUN_CLANG_STATIC_ANALYZER = NO;
 				ZERO_LINK = NO;
 			};
 			name = Release;
@@ -882,6 +1197,24 @@
 			buildConfigurations = (
 				934ECE781116290500F8C0E5 /* Debug */,
 				934ECE791116290500F8C0E5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		937F31FF11318E6B0035B7EC /* Build configuration list for PBXNativeTarget "FullTextInsertTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				937F320011318E6B0035B7EC /* Debug */,
+				937F320111318E6B0035B7EC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		937F332B1131AAA60035B7EC /* Build configuration list for PBXNativeTarget "FullTextFetchTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				937F332C1131AAA60035B7EC /* Debug */,
+				937F332D1131AAA60035B7EC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

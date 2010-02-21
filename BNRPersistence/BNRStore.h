@@ -28,6 +28,7 @@
 @class BNRStoredObject;
 @class BNRDataBuffer;
 @class BNRStore;
+@class BNRIndexManager;
 
 @protocol BNRStoreDelegate
 
@@ -53,6 +54,8 @@
     
     NSUndoManager *undoManager; /**< If non-nil, undo actions are automatically registered */
     
+    BNRIndexManager *indexManager; 
+    
     id <BNRStoreDelegate> delegate; /*< Gets told when an object is to be updated, inserted, or deleted */
 
     
@@ -66,10 +69,11 @@
     Class classes[256];  /*< Maps int (the class ID) -> Class */
 }
 
+@property (nonatomic, retain) BNRIndexManager *indexManager;
+@property (nonatomic, retain) NSUndoManager *undoManager;
+@property (nonatomic, assign) id <BNRStoreDelegate> delegate;
 
 - (id)init;
-- (void)setDelegate:(id <BNRStoreDelegate>)obj;
-- (void)setUndoManager:(NSUndoManager *)ud;
 
 #pragma mark Fetching
 
@@ -84,6 +88,10 @@
 // All returned objects have content.
 - (NSMutableArray *)allObjectsForClass:(Class)c;
 
+// Full-text search
+- (NSMutableArray *)objectsForClass:(Class)c
+                       matchingText:(NSString *)toMatch
+                             forKey:(NSString *)key;
 
 #pragma mark Saving
 
