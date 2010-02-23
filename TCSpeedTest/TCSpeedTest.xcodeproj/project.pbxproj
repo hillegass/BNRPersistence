@@ -981,7 +981,7 @@
 				);
 				PREBINDING = NO;
 				PRODUCT_NAME = ComplexInsertTest;
-				RUN_CLANG_STATIC_ANALYZER = NO;
+				RUN_CLANG_STATIC_ANALYZER = YES;
 			};
 			name = Debug;
 		};
@@ -1004,7 +1004,7 @@
 				);
 				PREBINDING = NO;
 				PRODUCT_NAME = ComplexInsertTest;
-				RUN_CLANG_STATIC_ANALYZER = NO;
+				RUN_CLANG_STATIC_ANALYZER = YES;
 				ZERO_LINK = NO;
 			};
 			name = Release;

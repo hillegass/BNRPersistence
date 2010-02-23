@@ -12,11 +12,12 @@
 int main (int argc, const char * argv[]) {
     NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
 
-    uint64_t start = mach_absolute_time();
 
 	// Create the managed object context
     NSManagedObjectContext *context = managedObjectContext(@"CDText");
     
+    uint64_t start = mach_absolute_time();
+
     NSFetchRequest *fr = [[NSFetchRequest alloc] init];
     NSEntityDescription *ed = [NSEntityDescription entityForName:@"Song"
                                           inManagedObjectContext:context];
@@ -28,10 +29,22 @@ int main (int argc, const char * argv[]) {
     NSArray *songsThatMatch = [context executeFetchRequest:fr
                                                error:NULL];
         
-    for (NSManagedObject *song in songsThatMatch) {
-        [song valueForKey:@"title"];
-    }
-    NSLog(@"%d songs", [songsThatMatch count]);
+    NSLog(@"%d songs contain the string 'choice'", [songsThatMatch count]);
+    
+    predicate = [NSPredicate predicateWithFormat:@"title contains[c] 'brain'"];
+    [fr setPredicate:predicate];
+    songsThatMatch = [context executeFetchRequest:fr
+                                            error:NULL];
+    
+    NSLog(@"%d songs contain the string 'brain'", [songsThatMatch count]);
+
+    predicate = [NSPredicate predicateWithFormat:@"title contains[c] 'pets'"];
+    [fr setPredicate:predicate];
+    songsThatMatch = [context executeFetchRequest:fr
+                                            error:NULL];
+    
+    NSLog(@"%d songs contain the string 'pets'", [songsThatMatch count]);
+    
         
     uint64_t end = mach_absolute_time();
 
