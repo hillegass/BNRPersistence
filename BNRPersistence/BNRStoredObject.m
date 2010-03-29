@@ -24,6 +24,7 @@
 #import "BNRStore.h"
 #import "BNRStoreBackend.h"
 #import "BNRUniquingTable.h"
+#import "BNRDataBuffer.h"
 
 @interface BNRStore (StoredObjectIsFriend)
 
@@ -52,6 +53,11 @@
     store = s;
     rowID = n;
     if (nil != buffer) {
+        
+        if ([s usesPerInstanceVersioning]) {
+            [buffer consumeVersion];
+        }
+        
         [self readContentFromBuffer:buffer];
         // Retain count of 1 + 1 for hasContent
         status = 3;
@@ -89,6 +95,12 @@
 {
     // NOOP, must be overridden by subclass
 }
+
+- (UInt8)writeVersion
+{
+    return (UInt8)[[self class] version];
+}
+
 - (void)dissolveAllRelationships
 {
     // NOOP, may be overridden by subclass
@@ -127,11 +139,15 @@
 {
     if (0U == rowID) return;
 
-    BNRStoreBackend *backend = [[self store] backend];
+    BNRStore *s = [self store];
+    BNRStoreBackend *backend = [s backend];
     BNRDataBuffer *d = [backend dataForClass:[self class]
                                        rowID:[self rowID]];
     if (!d) return;
 
+    if ([s usesPerInstanceVersioning]) {
+        [d consumeVersion];
+    }
     [self readContentFromBuffer:d];
     [self setHasContent:YES];
 }

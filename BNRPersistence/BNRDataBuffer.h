@@ -36,6 +36,7 @@
 
     unsigned length;    
     unsigned char *cursor;
+    UInt8 versionOfData; // Set by consumeVersion, see -[BNRStore usesPerInstanceVersioning];
 }
 /*!
  @method initWithCapacity:
@@ -123,6 +124,9 @@
 
 - (void)writeHeteroArray:(NSArray *)a usingStore:(BNRStore *)s;
 
+- (id)readArchiveableObject;
+- (void)writeArchiveableObject:(id)obj;
+
 
 - (NSString *)readString;
 - (void)writeString:(NSString *)s;
@@ -133,6 +137,10 @@
 
 - (void)copyFrom:(const void *)d
           length:(size_t)byteCount;
+
+- (void)consumeVersion;
+- (void)writeVersionForObject:(BNRStoredObject *)obj;
+- (UInt8)versionOfData;
 
 - (unsigned char *)buffer;
 - (unsigned)length;

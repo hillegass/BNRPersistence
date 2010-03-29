@@ -320,6 +320,19 @@
     [self writeFloat64:timeInterval];
 }
 
+- (id)readArchiveableObject
+{
+    NSData *d = [self readData];
+    id result = [NSKeyedUnarchiver unarchiveObjectWithData:d];
+    return result;
+}
+
+- (void)writeArchiveableObject:(id)obj
+{
+    NSData *d = [NSKeyedArchiver archivedDataWithRootObject:obj];
+    [self writeData:d];
+}
+
 
 - (NSString *)readString
 {
@@ -353,6 +366,22 @@
         cursor += dLen;
         length += dLen;
     }
+}
+
+- (void)consumeVersion
+{
+    versionOfData = [self readUInt32];
+}
+
+- (void)writeVersionForObject:(BNRStoredObject *)obj
+{
+    versionOfData = [obj writeVersion];
+    [self writeUInt8:versionOfData];
+}
+
+- (UInt8)versionOfData
+{
+    return versionOfData;
 }
 
 - (unsigned)capacity

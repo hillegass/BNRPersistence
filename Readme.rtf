@@ -9,7 +9,7 @@
 
 \b0\fs28 Aaron Hillegass\
 aaron@bignerdranch.com\
-Jan 29, 2009\
+March 29, 2010\
 \
 After a few years of whining that Core Data could have been better, I thought I should write a persistence framework that points in what I think is the right direction.  And this is it.\
 \
@@ -277,7 +277,47 @@ Now you can search using Tokyo-Dystopia-style search strings:\
 \cf0 On my system, I can search 1M records and fetch the 727 that match in 0.1 seconds.  The same operation on Core Data takes 1.3 seconds.\
 
 \b\fs36 \
-The size of things\
+Versioning\
+
+\b0\fs28 \
+Over time, the data that you choose to write for an object may change.  That is, in version 1.0, a person has only a phone number.  In version 2.0, you add a fax number.  To support this, there is versioning.   Before you write any instances out, set the version number on the class:\
+\
+
+\f1\fs26 \CocoaLigature0 [Song setVersion:2];\
+
+\f0\fs28 \CocoaLigature1 \
+When reading in a data buffer, check the 
+\f1\fs26 \CocoaLigature0 versionOfData
+\f0\fs28 \CocoaLigature1  before trying to read the fax number;\
+\
+\pard\tx864\pardeftab864\ql\qnatural\pardirnatural
+
+\f1\fs26 \cf0 \CocoaLigature0 - (\cf2 void\cf0 )readContentFromBuffer:(BNRDataBuffer *)d\
+\{\
+    [phone release];\
+    phone = [[d readString] retain];\
+    \
+    if ([d versionOfData] > 2) \{\
+        fax = [[d readString] retain];\
+    \}\
+\}\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
+
+\f0\fs28 \cf0 \CocoaLigature1 \
+The version is an 8-bit unsigned integer which is stored with the object's data.  (Yes, you get a version number for each instance. Thus, you don't need to upgrade all the objects simultaneously. As they are edited and saved out, they will be automatically upgraded.)\
+\
+I recognize that at times graceful incremental upgrades may not be possible (rather the entire directed graph of objects must be upgraded), but I wanted to make possible the many cases incremental upgrades are desireable.\
+\
+(You can disable the per-instance versioning if you must:\
+\
+
+\f1\fs26 \CocoaLigature0 [store setUsesPerInstanceVersioning:NO];\
+
+\f0\fs28 \CocoaLigature1 \
+This is provided primarily for backwards compatibility with apps that started using this framework before I added per-instance-versioning.)\
+\
+
+\b\fs36 The size of things\
 
 \b0\fs28 \
 The database files are not small.  Nor are the full-text indexes.  For the million-song database, the Tokyo Cabinet data file is more than twice as large as the Core Data file.  And that doesn't include the index which is that also about twice as large as the Core Data file.\
@@ -304,6 +344,7 @@ There has been some concern over the fact that Tokyo Cabinet and Tokyo Dystopia 
 \b0\fs28 \
 I recognize that there is room for improvement here:\
 \
+0) The BNRDataBuffer should know how to write many more types of data\
 1) The creation of a model-file architecture\
 3) Use B+ trees to make attributes indexable and add support for NSPredicate\
 4) Better automatic undo support \

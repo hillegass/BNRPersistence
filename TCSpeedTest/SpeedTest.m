@@ -26,6 +26,10 @@ CreateStoreAtPath(NSString *path) {
     BNRStore *store = [[BNRStore alloc] init];
     [store setBackend:backend];
     [backend release];
+    
+    // For speed/size freaks -- turnoff per-instance versioning
+    [store setUsesPerInstanceVersioning:NO];
+
     return store;
 }
 

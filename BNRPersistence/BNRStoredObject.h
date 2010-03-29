@@ -47,6 +47,9 @@
 // writeContentToBuffer: is used during saving
 - (void)writeContentToBuffer:(BNRDataBuffer *)d;
 
+#pragma mark Versioning
+- (UInt8)writeVersion;
+
 #pragma mark Relationships
 
 // prepareForDelete implements delete rules

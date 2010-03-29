@@ -39,7 +39,7 @@
 
 
 @implementation BNRStore
-@synthesize undoManager, indexManager, delegate;
+@synthesize undoManager, indexManager, delegate, usesPerInstanceVersioning;
 
 - (id)init
 {
@@ -49,6 +49,7 @@
     toBeDeleted = [[NSMutableSet alloc] init];
     toBeUpdated = [[NSMutableSet alloc] init];
     classMetaData = [[BNRClassDictionary alloc] init];
+    usesPerInstanceVersioning = YES; // Adds an 8-bit number to every record, but enables versioning...
     return self;
 }
 
@@ -113,11 +114,17 @@
     if (obj) {
         if (mustFetch && ![obj hasContent]) {
             BNRDataBuffer *const d = [backend dataForClass:c rowID:n];
+            if (usesPerInstanceVersioning) {
+                [d consumeVersion];
+            }
             [obj readContentFromBuffer:d];
             [obj setHasContent:YES];
         }
     } else {
         BNRDataBuffer *const d = mustFetch? [backend dataForClass:c rowID:n] : nil;
+        if (usesPerInstanceVersioning) {
+            [d consumeVersion];
+        }
         obj = [[[c alloc] initWithStore:self rowID:n buffer:d] autorelease];
         [uniquingTable setObject:obj forClass:c rowID:n];
     }
@@ -136,18 +143,7 @@
     BNRDataBuffer *const buffer = [[[BNRDataBuffer alloc]
                                     initWithCapacity:(UINT16_MAX + 1)]
                                    autorelease];
-    // FIXME: With clever use of threads, the work of this
-    // loop could be done at least twice as fast.
-    // Put nextBuffer: in one thread 
-    // Put objectForClass:rowID:fetchContent: in another
-    // Put readContentFromBuffer in another
-    // ???: Do semantics allow to skip copying in data for all objects of the
-    // class that already have content, or only that are dirty?
-    //
-    // Profiling indicates most of the slowdown in ComplexFetchTest is due to
-    // the -readArrayOfClass:usingStore: in -[Playlist readContentFromBuffer:],
-    // particularly -objectForClass:rowID:fetchContent:'s interaction with
-    // the uniquing table and intdicts.
+
     UInt32 rowID;
     while (rowID = [cursor nextBuffer:buffer])
     {
@@ -161,6 +157,9 @@
         // Possibly read in its stored data.
         const BOOL hasUnsavedData = [toBeUpdated containsObject:storedObject];
         if (!hasUnsavedData) {
+            if (usesPerInstanceVersioning) {
+                [buffer consumeVersion];
+            }
             [storedObject readContentFromBuffer:buffer];
             [storedObject setHasContent:YES];
         }
@@ -245,6 +244,9 @@
     BNRStoredObject *obj = [self objectForClass:c
                                           rowID:rowID
                                    fetchContent:NO];
+    if (usesPerInstanceVersioning) {
+        [snap consumeVersion];
+    }
     [obj readContentFromBuffer:snap];
     [self insertObject:obj];
     [obj release];
@@ -274,6 +276,10 @@
     if (undoManager) {
         BNRDataBuffer *snapshot = [[BNRDataBuffer alloc]
                                    initWithCapacity:PAGE_SIZE];
+        if (usesPerInstanceVersioning) {
+            [snapshot writeVersionForObject:obj];
+        }
+        
         [obj writeContentToBuffer:snapshot];
         [snapshot resetCursor];
         //NSLog(@"snapshot for undo = %@", snapshot);
@@ -300,11 +306,19 @@
     if (undoManager) {
         BNRDataBuffer *snapshot = [[BNRDataBuffer alloc]
                                    initWithCapacity:PAGE_SIZE];
+        if (usesPerInstanceVersioning) {
+            [snapshot writeVersionForObject:obj];
+        }
+        
         [obj writeContentToBuffer:snapshot];
         [snapshot resetCursor];
         [[undoManager prepareWithInvocationTarget:self] updateObject:obj 
                                                         withSnapshot:snapshot];
         [snapshot release];
+    }
+    
+    if (usesPerInstanceVersioning) {
+        [b consumeVersion];
     }
     
     [obj readContentFromBuffer:b];
@@ -324,6 +338,10 @@
     if (undoManager) {
         BNRDataBuffer *snapshot = [[BNRDataBuffer alloc]
                                    initWithCapacity:PAGE_SIZE];
+        if (usesPerInstanceVersioning) {
+            [snapshot writeVersionForObject:obj];
+        }
+        
         [obj writeContentToBuffer:snapshot];
         [snapshot resetCursor];
 
@@ -357,6 +375,10 @@
         Class c = [obj class];
         UInt32 rowID = [obj rowID];
         
+        if (usesPerInstanceVersioning) {
+            [buffer writeVersionForObject:obj];
+        }        
+        
         [obj writeContentToBuffer:buffer];
         [backend insertData:buffer
                    forClass:c
@@ -375,6 +397,9 @@
     for (BNRStoredObject *obj in toBeUpdated) {
         Class c = [obj class];
         UInt32 rowID = [obj rowID];
+        if (usesPerInstanceVersioning) {
+            [buffer writeVersionForObject:obj];
+        }
         
         [obj writeContentToBuffer:buffer];
         
@@ -418,6 +443,7 @@
     while (c = classes[i]) {
         BNRClassMetaData *d = [classMetaData objectForClass:c];
         if (d) {
+            
             [d writeContentToBuffer:buffer];
             //NSLog(@"Inserting %d bytes of meta data for %@", [buffer length], NSStringFromClass(c));
 
@@ -470,6 +496,8 @@
         
         // Did I find meta data in the database?
         if (b) {
+            
+            // Note: meta data data buffer is *not* prepended with a version #
             //NSLog(@"Read %d bytes of meta data for %@", [b length], NSStringFromClass(c));
             [md readContentFromBuffer:b];
             unsigned char classID = [md classID];

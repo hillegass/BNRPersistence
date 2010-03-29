@@ -162,14 +162,14 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = 08FB7793FE84155DC02AAC07 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 937F31EA11318E6B0035B7EC /* FullTextInsertTest */;
+			remoteGlobalIDString = 937F31EA11318E6B0035B7EC;
 			remoteInfo = FullTextInsertTest;
 		};
 		937F33971131CC0F0035B7EC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 08FB7793FE84155DC02AAC07 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 937F33151131AAA60035B7EC /* FullTextFetchTest */;
+			remoteGlobalIDString = 937F33151131AAA60035B7EC;
 			remoteInfo = FullTextFetchTest;
 		};
 		93D50A3A110D52D000E5D2F0 /* PBXContainerItemProxy */ = {
@@ -345,7 +345,6 @@
 		08FB7794FE84155DC02AAC07 /* TCSpeedTest */ = {
 			isa = PBXGroup;
 			children = (
-				93D50701110BE4BD00E5D2F0 /* Unit tests */,
 				93D50506110B888600E5D2F0 /* BNRPersistence */,
 				08FB7795FE84155DC02AAC07 /* Source */,
 				08FB779DFE84155DC02AAC07 /* External Frameworks and Libraries */,
@@ -398,13 +397,6 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		9324D33F1129A96400E8C193 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Model;
-			sourceTree = "<group>";
-		};
 		9366DA0711120583000A897D /* DataStructures */ = {
 			isa = PBXGroup;
 			children = (
@@ -419,7 +411,6 @@
 		93D50506110B888600E5D2F0 /* BNRPersistence */ = {
 			isa = PBXGroup;
 			children = (
-				9324D33F1129A96400E8C193 /* Model */,
 				9366DA0711120583000A897D /* DataStructures */,
 				93D504D1110B883700E5D2F0 /* BNRBackendCursor.h */,
 				93D504D2110B883700E5D2F0 /* BNRBackendCursor.m */,
@@ -443,13 +434,6 @@
 				9324D3661129AB7D00E8C193 /* BNRTCIndexManager.m */,
 			);
 			name = BNRPersistence;
-			sourceTree = "<group>";
-		};
-		93D50701110BE4BD00E5D2F0 /* Unit tests */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = "Unit tests";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

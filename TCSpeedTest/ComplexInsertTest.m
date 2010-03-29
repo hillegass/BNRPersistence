@@ -11,7 +11,6 @@ int main (int argc, const char * argv[]) {
 
     BNRStore *store = CreateStoreAtPath(@COMPLEXTEST_PATH);
     if (!store) exit(EXIT_FAILURE);
-    
     [store addClass:[Song class]];
     [store addClass:[Playlist class]];
 

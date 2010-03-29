@@ -57,7 +57,6 @@
     BNRIndexManager *indexManager; 
     
     id <BNRStoreDelegate> delegate; /*< Gets told when an object is to be updated, inserted, or deleted */
-
     
     // Pending edits are stored in the toBe.. sets
     NSMutableSet *toBeInserted;
@@ -67,11 +66,15 @@
     // Class meta data
     BNRClassDictionary *classMetaData; /*< Maps Class->BNRClassMetaData */
     Class classes[256];  /*< Maps int (the class ID) -> Class */
+    
+    BOOL usesPerInstanceVersioning; /*< Prepends version number on data buffer; Default = YES */
 }
 
 @property (nonatomic, retain) BNRIndexManager *indexManager;
 @property (nonatomic, retain) NSUndoManager *undoManager;
 @property (nonatomic, assign) id <BNRStoreDelegate> delegate;
+@property (nonatomic, assign) BOOL usesPerInstanceVersioning;
+
 
 - (id)init;
 
