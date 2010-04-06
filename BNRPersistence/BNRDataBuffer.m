@@ -370,7 +370,7 @@
 
 - (void)consumeVersion
 {
-    versionOfData = [self readUInt32];
+    versionOfData = [self readUInt8];
 }
 
 - (void)writeVersionForObject:(BNRStoredObject *)obj
