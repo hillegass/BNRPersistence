@@ -65,7 +65,6 @@ NSString * const IntegrationTestsDatabasePath = @"./database/";
     [newPerson setName:@"Fred"];
     [store insertObject:newPerson];
     
-    // BUG? Have to saveChanges or it won't appear below (even without reopen)...?
     NSError *error;
     [store saveChanges:&error];
 
@@ -85,7 +84,6 @@ NSString * const IntegrationTestsDatabasePath = @"./database/";
     [newPerson setName:@"Fred"];
     [store insertObject:newPerson];
     
-    // BUG? Have to saveChanges or it won't appear below (even without reopen)...?
     NSError *error;
     [store saveChanges:&error];
     
@@ -124,7 +122,6 @@ NSString * const IntegrationTestsDatabasePath = @"./database/";
     [newPerson setName:@"Fred"];
     [store insertObject:newPerson];
     
-    // BUG? Have to saveChanges or it won't appear below (even without reopen)...?
     NSError *error;
     [store saveChanges:&error];
     
@@ -146,7 +143,6 @@ NSString * const IntegrationTestsDatabasePath = @"./database/";
     [newPerson setName:@"Fred"];
     [store insertObject:newPerson];
     
-    // BUG? Have to saveChanges or it won't appear below (even without reopen)...?
     NSError *error;
     [store saveChanges:&error];
     
@@ -168,7 +164,6 @@ NSString * const IntegrationTestsDatabasePath = @"./database/";
     [newPerson setName:@"Fred"];
     [store insertObject:newPerson];
     
-    // BUG? Have to saveChanges or it won't appear below (even without reopen)...?
     NSError *error;
     [store saveChanges:&error];
     
@@ -181,6 +176,27 @@ NSString * const IntegrationTestsDatabasePath = @"./database/";
     STAssertEquals([people count], (NSUInteger)1, @"expected 1 Person");
     Person *fetchedPerson = [people objectAtIndex:0];
     STAssertNil([fetchedPerson name], @"Name should be nil but is %@", [fetchedPerson name]);
+}
+
+- (void)testFetchUnencryptedObject
+{
+    [store setEncryptionKey:@""];
+    
+    Person *newPerson = [[[Person alloc] init] autorelease];
+    [newPerson setName:@"Fred"];
+    [store insertObject:newPerson];
+    
+    NSError *error;
+    [store saveChanges:&error];
+    
+    [self reopen];
+    
+    [store setEncryptionKey:@"howdyhowdy"];
+    
+    NSArray *people = [store allObjectsForClass:[Person class]];
+    STAssertNotNil(people, @"nil Person classes?");
+    STAssertEquals([people count], (NSUInteger)1, @"expected 1 Person");
+    STAssertEqualObjects([[people objectAtIndex:0] name], @"Fred", @"Name not Fred");
 }
 
 @end

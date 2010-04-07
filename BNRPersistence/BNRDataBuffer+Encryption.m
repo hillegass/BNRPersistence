@@ -50,25 +50,33 @@ void BFEncrypt(NSString *key, const UInt32 *salt, int enc, void *data, long leng
     if (key == nil || [key length] == 0)
         return YES;
     
+    BOOL ret = YES;
+    
     UInt32 littleSalt[2];
     littleSalt[0] = CFSwapInt32HostToLittle(salt[0]);
     littleSalt[1] = CFSwapInt32HostToLittle(salt[1]);
     
-    BFEncrypt(key, littleSalt, BF_DECRYPT, buffer, length);
-    if (length >= 8 && memcmp(buffer, littleSalt, 8) == 0)
+    // Decrypt in a temporary buffer so that if it doesn't match up with the salt we can keep the buffer the same,
+    // such as in the case of an object record that was not encrypted (but the key is now set).
+    UInt8 *decryptedBuffer = (UInt8*)malloc(length);
+    memcpy(decryptedBuffer, buffer, length); 
+    BFEncrypt(key, littleSalt, BF_DECRYPT, decryptedBuffer, length);
+    if (length >= 8 && memcmp(decryptedBuffer, littleSalt, 8) == 0)
     {
         // Salt matches, so we believe the given key is good.
-        int decryptedBufferLength = length - 8;
-        UInt8 *decryptedBuffer = (UInt8*)malloc(decryptedBufferLength);
-        memcpy(decryptedBuffer, buffer + 8, decryptedBufferLength);
-        [self setData:decryptedBuffer length:decryptedBufferLength];
+        // Let's move the data into our own buffer.
+        memcpy(buffer, decryptedBuffer+8, length-8);
+        length -= 8;
+        ret = YES;
     }
-    else 
+    else
     {
         // We weren't able to decrypt the buffer successfully.
-        return NO;
+        // This might just be okay if the object wasn't encrypted in the first place.
+        ret = NO;
     }
-    return YES;
+    free(decryptedBuffer);
+    return ret;
 }
 
 - (void)encryptWithKey:(NSString *)key salt:(const UInt32 *)salt
