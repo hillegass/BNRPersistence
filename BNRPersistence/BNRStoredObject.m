@@ -25,6 +25,8 @@
 #import "BNRStoreBackend.h"
 #import "BNRUniquingTable.h"
 #import "BNRDataBuffer.h"
+#import "BNRClassMetaData+Encryption.h"
+#import "BNRDataBuffer+Encryption.h"
 
 @interface BNRStore (StoredObjectIsFriend)
 
@@ -144,6 +146,13 @@
     BNRDataBuffer *d = [backend dataForClass:[self class]
                                        rowID:[self rowID]];
     if (!d) return;
+    
+    BNRClassMetaData *metaData = [s metaDataForClass:[self class]];
+    if ([metaData encryptionKeyHash] != 0x0) // If we need to fuss with decryption..
+    {
+        if ([metaData hashMatchesEncryptionKey:[s encryptionKey]])
+            [d decryptWithKey:[s encryptionKey]];
+    }        
 
     if ([s usesPerInstanceVersioning]) {
         [d consumeVersion];

@@ -1,0 +1,502 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 45;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		663ED62D116BE0E700D00CB9 /* BNRBackendCursor.m in Sources */ = {isa = PBXBuildFile; fileRef = 663ED614116BE0E700D00CB9 /* BNRBackendCursor.m */; };
+		663ED62E116BE0E700D00CB9 /* BNRClassDictionary.mm in Sources */ = {isa = PBXBuildFile; fileRef = 663ED616116BE0E700D00CB9 /* BNRClassDictionary.mm */; };
+		663ED62F116BE0E700D00CB9 /* BNRClassMetaData.m in Sources */ = {isa = PBXBuildFile; fileRef = 663ED618116BE0E700D00CB9 /* BNRClassMetaData.m */; };
+		663ED630116BE0E700D00CB9 /* BNRDataBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = 663ED61A116BE0E700D00CB9 /* BNRDataBuffer.m */; };
+		663ED631116BE0E700D00CB9 /* BNRIndexManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 663ED61C116BE0E700D00CB9 /* BNRIndexManager.m */; };
+		663ED632116BE0E700D00CB9 /* BNRStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 663ED61E116BE0E700D00CB9 /* BNRStore.m */; };
+		663ED633116BE0E700D00CB9 /* BNRStoreBackend.m in Sources */ = {isa = PBXBuildFile; fileRef = 663ED620116BE0E700D00CB9 /* BNRStoreBackend.m */; };
+		663ED634116BE0E700D00CB9 /* BNRStoredObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 663ED622116BE0E700D00CB9 /* BNRStoredObject.m */; };
+		663ED635116BE0E700D00CB9 /* BNRStoreDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 663ED624116BE0E700D00CB9 /* BNRStoreDocument.m */; };
+		663ED636116BE0E700D00CB9 /* BNRTCBackend.mm in Sources */ = {isa = PBXBuildFile; fileRef = 663ED626116BE0E700D00CB9 /* BNRTCBackend.mm */; };
+		663ED637116BE0E700D00CB9 /* BNRTCBackendCursor.m in Sources */ = {isa = PBXBuildFile; fileRef = 663ED628116BE0E700D00CB9 /* BNRTCBackendCursor.m */; };
+		663ED639116BE0E700D00CB9 /* BNRUniquingTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 663ED62C116BE0E700D00CB9 /* BNRUniquingTable.m */; };
+		663ED655116BE40700D00CB9 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 663ED654116BE40700D00CB9 /* Cocoa.framework */; };
+		663ED6F2116BF0BD00D00CB9 /* BNRDataBuffer+Encryption.m in Sources */ = {isa = PBXBuildFile; fileRef = 663ED6F1116BF0BD00D00CB9 /* BNRDataBuffer+Encryption.m */; };
+		663ED701116C016400D00CB9 /* BNRClassMetaData+Encryption.m in Sources */ = {isa = PBXBuildFile; fileRef = 663ED700116C016400D00CB9 /* BNRClassMetaData+Encryption.m */; };
+		663ED7CA116C19E800D00CB9 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 663ED7C9116C19E800D00CB9 /* Person.m */; };
+		663ED7ED116C1BF900D00CB9 /* EncryptionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 663ED7D6116C1ACB00D00CB9 /* EncryptionTests.m */; };
+		663ED7FF116C1DBF00D00CB9 /* BNRBackendCursor.m in Sources */ = {isa = PBXBuildFile; fileRef = 663ED614116BE0E700D00CB9 /* BNRBackendCursor.m */; };
+		663ED800116C1DC000D00CB9 /* BNRClassDictionary.mm in Sources */ = {isa = PBXBuildFile; fileRef = 663ED616116BE0E700D00CB9 /* BNRClassDictionary.mm */; };
+		663ED801116C1DC200D00CB9 /* BNRClassMetaData+Encryption.m in Sources */ = {isa = PBXBuildFile; fileRef = 663ED700116C016400D00CB9 /* BNRClassMetaData+Encryption.m */; };
+		663ED802116C1DC300D00CB9 /* BNRClassMetaData.m in Sources */ = {isa = PBXBuildFile; fileRef = 663ED618116BE0E700D00CB9 /* BNRClassMetaData.m */; };
+		663ED803116C1DC400D00CB9 /* BNRDataBuffer+Encryption.m in Sources */ = {isa = PBXBuildFile; fileRef = 663ED6F1116BF0BD00D00CB9 /* BNRDataBuffer+Encryption.m */; };
+		663ED804116C1DC800D00CB9 /* BNRDataBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = 663ED61A116BE0E700D00CB9 /* BNRDataBuffer.m */; };
+		663ED806116C1DCD00D00CB9 /* BNRStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 663ED61E116BE0E700D00CB9 /* BNRStore.m */; };
+		663ED807116C1DCE00D00CB9 /* BNRStoreBackend.m in Sources */ = {isa = PBXBuildFile; fileRef = 663ED620116BE0E700D00CB9 /* BNRStoreBackend.m */; };
+		663ED808116C1DD100D00CB9 /* BNRStoredObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 663ED622116BE0E700D00CB9 /* BNRStoredObject.m */; };
+		663ED809116C1DD300D00CB9 /* BNRStoreDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 663ED624116BE0E700D00CB9 /* BNRStoreDocument.m */; };
+		663ED80A116C1DD600D00CB9 /* BNRTCBackend.mm in Sources */ = {isa = PBXBuildFile; fileRef = 663ED626116BE0E700D00CB9 /* BNRTCBackend.mm */; };
+		663ED80B116C1DD900D00CB9 /* BNRTCBackendCursor.m in Sources */ = {isa = PBXBuildFile; fileRef = 663ED628116BE0E700D00CB9 /* BNRTCBackendCursor.m */; };
+		663ED80C116C1DDB00D00CB9 /* BNRUniquingTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 663ED62C116BE0E700D00CB9 /* BNRUniquingTable.m */; };
+		663ED80F116C1DFB00D00CB9 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 663ED7C9116C19E800D00CB9 /* Person.m */; };
+		663ED815116C1E2300D00CB9 /* libtokyocabinet.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 663ED814116C1E2300D00CB9 /* libtokyocabinet.dylib */; };
+		663ED817116C1E4100D00CB9 /* libcrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 663ED816116C1E4100D00CB9 /* libcrypto.dylib */; };
+		8DD76F9A0486AA7600D96B5E /* EncryptionTestMain.m in Sources */ = {isa = PBXBuildFile; fileRef = 08FB7796FE84155DC02AAC07 /* EncryptionTestMain.m */; settings = {ATTRIBUTES = (); }; };
+		8DD76F9C0486AA7600D96B5E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08FB779EFE84155DC02AAC07 /* Foundation.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		8DD76F9E0486AA7600D96B5E /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 8;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		08FB7796FE84155DC02AAC07 /* EncryptionTestMain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EncryptionTestMain.m; sourceTree = "<group>"; };
+		08FB779EFE84155DC02AAC07 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		32A70AAB03705E1F00C91783 /* EncryptionTest_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EncryptionTest_Prefix.pch; sourceTree = "<group>"; };
+		663ED613116BE0E700D00CB9 /* BNRBackendCursor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNRBackendCursor.h; sourceTree = "<group>"; };
+		663ED614116BE0E700D00CB9 /* BNRBackendCursor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNRBackendCursor.m; sourceTree = "<group>"; };
+		663ED615116BE0E700D00CB9 /* BNRClassDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNRClassDictionary.h; sourceTree = "<group>"; };
+		663ED616116BE0E700D00CB9 /* BNRClassDictionary.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BNRClassDictionary.mm; sourceTree = "<group>"; };
+		663ED617116BE0E700D00CB9 /* BNRClassMetaData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNRClassMetaData.h; sourceTree = "<group>"; };
+		663ED618116BE0E700D00CB9 /* BNRClassMetaData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNRClassMetaData.m; sourceTree = "<group>"; };
+		663ED619116BE0E700D00CB9 /* BNRDataBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNRDataBuffer.h; sourceTree = "<group>"; };
+		663ED61A116BE0E700D00CB9 /* BNRDataBuffer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNRDataBuffer.m; sourceTree = "<group>"; };
+		663ED61B116BE0E700D00CB9 /* BNRIndexManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNRIndexManager.h; sourceTree = "<group>"; };
+		663ED61C116BE0E700D00CB9 /* BNRIndexManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNRIndexManager.m; sourceTree = "<group>"; };
+		663ED61D116BE0E700D00CB9 /* BNRStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNRStore.h; sourceTree = "<group>"; };
+		663ED61E116BE0E700D00CB9 /* BNRStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNRStore.m; sourceTree = "<group>"; };
+		663ED61F116BE0E700D00CB9 /* BNRStoreBackend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNRStoreBackend.h; sourceTree = "<group>"; };
+		663ED620116BE0E700D00CB9 /* BNRStoreBackend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNRStoreBackend.m; sourceTree = "<group>"; };
+		663ED621116BE0E700D00CB9 /* BNRStoredObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNRStoredObject.h; sourceTree = "<group>"; };
+		663ED622116BE0E700D00CB9 /* BNRStoredObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNRStoredObject.m; sourceTree = "<group>"; };
+		663ED623116BE0E700D00CB9 /* BNRStoreDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNRStoreDocument.h; sourceTree = "<group>"; };
+		663ED624116BE0E700D00CB9 /* BNRStoreDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNRStoreDocument.m; sourceTree = "<group>"; };
+		663ED625116BE0E700D00CB9 /* BNRTCBackend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNRTCBackend.h; sourceTree = "<group>"; };
+		663ED626116BE0E700D00CB9 /* BNRTCBackend.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BNRTCBackend.mm; sourceTree = "<group>"; };
+		663ED627116BE0E700D00CB9 /* BNRTCBackendCursor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNRTCBackendCursor.h; sourceTree = "<group>"; };
+		663ED628116BE0E700D00CB9 /* BNRTCBackendCursor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNRTCBackendCursor.m; sourceTree = "<group>"; };
+		663ED62B116BE0E700D00CB9 /* BNRUniquingTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNRUniquingTable.h; sourceTree = "<group>"; };
+		663ED62C116BE0E700D00CB9 /* BNRUniquingTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNRUniquingTable.m; sourceTree = "<group>"; };
+		663ED654116BE40700D00CB9 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		663ED6F0116BF0BD00D00CB9 /* BNRDataBuffer+Encryption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BNRDataBuffer+Encryption.h"; sourceTree = "<group>"; };
+		663ED6F1116BF0BD00D00CB9 /* BNRDataBuffer+Encryption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BNRDataBuffer+Encryption.m"; sourceTree = "<group>"; };
+		663ED6FF116C016400D00CB9 /* BNRClassMetaData+Encryption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BNRClassMetaData+Encryption.h"; sourceTree = "<group>"; };
+		663ED700116C016400D00CB9 /* BNRClassMetaData+Encryption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BNRClassMetaData+Encryption.m"; sourceTree = "<group>"; };
+		663ED7C8116C19E800D00CB9 /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
+		663ED7C9116C19E800D00CB9 /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
+		663ED7D5116C1ACB00D00CB9 /* EncryptionTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EncryptionTests.h; sourceTree = "<group>"; };
+		663ED7D6116C1ACB00D00CB9 /* EncryptionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EncryptionTests.m; sourceTree = "<group>"; };
+		663ED7E3116C1B4A00D00CB9 /* EncryptionTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EncryptionTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		663ED7E4116C1B4A00D00CB9 /* EncryptionTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "EncryptionTests-Info.plist"; sourceTree = "<group>"; };
+		663ED814116C1E2300D00CB9 /* libtokyocabinet.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libtokyocabinet.dylib; path = usr/local/lib/libtokyocabinet.dylib; sourceTree = SDKROOT; };
+		663ED816116C1E4100D00CB9 /* libcrypto.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcrypto.dylib; path = usr/lib/libcrypto.dylib; sourceTree = SDKROOT; };
+		8DD76FA10486AA7600D96B5E /* EncryptionTest */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = EncryptionTest; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		663ED7E0116C1B4A00D00CB9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				663ED815116C1E2300D00CB9 /* libtokyocabinet.dylib in Frameworks */,
+				663ED817116C1E4100D00CB9 /* libcrypto.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8DD76F9B0486AA7600D96B5E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8DD76F9C0486AA7600D96B5E /* Foundation.framework in Frameworks */,
+				663ED655116BE40700D00CB9 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		08FB7794FE84155DC02AAC07 /* EncryptionTest */ = {
+			isa = PBXGroup;
+			children = (
+				08FB7795FE84155DC02AAC07 /* Source */,
+				08FB779DFE84155DC02AAC07 /* External Frameworks and Libraries */,
+				1AB674ADFE9D54B511CA2CBB /* Products */,
+				663ED7E4116C1B4A00D00CB9 /* EncryptionTests-Info.plist */,
+			);
+			name = EncryptionTest;
+			sourceTree = "<group>";
+		};
+		08FB7795FE84155DC02AAC07 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				663ED7C7116C19D100D00CB9 /* Unit Tests */,
+				663ED612116BE0E700D00CB9 /* BNRPersistence */,
+				32A70AAB03705E1F00C91783 /* EncryptionTest_Prefix.pch */,
+				08FB7796FE84155DC02AAC07 /* EncryptionTestMain.m */,
+			);
+			name = Source;
+			sourceTree = "<group>";
+		};
+		08FB779DFE84155DC02AAC07 /* External Frameworks and Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				663ED654116BE40700D00CB9 /* Cocoa.framework */,
+				08FB779EFE84155DC02AAC07 /* Foundation.framework */,
+				663ED814116C1E2300D00CB9 /* libtokyocabinet.dylib */,
+				663ED816116C1E4100D00CB9 /* libcrypto.dylib */,
+			);
+			name = "External Frameworks and Libraries";
+			sourceTree = "<group>";
+		};
+		1AB674ADFE9D54B511CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8DD76FA10486AA7600D96B5E /* EncryptionTest */,
+				663ED7E3116C1B4A00D00CB9 /* EncryptionTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		663ED612116BE0E700D00CB9 /* BNRPersistence */ = {
+			isa = PBXGroup;
+			children = (
+				663ED613116BE0E700D00CB9 /* BNRBackendCursor.h */,
+				663ED614116BE0E700D00CB9 /* BNRBackendCursor.m */,
+				663ED615116BE0E700D00CB9 /* BNRClassDictionary.h */,
+				663ED616116BE0E700D00CB9 /* BNRClassDictionary.mm */,
+				663ED617116BE0E700D00CB9 /* BNRClassMetaData.h */,
+				663ED618116BE0E700D00CB9 /* BNRClassMetaData.m */,
+				663ED619116BE0E700D00CB9 /* BNRDataBuffer.h */,
+				663ED61A116BE0E700D00CB9 /* BNRDataBuffer.m */,
+				663ED61B116BE0E700D00CB9 /* BNRIndexManager.h */,
+				663ED61C116BE0E700D00CB9 /* BNRIndexManager.m */,
+				663ED61D116BE0E700D00CB9 /* BNRStore.h */,
+				663ED61E116BE0E700D00CB9 /* BNRStore.m */,
+				663ED61F116BE0E700D00CB9 /* BNRStoreBackend.h */,
+				663ED620116BE0E700D00CB9 /* BNRStoreBackend.m */,
+				663ED621116BE0E700D00CB9 /* BNRStoredObject.h */,
+				663ED622116BE0E700D00CB9 /* BNRStoredObject.m */,
+				663ED623116BE0E700D00CB9 /* BNRStoreDocument.h */,
+				663ED624116BE0E700D00CB9 /* BNRStoreDocument.m */,
+				663ED625116BE0E700D00CB9 /* BNRTCBackend.h */,
+				663ED626116BE0E700D00CB9 /* BNRTCBackend.mm */,
+				663ED627116BE0E700D00CB9 /* BNRTCBackendCursor.h */,
+				663ED628116BE0E700D00CB9 /* BNRTCBackendCursor.m */,
+				663ED62B116BE0E700D00CB9 /* BNRUniquingTable.h */,
+				663ED62C116BE0E700D00CB9 /* BNRUniquingTable.m */,
+				663ED6F0116BF0BD00D00CB9 /* BNRDataBuffer+Encryption.h */,
+				663ED6F1116BF0BD00D00CB9 /* BNRDataBuffer+Encryption.m */,
+				663ED6FF116C016400D00CB9 /* BNRClassMetaData+Encryption.h */,
+				663ED700116C016400D00CB9 /* BNRClassMetaData+Encryption.m */,
+			);
+			name = BNRPersistence;
+			path = ../BNRPersistence;
+			sourceTree = SOURCE_ROOT;
+		};
+		663ED7C7116C19D100D00CB9 /* Unit Tests */ = {
+			isa = PBXGroup;
+			children = (
+				663ED7C8116C19E800D00CB9 /* Person.h */,
+				663ED7C9116C19E800D00CB9 /* Person.m */,
+				663ED7D5116C1ACB00D00CB9 /* EncryptionTests.h */,
+				663ED7D6116C1ACB00D00CB9 /* EncryptionTests.m */,
+			);
+			name = "Unit Tests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		663ED7E2116C1B4A00D00CB9 /* EncryptionTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 663ED7E7116C1B4B00D00CB9 /* Build configuration list for PBXNativeTarget "EncryptionTests" */;
+			buildPhases = (
+				663ED7DE116C1B4A00D00CB9 /* Resources */,
+				663ED7DF116C1B4A00D00CB9 /* Sources */,
+				663ED7E0116C1B4A00D00CB9 /* Frameworks */,
+				663ED7E1116C1B4A00D00CB9 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = EncryptionTests;
+			productName = EncryptionTests;
+			productReference = 663ED7E3116C1B4A00D00CB9 /* EncryptionTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+		8DD76F960486AA7600D96B5E /* EncryptionTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1DEB927408733DD40010E9CD /* Build configuration list for PBXNativeTarget "EncryptionTest" */;
+			buildPhases = (
+				8DD76F990486AA7600D96B5E /* Sources */,
+				8DD76F9B0486AA7600D96B5E /* Frameworks */,
+				8DD76F9E0486AA7600D96B5E /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = EncryptionTest;
+			productInstallPath = "$(HOME)/bin";
+			productName = EncryptionTest;
+			productReference = 8DD76FA10486AA7600D96B5E /* EncryptionTest */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		08FB7793FE84155DC02AAC07 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 1DEB927808733DD40010E9CD /* Build configuration list for PBXProject "EncryptionTest" */;
+			compatibilityVersion = "Xcode 3.1";
+			hasScannedForEncodings = 1;
+			mainGroup = 08FB7794FE84155DC02AAC07 /* EncryptionTest */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8DD76F960486AA7600D96B5E /* EncryptionTest */,
+				663ED7E2116C1B4A00D00CB9 /* EncryptionTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		663ED7DE116C1B4A00D00CB9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		663ED7E1116C1B4A00D00CB9 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\nexit\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		663ED7DF116C1B4A00D00CB9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				663ED7ED116C1BF900D00CB9 /* EncryptionTests.m in Sources */,
+				663ED7FF116C1DBF00D00CB9 /* BNRBackendCursor.m in Sources */,
+				663ED800116C1DC000D00CB9 /* BNRClassDictionary.mm in Sources */,
+				663ED801116C1DC200D00CB9 /* BNRClassMetaData+Encryption.m in Sources */,
+				663ED802116C1DC300D00CB9 /* BNRClassMetaData.m in Sources */,
+				663ED803116C1DC400D00CB9 /* BNRDataBuffer+Encryption.m in Sources */,
+				663ED804116C1DC800D00CB9 /* BNRDataBuffer.m in Sources */,
+				663ED806116C1DCD00D00CB9 /* BNRStore.m in Sources */,
+				663ED807116C1DCE00D00CB9 /* BNRStoreBackend.m in Sources */,
+				663ED808116C1DD100D00CB9 /* BNRStoredObject.m in Sources */,
+				663ED809116C1DD300D00CB9 /* BNRStoreDocument.m in Sources */,
+				663ED80A116C1DD600D00CB9 /* BNRTCBackend.mm in Sources */,
+				663ED80B116C1DD900D00CB9 /* BNRTCBackendCursor.m in Sources */,
+				663ED80C116C1DDB00D00CB9 /* BNRUniquingTable.m in Sources */,
+				663ED80F116C1DFB00D00CB9 /* Person.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8DD76F990486AA7600D96B5E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8DD76F9A0486AA7600D96B5E /* EncryptionTestMain.m in Sources */,
+				663ED62D116BE0E700D00CB9 /* BNRBackendCursor.m in Sources */,
+				663ED62E116BE0E700D00CB9 /* BNRClassDictionary.mm in Sources */,
+				663ED62F116BE0E700D00CB9 /* BNRClassMetaData.m in Sources */,
+				663ED630116BE0E700D00CB9 /* BNRDataBuffer.m in Sources */,
+				663ED631116BE0E700D00CB9 /* BNRIndexManager.m in Sources */,
+				663ED632116BE0E700D00CB9 /* BNRStore.m in Sources */,
+				663ED633116BE0E700D00CB9 /* BNRStoreBackend.m in Sources */,
+				663ED634116BE0E700D00CB9 /* BNRStoredObject.m in Sources */,
+				663ED635116BE0E700D00CB9 /* BNRStoreDocument.m in Sources */,
+				663ED636116BE0E700D00CB9 /* BNRTCBackend.mm in Sources */,
+				663ED637116BE0E700D00CB9 /* BNRTCBackendCursor.m in Sources */,
+				663ED639116BE0E700D00CB9 /* BNRUniquingTable.m in Sources */,
+				663ED6F2116BF0BD00D00CB9 /* BNRDataBuffer+Encryption.m in Sources */,
+				663ED701116C016400D00CB9 /* BNRClassMetaData+Encryption.m in Sources */,
+				663ED7CA116C19E800D00CB9 /* Person.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		1DEB927508733DD40010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = EncryptionTest_Prefix.pch;
+				HEADER_SEARCH_PATHS = /usr/local/include;
+				INSTALL_PATH = /usr/local/bin;
+				LIBRARY_SEARCH_PATHS = /usr/local/lib;
+				OTHER_LDFLAGS = (
+					"-ltokyocabinet",
+					"-lcrypto",
+				);
+				PRODUCT_NAME = EncryptionTest;
+			};
+			name = Debug;
+		};
+		1DEB927608733DD40010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = EncryptionTest_Prefix.pch;
+				HEADER_SEARCH_PATHS = /usr/local/include;
+				INSTALL_PATH = /usr/local/bin;
+				LIBRARY_SEARCH_PATHS = /usr/local/lib;
+				OTHER_LDFLAGS = (
+					"-ltokyocabinet",
+					"-lcrypto",
+				);
+				PRODUCT_NAME = EncryptionTest;
+			};
+			name = Release;
+		};
+		1DEB927908733DD40010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PREBINDING = NO;
+				SDKROOT = macosx10.6;
+			};
+			name = Debug;
+		};
+		1DEB927A08733DD40010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PREBINDING = NO;
+				SDKROOT = macosx10.6;
+			};
+			name = Release;
+		};
+		663ED7E5116C1B4B00D00CB9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/Cocoa.framework/Headers/Cocoa.h";
+				HEADER_SEARCH_PATHS = /usr/local/include;
+				INFOPLIST_FILE = "EncryptionTests-Info.plist";
+				INSTALL_PATH = "$(USER_LIBRARY_DIR)/Bundles";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Cocoa,
+					"-framework",
+					SenTestingKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = EncryptionTests;
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		663ED7E6116C1B4B00D00CB9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/Cocoa.framework/Headers/Cocoa.h";
+				HEADER_SEARCH_PATHS = /usr/local/include;
+				INFOPLIST_FILE = "EncryptionTests-Info.plist";
+				INSTALL_PATH = "$(USER_LIBRARY_DIR)/Bundles";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Cocoa,
+					"-framework",
+					SenTestingKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = EncryptionTests;
+				WRAPPER_EXTENSION = octest;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1DEB927408733DD40010E9CD /* Build configuration list for PBXNativeTarget "EncryptionTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB927508733DD40010E9CD /* Debug */,
+				1DEB927608733DD40010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1DEB927808733DD40010E9CD /* Build configuration list for PBXProject "EncryptionTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB927908733DD40010E9CD /* Debug */,
+				1DEB927A08733DD40010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		663ED7E7116C1B4B00D00CB9 /* Build configuration list for PBXNativeTarget "EncryptionTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				663ED7E5116C1B4B00D00CB9 /* Debug */,
+				663ED7E6116C1B4B00D00CB9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 08FB7793FE84155DC02AAC07 /* Project object */;
+}

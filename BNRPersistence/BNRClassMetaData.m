@@ -33,19 +33,24 @@
     lastPrimaryKey = 1;
     versionNumber = 1;
     classID = 0;
+    encryptionKeyHash = 0;
     return self;
 }
 - (void)readContentFromBuffer:(BNRDataBuffer *)d
 {
     lastPrimaryKey = [d readUInt32];
     versionNumber = [d readUInt8];
-    classID = [d readUInt8];    
+    classID = [d readUInt8];
+    if ([d length] > 6)
+        encryptionKeyHash = [d readUInt32];
+        
 }
 - (void)writeContentToBuffer:(BNRDataBuffer *)d
 {
     [d writeUInt32:lastPrimaryKey];
     [d writeUInt8:versionNumber];
     [d writeUInt8:classID];
+    [d writeUInt32:encryptionKeyHash];
 }
 - (unsigned char )classID
 {
@@ -71,6 +76,11 @@
 - (void)setVersionNumber:(unsigned char)x
 {
     versionNumber = x;
+}
+
+- (UInt32)encryptionKeyHash
+{
+    return encryptionKeyHash;
 }
 
 @end

@@ -55,6 +55,7 @@
     unsigned char classID;
     volatile UInt32 lastPrimaryKey;
     unsigned char versionNumber;
+    UInt32 encryptionKeyHash;
 } 
 
 /*!
@@ -103,5 +104,10 @@
  */
 - (void)writeContentToBuffer:(BNRDataBuffer *)d;
 
+/*!
+ @method encryptionKeyHash
+ @abstract Returns the hash of the encryption key used on this class's data.
+ */
+- (UInt32)encryptionKeyHash;
 
 @end

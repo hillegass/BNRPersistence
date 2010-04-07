@@ -68,13 +68,15 @@
     Class classes[256];  /*< Maps int (the class ID) -> Class */
     
     BOOL usesPerInstanceVersioning; /*< Prepends version number on data buffer; Default = YES */
+    
+    NSString *encryptionKey; /**< Password to be used in reading and writing objects to/from the store. */
 }
 
 @property (nonatomic, retain) BNRIndexManager *indexManager;
 @property (nonatomic, retain) NSUndoManager *undoManager;
 @property (nonatomic, assign) id <BNRStoreDelegate> delegate;
 @property (nonatomic, assign) BOOL usesPerInstanceVersioning;
-
+@property (nonatomic, retain) NSString *encryptionKey;
 
 - (id)init;
 

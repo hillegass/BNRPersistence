@@ -29,6 +29,8 @@
 #import "BNRClassMetaData.h"
 #import "BNRUniquingTable.h"
 #import "BNRIndexManager.h"
+#import "BNRDataBuffer+Encryption.h"
+#import "BNRClassMetaData+Encryption.h"
 
 @interface BNRStoredObject (BNRStoreFriend)
 
@@ -37,9 +39,15 @@
 
 @end
 
+@interface BNRStore ()
+
+- (BNRClassMetaData *)metaDataForClass:(Class)c;
+
+@end
+
 
 @implementation BNRStore
-@synthesize undoManager, indexManager, delegate, usesPerInstanceVersioning;
+@synthesize undoManager, indexManager, delegate, usesPerInstanceVersioning, encryptionKey;
 
 - (id)init
 {
@@ -101,6 +109,22 @@
     classes[classCount] = c;
 }
 
+- (BOOL)decryptBuffer:(BNRDataBuffer *)buffer ofClass:(Class)c
+{
+    if (buffer == nil)
+        return YES;
+    
+    BNRClassMetaData *metaData = [self metaDataForClass:c];
+    if ([metaData encryptionKeyHash] != 0x0) // If we need to fuss with decryption..
+    {
+        if ([metaData hashMatchesEncryptionKey:encryptionKey])
+            [buffer decryptWithKey:encryptionKey];
+        else
+            return NO; // Encryption key mismatch.
+    }
+    return YES;
+}
+
 #pragma mark Fetching
 
 - (BNRStoredObject *)objectForClass:(Class)c 
@@ -114,6 +138,7 @@
     if (obj) {
         if (mustFetch && ![obj hasContent]) {
             BNRDataBuffer *const d = [backend dataForClass:c rowID:n];
+            [self decryptBuffer:d ofClass:c];
             if (usesPerInstanceVersioning) {
                 [d consumeVersion];
             }
@@ -122,6 +147,7 @@
         }
     } else {
         BNRDataBuffer *const d = mustFetch? [backend dataForClass:c rowID:n] : nil;
+        [self decryptBuffer:d ofClass:c];
         if (usesPerInstanceVersioning) {
             [d consumeVersion];
         }
@@ -157,6 +183,7 @@
         // Possibly read in its stored data.
         const BOOL hasUnsavedData = [toBeUpdated containsObject:storedObject];
         if (!hasUnsavedData) {
+            [self decryptBuffer:buffer ofClass:c];
             if (usesPerInstanceVersioning) {
                 [buffer consumeVersion];
             }
@@ -380,6 +407,7 @@
         }        
         
         [obj writeContentToBuffer:buffer];
+        [buffer encryptWithKey:encryptionKey]; // does not encrypt if encryptionKey is empty.
         [backend insertData:buffer
                    forClass:c
                       rowID:rowID];
@@ -402,6 +430,7 @@
         }
         
         [obj writeContentToBuffer:buffer];
+        [buffer encryptWithKey:encryptionKey]; // does not encrypt if encryptionKey is empty.
         
         [backend updateData:buffer
                    forClass:c
@@ -443,7 +472,7 @@
     while (c = classes[i]) {
         BNRClassMetaData *d = [classMetaData objectForClass:c];
         if (d) {
-            
+            [d setEncryptionKeyHashForKey:encryptionKey];
             [d writeContentToBuffer:buffer];
             //NSLog(@"Inserting %d bytes of meta data for %@", [buffer length], NSStringFromClass(c));
 
