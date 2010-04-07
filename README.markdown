@@ -11,10 +11,9 @@ Another big difference? It doesn't use SQLite, but rather a key-value store call
 
 BNRPersistence is not really a framework at the moment,  just a set of classes that you can include in your project.
 
-## Install:
+## Installation
 
-First, you need to download Tokyo Cabinet:
-	http://1978th.net/tokyocabinet/
+First, you need to download Tokyo Cabinet: [http://1978th.net/tokyocabinet/]()
 (There is a sourceforge page, but the latest build seems to be on this site.)
 
 In Terminal.app, untar the tarball and cd into the resulting directory.
@@ -35,13 +34,11 @@ Now, you have a /usr/local/lib/libtokyocabinet.a that needs to linked into any p
 
 You'll also need to have /usr/local/include/ among your header search path. (See the Xcode target's build info to add this.)
 
-(If you want full-text searching, you will also need to install Tokyo Distopia.)
+If you want full-text searching, you will also need to install Tokyo Distopia.  If you do not want full-text searching, leave out BNRTCIndexManager.
 
 Now just add the classes in the BNRPersistence directory into your project.  (If you copy them, you won't get the new version when you update your git repository.  This may be exactly what you want, but these are pretty immature, so I would suggest that you link to them instead.)
 
-If you have not linked in Tokyo Distopia, leave out BNRTCIndexManager or you will get linker errors.
-
-## Using it:
+## Using It
 
 You've used Core Data?  The BNRStore is analogous to NSManagedObjectContext.  BNRStoredObject is analogous to NSManagedObject.  There is no model, instead, like archiving, you must have two methods in you BNRStoredObject subclass.  Here are the methods from a Playlist class:
 
@@ -148,7 +145,7 @@ Fetching in 1,000,000 songs (SimpleFetchTest)
 CoreData is 2 times faster than BNRPersistence
 (BNRPersistence is single-threaded and CoreData has some clever multi-threading in this case.  I think I can do similar tricks in BNRPersistence and catch up in this case.  In either case, it is very, very fast.  On my machine, fetching a million songs takes 6.2 seconds the first time and 3.9 seconds the second time.)
 
-## Full-text search
+## Full-Text Search
 
 To do full-text search, you need to give the BNRStore an instance of BNRTCIndexManager.  I usually have it put the index in the same directory as the data itself:
 
@@ -206,11 +203,26 @@ I recognize that at times graceful incremental upgrades may not be possible (rat
 
 This is provided primarily for backwards compatibility with apps that started using this framework before I added per-instance-versioning.)
 
-## The size of things
+## Encryption
+
+BNRPersistence supports encryption of individual objects within the database.  Simply set the encryption key to use:
+
+	BNRStore *store = [[BNRStore alloc] init];
+    [store setEncryptionKey:@"the passphrase"];
+    ...
+
+Technical details of the encryption system used:
+
+- The [Blowfish](http://en.wikipedia.org/wiki/Blowfish_&#40;cipher&#41;) symmetric block cipher is used.  The implementation is provided by libcrypto of OpenSSL.
+- Objects are encrypted one-by-one; the database as a whole is _not_ encrypted.  This means that a person inspecting the database could see that there are 18 records of class Person, but not the contents of those records.
+- BNRPersistence salts the actual key used with a random value combined with the rowID (primary key) of each stored object.  As such, records with identical values will appear to be different to a person inspecting the database.  The record length will be the same, however.
+- During decryption the salt for each object (along with the rowID) is used to verify that the decryption was successful.  If the decryption was deemed unsuccessful the stored object will be reconstituted using the original data buffer from the backend.  This allows you to add encryption to an existing database: new objects stored will be encrypted while old, unencrypted objects will still be accessible.
+
+## The Size of Things
 
 The database files are not small.  Nor are the full-text indexes.  For the million-song database, the Tokyo Cabinet data file is more than twice as large as the Core Data file.  And that doesn't include the index which is that also about twice as large as the Core Data file.
 
-## Getting it on the phone
+## Getting it on the Phone
 
 The first problem is that you need to compile TokyoCabinet/TokyoDystopia for arm.  I tried every configure trick I could come up with and then just created an Xcode static library project and dumped the source to both libraries into the project.  This project is in the repository.
 
