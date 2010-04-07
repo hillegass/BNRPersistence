@@ -147,11 +147,11 @@
                                        rowID:[self rowID]];
     if (!d) return;
     
-    BNRClassMetaData *metaData = [s metaDataForClass:[self class]];
+    BNRClassMetaData *metaData = [s metaDataForClass:[self class]]; // FIXME: We get a warning here.
     if ([metaData encryptionKeyHash] != 0x0) // If we need to fuss with decryption..
     {
         if ([metaData hashMatchesEncryptionKey:[s encryptionKey]])
-            [d decryptWithKey:[s encryptionKey]];
+            [d decryptWithKey:[s encryptionKey] salt:[metaData encryptionKeySalt]];
     }        
 
     if ([s usesPerInstanceVersioning]) {

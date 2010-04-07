@@ -9,13 +9,14 @@
 #import "BNRClassMetaData+Encryption.h"
 #import <openssl/md5.h>
 
-UInt32 HashForKey(NSString *key)
+UInt32 HashForKey(NSString *key, unsigned char *salt)
 {
     if (!key || [key length] == 0)
         return 0;
     
     MD5_CTX ctx;
     MD5_Init(&ctx);
+    MD5_Update(&ctx, salt, 8);
     MD5_Update(&ctx, [key UTF8String], [key lengthOfBytesUsingEncoding:NSUTF8StringEncoding]);
     UInt32 md[4];
     MD5_Final((unsigned char*)md, &ctx);
@@ -26,13 +27,13 @@ UInt32 HashForKey(NSString *key)
 
 - (void)setEncryptionKeyHashForKey:(NSString *)encryptionKey
 {
-    encryptionKeyHash = HashForKey(encryptionKey);
+    encryptionKeyHash = HashForKey(encryptionKey, encryptionKeySalt);
     NSLog(@"encryptionKeyHash = 0x%08x", encryptionKeyHash);
 }
 
 - (BOOL)hashMatchesEncryptionKey:(NSString *)encryptionKey;
 {
-    UInt32 testHash = HashForKey(encryptionKey);
+    UInt32 testHash = HashForKey(encryptionKey, encryptionKeySalt);
     return testHash == encryptionKeyHash;
 }
 

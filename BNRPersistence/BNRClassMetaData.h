@@ -56,6 +56,7 @@
     volatile UInt32 lastPrimaryKey;
     unsigned char versionNumber;
     UInt32 encryptionKeyHash;
+    UInt8 encryptionKeySalt[8];
 } 
 
 /*!
@@ -109,5 +110,11 @@
  @abstract Returns the hash of the encryption key used on this class's data.
  */
 - (UInt32)encryptionKeyHash;
+
+/*!
+ @method encryptionKeySalt
+ @abstract Returns the encryption key salt value used on with this class's data.
+ */
+- (const UInt8 *)encryptionKeySalt;
 
 @end

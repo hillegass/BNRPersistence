@@ -23,6 +23,7 @@
 #import "BNRClassMetaData.h"
 #import "BNRDataBuffer.h"
 #import <libkern/OSAtomic.h>
+#import <openssl/rand.h>
 
 @implementation BNRClassMetaData
 
@@ -34,6 +35,10 @@
     versionNumber = 1;
     classID = 0;
     encryptionKeyHash = 0;
+    
+    // Randomize the salt to start with; if a class is being loaded the salt will be set in -readContentFromBuffer:.
+    RAND_pseudo_bytes(encryptionKeySalt, 8);
+    
     return self;
 }
 - (void)readContentFromBuffer:(BNRDataBuffer *)d
@@ -42,7 +47,11 @@
     versionNumber = [d readUInt8];
     classID = [d readUInt8];
     if ([d length] > 6)
+    {
         encryptionKeyHash = [d readUInt32];
+        for (int i = 0; i < 8; i++)
+            encryptionKeySalt[i] = [d readUInt8];
+    }
         
 }
 - (void)writeContentToBuffer:(BNRDataBuffer *)d
@@ -51,6 +60,8 @@
     [d writeUInt8:versionNumber];
     [d writeUInt8:classID];
     [d writeUInt32:encryptionKeyHash];
+    for (int i = 0; i < 8; i++)
+        [d writeUInt8:encryptionKeySalt[i]];
 }
 - (unsigned char )classID
 {
@@ -83,4 +94,8 @@
     return encryptionKeyHash;
 }
 
+- (const UInt8 *)encryptionKeySalt
+{
+    return encryptionKeySalt;
+}
 @end

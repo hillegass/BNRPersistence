@@ -8,8 +8,9 @@
 
 #import "BNRDataBuffer+Encryption.h"
 #import <openssl/blowfish.h>
+#import <openssl/md5.h>
 
-void BFEncrypt(NSString *key, int enc, void *data, long length)
+void BFEncrypt(NSString *key, const UInt8 *salt, int enc, void *data, long length)
 {
     if (key == nil || [key length] == 0)
         return;
@@ -18,8 +19,16 @@ void BFEncrypt(NSString *key, int enc, void *data, long length)
     memset(ivec, 0x0, 8);
     int num = 0;
     
+    // Create a hash of the key.
+    MD5_CTX ctx;
+    MD5_Init(&ctx);
+    MD5_Update(&ctx, (void*)salt, 8);
+    MD5_Update(&ctx, (void*)[key UTF8String], [key lengthOfBytesUsingEncoding:NSUTF8StringEncoding]);
+    UInt32 md[4];
+    MD5_Final((unsigned char*)md, &ctx);
+    
     BF_KEY schedule;
-    BF_set_key(&schedule, [key lengthOfBytesUsingEncoding:NSUTF8StringEncoding], (unsigned char*)[key UTF8String]);
+    BF_set_key(&schedule, 4*sizeof(UInt32), (unsigned char*)md);
     
     void *dataOut = malloc(length);
     if (dataOut == NULL)
@@ -36,14 +45,14 @@ void BFEncrypt(NSString *key, int enc, void *data, long length)
 
 @implementation BNRDataBuffer (Encryption)
 
-- (void)decryptWithKey:(NSString *)key
+- (void)decryptWithKey:(NSString *)key salt:(const UInt8 *)salt
 {
-    BFEncrypt(key, BF_DECRYPT, buffer, length);
+    BFEncrypt(key, salt, BF_DECRYPT, buffer, length);
 }
 
-- (void)encryptWithKey:(NSString *)key
+- (void)encryptWithKey:(NSString *)key salt:(const UInt8 *)salt
 {
-    BFEncrypt(key, BF_ENCRYPT, buffer, length);
+    BFEncrypt(key, salt, BF_ENCRYPT, buffer, length);
 }
 
 @end

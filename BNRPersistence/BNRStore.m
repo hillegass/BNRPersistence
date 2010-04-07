@@ -118,7 +118,7 @@
     if ([metaData encryptionKeyHash] != 0x0) // If we need to fuss with decryption..
     {
         if ([metaData hashMatchesEncryptionKey:encryptionKey])
-            [buffer decryptWithKey:encryptionKey];
+            [buffer decryptWithKey:encryptionKey salt:[metaData encryptionKeySalt]];
         else
             return NO; // Encryption key mismatch.
     }
@@ -407,7 +407,7 @@
         }        
         
         [obj writeContentToBuffer:buffer];
-        [buffer encryptWithKey:encryptionKey]; // does not encrypt if encryptionKey is empty.
+        [buffer encryptWithKey:encryptionKey salt:[[self metaDataForClass:c] encryptionKeySalt]]; // does not encrypt if encryptionKey is empty.
         [backend insertData:buffer
                    forClass:c
                       rowID:rowID];
@@ -430,7 +430,7 @@
         }
         
         [obj writeContentToBuffer:buffer];
-        [buffer encryptWithKey:encryptionKey]; // does not encrypt if encryptionKey is empty.
+        [buffer encryptWithKey:encryptionKey salt:[[self metaDataForClass:c] encryptionKeySalt]]; // does not encrypt if encryptionKey is empty.
         
         [backend updateData:buffer
                    forClass:c

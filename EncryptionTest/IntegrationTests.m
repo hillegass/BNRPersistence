@@ -1,5 +1,5 @@
 //
-//  EncryptionTests.m
+//  IntegrationTests.m
 //  EncryptionTest
 //
 //  Created by Adam Preble on 4/6/10.
@@ -7,28 +7,29 @@
 //
 
 #import <SenTestingKit/SenTestingKit.h>
-#import "EncryptionTests.h"
+#import "IntegrationTests.h"
 #import "Person.h"
 #import "BNRTCBackend.h"
 #import "BNRStore.h"
+#import "BNRDataBuffer.h"
 
-@interface EncryptionTests ()
+@interface IntegrationTests ()
 - (void)reopen;
 @end
 
-NSString * const EncryptionTestsDatabasePath = @"./database/";
+NSString * const IntegrationTestsDatabasePath = @"./database/";
 
-@implementation EncryptionTests
+@implementation IntegrationTests
 
 - (void)setUp
 {
-    [[NSFileManager defaultManager] removeItemAtPath:EncryptionTestsDatabasePath error:nil]; // erase in case we were debugging and uncerimoniously exited
+    [[NSFileManager defaultManager] removeItemAtPath:IntegrationTestsDatabasePath error:nil]; // erase in case we were debugging and uncerimoniously exited
     [self reopen];
 }
 - (void)tearDown
 {
     [store release];
-    [[NSFileManager defaultManager] removeItemAtPath:EncryptionTestsDatabasePath error:nil];
+    [[NSFileManager defaultManager] removeItemAtPath:IntegrationTestsDatabasePath error:nil];
 }
 
 - (void)reopen
@@ -36,7 +37,7 @@ NSString * const EncryptionTestsDatabasePath = @"./database/";
     [store release];
     
     NSError *error;
-    NSString *path = EncryptionTestsDatabasePath;
+    NSString *path = IntegrationTestsDatabasePath;
     
     BNRTCBackend *backend = [[BNRTCBackend alloc] initWithPath:path
                                                          error:&error];
@@ -178,7 +179,8 @@ NSString * const EncryptionTestsDatabasePath = @"./database/";
     NSArray *people = [store allObjectsForClass:[Person class]];
     STAssertNotNil(people, @"nil Person classes?");
     STAssertEquals([people count], (NSUInteger)1, @"expected 1 Person");
-    STAssertNil([[people objectAtIndex:0] name], @"Name should be nil");
+    Person *fetchedPerson = [people objectAtIndex:0];
+    STAssertNil([fetchedPerson name], @"Name should be nil but is %@", [fetchedPerson name]);
 }
 
 @end

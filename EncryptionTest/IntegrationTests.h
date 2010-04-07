@@ -1,5 +1,5 @@
 //
-//  EncryptionTests.h
+//  IntegrationTests.h
 //  EncryptionTest
 //
 //  Created by Adam Preble on 4/6/10.
@@ -11,7 +11,7 @@
 
 @class BNRStore;
 
-@interface EncryptionTests : SenTestCase {
+@interface IntegrationTests : SenTestCase {
     BNRStore *store;
 }
 
