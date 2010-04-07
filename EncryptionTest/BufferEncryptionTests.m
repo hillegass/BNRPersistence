@@ -38,7 +38,7 @@
     memcpy(copyOfData, [randomData bytes], [randomData length]);
     buffer = [[BNRDataBuffer alloc] initWithData:copyOfData length:[randomData length]];
     
-    RAND_pseudo_bytes(salt, 8);
+    RAND_pseudo_bytes((UInt8*)salt, 8);
 }
 - (void)tearDown
 {

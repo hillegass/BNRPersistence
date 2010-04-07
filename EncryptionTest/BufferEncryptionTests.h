@@ -13,7 +13,7 @@
 @interface BufferEncryptionTests : SenTestCase {
     BNRDataBuffer *buffer;
     NSMutableData *randomData;
-    UInt8 salt[8];
+    UInt32 salt[2];
 }
 
 @end

@@ -10,7 +10,7 @@
 #import <openssl/blowfish.h>
 #import <openssl/md5.h>
 
-void BFEncrypt(NSString *key, const UInt8 *salt, int enc, void *data, long length)
+void BFEncrypt(NSString *key, const UInt32 *salt, int enc, void *data, long length)
 {
     if (key == nil || [key length] == 0)
         return;
@@ -45,14 +45,47 @@ void BFEncrypt(NSString *key, const UInt8 *salt, int enc, void *data, long lengt
 
 @implementation BNRDataBuffer (Encryption)
 
-- (void)decryptWithKey:(NSString *)key salt:(const UInt8 *)salt
+- (BOOL)decryptWithKey:(NSString *)key salt:(const UInt32 *)salt
 {
-    BFEncrypt(key, salt, BF_DECRYPT, buffer, length);
+    if (key == nil || [key length] == 0)
+        return YES;
+    
+    UInt32 littleSalt[2];
+    littleSalt[0] = CFSwapInt32HostToLittle(salt[0]);
+    littleSalt[1] = CFSwapInt32HostToLittle(salt[1]);
+    
+    BFEncrypt(key, littleSalt, BF_DECRYPT, buffer, length);
+    if (length >= 8 && memcmp(buffer, littleSalt, 8) == 0)
+    {
+        // Salt matches, so we believe the given key is good.
+        int decryptedBufferLength = length - 8;
+        UInt8 *decryptedBuffer = (UInt8*)malloc(decryptedBufferLength);
+        memcpy(decryptedBuffer, buffer + 8, decryptedBufferLength);
+        [self setData:decryptedBuffer length:decryptedBufferLength];
+    }
+    else 
+    {
+        // We weren't able to decrypt the buffer successfully.
+        return NO;
+    }
+    return YES;
 }
 
-- (void)encryptWithKey:(NSString *)key salt:(const UInt8 *)salt
+- (void)encryptWithKey:(NSString *)key salt:(const UInt32 *)salt
 {
-    BFEncrypt(key, salt, BF_ENCRYPT, buffer, length);
+    if (key == nil || [key length] == 0)
+        return;
+    
+    UInt32 littleSalt[2];
+    littleSalt[0] = CFSwapInt32HostToLittle(salt[0]);
+    littleSalt[1] = CFSwapInt32HostToLittle(salt[1]);
+    
+    int encryptedBufferLength = 8 + length;
+    UInt8 *encryptedBuffer = (UInt8*)malloc(encryptedBufferLength);
+    memcpy(encryptedBuffer, littleSalt, 8);
+    memcpy(encryptedBuffer + 8, buffer, length);
+    BFEncrypt(key, littleSalt, BF_ENCRYPT, encryptedBuffer, encryptedBufferLength);
+    [self setData:encryptedBuffer length:encryptedBufferLength];
 }
 
 @end

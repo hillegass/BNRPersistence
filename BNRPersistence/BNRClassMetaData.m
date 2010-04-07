@@ -34,10 +34,9 @@
     lastPrimaryKey = 1;
     versionNumber = 1;
     classID = 0;
-    encryptionKeyHash = 0;
     
     // Randomize the salt to start with; if a class is being loaded the salt will be set in -readContentFromBuffer:.
-    RAND_pseudo_bytes(encryptionKeySalt, 8);
+    RAND_pseudo_bytes((UInt8*)encryptionKeySalt, 8);
     
     return self;
 }
@@ -48,9 +47,8 @@
     classID = [d readUInt8];
     if ([d length] > 6)
     {
-        encryptionKeyHash = [d readUInt32];
-        for (int i = 0; i < 8; i++)
-            encryptionKeySalt[i] = [d readUInt8];
+        for (int i = 0; i < 2; i++)
+            encryptionKeySalt[i] = [d readUInt32];
     }
         
 }
@@ -59,9 +57,8 @@
     [d writeUInt32:lastPrimaryKey];
     [d writeUInt8:versionNumber];
     [d writeUInt8:classID];
-    [d writeUInt32:encryptionKeyHash];
-    for (int i = 0; i < 8; i++)
-        [d writeUInt8:encryptionKeySalt[i]];
+    for (int i = 0; i < 2; i++)
+        [d writeUInt32:encryptionKeySalt[i]];
 }
 - (unsigned char )classID
 {
@@ -89,12 +86,7 @@
     versionNumber = x;
 }
 
-- (UInt32)encryptionKeyHash
-{
-    return encryptionKeyHash;
-}
-
-- (const UInt8 *)encryptionKeySalt
+- (const UInt32 *)encryptionKeySalt
 {
     return encryptionKeySalt;
 }

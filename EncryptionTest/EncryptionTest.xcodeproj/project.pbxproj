@@ -21,12 +21,10 @@
 		663ED639116BE0E700D00CB9 /* BNRUniquingTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 663ED62C116BE0E700D00CB9 /* BNRUniquingTable.m */; };
 		663ED655116BE40700D00CB9 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 663ED654116BE40700D00CB9 /* Cocoa.framework */; };
 		663ED6F2116BF0BD00D00CB9 /* BNRDataBuffer+Encryption.m in Sources */ = {isa = PBXBuildFile; fileRef = 663ED6F1116BF0BD00D00CB9 /* BNRDataBuffer+Encryption.m */; };
-		663ED701116C016400D00CB9 /* BNRClassMetaData+Encryption.m in Sources */ = {isa = PBXBuildFile; fileRef = 663ED700116C016400D00CB9 /* BNRClassMetaData+Encryption.m */; };
 		663ED7CA116C19E800D00CB9 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 663ED7C9116C19E800D00CB9 /* Person.m */; };
 		663ED7ED116C1BF900D00CB9 /* IntegrationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 663ED7D6116C1ACB00D00CB9 /* IntegrationTests.m */; };
 		663ED7FF116C1DBF00D00CB9 /* BNRBackendCursor.m in Sources */ = {isa = PBXBuildFile; fileRef = 663ED614116BE0E700D00CB9 /* BNRBackendCursor.m */; };
 		663ED800116C1DC000D00CB9 /* BNRClassDictionary.mm in Sources */ = {isa = PBXBuildFile; fileRef = 663ED616116BE0E700D00CB9 /* BNRClassDictionary.mm */; };
-		663ED801116C1DC200D00CB9 /* BNRClassMetaData+Encryption.m in Sources */ = {isa = PBXBuildFile; fileRef = 663ED700116C016400D00CB9 /* BNRClassMetaData+Encryption.m */; };
 		663ED802116C1DC300D00CB9 /* BNRClassMetaData.m in Sources */ = {isa = PBXBuildFile; fileRef = 663ED618116BE0E700D00CB9 /* BNRClassMetaData.m */; };
 		663ED803116C1DC400D00CB9 /* BNRDataBuffer+Encryption.m in Sources */ = {isa = PBXBuildFile; fileRef = 663ED6F1116BF0BD00D00CB9 /* BNRDataBuffer+Encryption.m */; };
 		663ED804116C1DC800D00CB9 /* BNRDataBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = 663ED61A116BE0E700D00CB9 /* BNRDataBuffer.m */; };
@@ -88,8 +86,6 @@
 		663ED654116BE40700D00CB9 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		663ED6F0116BF0BD00D00CB9 /* BNRDataBuffer+Encryption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BNRDataBuffer+Encryption.h"; sourceTree = "<group>"; };
 		663ED6F1116BF0BD00D00CB9 /* BNRDataBuffer+Encryption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BNRDataBuffer+Encryption.m"; sourceTree = "<group>"; };
-		663ED6FF116C016400D00CB9 /* BNRClassMetaData+Encryption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BNRClassMetaData+Encryption.h"; sourceTree = "<group>"; };
-		663ED700116C016400D00CB9 /* BNRClassMetaData+Encryption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BNRClassMetaData+Encryption.m"; sourceTree = "<group>"; };
 		663ED7C8116C19E800D00CB9 /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
 		663ED7C9116C19E800D00CB9 /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
 		663ED7D5116C1ACB00D00CB9 /* IntegrationTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntegrationTests.h; sourceTree = "<group>"; };
@@ -196,8 +192,6 @@
 				663ED62C116BE0E700D00CB9 /* BNRUniquingTable.m */,
 				663ED6F0116BF0BD00D00CB9 /* BNRDataBuffer+Encryption.h */,
 				663ED6F1116BF0BD00D00CB9 /* BNRDataBuffer+Encryption.m */,
-				663ED6FF116C016400D00CB9 /* BNRClassMetaData+Encryption.h */,
-				663ED700116C016400D00CB9 /* BNRClassMetaData+Encryption.m */,
 			);
 			name = BNRPersistence;
 			path = ../BNRPersistence;
@@ -307,7 +301,6 @@
 				663ED7ED116C1BF900D00CB9 /* IntegrationTests.m in Sources */,
 				663ED7FF116C1DBF00D00CB9 /* BNRBackendCursor.m in Sources */,
 				663ED800116C1DC000D00CB9 /* BNRClassDictionary.mm in Sources */,
-				663ED801116C1DC200D00CB9 /* BNRClassMetaData+Encryption.m in Sources */,
 				663ED802116C1DC300D00CB9 /* BNRClassMetaData.m in Sources */,
 				663ED803116C1DC400D00CB9 /* BNRDataBuffer+Encryption.m in Sources */,
 				663ED804116C1DC800D00CB9 /* BNRDataBuffer.m in Sources */,
@@ -341,7 +334,6 @@
 				663ED637116BE0E700D00CB9 /* BNRTCBackendCursor.m in Sources */,
 				663ED639116BE0E700D00CB9 /* BNRUniquingTable.m in Sources */,
 				663ED6F2116BF0BD00D00CB9 /* BNRDataBuffer+Encryption.m in Sources */,
-				663ED701116C016400D00CB9 /* BNRClassMetaData+Encryption.m in Sources */,
 				663ED7CA116C19E800D00CB9 /* Person.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

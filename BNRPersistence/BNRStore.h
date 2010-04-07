@@ -29,6 +29,7 @@
 @class BNRDataBuffer;
 @class BNRStore;
 @class BNRIndexManager;
+@class BNRClassMetaData;
 
 @protocol BNRStoreDelegate
 
@@ -126,6 +127,7 @@
 - (unsigned char)versionForClass:(Class)c;
 - (Class)classForClassID:(unsigned char)c;
 - (unsigned char)classIDForClass:(Class)c;
+- (BNRClassMetaData *)metaDataForClass:(Class)c;
 
 #pragma mark Retain-cycle breaking
 

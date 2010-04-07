@@ -11,7 +11,7 @@
 
 @interface BNRDataBuffer (Encryption)
 
-- (void)decryptWithKey:(NSString *)key salt:(const UInt8 *)salt;
-- (void)encryptWithKey:(NSString *)key salt:(const UInt8 *)salt;
+- (BOOL)decryptWithKey:(NSString *)key salt:(const UInt32 *)salt;
+- (void)encryptWithKey:(NSString *)key salt:(const UInt32 *)salt;
 
 @end

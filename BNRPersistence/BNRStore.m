@@ -30,18 +30,11 @@
 #import "BNRUniquingTable.h"
 #import "BNRIndexManager.h"
 #import "BNRDataBuffer+Encryption.h"
-#import "BNRClassMetaData+Encryption.h"
 
 @interface BNRStoredObject (BNRStoreFriend)
 
 - (void)setHasContent:(BOOL)yn;
 - (id)initWithStore:(BNRStore *)s rowID:(UInt32)n buffer:(BNRDataBuffer *)buffer;
-
-@end
-
-@interface BNRStore ()
-
-- (BNRClassMetaData *)metaDataForClass:(Class)c;
 
 @end
 
@@ -109,20 +102,25 @@
     classes[classCount] = c;
 }
 
-- (BOOL)decryptBuffer:(BNRDataBuffer *)buffer ofClass:(Class)c
+- (BOOL)decryptBuffer:(BNRDataBuffer *)buffer ofClass:(Class)c rowID:(UInt32)rowID
 {
     if (buffer == nil)
         return YES;
     
     BNRClassMetaData *metaData = [self metaDataForClass:c];
-    if ([metaData encryptionKeyHash] != 0x0) // If we need to fuss with decryption..
-    {
-        if ([metaData hashMatchesEncryptionKey:encryptionKey])
-            [buffer decryptWithKey:encryptionKey salt:[metaData encryptionKeySalt]];
-        else
-            return NO; // Encryption key mismatch.
-    }
-    return YES;
+    
+    UInt32 salt[2];
+    memcpy(salt, [metaData encryptionKeySalt], 8);
+    salt[1] = salt[1] ^ rowID;
+    
+    return [buffer decryptWithKey:encryptionKey salt:salt];
+}
+- (void)encryptBuffer:(BNRDataBuffer *)buffer ofClass:(Class)c rowID:(UInt32)rowID
+{
+    UInt32 salt[2];
+    memcpy(salt, [[self metaDataForClass:c] encryptionKeySalt], 8);
+    salt[1] = salt[1] ^ rowID;
+    [buffer encryptWithKey:encryptionKey salt:salt]; // does not encrypt if encryptionKey is empty.
 }
 
 #pragma mark Fetching
@@ -138,7 +136,7 @@
     if (obj) {
         if (mustFetch && ![obj hasContent]) {
             BNRDataBuffer *const d = [backend dataForClass:c rowID:n];
-            [self decryptBuffer:d ofClass:c];
+            [self decryptBuffer:d ofClass:c rowID:n];
             if (usesPerInstanceVersioning) {
                 [d consumeVersion];
             }
@@ -147,7 +145,7 @@
         }
     } else {
         BNRDataBuffer *const d = mustFetch? [backend dataForClass:c rowID:n] : nil;
-        [self decryptBuffer:d ofClass:c];
+        [self decryptBuffer:d ofClass:c rowID:n];
         if (usesPerInstanceVersioning) {
             [d consumeVersion];
         }
@@ -183,7 +181,7 @@
         // Possibly read in its stored data.
         const BOOL hasUnsavedData = [toBeUpdated containsObject:storedObject];
         if (!hasUnsavedData) {
-            [self decryptBuffer:buffer ofClass:c];
+            [self decryptBuffer:buffer ofClass:c rowID:rowID];
             if (usesPerInstanceVersioning) {
                 [buffer consumeVersion];
             }
@@ -407,7 +405,9 @@
         }        
         
         [obj writeContentToBuffer:buffer];
-        [buffer encryptWithKey:encryptionKey salt:[[self metaDataForClass:c] encryptionKeySalt]]; // does not encrypt if encryptionKey is empty.
+        
+        [self encryptBuffer:buffer ofClass:c rowID:rowID]; // does not encrypt if encryptionKey is empty.
+        
         [backend insertData:buffer
                    forClass:c
                       rowID:rowID];
@@ -430,7 +430,8 @@
         }
         
         [obj writeContentToBuffer:buffer];
-        [buffer encryptWithKey:encryptionKey salt:[[self metaDataForClass:c] encryptionKeySalt]]; // does not encrypt if encryptionKey is empty.
+        
+        [self encryptBuffer:buffer ofClass:c rowID:rowID]; // does not encrypt if encryptionKey is empty.
         
         [backend updateData:buffer
                    forClass:c
@@ -472,7 +473,6 @@
     while (c = classes[i]) {
         BNRClassMetaData *d = [classMetaData objectForClass:c];
         if (d) {
-            [d setEncryptionKeyHashForKey:encryptionKey];
             [d writeContentToBuffer:buffer];
             //NSLog(@"Inserting %d bytes of meta data for %@", [buffer length], NSStringFromClass(c));
 
