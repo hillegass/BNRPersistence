@@ -13,6 +13,13 @@
 
 @synthesize name;
 
++ (id)personWithName:(NSString *)theName
+{
+    Person *person = [[Person alloc] init];
+    [person setName:theName];
+    return [person autorelease];
+}
+
 - (void)dealloc
 {
     [self setName:nil];

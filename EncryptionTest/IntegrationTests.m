@@ -18,6 +18,8 @@
 @end
 
 NSString * const IntegrationTestsDatabasePath = @"./database/";
+NSString * const TestPersonName = @"Fred";
+NSString * const TestKey = @"howdy";
 
 @implementation IntegrationTests
 
@@ -61,9 +63,7 @@ NSString * const IntegrationTestsDatabasePath = @"./database/";
 {
     STAssertEquals([[store allObjectsForClass:[Person class]] count], (NSUInteger)0, @"expected 0 people");
     
-    Person *newPerson = [[[Person alloc] init] autorelease];
-    [newPerson setName:@"Fred"];
-    [store insertObject:newPerson];
+    [store insertObject:[Person personWithName:TestPersonName]];
     
     NSError *error;
     [store saveChanges:&error];
@@ -73,16 +73,14 @@ NSString * const IntegrationTestsDatabasePath = @"./database/";
     NSArray *people = [store allObjectsForClass:[Person class]];
     STAssertNotNil(people, @"nil Person classes?");
     STAssertEquals([people count], (NSUInteger)1, @"expected 1 Person");
-    STAssertEqualObjects([[people objectAtIndex:0] name], @"Fred", @"Name not Fred");
+    STAssertEqualObjects([[people objectAtIndex:0] name], TestPersonName, @"Unexpected name");
 }
 
 - (void)testBlankKeyDoesntEncrypt
 {
     [store setEncryptionKey:@""];
     
-    Person *newPerson = [[[Person alloc] init] autorelease];
-    [newPerson setName:@"Fred"];
-    [store insertObject:newPerson];
+    [store insertObject:[Person personWithName:TestPersonName]];
     
     NSError *error;
     [store saveChanges:&error];
@@ -92,7 +90,7 @@ NSString * const IntegrationTestsDatabasePath = @"./database/";
     NSArray *people = [store allObjectsForClass:[Person class]];
     STAssertNotNil(people, @"nil Person classes?");
     STAssertEquals([people count], (NSUInteger)1, @"expected 1 Person");
-    STAssertEqualObjects([[people objectAtIndex:0] name], @"Fred", @"Name not Fred");
+    STAssertEqualObjects([[people objectAtIndex:0] name], TestPersonName, @"Unexpected name");
 }
 
 
@@ -100,9 +98,7 @@ NSString * const IntegrationTestsDatabasePath = @"./database/";
 {
     STAssertEquals([[store allObjectsForClass:[Person class]] count], (NSUInteger)0, @"expected 0 people");
     
-    Person *newPerson = [[[Person alloc] init] autorelease];
-    [newPerson setName:@"Fred"];
-    [store insertObject:newPerson];
+    [store insertObject:[Person personWithName:TestPersonName]];
     
 //    NSError *error;
 //    [store saveChanges:&error];
@@ -116,32 +112,28 @@ NSString * const IntegrationTestsDatabasePath = @"./database/";
 
 - (void)testEncryption
 {
-    [store setEncryptionKey:@"howdy"];
+    [store setEncryptionKey:TestKey];
     
-    Person *newPerson = [[[Person alloc] init] autorelease];
-    [newPerson setName:@"Fred"];
-    [store insertObject:newPerson];
+    [store insertObject:[Person personWithName:TestPersonName]];
     
     NSError *error;
     [store saveChanges:&error];
     
     [self reopen];
     
-    [store setEncryptionKey:@"howdy"];
+    [store setEncryptionKey:TestKey];
     
     NSArray *people = [store allObjectsForClass:[Person class]];
     STAssertNotNil(people, @"nil Person classes?");
     STAssertEquals([people count], (NSUInteger)1, @"expected 1 Person");
-    STAssertEqualObjects([[people objectAtIndex:0] name], @"Fred", @"Name not Fred");
+    STAssertEqualObjects([[people objectAtIndex:0] name], TestPersonName, @"Unexpected name");
 }
 
 - (void)testEncryptionNoKey
 {
-    [store setEncryptionKey:@"howdy"];
+    [store setEncryptionKey:TestKey];
     
-    Person *newPerson = [[[Person alloc] init] autorelease];
-    [newPerson setName:@"Fred"];
-    [store insertObject:newPerson];
+    [store insertObject:[Person personWithName:TestPersonName]];
     
     NSError *error;
     [store saveChanges:&error];
@@ -158,18 +150,16 @@ NSString * const IntegrationTestsDatabasePath = @"./database/";
 
 - (void)testEncryptionBadKey
 {
-    [store setEncryptionKey:@"howdy"];
+    [store setEncryptionKey:TestKey];
     
-    Person *newPerson = [[[Person alloc] init] autorelease];
-    [newPerson setName:@"Fred"];
-    [store insertObject:newPerson];
+    [store insertObject:[Person personWithName:TestPersonName]];
     
     NSError *error;
     [store saveChanges:&error];
     
     [self reopen];
     
-    [store setEncryptionKey:@"howdyhowdy"];
+    [store setEncryptionKey:[TestKey stringByAppendingString:TestKey]]; // Make sure the key is different.
     
     NSArray *people = [store allObjectsForClass:[Person class]];
     STAssertNotNil(people, @"nil Person classes?");
@@ -182,9 +172,7 @@ NSString * const IntegrationTestsDatabasePath = @"./database/";
 {
     [store setEncryptionKey:@""];
     
-    Person *newPerson = [[[Person alloc] init] autorelease];
-    [newPerson setName:@"Fred"];
-    [store insertObject:newPerson];
+    [store insertObject:[Person personWithName:TestPersonName]];
     
     NSError *error;
     [store saveChanges:&error];
@@ -196,7 +184,9 @@ NSString * const IntegrationTestsDatabasePath = @"./database/";
     NSArray *people = [store allObjectsForClass:[Person class]];
     STAssertNotNil(people, @"nil Person classes?");
     STAssertEquals([people count], (NSUInteger)1, @"expected 1 Person");
-    STAssertEqualObjects([[people objectAtIndex:0] name], @"Fred", @"Name not Fred");
+    STAssertEqualObjects([[people objectAtIndex:0] name], TestPersonName, @"Unexpected name");
+}
+
 }
 
 @end

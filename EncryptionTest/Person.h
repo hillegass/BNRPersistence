@@ -13,6 +13,7 @@
 {
     NSString *name;
 }
++ (id)personWithName:(NSString *)theName;
 @property (nonatomic, retain) NSString *name;
 @end
 
