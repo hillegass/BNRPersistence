@@ -187,6 +187,4 @@ NSString * const TestKey = @"howdy";
     STAssertEqualObjects([[people objectAtIndex:0] name], TestPersonName, @"Unexpected name");
 }
 
-}
-
 @end

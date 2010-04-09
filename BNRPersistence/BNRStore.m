@@ -196,6 +196,54 @@
     return allObjects;
 }
 
+#if NS_BLOCKS_AVAILABLE
+- (void)enumerateAllObjectsForClass:(Class)c usingBlock:(BNRStoredObjectIterBlock)iterBlock
+{
+    // Fetch!
+    BNRBackendCursor *const cursor = [backend cursorForClass:c];
+    if (!cursor) {
+        NSLog(@"No database for %@", NSStringFromClass(c));
+        return;
+    }
+
+    BNRDataBuffer *const buffer = [[[BNRDataBuffer alloc]
+                                    initWithCapacity:(UINT16_MAX + 1)]
+                                   autorelease];
+    
+    UInt32 rowID;
+    while (rowID = [cursor nextBuffer:buffer])
+    {
+        if (kBNRMetadataRowID == rowID) continue;  // skip metadata
+        
+        // Prevent our usage from building up while iterating over the objects:
+        NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+        
+        // Get the next object.
+        BNRStoredObject *storedObject = [self objectForClass:c
+                                                       rowID:rowID
+                                                fetchContent:NO];
+        // Possibly read in its stored data.
+        const BOOL hasUnsavedData = [toBeUpdated containsObject:storedObject];
+        if (!hasUnsavedData) {
+            [self decryptBuffer:buffer ofClass:c rowID:rowID];
+            if (usesPerInstanceVersioning) {
+                [buffer consumeVersion];
+            }
+            [storedObject readContentFromBuffer:buffer];
+            [storedObject setHasContent:YES];
+        }
+        
+        BOOL stop = NO;
+        iterBlock(rowID, storedObject, &stop);
+        
+        [pool drain];
+        
+        if (stop)
+            break;
+    }
+}
+#endif
+
 - (NSMutableArray *)objectsForClass:(Class)c
                        matchingText:(NSString *)toMatch
                              forKey:(NSString *)key

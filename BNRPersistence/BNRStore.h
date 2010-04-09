@@ -40,6 +40,10 @@
 
 @end
 
+#if NS_BLOCKS_AVAILABLE
+typedef void(^BNRStoredObjectIterBlock)(UInt32 rowID, BNRStoredObject *object, BOOL *stop);
+#endif
+
 //! BNRStore
 
 
@@ -98,6 +102,10 @@
 - (NSMutableArray *)objectsForClass:(Class)c
                        matchingText:(NSString *)toMatch
                              forKey:(NSString *)key;
+
+#if NS_BLOCKS_AVAILABLE
+- (void)enumerateAllObjectsForClass:(Class)c usingBlock:(BNRStoredObjectIterBlock)block;
+#endif
 
 #pragma mark Saving
 
