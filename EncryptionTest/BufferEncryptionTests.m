@@ -9,7 +9,7 @@
 #import "BufferEncryptionTests.h"
 #import "BNRDataBuffer.h"
 #import "BNRDataBuffer+Encryption.h"
-#import <openssl/rand.h>
+#import "BNRCrypto.h"
 
 @interface NSData (RandomizedData)
 + (id)dataWithRandomBytesOfLength:(int)length;
@@ -19,7 +19,7 @@
 + (id)dataWithRandomBytesOfLength:(int)length
 {
     void *bytes = malloc(length);
-    RAND_pseudo_bytes(bytes, length);
+    BNRRandomBytes(bytes, length);
     NSData *output = [[self class] dataWithBytes:bytes length:length]; // Use [self class] so it will be NSMutableData if that's the class.
     free(bytes);
     return output;
@@ -38,7 +38,7 @@
     memcpy(copyOfData, [randomData bytes], [randomData length]);
     buffer = [[BNRDataBuffer alloc] initWithData:copyOfData length:[randomData length]];
     
-    RAND_pseudo_bytes((UInt8*)salt, 8);
+    BNRRandomBytes(salt, 8);
 }
 - (void)tearDown
 {

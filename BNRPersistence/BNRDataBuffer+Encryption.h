@@ -6,7 +6,7 @@
 //  Copyright 2010 Big Nerd Ranch. All rights reserved.
 //
 
-#import <Cocoa/Cocoa.h>
+#import <Foundation/Foundation.h>
 #import "BNRDataBuffer.h"
 
 @interface BNRDataBuffer (Encryption)

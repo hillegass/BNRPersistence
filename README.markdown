@@ -213,7 +213,7 @@ BNRPersistence supports encryption of individual objects within the database.  S
 
 Technical details of the encryption system used:
 
-- The [Blowfish][] symmetric block cipher is used.  The implementation is provided by libcrypto of OpenSSL.
+- The [AES128][] symmetric block cipher is used.  The implementation is provided by Apple's CommonCrypto, which is available for both Mac OS X and iPhone OS.
 - Objects are encrypted one-by-one; the database as a whole is _not_ encrypted.  This means that a person inspecting the database could see that there are 18 records of class Person, but not the contents of those records.
 - BNRPersistence salts the actual key used with a random value combined with the rowID (primary key) of each stored object.  As such, records with identical values will appear to be different to a person inspecting the database.  The record length will be the same, however.
 - During decryption the salt for each object (along with the rowID) is used to verify that the decryption was successful.  If the decryption was deemed unsuccessful the stored object will be reconstituted using the original data buffer from the backend.  This allows you to add encryption to an existing database: new objects stored will be encrypted while old, unencrypted objects will still be accessible.
@@ -246,4 +246,4 @@ I recognize that there is room for improvement here:
 6. Easy hooks for QuickLook images and Spotlight metadata in BNRStoreDocument
 7. Hook it up to Tokyo Tyrant for non-local storage
 
-[Blowfish]: http://en.wikipedia.org/wiki/Blowfish_(cipher)
+[AES128]: http://en.wikipedia.org/wiki/Advanced_Encryption_Standard

@@ -39,6 +39,8 @@
 		663ED815116C1E2300D00CB9 /* libtokyocabinet.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 663ED814116C1E2300D00CB9 /* libtokyocabinet.dylib */; };
 		663ED817116C1E4100D00CB9 /* libcrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 663ED816116C1E4100D00CB9 /* libcrypto.dylib */; };
 		663ED961116CCE8100D00CB9 /* BufferEncryptionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 663ED960116CCE8100D00CB9 /* BufferEncryptionTests.m */; };
+		663EDD11116EA47B00D00CB9 /* BNRCrypto.m in Sources */ = {isa = PBXBuildFile; fileRef = 663EDD10116EA47B00D00CB9 /* BNRCrypto.m */; };
+		663EDD12116EA47B00D00CB9 /* BNRCrypto.m in Sources */ = {isa = PBXBuildFile; fileRef = 663EDD10116EA47B00D00CB9 /* BNRCrypto.m */; };
 		8DD76F9A0486AA7600D96B5E /* EncryptionTestMain.m in Sources */ = {isa = PBXBuildFile; fileRef = 08FB7796FE84155DC02AAC07 /* EncryptionTestMain.m */; settings = {ATTRIBUTES = (); }; };
 		8DD76F9C0486AA7600D96B5E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08FB779EFE84155DC02AAC07 /* Foundation.framework */; };
 /* End PBXBuildFile section */
@@ -96,6 +98,8 @@
 		663ED816116C1E4100D00CB9 /* libcrypto.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcrypto.dylib; path = usr/lib/libcrypto.dylib; sourceTree = SDKROOT; };
 		663ED95F116CCE8100D00CB9 /* BufferEncryptionTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BufferEncryptionTests.h; sourceTree = "<group>"; };
 		663ED960116CCE8100D00CB9 /* BufferEncryptionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BufferEncryptionTests.m; sourceTree = "<group>"; };
+		663EDD0F116EA47B00D00CB9 /* BNRCrypto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNRCrypto.h; sourceTree = "<group>"; };
+		663EDD10116EA47B00D00CB9 /* BNRCrypto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNRCrypto.m; sourceTree = "<group>"; };
 		8DD76FA10486AA7600D96B5E /* EncryptionTest */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = EncryptionTest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -166,6 +170,8 @@
 		663ED612116BE0E700D00CB9 /* BNRPersistence */ = {
 			isa = PBXGroup;
 			children = (
+				663EDD0F116EA47B00D00CB9 /* BNRCrypto.h */,
+				663EDD10116EA47B00D00CB9 /* BNRCrypto.m */,
 				663ED613116BE0E700D00CB9 /* BNRBackendCursor.h */,
 				663ED614116BE0E700D00CB9 /* BNRBackendCursor.m */,
 				663ED615116BE0E700D00CB9 /* BNRClassDictionary.h */,
@@ -313,6 +319,7 @@
 				663ED80C116C1DDB00D00CB9 /* BNRUniquingTable.m in Sources */,
 				663ED80F116C1DFB00D00CB9 /* Person.m in Sources */,
 				663ED961116CCE8100D00CB9 /* BufferEncryptionTests.m in Sources */,
+				663EDD11116EA47B00D00CB9 /* BNRCrypto.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -335,6 +342,7 @@
 				663ED639116BE0E700D00CB9 /* BNRUniquingTable.m in Sources */,
 				663ED6F2116BF0BD00D00CB9 /* BNRDataBuffer+Encryption.m in Sources */,
 				663ED7CA116C19E800D00CB9 /* Person.m in Sources */,
+				663EDD12116EA47B00D00CB9 /* BNRCrypto.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

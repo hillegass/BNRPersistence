@@ -7,40 +7,75 @@
 //
 
 #import "BNRDataBuffer+Encryption.h"
-#import <openssl/blowfish.h>
-#import <openssl/md5.h>
+#import <CommonCrypto/CommonDigest.h>
+#import <CommonCrypto/CommonCryptor.h>
 
-void BFEncrypt(NSString *key, const UInt32 *salt, int enc, void *data, long length)
+/*!
+ @function CryptHelper
+ @abstract Performs salted AES128 encryption on the given data buffer and returns a new buffer with the result.
+ @param key           The "passphrase" to use as part of the encryption key.
+ @param salt          The salt to use as part of the encryption key.
+ @param operation     kCCEncrypt or kCCDecrypt.
+ @param data          Bytes to encrypt or decrypt.
+ @param length        Number of bytes in data.
+ @param outData       (output) Pointer to the data region containing the decrypted or encrypted data.
+                      It is the caller's responsiblity to free() this memory.
+ @param outDataLength (output) Number of bytes of data in outData.
+ */
+void CryptHelper(NSString *key, const UInt32 *salt, CCOperation operation, const void *data, size_t length, void **outData, size_t *outDataLength)
 {
     if (key == nil || [key length] == 0)
         return;
     
-    unsigned char ivec[8];
-    memset(ivec, 0x0, 8);
-    int num = 0;
+    *outData = NULL;
+    *outDataLength = 0;
     
     // Create a hash of the key.
-    MD5_CTX ctx;
-    MD5_Init(&ctx);
-    MD5_Update(&ctx, (void*)salt, 8);
-    MD5_Update(&ctx, (void*)[key UTF8String], [key lengthOfBytesUsingEncoding:NSUTF8StringEncoding]);
+    CC_MD5_CTX ctx;
+    CC_MD5_Init(&ctx);
+    CC_MD5_Update(&ctx, (void*)salt, 8);
+    CC_MD5_Update(&ctx, (void*)[key UTF8String], [key lengthOfBytesUsingEncoding:NSUTF8StringEncoding]);
     UInt32 md[4];
-    MD5_Final((unsigned char*)md, &ctx);
+    CC_MD5_Final((unsigned char*)md, &ctx);
     
-    BF_KEY schedule;
-    BF_set_key(&schedule, 4*sizeof(UInt32), (unsigned char*)md);
+    CCCryptorRef cryptor = nil;
+    CCCryptorStatus status;
+    CCOptions options = operation == kCCEncrypt ? kCCOptionPKCS7Padding : 0;
+    status = CCCryptorCreate(operation, kCCAlgorithmAES128, options, md, 4*sizeof(UInt32), NULL, &cryptor);
     
-    void *dataOut = malloc(length);
-    if (dataOut == NULL)
+    int outputLength = CCCryptorGetOutputLength(cryptor, length, true);
+    void *outputBuffer = malloc(outputLength);
+    if (outputBuffer == NULL)
     {
         NSLog(@"BFEncrypt(): Memory allocation error.");
         return;
     }
     
-    BF_cfb64_encrypt(data, dataOut, length, &schedule, ivec, &num, enc);
+    size_t bytesOutput = 0;
+    size_t totalBytesOutput = 0;
+    UInt8 *writePtr = (UInt8 *)outputBuffer;
+    status = CCCryptorUpdate(cryptor, data, length, writePtr, outputLength, &bytesOutput);
+    if (status != kCCSuccess)
+    {
+        free(outputBuffer);
+        return;
+    }
+    writePtr += bytesOutput;
+    outputLength -= bytesOutput;
+    totalBytesOutput += bytesOutput;
     
-    memcpy(data, dataOut, length);
-    free(dataOut);
+    status = CCCryptorFinal(cryptor, writePtr, outputLength, &bytesOutput);
+    if (status != kCCSuccess)
+    {
+        free(outputBuffer);
+        return;
+    }
+    totalBytesOutput += bytesOutput;
+    
+    *outData = outputBuffer;
+    *outDataLength = totalBytesOutput;
+    
+    CCCryptorRelease(cryptor);
 }
 
 @implementation BNRDataBuffer (Encryption)
@@ -56,12 +91,10 @@ void BFEncrypt(NSString *key, const UInt32 *salt, int enc, void *data, long leng
     littleSalt[0] = CFSwapInt32HostToLittle(salt[0]);
     littleSalt[1] = CFSwapInt32HostToLittle(salt[1]);
     
-    // Decrypt in a temporary buffer so that if it doesn't match up with the salt we can keep the buffer the same,
-    // such as in the case of an object record that was not encrypted (but the key is now set).
-    UInt8 *decryptedBuffer = (UInt8*)malloc(length);
-    memcpy(decryptedBuffer, buffer, length); 
-    BFEncrypt(key, littleSalt, BF_DECRYPT, decryptedBuffer, length);
-    if (length >= 8 && memcmp(decryptedBuffer, littleSalt, 8) == 0)
+    void *decryptedBuffer = NULL;
+    size_t decryptedBufferLength;
+    CryptHelper(key, littleSalt, kCCDecrypt, buffer, length, &decryptedBuffer, &decryptedBufferLength);
+    if (decryptedBufferLength >= 8 && memcmp(decryptedBuffer, littleSalt, 8) == 0)
     {
         // Salt matches, so we believe the given key is good.
         // Let's move the data into our own buffer.
@@ -88,11 +121,20 @@ void BFEncrypt(NSString *key, const UInt32 *salt, int enc, void *data, long leng
     littleSalt[0] = CFSwapInt32HostToLittle(salt[0]);
     littleSalt[1] = CFSwapInt32HostToLittle(salt[1]);
     
-    int encryptedBufferLength = 8 + length;
-    UInt8 *encryptedBuffer = (UInt8*)malloc(encryptedBufferLength);
-    memcpy(encryptedBuffer, littleSalt, 8);
-    memcpy(encryptedBuffer + 8, buffer, length);
-    BFEncrypt(key, littleSalt, BF_ENCRYPT, encryptedBuffer, encryptedBufferLength);
+    // Create a scratch buffer so we can prepend the 8 bytes of salt.
+    // We will look for these salt bytes when decrypting to confirm that we were successful.
+    int scratchBufferLength = 8 + length;
+    UInt8 *scratchBuffer = (UInt8*)malloc(scratchBufferLength);
+    memcpy(scratchBuffer, littleSalt, 8);
+    memcpy(scratchBuffer + 8, buffer, length);
+    
+    void *encryptedBuffer = NULL;
+    size_t encryptedBufferLength = 0;
+    
+    CryptHelper(key, littleSalt, kCCEncrypt, scratchBuffer, scratchBufferLength, &encryptedBuffer, &encryptedBufferLength);
+    
+    free(scratchBuffer);
+    
     [self setData:encryptedBuffer length:encryptedBufferLength];
 }
 

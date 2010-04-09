@@ -31,6 +31,10 @@
 #import "BNRIndexManager.h"
 #import "BNRDataBuffer+Encryption.h"
 
+#ifndef PAGE_SIZE
+#define PAGE_SIZE (4096)
+#endif
+
 @interface BNRStoredObject (BNRStoreFriend)
 
 - (void)setHasContent:(BOOL)yn;

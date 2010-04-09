@@ -23,7 +23,7 @@
 #import "BNRClassMetaData.h"
 #import "BNRDataBuffer.h"
 #import <libkern/OSAtomic.h>
-#import <openssl/rand.h>
+#import "BNRCrypto.h"
 
 @implementation BNRClassMetaData
 
@@ -36,7 +36,7 @@
     classID = 0;
     
     // Randomize the salt to start with; if a class is being loaded the salt will be set in -readContentFromBuffer:.
-    RAND_pseudo_bytes((UInt8*)encryptionKeySalt, 8);
+    BNRRandomBytes(encryptionKeySalt, 8);
     
     return self;
 }
