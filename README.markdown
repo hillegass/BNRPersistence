@@ -214,9 +214,9 @@ This is provided primarily for backwards compatibility with apps that started us
 
 BNRPersistence supports encryption of individual objects within the database.  Simply set the encryption key to use:
 
-    BNRStore *store = [[BNRStore alloc] init];
-    [store setEncryptionKey:@"the passphrase"];
-    ...
+	BNRStore *store = [[BNRStore alloc] init];
+	[store setEncryptionKey:@"the passphrase"];
+	...
 
 Technical details of the encryption system used:
 
