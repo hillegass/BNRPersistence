@@ -227,16 +227,6 @@ Technical details of the encryption system used:
 
 Also, note that the full-text indices are not encrypted.  So, you will typically use either encryption or full-text searching, but not both.
 
-## The Size of Things
-
-The database files are not small.  Nor are the full-text indexes.  For the million-song database, the Tokyo Cabinet data file is more than twice as large as the Core Data file.  And that doesn't include the index which is that also about twice as large as the Core Data file.
-
-## Getting it on the Phone
-
-The first problem is that you need to compile TokyoCabinet/TokyoDystopia for arm.  I tried every configure trick I could come up with and then just created an Xcode static library project and dumped the source to both libraries into the project.  This project is in the repository.
-
-When you link to the resulting static library, you will also need to link in libz, which is part of the iPhone SDK
-
 ## Named data buffers
 
 Saving the entire object graph in the file is great, but often you don't want to fetch out the whole graph, but rather start at some "bookmarked" point in that object graph.  So, I decided it would be handy to be able to give names to objects.  
@@ -247,14 +237,25 @@ Finally, I came up with a solution that looks a bit strange but can handle all t
 
 You can load a data buffer with anything you like, and then store it under a name.  Here I'm saving a reference to BNRStoredObject under the name Favorite:
 
-	Song *song = [[Song alloc] init];	[song setTitle:@"Walking on Sunshine"];	[song setSeconds:298];	[store insertObject:song];	BNRStoreBackend *backend = [store backend];	BNRDataBuffer *buf = [[BNRDataBuffer alloc] init];	[buf writeObjectReference:song];	[backend insertDataBuffer:buf forName:@"Favorite"];
+    Song *song = [[Song alloc] init];    [song setTitle:@"Walking on Sunshine"];    [song setSeconds:298];    [store insertObject:song];    BNRStoreBackend *backend = [store backend];    BNRDataBuffer *buf = [[BNRDataBuffer alloc] init];    [buf writeObjectReference:song];    [backend insertDataBuffer:buf forName:@"Favorite"];
 
 Then, to fetch the object:
-	BNRDataBuffer *buf = [backend dataBufferForName:@"Favorite"];	Song *song = [buf readObjectReferenceOfClass:[Song class] usingStore:store];
+
+    BNRDataBuffer *buf = [backend dataBufferForName:@"Favorite"];    Song *song = [buf readObjectReferenceOfClass:[Song class] usingStore:store];
 
 Anything that can be put in a data buffer (and that is everything I can think of), can be given a name.
 
 Note that you are talking directly to the backend, so the name change in the file is immediate.  In the example, the named reference to the song is now in the database, but the song itself won't be inserted into the database until I call saveChanges:.
+
+## The Size of Things
+
+The database files are not small.  Nor are the full-text indexes.  For the million-song database, the Tokyo Cabinet data file is more than twice as large as the Core Data file.  And that doesn't include the index which is that also about twice as large as the Core Data file.
+
+## Getting it on the Phone
+
+The first problem is that you need to compile TokyoCabinet/TokyoDystopia for arm.  I tried every configure trick I could come up with and then just created an Xcode static library project and dumped the source to both libraries into the project.  This project is in the repository.
+
+When you link to the resulting static library, you will also need to link in libz, which is part of the iPhone SDK
 
 ## License
 

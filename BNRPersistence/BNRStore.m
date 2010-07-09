@@ -79,7 +79,6 @@
 - (void)dissolveAllRelationships
 {
     [self makeEveryStoredObjectPerformSelector:@selector(dissolveAllRelationships)];
-
 }
 
 - (void)dealloc
