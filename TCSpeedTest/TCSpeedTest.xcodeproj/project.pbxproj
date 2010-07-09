@@ -94,6 +94,65 @@
 		937F33341131AB210035B7EC /* FullTextFetchText.m in Sources */ = {isa = PBXBuildFile; fileRef = 937F33331131AB210035B7EC /* FullTextFetchText.m */; };
 		937F33751131CA600035B7EC /* Song.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D50517110B8B2700E5D2F0 /* Song.m */; };
 		937F33761131CA690035B7EC /* Song.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D50517110B8B2700E5D2F0 /* Song.m */; };
+		93A7B53711E64EA900C671F3 /* BNRBackendCursor.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D504D2110B883700E5D2F0 /* BNRBackendCursor.m */; };
+		93A7B53811E64EA900C671F3 /* BNRClassDictionary.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93D504D4110B883700E5D2F0 /* BNRClassDictionary.mm */; };
+		93A7B53911E64EA900C671F3 /* BNRClassMetaData.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D504D6110B883700E5D2F0 /* BNRClassMetaData.m */; };
+		93A7B53A11E64EA900C671F3 /* BNRDataBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D504D8110B883700E5D2F0 /* BNRDataBuffer.m */; };
+		93A7B53B11E64EA900C671F3 /* BNRStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D504E0110B883700E5D2F0 /* BNRStore.m */; };
+		93A7B53C11E64EA900C671F3 /* BNRStoreBackend.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D504E2110B883700E5D2F0 /* BNRStoreBackend.m */; };
+		93A7B53D11E64EA900C671F3 /* BNRStoredObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D504E4110B883700E5D2F0 /* BNRStoredObject.m */; };
+		93A7B53E11E64EA900C671F3 /* BNRTCBackend.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93D504F0110B883700E5D2F0 /* BNRTCBackend.mm */; };
+		93A7B53F11E64EA900C671F3 /* BNRTCBackendCursor.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D504F2110B883700E5D2F0 /* BNRTCBackendCursor.m */; };
+		93A7B54111E64EA900C671F3 /* Song.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D50517110B8B2700E5D2F0 /* Song.m */; };
+		93A7B54311E64EA900C671F3 /* BNRUniquingTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 9366D9F811120568000A897D /* BNRUniquingTable.m */; };
+		93A7B54411E64EA900C671F3 /* SpeedTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 93644C6811134E01008CA083 /* SpeedTest.m */; };
+		93A7B54511E64EA900C671F3 /* BNRIndexManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 934ECFC6111B3C7F00F8C0E5 /* BNRIndexManager.m */; };
+		93A7B54711E64EA900C671F3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08FB779EFE84155DC02AAC07 /* Foundation.framework */; };
+		93A7B54811E64EA900C671F3 /* libtokyocabinet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 93D5050A110B8AB300E5D2F0 /* libtokyocabinet.a */; };
+		93A7B55F11E64F1F00C671F3 /* NamedBufferInsertTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 93A7B55E11E64F1F00C671F3 /* NamedBufferInsertTest.m */; };
+		93A7B60011E6591700C671F3 /* libcrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 93A7B5FF11E6591700C671F3 /* libcrypto.dylib */; };
+		93A7B62611E65C4600C671F3 /* BNRCrypto.m in Sources */ = {isa = PBXBuildFile; fileRef = 93A7B62311E65C4600C671F3 /* BNRCrypto.m */; };
+		93A7B62711E65C4600C671F3 /* BNRDataBuffer+Encryption.m in Sources */ = {isa = PBXBuildFile; fileRef = 93A7B62511E65C4600C671F3 /* BNRDataBuffer+Encryption.m */; };
+		93A7B62811E65C4600C671F3 /* BNRCrypto.m in Sources */ = {isa = PBXBuildFile; fileRef = 93A7B62311E65C4600C671F3 /* BNRCrypto.m */; };
+		93A7B62911E65C4600C671F3 /* BNRDataBuffer+Encryption.m in Sources */ = {isa = PBXBuildFile; fileRef = 93A7B62511E65C4600C671F3 /* BNRDataBuffer+Encryption.m */; };
+		93A7B62A11E65C4600C671F3 /* BNRCrypto.m in Sources */ = {isa = PBXBuildFile; fileRef = 93A7B62311E65C4600C671F3 /* BNRCrypto.m */; };
+		93A7B62B11E65C4600C671F3 /* BNRDataBuffer+Encryption.m in Sources */ = {isa = PBXBuildFile; fileRef = 93A7B62511E65C4600C671F3 /* BNRDataBuffer+Encryption.m */; };
+		93A7B62C11E65C4600C671F3 /* BNRCrypto.m in Sources */ = {isa = PBXBuildFile; fileRef = 93A7B62311E65C4600C671F3 /* BNRCrypto.m */; };
+		93A7B62D11E65C4600C671F3 /* BNRDataBuffer+Encryption.m in Sources */ = {isa = PBXBuildFile; fileRef = 93A7B62511E65C4600C671F3 /* BNRDataBuffer+Encryption.m */; };
+		93A7B62E11E65C4600C671F3 /* BNRCrypto.m in Sources */ = {isa = PBXBuildFile; fileRef = 93A7B62311E65C4600C671F3 /* BNRCrypto.m */; };
+		93A7B62F11E65C4600C671F3 /* BNRDataBuffer+Encryption.m in Sources */ = {isa = PBXBuildFile; fileRef = 93A7B62511E65C4600C671F3 /* BNRDataBuffer+Encryption.m */; };
+		93A7B63011E65C4600C671F3 /* BNRCrypto.m in Sources */ = {isa = PBXBuildFile; fileRef = 93A7B62311E65C4600C671F3 /* BNRCrypto.m */; };
+		93A7B63111E65C4600C671F3 /* BNRDataBuffer+Encryption.m in Sources */ = {isa = PBXBuildFile; fileRef = 93A7B62511E65C4600C671F3 /* BNRDataBuffer+Encryption.m */; };
+		93A7B63211E65C4600C671F3 /* BNRCrypto.m in Sources */ = {isa = PBXBuildFile; fileRef = 93A7B62311E65C4600C671F3 /* BNRCrypto.m */; };
+		93A7B63311E65C4600C671F3 /* BNRDataBuffer+Encryption.m in Sources */ = {isa = PBXBuildFile; fileRef = 93A7B62511E65C4600C671F3 /* BNRDataBuffer+Encryption.m */; };
+		93A7B63411E65C4600C671F3 /* BNRCrypto.m in Sources */ = {isa = PBXBuildFile; fileRef = 93A7B62311E65C4600C671F3 /* BNRCrypto.m */; };
+		93A7B63511E65C4600C671F3 /* BNRDataBuffer+Encryption.m in Sources */ = {isa = PBXBuildFile; fileRef = 93A7B62511E65C4600C671F3 /* BNRDataBuffer+Encryption.m */; };
+		93A7B64511E65D6300C671F3 /* BNRBackendCursor.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D504D2110B883700E5D2F0 /* BNRBackendCursor.m */; };
+		93A7B64611E65D6300C671F3 /* BNRClassDictionary.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93D504D4110B883700E5D2F0 /* BNRClassDictionary.mm */; };
+		93A7B64711E65D6300C671F3 /* BNRClassMetaData.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D504D6110B883700E5D2F0 /* BNRClassMetaData.m */; };
+		93A7B64811E65D6300C671F3 /* BNRDataBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D504D8110B883700E5D2F0 /* BNRDataBuffer.m */; };
+		93A7B64911E65D6300C671F3 /* BNRStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D504E0110B883700E5D2F0 /* BNRStore.m */; };
+		93A7B64A11E65D6300C671F3 /* BNRStoreBackend.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D504E2110B883700E5D2F0 /* BNRStoreBackend.m */; };
+		93A7B64B11E65D6300C671F3 /* BNRStoredObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D504E4110B883700E5D2F0 /* BNRStoredObject.m */; };
+		93A7B64C11E65D6300C671F3 /* BNRTCBackend.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93D504F0110B883700E5D2F0 /* BNRTCBackend.mm */; };
+		93A7B64D11E65D6300C671F3 /* BNRTCBackendCursor.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D504F2110B883700E5D2F0 /* BNRTCBackendCursor.m */; };
+		93A7B64E11E65D6300C671F3 /* Song.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D50517110B8B2700E5D2F0 /* Song.m */; };
+		93A7B64F11E65D6300C671F3 /* BNRUniquingTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 9366D9F811120568000A897D /* BNRUniquingTable.m */; };
+		93A7B65011E65D6300C671F3 /* SpeedTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 93644C6811134E01008CA083 /* SpeedTest.m */; };
+		93A7B65111E65D6300C671F3 /* BNRIndexManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 934ECFC6111B3C7F00F8C0E5 /* BNRIndexManager.m */; };
+		93A7B65311E65D6300C671F3 /* BNRCrypto.m in Sources */ = {isa = PBXBuildFile; fileRef = 93A7B62311E65C4600C671F3 /* BNRCrypto.m */; };
+		93A7B65411E65D6300C671F3 /* BNRDataBuffer+Encryption.m in Sources */ = {isa = PBXBuildFile; fileRef = 93A7B62511E65C4600C671F3 /* BNRDataBuffer+Encryption.m */; };
+		93A7B65611E65D6300C671F3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08FB779EFE84155DC02AAC07 /* Foundation.framework */; };
+		93A7B65711E65D6300C671F3 /* libtokyocabinet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 93D5050A110B8AB300E5D2F0 /* libtokyocabinet.a */; };
+		93A7B65811E65D6300C671F3 /* libcrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 93A7B5FF11E6591700C671F3 /* libcrypto.dylib */; };
+		93A7B66F11E65DBC00C671F3 /* NamedBufferFetchTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 93A7B66E11E65DBC00C671F3 /* NamedBufferFetchTest.m */; };
+		93A7B6C311E69A5900C671F3 /* libcrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 93A7B5FF11E6591700C671F3 /* libcrypto.dylib */; };
+		93A7B6C411E69A5D00C671F3 /* libcrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 93A7B5FF11E6591700C671F3 /* libcrypto.dylib */; };
+		93A7B6C511E69A6200C671F3 /* libcrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 93A7B5FF11E6591700C671F3 /* libcrypto.dylib */; };
+		93A7B6C611E69A6600C671F3 /* libcrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 93A7B5FF11E6591700C671F3 /* libcrypto.dylib */; };
+		93A7B6C711E69A6C00C671F3 /* libcrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 93A7B5FF11E6591700C671F3 /* libcrypto.dylib */; };
+		93A7B6C811E69A7900C671F3 /* libcrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 93A7B5FF11E6591700C671F3 /* libcrypto.dylib */; };
+		93A7B6C911E69A7900C671F3 /* libcrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 93A7B5FF11E6591700C671F3 /* libcrypto.dylib */; };
 		93D5081A110CB22A00E5D2F0 /* Playlist.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D50515110B8B2700E5D2F0 /* Playlist.m */; };
 		93D5081C110CB22A00E5D2F0 /* Song.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D50517110B8B2700E5D2F0 /* Song.m */; };
 		93D5081F110CB23D00E5D2F0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08FB779EFE84155DC02AAC07 /* Foundation.framework */; };
@@ -240,6 +299,15 @@
 		937F320611318EA60035B7EC /* FullTextInsertTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FullTextInsertTest.m; sourceTree = "<group>"; };
 		937F332E1131AAA60035B7EC /* FullTextFetchTest */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = FullTextFetchTest; sourceTree = BUILT_PRODUCTS_DIR; };
 		937F33331131AB210035B7EC /* FullTextFetchText.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FullTextFetchText.m; sourceTree = "<group>"; };
+		93A7B54C11E64EA900C671F3 /* NamedBufferInsertTest */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = NamedBufferInsertTest; sourceTree = BUILT_PRODUCTS_DIR; };
+		93A7B55E11E64F1F00C671F3 /* NamedBufferInsertTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NamedBufferInsertTest.m; sourceTree = "<group>"; };
+		93A7B5FF11E6591700C671F3 /* libcrypto.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcrypto.dylib; path = usr/lib/libcrypto.dylib; sourceTree = SDKROOT; };
+		93A7B62211E65C4600C671F3 /* BNRCrypto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BNRCrypto.h; path = ../BNRPersistence/BNRCrypto.h; sourceTree = SOURCE_ROOT; };
+		93A7B62311E65C4600C671F3 /* BNRCrypto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BNRCrypto.m; path = ../BNRPersistence/BNRCrypto.m; sourceTree = SOURCE_ROOT; };
+		93A7B62411E65C4600C671F3 /* BNRDataBuffer+Encryption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "BNRDataBuffer+Encryption.h"; path = "../BNRPersistence/BNRDataBuffer+Encryption.h"; sourceTree = SOURCE_ROOT; };
+		93A7B62511E65C4600C671F3 /* BNRDataBuffer+Encryption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "BNRDataBuffer+Encryption.m"; path = "../BNRPersistence/BNRDataBuffer+Encryption.m"; sourceTree = SOURCE_ROOT; };
+		93A7B65C11E65D6300C671F3 /* NamedBufferFetchTest */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = NamedBufferFetchTest; sourceTree = BUILT_PRODUCTS_DIR; };
+		93A7B66E11E65DBC00C671F3 /* NamedBufferFetchTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NamedBufferFetchTest.m; sourceTree = "<group>"; };
 		93D504D1110B883700E5D2F0 /* BNRBackendCursor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BNRBackendCursor.h; path = ../BNRPersistence/BNRBackendCursor.h; sourceTree = SOURCE_ROOT; };
 		93D504D2110B883700E5D2F0 /* BNRBackendCursor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BNRBackendCursor.m; path = ../BNRPersistence/BNRBackendCursor.m; sourceTree = SOURCE_ROOT; };
 		93D504D3110B883700E5D2F0 /* BNRClassDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BNRClassDictionary.h; path = ../BNRPersistence/BNRClassDictionary.h; sourceTree = SOURCE_ROOT; };
@@ -278,6 +346,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93A7B6C711E69A6C00C671F3 /* libcrypto.dylib in Frameworks */,
 				934ECE751116290500F8C0E5 /* Foundation.framework in Frameworks */,
 				934ECE761116290500F8C0E5 /* libtokyocabinet.a in Frameworks */,
 			);
@@ -290,6 +359,7 @@
 				937F31FD11318E6B0035B7EC /* Foundation.framework in Frameworks */,
 				937F31FE11318E6B0035B7EC /* libtokyocabinet.a in Frameworks */,
 				937F32C311319BAE0035B7EC /* libtokyodystopia.a in Frameworks */,
+				93A7B6C811E69A7900C671F3 /* libcrypto.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,6 +370,27 @@
 				937F33271131AAA60035B7EC /* Foundation.framework in Frameworks */,
 				937F33281131AAA60035B7EC /* libtokyocabinet.a in Frameworks */,
 				937F33291131AAA60035B7EC /* libtokyodystopia.a in Frameworks */,
+				93A7B6C911E69A7900C671F3 /* libcrypto.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		93A7B54611E64EA900C671F3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93A7B54711E64EA900C671F3 /* Foundation.framework in Frameworks */,
+				93A7B54811E64EA900C671F3 /* libtokyocabinet.a in Frameworks */,
+				93A7B60011E6591700C671F3 /* libcrypto.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		93A7B65511E65D6300C671F3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93A7B65611E65D6300C671F3 /* Foundation.framework in Frameworks */,
+				93A7B65711E65D6300C671F3 /* libtokyocabinet.a in Frameworks */,
+				93A7B65811E65D6300C671F3 /* libcrypto.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -307,6 +398,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93A7B6C311E69A5900C671F3 /* libcrypto.dylib in Frameworks */,
 				93D5081F110CB23D00E5D2F0 /* Foundation.framework in Frameworks */,
 				93D50820110CB23D00E5D2F0 /* libtokyocabinet.a in Frameworks */,
 			);
@@ -316,6 +408,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93A7B6C411E69A5D00C671F3 /* libcrypto.dylib in Frameworks */,
 				93D508B2110D2E3F00E5D2F0 /* Foundation.framework in Frameworks */,
 				93D508B3110D2E3F00E5D2F0 /* libtokyocabinet.a in Frameworks */,
 			);
@@ -325,6 +418,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93A7B6C511E69A6200C671F3 /* libcrypto.dylib in Frameworks */,
 				93D50941110D49BB00E5D2F0 /* Foundation.framework in Frameworks */,
 				93D50942110D49BB00E5D2F0 /* libtokyocabinet.a in Frameworks */,
 			);
@@ -334,6 +428,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93A7B6C611E69A6600C671F3 /* libcrypto.dylib in Frameworks */,
 				93D50A1E110D51E000E5D2F0 /* Foundation.framework in Frameworks */,
 				93D50A1F110D51E000E5D2F0 /* libtokyocabinet.a in Frameworks */,
 			);
@@ -356,6 +451,8 @@
 		08FB7795FE84155DC02AAC07 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				93A7B66E11E65DBC00C671F3 /* NamedBufferFetchTest.m */,
+				93A7B55E11E64F1F00C671F3 /* NamedBufferInsertTest.m */,
 				93644C6711134E01008CA083 /* SpeedTest.h */,
 				93644C6811134E01008CA083 /* SpeedTest.m */,
 				93D50A29110D520D00E5D2F0 /* SimpleFetchTest.m */,
@@ -379,6 +476,7 @@
 				08FB779EFE84155DC02AAC07 /* Foundation.framework */,
 				93D5050A110B8AB300E5D2F0 /* libtokyocabinet.a */,
 				9324D36C1129ABD900E8C193 /* libtokyodystopia.a */,
+				93A7B5FF11E6591700C671F3 /* libcrypto.dylib */,
 			);
 			name = "External Frameworks and Libraries";
 			sourceTree = "<group>";
@@ -393,6 +491,8 @@
 				934ECE7A1116290500F8C0E5 /* SimpleUpdateTest */,
 				937F320211318E6B0035B7EC /* FullTextInsertTest */,
 				937F332E1131AAA60035B7EC /* FullTextFetchTest */,
+				93A7B54C11E64EA900C671F3 /* NamedBufferInsertTest */,
+				93A7B65C11E65D6300C671F3 /* NamedBufferFetchTest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -432,6 +532,10 @@
 				934ECFC6111B3C7F00F8C0E5 /* BNRIndexManager.m */,
 				9324D3651129AB7D00E8C193 /* BNRTCIndexManager.h */,
 				9324D3661129AB7D00E8C193 /* BNRTCIndexManager.m */,
+				93A7B62211E65C4600C671F3 /* BNRCrypto.h */,
+				93A7B62311E65C4600C671F3 /* BNRCrypto.m */,
+				93A7B62411E65C4600C671F3 /* BNRDataBuffer+Encryption.h */,
+				93A7B62511E65C4600C671F3 /* BNRDataBuffer+Encryption.m */,
 			);
 			name = BNRPersistence;
 			sourceTree = "<group>";
@@ -487,6 +591,38 @@
 			name = FullTextFetchTest;
 			productName = ComplexInsertTest;
 			productReference = 937F332E1131AAA60035B7EC /* FullTextFetchTest */;
+			productType = "com.apple.product-type.tool";
+		};
+		93A7B53511E64EA900C671F3 /* NamedBufferInsertTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 93A7B54911E64EA900C671F3 /* Build configuration list for PBXNativeTarget "NamedBufferInsertTest" */;
+			buildPhases = (
+				93A7B53611E64EA900C671F3 /* Sources */,
+				93A7B54611E64EA900C671F3 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NamedBufferInsertTest;
+			productName = ComplexInsertTest;
+			productReference = 93A7B54C11E64EA900C671F3 /* NamedBufferInsertTest */;
+			productType = "com.apple.product-type.tool";
+		};
+		93A7B64311E65D6300C671F3 /* NamedBufferFetchTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 93A7B65911E65D6300C671F3 /* Build configuration list for PBXNativeTarget "NamedBufferFetchTest" */;
+			buildPhases = (
+				93A7B64411E65D6300C671F3 /* Sources */,
+				93A7B65511E65D6300C671F3 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NamedBufferFetchTest;
+			productName = ComplexInsertTest;
+			productReference = 93A7B65C11E65D6300C671F3 /* NamedBufferFetchTest */;
 			productType = "com.apple.product-type.tool";
 		};
 		93D50811110CB1D600E5D2F0 /* ComplexInsertTest */ = {
@@ -573,6 +709,8 @@
 				934ECE641116290500F8C0E5 /* SimpleUpdateTest */,
 				937F31EA11318E6B0035B7EC /* FullTextInsertTest */,
 				937F33151131AAA60035B7EC /* FullTextFetchTest */,
+				93A7B53511E64EA900C671F3 /* NamedBufferInsertTest */,
+				93A7B64311E65D6300C671F3 /* NamedBufferFetchTest */,
 			);
 		};
 /* End PBXProject section */
@@ -597,6 +735,8 @@
 				934ECE731116290500F8C0E5 /* SpeedTest.m in Sources */,
 				934ECE871116296200F8C0E5 /* SimpleUpdateTest.m in Sources */,
 				934ECFC7111B3C7F00F8C0E5 /* BNRIndexManager.m in Sources */,
+				93A7B62C11E65C4600C671F3 /* BNRCrypto.m in Sources */,
+				93A7B62D11E65C4600C671F3 /* BNRDataBuffer+Encryption.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -619,6 +759,8 @@
 				937F31FA11318E6B0035B7EC /* BNRIndexManager.m in Sources */,
 				937F31FB11318E6B0035B7EC /* BNRTCIndexManager.m in Sources */,
 				937F320711318EA60035B7EC /* FullTextInsertTest.m in Sources */,
+				93A7B62A11E65C4600C671F3 /* BNRCrypto.m in Sources */,
+				93A7B62B11E65C4600C671F3 /* BNRDataBuffer+Encryption.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -641,6 +783,54 @@
 				937F33221131AAA60035B7EC /* BNRIndexManager.m in Sources */,
 				937F33231131AAA60035B7EC /* BNRTCIndexManager.m in Sources */,
 				937F33341131AB210035B7EC /* FullTextFetchText.m in Sources */,
+				93A7B62811E65C4600C671F3 /* BNRCrypto.m in Sources */,
+				93A7B62911E65C4600C671F3 /* BNRDataBuffer+Encryption.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		93A7B53611E64EA900C671F3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93A7B53711E64EA900C671F3 /* BNRBackendCursor.m in Sources */,
+				93A7B53811E64EA900C671F3 /* BNRClassDictionary.mm in Sources */,
+				93A7B53911E64EA900C671F3 /* BNRClassMetaData.m in Sources */,
+				93A7B53A11E64EA900C671F3 /* BNRDataBuffer.m in Sources */,
+				93A7B53B11E64EA900C671F3 /* BNRStore.m in Sources */,
+				93A7B53C11E64EA900C671F3 /* BNRStoreBackend.m in Sources */,
+				93A7B53D11E64EA900C671F3 /* BNRStoredObject.m in Sources */,
+				93A7B53E11E64EA900C671F3 /* BNRTCBackend.mm in Sources */,
+				93A7B53F11E64EA900C671F3 /* BNRTCBackendCursor.m in Sources */,
+				93A7B54111E64EA900C671F3 /* Song.m in Sources */,
+				93A7B54311E64EA900C671F3 /* BNRUniquingTable.m in Sources */,
+				93A7B54411E64EA900C671F3 /* SpeedTest.m in Sources */,
+				93A7B54511E64EA900C671F3 /* BNRIndexManager.m in Sources */,
+				93A7B55F11E64F1F00C671F3 /* NamedBufferInsertTest.m in Sources */,
+				93A7B62611E65C4600C671F3 /* BNRCrypto.m in Sources */,
+				93A7B62711E65C4600C671F3 /* BNRDataBuffer+Encryption.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		93A7B64411E65D6300C671F3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93A7B64511E65D6300C671F3 /* BNRBackendCursor.m in Sources */,
+				93A7B64611E65D6300C671F3 /* BNRClassDictionary.mm in Sources */,
+				93A7B64711E65D6300C671F3 /* BNRClassMetaData.m in Sources */,
+				93A7B64811E65D6300C671F3 /* BNRDataBuffer.m in Sources */,
+				93A7B64911E65D6300C671F3 /* BNRStore.m in Sources */,
+				93A7B64A11E65D6300C671F3 /* BNRStoreBackend.m in Sources */,
+				93A7B64B11E65D6300C671F3 /* BNRStoredObject.m in Sources */,
+				93A7B64C11E65D6300C671F3 /* BNRTCBackend.mm in Sources */,
+				93A7B64D11E65D6300C671F3 /* BNRTCBackendCursor.m in Sources */,
+				93A7B64E11E65D6300C671F3 /* Song.m in Sources */,
+				93A7B64F11E65D6300C671F3 /* BNRUniquingTable.m in Sources */,
+				93A7B65011E65D6300C671F3 /* SpeedTest.m in Sources */,
+				93A7B65111E65D6300C671F3 /* BNRIndexManager.m in Sources */,
+				93A7B65311E65D6300C671F3 /* BNRCrypto.m in Sources */,
+				93A7B65411E65D6300C671F3 /* BNRDataBuffer+Encryption.m in Sources */,
+				93A7B66F11E65DBC00C671F3 /* NamedBufferFetchTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -663,6 +853,8 @@
 				9366DA0511120568000A897D /* BNRUniquingTable.m in Sources */,
 				93644C6C11134E01008CA083 /* SpeedTest.m in Sources */,
 				934ECFCA111B3C7F00F8C0E5 /* BNRIndexManager.m in Sources */,
+				93A7B63411E65C4600C671F3 /* BNRCrypto.m in Sources */,
+				93A7B63511E65C4600C671F3 /* BNRDataBuffer+Encryption.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -685,6 +877,8 @@
 				9366DA0211120568000A897D /* BNRUniquingTable.m in Sources */,
 				93644C6B11134E01008CA083 /* SpeedTest.m in Sources */,
 				934ECFCB111B3C7F00F8C0E5 /* BNRIndexManager.m in Sources */,
+				93A7B63011E65C4600C671F3 /* BNRCrypto.m in Sources */,
+				93A7B63111E65C4600C671F3 /* BNRDataBuffer+Encryption.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -707,6 +901,8 @@
 				9366D9FF11120568000A897D /* BNRUniquingTable.m in Sources */,
 				93644C6A11134E01008CA083 /* SpeedTest.m in Sources */,
 				934ECFC9111B3C7F00F8C0E5 /* BNRIndexManager.m in Sources */,
+				93A7B63211E65C4600C671F3 /* BNRCrypto.m in Sources */,
+				93A7B63311E65C4600C671F3 /* BNRDataBuffer+Encryption.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -729,6 +925,8 @@
 				9366D9FC11120568000A897D /* BNRUniquingTable.m in Sources */,
 				93644C6911134E01008CA083 /* SpeedTest.m in Sources */,
 				934ECFC8111B3C7F00F8C0E5 /* BNRIndexManager.m in Sources */,
+				93A7B62E11E65C4600C671F3 /* BNRCrypto.m in Sources */,
+				93A7B62F11E65C4600C671F3 /* BNRDataBuffer+Encryption.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -941,6 +1139,102 @@
 				PREBINDING = NO;
 				PRODUCT_NAME = FullTextFetchTest;
 				RUN_CLANG_STATIC_ANALYZER = NO;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		93A7B54A11E64EA900C671F3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "";
+				HEADER_SEARCH_PATHS = /usr/local/include;
+				INSTALL_PATH = /usr/local/bin;
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = NamedBufferInsertTest;
+				RUN_CLANG_STATIC_ANALYZER = YES;
+			};
+			name = Debug;
+		};
+		93A7B54B11E64EA900C671F3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "";
+				HEADER_SEARCH_PATHS = /usr/local/include;
+				INSTALL_PATH = /usr/local/bin;
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = NamedBufferInsertTest;
+				RUN_CLANG_STATIC_ANALYZER = YES;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		93A7B65A11E65D6300C671F3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "";
+				HEADER_SEARCH_PATHS = /usr/local/include;
+				INSTALL_PATH = /usr/local/bin;
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = NamedBufferFetchTest;
+				RUN_CLANG_STATIC_ANALYZER = YES;
+			};
+			name = Debug;
+		};
+		93A7B65B11E65D6300C671F3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "";
+				HEADER_SEARCH_PATHS = /usr/local/include;
+				INSTALL_PATH = /usr/local/bin;
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = NamedBufferFetchTest;
+				RUN_CLANG_STATIC_ANALYZER = YES;
 				ZERO_LINK = NO;
 			};
 			name = Release;
@@ -1199,6 +1493,24 @@
 			buildConfigurations = (
 				937F332C1131AAA60035B7EC /* Debug */,
 				937F332D1131AAA60035B7EC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		93A7B54911E64EA900C671F3 /* Build configuration list for PBXNativeTarget "NamedBufferInsertTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				93A7B54A11E64EA900C671F3 /* Debug */,
+				93A7B54B11E64EA900C671F3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		93A7B65911E65D6300C671F3 /* Build configuration list for PBXNativeTarget "NamedBufferFetchTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				93A7B65A11E65D6300C671F3 /* Debug */,
+				93A7B65B11E65D6300C671F3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

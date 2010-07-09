@@ -28,7 +28,7 @@ CreateStoreAtPath(NSString *path) {
     [backend release];
     
     // For speed/size freaks -- turnoff per-instance versioning
-    [store setUsesPerInstanceVersioning:NO];
+    [store setUsesPerInstanceVersioning:YES];
 
     return store;
 }

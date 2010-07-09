@@ -1,15 +1,22 @@
 # BNRPersistence
 Aaron Hillegass<br/>
 aaron@bignerdranch.com<br/>
-March 29, 2010
+July 9, 2010
 
-After a few years of whining that Core Data could have been better, I thought I should write a persistence framework that points in what I think is the right direction.  And this is it.
+After a few years of whining that Core Data could have been better, I thought I should write a persistence framework that points in what I think is the right direction.  And this is it.  BNRPersistence is similar to both archiving and Core Data.
 
 One big difference? Objects can have ordered relationships.  For example, a playlist of songs is an ordered collection.  This is awkward to do in Core Data because it uses a relational database.
 
 Another big difference? It doesn't use SQLite, but rather a key-value store called Tokyo Cabinet.
 
 BNRPersistence is not really a framework at the moment,  just a set of classes that you can include in your project.
+
+Features include: 
+
+- better performance than Core Data in many situations
+- indexed full-text search
+- encrypted data stores
+- per-instance versioning.
 
 ## Installation
 
@@ -34,7 +41,7 @@ Now, you have a /usr/local/lib/libtokyocabinet.a that needs to linked into any p
 
 You'll also need to have /usr/local/include/ among your header search path. (See the Xcode target's build info to add this.)
 
-If you want full-text searching, you will also need to install Tokyo Distopia.  If you do not want full-text searching, leave out BNRTCIndexManager.
+If you want full-text searching, you will also need to install Tokyo Dystopia.  If you do not want full-text searching, leave out BNRTCIndexManager.
 
 Now just add the classes in the BNRPersistence directory into your project.  (If you copy them, you won't get the new version when you update your git repository.  This may be exactly what you want, but these are pretty immature, so I would suggest that you link to them instead.)
 
@@ -85,7 +92,7 @@ Now that you have a backend, you can create a store and tell it which classes yo
     [store addClass:[Song class]];
     [store addClass:[Playlist class]];
 
-(You must add the classes in the same order every time.  The classID of a class (see BNRClassMetaData) is determined by the order)
+(You must add the classes in the same order every time.  The classID of a class (see BNRClassMetaData) is determined by the order.)
 
 Now to get a list of of the playlists in the store:
 
@@ -207,7 +214,7 @@ This is provided primarily for backwards compatibility with apps that started us
 
 BNRPersistence supports encryption of individual objects within the database.  Simply set the encryption key to use:
 
-	BNRStore *store = [[BNRStore alloc] init];
+    BNRStore *store = [[BNRStore alloc] init];
     [store setEncryptionKey:@"the passphrase"];
     ...
 
@@ -217,6 +224,8 @@ Technical details of the encryption system used:
 - Objects are encrypted one-by-one; the database as a whole is _not_ encrypted.  This means that a person inspecting the database could see that there are 18 records of class Person, but not the contents of those records.
 - BNRPersistence salts the actual key used with a random value combined with the rowID (primary key) of each stored object.  As such, records with identical values will appear to be different to a person inspecting the database.  The record length will be the same, however.
 - During decryption the salt for each object (along with the rowID) is used to verify that the decryption was successful.  If the decryption was deemed unsuccessful the stored object will be reconstituted using the original data buffer from the backend.  This allows you to add encryption to an existing database: new objects stored will be encrypted while old, unencrypted objects will still be accessible.
+
+Also, note that the full-text indices are not encrypted.  So, you will typically use either encryption or full-text searching, but not both.
 
 ## The Size of Things
 
@@ -228,11 +237,30 @@ The first problem is that you need to compile TokyoCabinet/TokyoDystopia for arm
 
 When you link to the resulting static library, you will also need to link in libz, which is part of the iPhone SDK
 
+## Named data buffers
+
+Saving the entire object graph in the file is great, but often you don't want to fetch out the whole graph, but rather start at some "bookmarked" point in that object graph.  So, I decided it would be handy to be able to give names to objects.  
+
+But, then I thought, maybe instead of named objects, I should have named arrays.  Or named sets. Or named dictionaries.
+
+Finally, I came up with a solution that looks a bit strange but can handle all these cases: Named Data Buffers.
+
+You can load a data buffer with anything you like, and then store it under a name.  Here I'm saving a reference to BNRStoredObject under the name Favorite:
+
+    Song *song = [[Song alloc] init];    [song setTitle:@"Walking on Sunshine"];    [song setSeconds:298];    [store insertObject:song];    BNRStoreBackend *backend = [store backend];    BNRDataBuffer *buf = [[BNRDataBuffer alloc] init];    [buf writeObjectReference:song];    [backend insertDataBuffer:buf forName:@"Favorite"];
+
+Then, to fetch the object:
+    BNRDataBuffer *buf = [backend dataBufferForName:@"Favorite"];    Song *song = [buf readObjectReferenceOfClass:[Song class]                                      usingStore:store];
+
+Anything that can be put in a data buffer (and that is everything I can think of), can be given a name.
+
+Note that you are talking directly to the backend, so the name change in the file is immediate.  In the example, the named reference to the song is now in the database, but the song itself won't be inserted into the database until I call saveChanges:.
+
 ## License
 
 My code is under the MIT license and Tokyo Cabinet is under the LGPL.   I think this will enable you to use it how you want to use it.  If something bad happens because of the code, you can't sue us.  And if you make changes to Tokyo Cabinet, I think you need to submit those changes to the author. 
 
-There has been some concern over the fact that Tokyo Cabinet and Tokyo Dystopia are under the LGPL.  I wrote to Mikio Hirabayashi, the author of Tokyo Cabinet and Tokyo Dystopia.  He made it very clear that he was fine with both libraries being used in commercial products.
+There has been some concern over the fact that Tokyo Cabinet and Tokyo Dystopia are under the LGPL.  I wrote to Mikio Hirabayashi, the author of Tokyo Cabinet and Tokyo Dystopia.  He made it very clear that he was fine with both libraries being used in commercial products. (However, if you read the LGPL, static linking seems to make your app a "derived work".  And, there is no dynamic linking on the iPhone.)
 
 ## To Do:
 

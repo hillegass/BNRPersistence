@@ -12,7 +12,8 @@
 #import <mach/mach_time.h>
 #import <mach/mach_error.h>
 
-#import "BNRStore.h"
+#import "../BNRPersistence/BNRStore.h"
+#import "../BNRPersistence/BNRDataBuffer.h"
 #import "Song.h"
 #import "Playlist.h"
 
@@ -24,6 +25,7 @@
 #define SIMPLETEST_PATH "/tmp/simpletest/"
 #define COMPLEXTEST_PATH "/tmp/complextest/"
 #define TEXTTEST_PATH "/tmp/texttest/"
+#define NAMEDBUFFER_PATH "/tmp/namedbuffertest/"
 
 BNRStore *CreateStoreAtPath(NSString *path);
 void LogElapsedTime(uint64_t start, uint64_t stop);

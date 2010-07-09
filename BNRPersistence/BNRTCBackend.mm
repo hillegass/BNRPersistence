@@ -24,6 +24,14 @@
 #import "BNRDataBuffer.h"
 #import "BNRTCBackendCursor.h"
 
+const char *BNRToCString(NSString *str, int *lenPtr)
+{
+    const char *cString = [str cStringUsingEncoding:NSUTF8StringEncoding];
+    if (lenPtr) {
+        *lenPtr = strlen(cString);
+    }
+    return cString;
+}
 
 @implementation BNRTCBackend
 
@@ -129,6 +137,29 @@
     return result;
 }
 
+- (TCHDB *)namedBufferDB;
+{
+    if (!namedBufferDB) {
+        
+        NSString *classPath = [path stringByAppendingPathComponent:@"NamedBuffers"];
+        
+        int mode = HDBOREADER | HDBOWRITER | HDBONOLCK| HDBOCREAT;
+        
+        namedBufferDB = tchdbnew();
+        
+        if (!tchdbopen(namedBufferDB, [classPath cStringUsingEncoding:NSUTF8StringEncoding], mode)) {
+            int ecode = tchdbecode(namedBufferDB);
+            NSLog(@"Error opening %@: %s\n", classPath, tchdberrmsg(ecode));
+            @throw [NSException exceptionWithName:@"DB Error" 
+                                           reason:@"Unable to open file"
+                                         userInfo:nil];
+            return NULL;
+        }
+    }
+    return namedBufferDB;
+    
+}
+
 - (void)insertData:(BNRDataBuffer *)d 
           forClass:(Class)c
              rowID:(UInt32)n
@@ -222,6 +253,104 @@
         iter++;
     }
     dbTable->clear();
+    
+    if (namedBufferDB) {
+        tchdbclose(namedBufferDB);
+        tchdbdel(namedBufferDB);
+        namedBufferDB = NULL;
+    }
+}
+
+- (void)insertDataBuffer:(BNRDataBuffer *)d
+            forName:(NSString *)key
+{
+    NSAssert (key != nil, @"key must not be nil");
+    int bytes;
+    const char *cString = BNRToCString(key, &bytes);
+ 
+    TCHDB *db = [self namedBufferDB];
+     
+    bool successful = tchdbput(db, cString, bytes, [d buffer], [d length]);
+    if (!successful) {
+        int ecode = tchdbecode(db);
+        NSString *message = [NSString stringWithFormat:@"tchdbput in insertData:forKey: %s", tchdberrmsg(ecode)];
+        
+        NSException *e = [NSException exceptionWithName:@"BadInsert"
+                                                 reason:message 
+                                               userInfo:nil];
+        @throw e;
+    }
+}
+
+- (void)deleteDataBufferForName:(NSString *)key
+{
+    NSAssert (key != nil, @"key must not be nil");
+    int bytes;
+    const char *cString = BNRToCString(key, &bytes);
+    
+    TCHDB *db = [self namedBufferDB];
+    
+    bool successful = tchdbout(db, cString, bytes);
+    if (!successful) {
+        int ecode = tchdbecode(db);
+        NSString *message = [NSString stringWithFormat:@"tchdbput in deleteDataForKey: %s", tchdberrmsg(ecode)];
+        
+        NSException *e = [NSException exceptionWithName:@"BadDelete"
+                                                 reason:message 
+                                               userInfo:nil];
+        @throw e;
+    }
+}
+
+- (void)updateDataBuffer:(BNRDataBuffer *)d forName:(NSString *)key
+{
+    [self insertDataBuffer:d forName:key];
+}
+
+- (BNRDataBuffer *)dataBufferForName:(NSString *)key
+{
+    NSAssert (key != nil, @"key must not be nil");
+    int bytes;
+    const char *cString = BNRToCString(key, &bytes);
+    
+    TCHDB *db = [self namedBufferDB];
+    
+    int bufferSize;
+    void *data = tchdbget(db, cString, bytes, &bufferSize);
+        
+    if (data == NULL) {
+        return nil;
+    }
+    
+    BNRDataBuffer *b = [[BNRDataBuffer alloc] initWithData:data
+                                                    length:bufferSize];
+    [b autorelease];
+    return b;
+}
+
+- (NSSet *)allNames
+{
+    TCHDB *db = [self namedBufferDB];
+
+    bool successful = tchdbiterinit(db);
+    if (!successful) {
+        int ecode = tchdbecode(db);
+        NSLog(@"Bad tchdbiterinit in initWithFile: %s", tchdberrmsg(ecode));
+    }
+    
+    NSMutableSet *result = [NSMutableSet set];
+    char *buffer;
+    int size;
+    while (buffer = (char *)tchdbiternext(db, &size)) {
+        NSString *newKey = [[NSString alloc] initWithBytesNoCopy:buffer
+                                                          length:size
+                                                        encoding:NSUTF8StringEncoding
+                                                    freeWhenDone:YES];
+        [result addObject:newKey];
+        [newKey release];
+    }
+
+    return result;
 }
 
 

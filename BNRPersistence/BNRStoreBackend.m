@@ -68,6 +68,36 @@
     NSLog(@"updateData:forClass:rowID: not defined for %@", self);
 }
 
+#pragma mark Named buffers
+
+- (void)insertDataBuffer:(BNRDataBuffer *)value
+            forName:(NSString *)key
+{
+    NSLog(@"insertDataBuffer:forName: not defined for %@", self);
+}
+
+- (void)deleteDataBufferForName:(NSString *)key
+{
+    NSLog(@"deleteDataBufferForName: not defined for %@", self);
+}
+
+- (void)updateDataBuffer:(BNRDataBuffer *)d forName:(NSString *)key
+{
+    NSLog(@"updateDataBuffer:forName: not defined for %@", self);
+}
+
+- (NSSet *)allNames
+{
+    NSLog(@"allNames not defined for %@", self);
+    return nil;
+}
+
+- (BNRDataBuffer *)dataBufferForName:(NSString *)key
+{
+    NSLog(@"dataBufferForName: not defined for %@", self);
+    return nil;
+}
+
 #pragma mark Fetching
 
 - (BNRDataBuffer *)dataForClass:(Class)c 

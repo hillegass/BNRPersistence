@@ -53,6 +53,21 @@
           forClass:(Class)c 
              rowID:(UInt32)n;
 
+#pragma mark Named buffers
+
+- (void)insertDataBuffer:(BNRDataBuffer *)value
+            forName:(NSString *)key;
+
+- (void)deleteDataBufferForName:(NSString *)key;
+
+- (void)updateDataBuffer:(BNRDataBuffer *)d 
+            forName:(NSString *)key;
+
+- (NSSet *)allNames;
+
+- (BNRDataBuffer *)dataBufferForName:(NSString *)key;
+
+
 #pragma mark Fetching
 
 - (BNRDataBuffer *)dataForClass:(Class)c 

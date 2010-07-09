@@ -186,6 +186,12 @@
     [super dealloc];
 }
 
+- (NSString *)description
+{
+    return [NSString stringWithFormat:@"<%@: rowID = %ul>", 
+            NSStringFromClass([self class]), [self rowID]];
+}
+
 - (oneway void)release
 {
     status -= 2;

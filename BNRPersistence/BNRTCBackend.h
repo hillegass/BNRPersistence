@@ -52,6 +52,7 @@ typedef pair<Class, TCHDB *> TCFileHashedPair;
 #else
     void *dbTable; 
 #endif
+    TCHDB *namedBufferDB;
 }
 - (id)initWithPath:(NSString *)p error:(NSError **)err;
 - (TCHDB *)fileForClass:(Class)c;

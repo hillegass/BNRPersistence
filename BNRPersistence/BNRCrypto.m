@@ -20,6 +20,7 @@ void BNRRandomBytes(void *buffer, int length)
 #else // Mac:
 
 #import <openssl/rand.h>
+#import <libkern/OSTypes.h>
 
 void BNRRandomBytes(void *buffer, int length)
 {

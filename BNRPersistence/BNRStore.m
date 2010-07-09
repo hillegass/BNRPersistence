@@ -84,7 +84,6 @@
 
 - (void)dealloc
 {
-    NSLog(@"closing store");
     [uniquingTable release];
     [toBeInserted release];
     [toBeDeleted release];
