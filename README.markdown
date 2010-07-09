@@ -247,10 +247,10 @@ Finally, I came up with a solution that looks a bit strange but can handle all t
 
 You can load a data buffer with anything you like, and then store it under a name.  Here I'm saving a reference to BNRStoredObject under the name Favorite:
 
-    Song *song = [[Song alloc] init];    [song setTitle:@"Walking on Sunshine"];    [song setSeconds:298];    [store insertObject:song];    BNRStoreBackend *backend = [store backend];    BNRDataBuffer *buf = [[BNRDataBuffer alloc] init];    [buf writeObjectReference:song];    [backend insertDataBuffer:buf forName:@"Favorite"];
+	Song *song = [[Song alloc] init];	[song setTitle:@"Walking on Sunshine"];	[song setSeconds:298];	[store insertObject:song];	BNRStoreBackend *backend = [store backend];	BNRDataBuffer *buf = [[BNRDataBuffer alloc] init];	[buf writeObjectReference:song];	[backend insertDataBuffer:buf forName:@"Favorite"];
 
 Then, to fetch the object:
-    BNRDataBuffer *buf = [backend dataBufferForName:@"Favorite"];    Song *song = [buf readObjectReferenceOfClass:[Song class]                                      usingStore:store];
+	BNRDataBuffer *buf = [backend dataBufferForName:@"Favorite"];	Song *song = [buf readObjectReferenceOfClass:[Song class] usingStore:store];
 
 Anything that can be put in a data buffer (and that is everything I can think of), can be given a name.
 
