@@ -269,10 +269,10 @@ I recognize that there is room for improvement here:
 
 0. The BNRDataBuffer should know how to write many more types of data
 1. The creation of a model-file architecture
-3. Use B+ trees to make attributes indexable and add support for NSPredicate
-4. Better automatic undo support 
-5. Automatic syncing to the cloud
-6. Easy hooks for QuickLook images and Spotlight metadata in BNRStoreDocument
-7. Hook it up to Tokyo Tyrant for non-local storage
+2. Use B+ trees to make attributes indexable and add support for NSPredicate
+3. Better automatic undo support 
+4. Automatic syncing to the cloud
+5. Easy hooks for QuickLook images and Spotlight metadata in BNRStoreDocument
+6. Hook it up to Tokyo Tyrant for non-local storage
 
 [AES128]: http://en.wikipedia.org/wiki/Advanced_Encryption_Standard

@@ -1,4 +1,5 @@
 #import "SpeedTest.h"
+#import "BNRStoreBackend.h"
 
 #define NAMED_SONGS (10)
 
@@ -21,7 +22,7 @@ int main (int argc, const char * argv[]) {
     
     for (NSString *name in allNames) {
         BNRDataBuffer *buffer = [backend dataBufferForName:name];
-        Song *song = [buffer readObjectReferenceOfClass:[Song class]
+        Song *song = (Song *)[buffer readObjectReferenceOfClass:[Song class]
                                              usingStore:store];
         NSLog(@"%@ -> %@", name, song);
     }

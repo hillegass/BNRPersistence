@@ -245,7 +245,11 @@
     for (i = 0; i < len; i++) {
         BNRStoredObject *obj = [self readObjectReferenceOfClass:c
                                                      usingStore:s];
-        [result addObject:obj];
+        if (obj) {
+            [result addObject:obj];
+        } else {
+            NSLog(@"Fetched nil for object %d in array.  Skipping.", i);
+        }
     }
     return result;
 }

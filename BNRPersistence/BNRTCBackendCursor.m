@@ -59,6 +59,9 @@
         [buff setData:data
                length:bufferSize];
     }
+    
+    free(buffer);
+    
     return result;
 }
 

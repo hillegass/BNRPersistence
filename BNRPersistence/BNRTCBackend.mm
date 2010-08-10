@@ -128,7 +128,7 @@ const char *BNRToCString(NSString *str, int *lenPtr)
             int ecode = tchdbecode(result);
             NSLog(@"Error opening %@: %s\n", classPath, tchdberrmsg(ecode));
             @throw [NSException exceptionWithName:@"DB Error" 
-                                           reason:@"Unable to open fil"
+                                           reason:@"Unable to open file"
                                          userInfo:nil];
             return NULL;
         }
