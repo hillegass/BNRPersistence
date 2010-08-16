@@ -186,17 +186,16 @@
     int recordCount;
     uint64_t *searchResults = tcidbsearch2(ti, cMatch, &recordCount);
     
-    // FIXME: Maybe I should have used 64-bit row IDs?
-
     if (listPtr && recordCount > 0) {
         UInt32 *outputBuffer = (UInt32 *)malloc(recordCount * sizeof(UInt32));
         
         for (int i = 0; i < recordCount; i++) {
             outputBuffer[i] = (UInt32)searchResults[i];
         }
-        free(searchResults);
         *listPtr = outputBuffer;
     }
+    free(searchResults);
+
     return (UInt32)recordCount;
 }
 
