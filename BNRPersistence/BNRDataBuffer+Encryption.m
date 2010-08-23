@@ -39,9 +39,13 @@ void CryptHelper(NSString *key, const UInt32 *salt, CCOperation operation, const
     CC_MD5_Final((unsigned char*)md, &ctx);
     
     CCCryptorRef cryptor = nil;
-    CCCryptorStatus status;
     CCOptions options = operation == kCCEncrypt ? kCCOptionPKCS7Padding : 0;
-    CCCryptorCreate(operation, kCCAlgorithmAES128, options, md, 4*sizeof(UInt32), NULL, &cryptor);
+    CCCryptorStatus status = CCCryptorCreate(operation, kCCAlgorithmAES128, options, md, 4*sizeof(UInt32), NULL, &cryptor);
+
+    if (status != kCCSuccess) {
+        NSLog(@"CCCryptorCreate(): error %d", status);
+        return;
+    }
     
     int outputLength = CCCryptorGetOutputLength(cryptor, length, true);
     void *outputBuffer = malloc(outputLength);

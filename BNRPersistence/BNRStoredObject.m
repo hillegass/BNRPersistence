@@ -188,7 +188,7 @@
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"<%@: rowID = %ul>", 
+    return [NSString stringWithFormat:@"<%@: rowID = %lu>", 
             NSStringFromClass([self class]), [self rowID]];
 }
 

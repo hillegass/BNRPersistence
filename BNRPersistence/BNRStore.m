@@ -100,6 +100,11 @@
     int classCount = 0;
     while (classes[classCount] != NULL) {
         classCount++;
+        
+        if (classCount == 255) {
+            [NSException raise:@"BNRStore classes array is full"
+                        format:@"Class %@ was not added to %@", NSStringFromClass(c), self];
+        }
     }
     classes[classCount] = c;
 }
@@ -171,7 +176,7 @@
                                    autorelease];
 
     UInt32 rowID;
-    while (rowID = [cursor nextBuffer:buffer])
+    while ((rowID = [cursor nextBuffer:buffer]) != 0)
     {
         if (kBNRMetadataRowID == rowID) continue;  // skip metadata
 
@@ -209,7 +214,7 @@
                                    autorelease];
     
     UInt32 rowID;
-    while (rowID = [cursor nextBuffer:buffer])
+    while ((rowID = [cursor nextBuffer:buffer]) != 0)
     {
         if (kBNRMetadataRowID == rowID) continue;  // skip metadata
         
@@ -520,7 +525,7 @@
     // save ones that have been changed
     int i = 0;
     Class c;
-    while (c = classes[i]) {
+    while ((c = classes[i]) != NULL) {
         BNRClassMetaData *d = [classMetaData objectForClass:c];
         if (d) {
             [d writeContentToBuffer:buffer];

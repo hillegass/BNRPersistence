@@ -13,9 +13,13 @@
 		8D15AC310486D014006FF6A4 /* MyDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A37F4ACFDCFA73011CA2CEA /* MyDocument.m */; settings = {ATTRIBUTES = (); }; };
 		8D15AC320486D014006FF6A4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A37F4B0FDCFA73011CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D15AC340486D014006FF6A4 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A7FEA54F5311CA2CBB /* Cocoa.framework */; };
+		93380EFC1222F867004A886A /* libcrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 93380EFB1222F867004A886A /* libcrypto.dylib */; };
 		934ECF271116390700F8C0E5 /* BNRClassDictionary.mm in Sources */ = {isa = PBXBuildFile; fileRef = 934ECF261116390700F8C0E5 /* BNRClassDictionary.mm */; };
 		934ECF2D1116397100F8C0E5 /* BNRTCBackend.mm in Sources */ = {isa = PBXBuildFile; fileRef = 934ECF2A1116397100F8C0E5 /* BNRTCBackend.mm */; };
 		934ECF2E1116397100F8C0E5 /* BNRUniquingTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 934ECF2C1116397100F8C0E5 /* BNRUniquingTable.m */; };
+		935D736C1222F61D00DF3EB2 /* BNRCrypto.m in Sources */ = {isa = PBXBuildFile; fileRef = 935D73691222F61D00DF3EB2 /* BNRCrypto.m */; };
+		935D736D1222F61D00DF3EB2 /* BNRDataBuffer+Encryption.m in Sources */ = {isa = PBXBuildFile; fileRef = 935D736B1222F61D00DF3EB2 /* BNRDataBuffer+Encryption.m */; };
+		935D737C1222F6A600DF3EB2 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 935D737B1222F6A600DF3EB2 /* Security.framework */; };
 		93DC92DF0FB634840051F072 /* BNRTCBackendCursor.m in Sources */ = {isa = PBXBuildFile; fileRef = 93DC92DD0FB634840051F072 /* BNRTCBackendCursor.m */; };
 		93DC92EB0FB63FBC0051F072 /* libtokyocabinet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 93DC92EA0FB63FBC0051F072 /* libtokyocabinet.a */; };
 		93F00F8D0D259A1100410C0E /* BNRBackendCursor.m in Sources */ = {isa = PBXBuildFile; fileRef = 93F00F6E0D259A1100410C0E /* BNRBackendCursor.m */; };
@@ -45,10 +49,16 @@
 		32DBCF750370BD2300C91783 /* PersistenceTest_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersistenceTest_Prefix.pch; sourceTree = "<group>"; };
 		8D15AC360486D014006FF6A4 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D15AC370486D014006FF6A4 /* PersistenceTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PersistenceTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		93380EFB1222F867004A886A /* libcrypto.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcrypto.dylib; path = usr/lib/libcrypto.dylib; sourceTree = SDKROOT; };
 		934ECF261116390700F8C0E5 /* BNRClassDictionary.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = BNRClassDictionary.mm; path = ../BNRPersistence/BNRClassDictionary.mm; sourceTree = SOURCE_ROOT; };
 		934ECF2A1116397100F8C0E5 /* BNRTCBackend.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = BNRTCBackend.mm; path = ../BNRPersistence/BNRTCBackend.mm; sourceTree = SOURCE_ROOT; };
 		934ECF2B1116397100F8C0E5 /* BNRUniquingTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BNRUniquingTable.h; path = ../BNRPersistence/BNRUniquingTable.h; sourceTree = SOURCE_ROOT; };
 		934ECF2C1116397100F8C0E5 /* BNRUniquingTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BNRUniquingTable.m; path = ../BNRPersistence/BNRUniquingTable.m; sourceTree = SOURCE_ROOT; };
+		935D73681222F61D00DF3EB2 /* BNRCrypto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BNRCrypto.h; path = ../BNRPersistence/BNRCrypto.h; sourceTree = SOURCE_ROOT; };
+		935D73691222F61D00DF3EB2 /* BNRCrypto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BNRCrypto.m; path = ../BNRPersistence/BNRCrypto.m; sourceTree = SOURCE_ROOT; };
+		935D736A1222F61D00DF3EB2 /* BNRDataBuffer+Encryption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "BNRDataBuffer+Encryption.h"; path = "../BNRPersistence/BNRDataBuffer+Encryption.h"; sourceTree = SOURCE_ROOT; };
+		935D736B1222F61D00DF3EB2 /* BNRDataBuffer+Encryption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "BNRDataBuffer+Encryption.m"; path = "../BNRPersistence/BNRDataBuffer+Encryption.m"; sourceTree = SOURCE_ROOT; };
+		935D737B1222F6A600DF3EB2 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		93DC92DA0FB634840051F072 /* BNRTCBackend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BNRTCBackend.h; path = ../BNRPersistence/BNRTCBackend.h; sourceTree = SOURCE_ROOT; };
 		93DC92DC0FB634840051F072 /* BNRTCBackendCursor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BNRTCBackendCursor.h; path = ../BNRPersistence/BNRTCBackendCursor.h; sourceTree = SOURCE_ROOT; };
 		93DC92DD0FB634840051F072 /* BNRTCBackendCursor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BNRTCBackendCursor.m; path = ../BNRPersistence/BNRTCBackendCursor.m; sourceTree = SOURCE_ROOT; };
@@ -85,6 +95,8 @@
 			files = (
 				8D15AC340486D014006FF6A4 /* Cocoa.framework in Frameworks */,
 				93DC92EB0FB63FBC0051F072 /* libtokyocabinet.a in Frameworks */,
+				935D737C1222F6A600DF3EB2 /* Security.framework in Frameworks */,
+				93380EFC1222F867004A886A /* libcrypto.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -142,6 +154,10 @@
 				93F00F830D259A1100410C0E /* BNRStoreDocument.h */,
 				93F00F840D259A1100410C0E /* BNRStoreDocument.m */,
 				93F00F7F0D259A1100410C0E /* BNRStoreBackend.h */,
+				935D73681222F61D00DF3EB2 /* BNRCrypto.h */,
+				935D73691222F61D00DF3EB2 /* BNRCrypto.m */,
+				935D736A1222F61D00DF3EB2 /* BNRDataBuffer+Encryption.h */,
+				935D736B1222F61D00DF3EB2 /* BNRDataBuffer+Encryption.m */,
 				93F00F800D259A1100410C0E /* BNRStoreBackend.m */,
 				93F00F6D0D259A1100410C0E /* BNRBackendCursor.h */,
 				93F00F6E0D259A1100410C0E /* BNRBackendCursor.m */,
@@ -176,9 +192,11 @@
 		2A37F4C3FDCFA73011CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				935D737B1222F6A600DF3EB2 /* Security.framework */,
 				93DC92EA0FB63FBC0051F072 /* libtokyocabinet.a */,
 				1058C7A6FEA54F5311CA2CBB /* Linked Frameworks */,
 				1058C7A8FEA54F5311CA2CBB /* Other Frameworks */,
+				93380EFB1222F867004A886A /* libcrypto.dylib */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -295,6 +313,8 @@
 				934ECF271116390700F8C0E5 /* BNRClassDictionary.mm in Sources */,
 				934ECF2D1116397100F8C0E5 /* BNRTCBackend.mm in Sources */,
 				934ECF2E1116397100F8C0E5 /* BNRUniquingTable.m in Sources */,
+				935D736C1222F61D00DF3EB2 /* BNRCrypto.m in Sources */,
+				935D736D1222F61D00DF3EB2 /* BNRDataBuffer+Encryption.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

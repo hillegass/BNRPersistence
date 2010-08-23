@@ -70,23 +70,15 @@
         
         // Removal failed?
         if (!removed) {
-              return NO;
+            return NO;
         }
     }
     
     BOOL saved;
     
-    // Time the save
-    mach_timebase_info_data_t info;
-    uint64_t start, end, elapsed;
-    start = mach_absolute_time();
-    if (mach_timebase_info (&info) != KERN_SUCCESS) {
-        printf ("mach_timebase_info failed\n");
-    }
-    
     if (![newPath isEqualToString:oldPath]) {
         BNRTCBackend *backend = [[BNRTCBackend alloc] initWithPath:newPath
-                                                                         error:outError];
+                                                             error:outError];
         if (!backend) {
             return NO;
         }
@@ -99,15 +91,8 @@
         saved = [store saveChanges:outError];
     }
     
-    end = mach_absolute_time();
-    elapsed = end - start;
     
-    uint64_t nanos;
-    nanos = elapsed * info.numer / info.denom;
-    uint64_t millis = nanos / 1000000;
-    printf ("elapsed time to save was %lld milliseconds\n", millis);
-        
-    return YES;
+    return saved;
 }
 
 - (void)readFromStore
@@ -121,7 +106,7 @@
 {
     [[self undoManager] removeAllActions];
     NSString *path = [absoluteURL path];
-
+    
     BNRTCBackend *backend = [[BNRTCBackend alloc] initWithPath:path 
                                                          error:outError];
     if (!backend) {
