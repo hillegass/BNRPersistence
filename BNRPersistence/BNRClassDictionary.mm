@@ -26,8 +26,10 @@
 
 - (id)init
 {
-    [super init];
-    mapTable = new hash_map<Class, id, hash<Class>, equal_to<Class> >(389);
+    self = [super init];
+    if (self) {
+		mapTable = new hash_map<Class, id, hash<Class>, equal_to<Class> >(389);
+    }
     return self;
 }
 - (void)dealloc

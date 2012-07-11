@@ -83,40 +83,41 @@
 
 - (id)initWithPath:(NSString *)p error:(NSError **)err
 {
-    [super init];
-    path = [p copy];
-    
-    BOOL isDir, exists;
-    exists = [[NSFileManager defaultManager] fileExistsAtPath:path
-                                                  isDirectory:&isDir];
-    
-    if (exists) {
-        if (!isDir)
-        {
-            if (err) {
-                NSMutableDictionary *ui = [NSMutableDictionary dictionary];
-                [ui setObject:[NSString stringWithFormat:@"%@ is a file", path]
-                       forKey:NSLocalizedDescriptionKey];
-                *err = [NSError errorWithDomain:@"BNRPersistence"
-                                           code:4
-                                       userInfo:ui];
-            }
-            [self dealloc];
-            return nil;
-        }
-    } else {
-        BOOL success = [[NSFileManager defaultManager] createDirectoryAtPath:path
-                                                 withIntermediateDirectories:YES
-                                                                  attributes:nil
-                                                                       error:err];
-        if (!success) {
-            [self dealloc];
-            return nil;
-        }
-    }
-    
-    textIndexes = [[NSMutableDictionary alloc] init];
-    
+    self = [super init];
+	if (self) {
+		path = [p copy];
+		
+		BOOL isDir, exists;
+		exists = [[NSFileManager defaultManager] fileExistsAtPath:path
+													  isDirectory:&isDir];
+		
+		if (exists) {
+			if (!isDir)
+			{
+				if (err) {
+					NSMutableDictionary *ui = [NSMutableDictionary dictionary];
+					[ui setObject:[NSString stringWithFormat:@"%@ is a file", path]
+						   forKey:NSLocalizedDescriptionKey];
+					*err = [NSError errorWithDomain:@"BNRPersistence"
+											   code:4
+										   userInfo:ui];
+				}
+				[self dealloc];
+				return nil;
+			}
+		} else {
+			BOOL success = [[NSFileManager defaultManager] createDirectoryAtPath:path
+													 withIntermediateDirectories:YES
+																	  attributes:nil
+																		   error:err];
+			if (!success) {
+				[self dealloc];
+				return nil;
+			}
+		}
+		
+		textIndexes = [[NSMutableDictionary alloc] init];
+	}
     return self;
 }
 
@@ -124,6 +125,7 @@
 {
     [textIndexes removeAllObjects];
 }
+
 - (void)dealloc 
 {
     [self close];

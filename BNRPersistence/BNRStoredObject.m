@@ -51,30 +51,33 @@
 // NOT the designated initializer, just a convenience for BNRStore.
 - (id)initWithStore:(BNRStore *)s rowID:(UInt32)n buffer:(BNRDataBuffer *)buffer {
     self = [self init];
-    // Known to return non-nil, so no test.
-    store = s;
-    rowID = n;
-    if (nil != buffer) {
-        
-        if ([s usesPerInstanceVersioning]) {
-            [buffer consumeVersion];
-        }
-        
-        [self readContentFromBuffer:buffer];
-        // Retain count of 1 + 1 for hasContent
-        status = 3;
-    } else {
-        // Retain count of 1 
-        status = 2;
-    }
+    if (self) {
+		store = s;
+		rowID = n;
+		if (nil != buffer) {
+			
+			if ([s usesPerInstanceVersioning]) {
+				[buffer consumeVersion];
+			}
+			
+			[self readContentFromBuffer:buffer];
+			// Retain count of 1 + 1 for hasContent
+			status = 3;
+		} else {
+			// Retain count of 1 
+			status = 2;
+		}		
+	}
     return self;
 }
 
 - (id)init
 {
-    [super init];
-    // Retain count of 1 + hasContent
-    status = 3;
+    self = [super init];
+    if (self) {
+    	// Retain count of 1 + hasContent
+    	status = 3;
+    }
     return self;
 }
 

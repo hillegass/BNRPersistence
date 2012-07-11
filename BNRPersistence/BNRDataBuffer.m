@@ -32,18 +32,22 @@
 @implementation BNRDataBuffer
 - (id)initWithCapacity:(NSUInteger)c
 {
-    [super init];
-    buffer = (unsigned char *)malloc(c);
-    cursor = buffer;
-    capacity = c;
+    self = [super init];
+    if (self) {
+		buffer = (unsigned char *)malloc(c);
+		cursor = buffer;
+		capacity = c;
+    }
     return self;
 }
 
 - (id)initWithData:(void *)v
             length:(unsigned)size
 {
-    [super init];
-    [self setData:v length:size];
+    self = [super init];
+    if (self) {
+        [self setData:v length:size];
+    }
     return self;
 }
 

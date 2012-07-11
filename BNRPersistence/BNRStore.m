@@ -48,13 +48,15 @@
 
 - (id)init
 {
-    [super init];
-    uniquingTable = [[BNRUniquingTable alloc] init];
-    toBeInserted = [[NSMutableSet alloc] init];
-    toBeDeleted = [[NSMutableSet alloc] init];
-    toBeUpdated = [[NSMutableSet alloc] init];
-    classMetaData = [[BNRClassDictionary alloc] init];
-    usesPerInstanceVersioning = YES; // Adds an 8-bit number to every record, but enables versioning...
+    self = [super init];
+    if (self) {
+		uniquingTable = [[BNRUniquingTable alloc] init];
+		toBeInserted = [[NSMutableSet alloc] init];
+		toBeDeleted = [[NSMutableSet alloc] init];
+		toBeUpdated = [[NSMutableSet alloc] init];
+		classMetaData = [[BNRClassDictionary alloc] init];
+		usesPerInstanceVersioning = YES; // Adds an 8-bit number to every record, but enables versioning...
+    }
     return self;
 }
 
@@ -74,7 +76,6 @@
 {
     [uniquingTable makeAllObjectsPerformSelector:s];
 }
-
 
 - (void)dissolveAllRelationships
 {

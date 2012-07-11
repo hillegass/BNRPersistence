@@ -1,6 +1,6 @@
 //
 //  BNRUniquingTable.m
-//  TCSpeedTest
+//  BNRPersistence
 //
 //  Created by Aaron Hillegass on 1/28/10.
 //  Copyright 2010 Big Nerd Ranch. All rights reserved.
@@ -17,10 +17,12 @@
 
 - (id)init
 {
-    [super init];
-    tableSize = 786433;
-    //tableSize = 1572869;
-    table = (struct UniquingListNode **)calloc(tableSize, sizeof(struct UniquingListNode *));
+    self = [super init];
+    if (self) {
+		tableSize = 786433;
+		//tableSize = 1572869;
+		table = (struct UniquingListNode **)calloc(tableSize, sizeof(struct UniquingListNode *));
+	}
     return self;
 }
 - (void)dealloc

@@ -31,11 +31,11 @@
 
 - (id)init
 {
-    if (![super init]) {
-        return nil;
+    self = [super init];
+    if (self) {
+		store = [[BNRStore alloc] init];
+		[store setUndoManager:[self undoManager]];
     }
-    store = [[BNRStore alloc] init];
-    [store setUndoManager:[self undoManager]];
     return self;
 }
 

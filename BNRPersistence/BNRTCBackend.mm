@@ -39,40 +39,41 @@ const char *BNRToCString(NSString *str, int *lenPtr)
 
 - (id)initWithPath:(NSString *)p error:(NSError **)err;
 {
-    [super init];
-    path = [p copy];
-    
-    BOOL isDir, exists;
-    exists = [[NSFileManager defaultManager] fileExistsAtPath:path
-                                                  isDirectory:&isDir];
-    
-    if (exists) {
-        if (!isDir)
-        {
-            if (err) {
-                NSMutableDictionary *ui = [NSMutableDictionary dictionary];
-                [ui setObject:[NSString stringWithFormat:@"%@ is a file", path]
-                       forKey:NSLocalizedDescriptionKey];
-                *err = [NSError errorWithDomain:@"BNRPersistence"
-                                           code:4
-                                       userInfo:ui];
-            }
-            [self dealloc];
-            return nil;
-        }
-    } else {
-        BOOL success = [[NSFileManager defaultManager] createDirectoryAtPath:path
-                                                   withIntermediateDirectories:YES
-                                                                  attributes:nil
-                                                                       error:err];
-        if (!success) {
-            [self dealloc];
-            return nil;
-        }
-    }
-    
-    dbTable = new hash_map<Class, TCHDB *, hash<Class>, equal_to<Class> >(389);
-
+    self = [super init];
+    if (self) {
+		path = [p copy];
+		
+		BOOL isDir, exists;
+		exists = [[NSFileManager defaultManager] fileExistsAtPath:path
+													  isDirectory:&isDir];
+		
+		if (exists) {
+			if (!isDir)
+			{
+				if (err) {
+					NSMutableDictionary *ui = [NSMutableDictionary dictionary];
+					[ui setObject:[NSString stringWithFormat:@"%@ is a file", path]
+						   forKey:NSLocalizedDescriptionKey];
+					*err = [NSError errorWithDomain:@"BNRPersistence"
+											   code:4
+										   userInfo:ui];
+				}
+				[self dealloc];
+				return nil;
+			}
+		} else {
+			BOOL success = [[NSFileManager defaultManager] createDirectoryAtPath:path
+													   withIntermediateDirectories:YES
+																	  attributes:nil
+																		   error:err];
+			if (!success) {
+				[self dealloc];
+				return nil;
+			}
+		}
+		
+		dbTable = new hash_map<Class, TCHDB *, hash<Class>, equal_to<Class> >(389);
+	}
     return self;
 }
 
