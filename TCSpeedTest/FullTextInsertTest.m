@@ -10,8 +10,22 @@ int main (int argc, const char * argv[]) {
     BNRStore *store = CreateStoreAtPath(@TEXTTEST_PATH);
     if (!store) exit(EXIT_FAILURE);
 
+	// For fault tolerance freaks, pass YES for useWriteSyncronization.
+	// Text index will be nearly impervious to power outages/crashes, but bulk 
+	// inserts/updates will be much slower. For best of both worlds, 
+	// close index and reopen with write sync off before bulk operations.
+	//
+	// Size freaks, pass YES for compressIndexFiles to get transparent compression.
+	// The default size or a new or sparesly-populated index will drop from ~8.5MB to ~650K. 
+	// Very large index files may be slower to open; need a speed test for that.
+	// Note that if TC is asked to access a compressed index, it will always decompress
+	// if necessary, but will only compress-on-save if asked via this flag.
+	BOOL writeSyncFlag = NO;
+	BOOL indexCompressionFlag = NO;
     NSError *err;
     BNRTCIndexManager *indexManager = [[BNRTCIndexManager alloc] initWithPath:@TEXTTEST_PATH
+													   useWriteSyncronization:writeSyncFlag
+														   compressIndexFiles:indexCompressionFlag
                                                                         error:&err];
 
     if (!indexManager) {
@@ -25,6 +39,10 @@ int main (int argc, const char * argv[]) {
     [store addClass:[Song class]];
     
     FILE *fileHandle = fopen("eopub1m.txt", "r");
+    if (!fileHandle) {
+        NSLog(@"%@", @"test file 'eopub1m.txt' not found; ensure it is in app's working dir (typically /TCSpeedTest/build/Debug, etc.)");
+        exit(EXIT_FAILURE);
+    }
     
     char orgNameBuffer[107];
     
