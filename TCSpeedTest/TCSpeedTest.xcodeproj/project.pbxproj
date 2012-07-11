@@ -284,6 +284,8 @@
 
 /* Begin PBXFileReference section */
 		08FB779EFE84155DC02AAC07 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		66C0B2F715AE01570066DEC4 /* BNRResizableUniquingTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNRResizableUniquingTable.h; sourceTree = "<group>"; };
+		66C0B2F815AE01570066DEC4 /* BNRResizableUniquingTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNRResizableUniquingTable.m; sourceTree = "<group>"; };
 		9324D3651129AB7D00E8C193 /* BNRTCIndexManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BNRTCIndexManager.h; path = ../BNRPersistence/BNRTCIndexManager.h; sourceTree = SOURCE_ROOT; };
 		9324D3661129AB7D00E8C193 /* BNRTCIndexManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BNRTCIndexManager.m; path = ../BNRPersistence/BNRTCIndexManager.m; sourceTree = SOURCE_ROOT; };
 		9324D36C1129ABD900E8C193 /* libtokyodystopia.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libtokyodystopia.a; path = /usr/local/lib/libtokyodystopia.a; sourceTree = "<absolute>"; };
@@ -504,6 +506,8 @@
 				93D504D4110B883700E5D2F0 /* BNRClassDictionary.mm */,
 				9366D9F711120568000A897D /* BNRUniquingTable.h */,
 				9366D9F811120568000A897D /* BNRUniquingTable.m */,
+				66C0B2F715AE01570066DEC4 /* BNRResizableUniquingTable.h */,
+				66C0B2F815AE01570066DEC4 /* BNRResizableUniquingTable.m */,
 			);
 			name = DataStructures;
 			sourceTree = "<group>";
@@ -696,7 +700,11 @@
 			isa = PBXProject;
 			buildConfigurationList = 1DEB927808733DD40010E9CD /* Build configuration list for PBXProject "TCSpeedTest" */;
 			compatibilityVersion = "Xcode 3.1";
+			developmentRegion = English;
 			hasScannedForEncodings = 1;
+			knownRegions = (
+				en,
+			);
 			mainGroup = 08FB7794FE84155DC02AAC07 /* TCSpeedTest */;
 			projectDirPath = "";
 			projectRoot = "";
