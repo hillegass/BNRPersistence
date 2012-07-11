@@ -271,8 +271,7 @@
 - (NSMutableArray *)readHeteroArrayUsingStore:(BNRStore *)s
 {
     UInt32 len = [self readUInt32];
-    NSMutableArray *result = [[NSMutableArray alloc] initWithCapacity:len];
-    [result autorelease];
+    NSMutableArray *result = [NSMutableArray arrayWithCapacity:len];
     int i;
     for (i = 0; i < len; i++) {
         BNRStoredObject *obj = [self readObjectReferenceOfUnknownClassUsingStore:s];
