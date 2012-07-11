@@ -20,10 +20,12 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
+#define kUseBNRResizableUniquingTable 0 // see size/speed tradeoffs in BNRResizableUniquingTable. kUseBNRResizableUniquingTable will be required for ARC.
 
 #import <Foundation/Foundation.h>
 @class BNRClassDictionary;
 @class BNRUniquingTable;
+@class BNRResizableUniquingTable;
 @class BNRStoreBackend;
 @class BNRStoredObject;
 @class BNRDataBuffer;
@@ -51,9 +53,20 @@ typedef void(^BNRStoredObjectIterBlock)(UInt32 rowID, BNRStoredObject *object, B
  delete, and update objects to the persistent store. It can have a delegate and an undo
  manager. */
  
-@interface BNRStore : NSObject {
+#define iCloudBNRStoreSupportEnabled (0 & (MAC_OS_X_VERSION_MAX_ALLOWED >= 1070))  // iCloud support not ready yet...
+#if iCloudBNRStoreSupportEnabled
+	#define BNRStoreProtocolDeclarations <NSFilePresenter>
+#else
+	#define BNRStoreProtocolDeclarations
+#endif
+
+@interface BNRStore : NSObject BNRStoreProtocolDeclarations {
     
+#if kUseBNRResizableUniquingTable
+    BNRResizableUniquingTable *uniquingTable;
+#else
     BNRUniquingTable *uniquingTable; /**< Maps (Class, rowID) -> BNRStoreddObject */
+#endif
     
     BNRStoreBackend *backend; /**< Actually saves the data */
     
@@ -75,6 +88,10 @@ typedef void(^BNRStoredObjectIterBlock)(UInt32 rowID, BNRStoredObject *object, B
     BOOL usesPerInstanceVersioning; /*< Prepends version number on data buffer; Default = YES */
     
     NSString *encryptionKey; /**< Password to be used in reading and writing objects to/from the store. */
+
+#if iCloudBNRStoreSupportEnabled
+	NSFileCoordinator *coordinator;
+#endif
 }
 
 @property (nonatomic, retain) BNRIndexManager *indexManager;
@@ -82,6 +99,8 @@ typedef void(^BNRStoredObjectIterBlock)(UInt32 rowID, BNRStoredObject *object, B
 @property (nonatomic, assign) id <BNRStoreDelegate> delegate;
 @property (nonatomic, assign) BOOL usesPerInstanceVersioning;
 @property (nonatomic, retain) NSString *encryptionKey;
+
+- (id)init;
 
 #pragma mark Fetching
 
@@ -139,16 +158,15 @@ typedef void(^BNRStoredObjectIterBlock)(UInt32 rowID, BNRStoredObject *object, B
 
 - (void)dissolveAllRelationships;
 
-#pragma mark Bulk object upgrading
+#pragma mark Bulk upgrading of BNRStoredObjects
 
 - (BOOL)upgradeAllBNRStoredObjectsOfClass:(Class)classToUpgrade;
 - (void)upgradeAllObjectsForAnyClassesNeedingUpgrade;
 
-- (id)init;
-
 #pragma mark Logging utils
 
 - (void)logAllObjects;
+- (void)logUniquingTable;
 
 @end
 
