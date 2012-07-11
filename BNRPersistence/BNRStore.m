@@ -92,6 +92,10 @@
     [indexManager release];
     [backend release];
     [classMetaData release];
+	
+	[undoManager release];		// added BMonk 4/2/11
+	[encryptionKey release];	// added BMonk 4/2/11
+	
     [super dealloc];
 }
     
@@ -629,4 +633,85 @@
     return [NSString stringWithFormat:@"<BNRStore-%@ to insert:%d, to update %d, to delete %d>",
         backend, [toBeInserted count], [toBeUpdated count], [toBeDeleted count]];
 }
+
+//MARK: Bulk upgrade
+
+// alternate approach to BNRStoredObject's -upgradeInstancesinStore to achieve the same result
+// Call example: [myBNRStore upgradeBNRStoredObjectClass:[MyBNRStoredObject class]];
+- (BOOL)upgradeAllBNRStoredObjectsOfClass:(Class)classToUpgrade {
+	
+	// 1. Load each object according to how its -readContentFromBuffer behaves for its pre-upgraded -versionNumber
+	
+	// For huge numbers of objects, this could become an issue. May need to load in chunks.
+	NSArray *allObjectsInClass = [self allObjectsForClass:classToUpgrade];
+	for (id obj in allObjectsInClass) {
+		[obj checkForContent];			
+		[self willUpdateObject:obj];
+	}
+	
+	// 2. Upgrade class metadata -versionNumber and class -version to match class's -currentClassVersionNumber
+	unsigned char currentVersion = [classToUpgrade currentClassVersionNumber];
+	
+	BNRClassMetaData *metaData = [self metaDataForClass:classToUpgrade];
+	[metaData setVersionNumber:currentVersion];
+	[classToUpgrade setVersion:currentVersion];
+	
+	// 3. Write each object back out, according to how its -writeContentToBuffer behaves for its new, post-upgrade -versionNumber.
+	//
+	// Note if this gets called on a class whose implmentation hasn't actually changed, 
+	// (i.e. its version == its currentVersionNumber), nothing bad happens. The only effect of the "upgrade" 
+	// is the inefficiency of reading and writing each object, along with updated file mod dates on disk.
+	
+	NSError *error = nil;
+	if (![self saveChanges:&error]) {
+		// FIXME: Needs error sheet
+
+		NSLog( @"Failed to upgrade class %@ instances to version:%d, error:%@", NSStringFromClass([self class]), currentVersion, [error localizedDescription] );
+		return NO;
+	}
+	return YES;
+}
+
+- (void)upgradeAllObjectsForAnyClassesNeedingUpgrade
+{
+    int classCount = 0;
+    while (classes[classCount] != NULL) {
+		
+		Class c = classes[classCount];
+		unsigned char oldVersion = [self versionForClass:c];
+		if (oldVersion < [c currentClassVersionNumber]) 
+		{
+			BOOL success = [self upgradeAllBNRStoredObjectsOfClass:c];
+			if (!success) {
+				NSString *failureReason = [NSString stringWithFormat:@"Schema of class \"%@\" needs upgrade; metaData versionNumber:%d, %@ currentClassVersionNumber:%d", 
+								NSStringFromClass(c),
+								oldVersion, 
+								[c currentClassVersionNumber] 
+								];
+				NSLog(@"%@", failureReason);
+				@throw [NSException exceptionWithName:@"DB Schema Error" 
+											   reason:failureReason
+											 userInfo:nil];
+			}
+		}
+		
+		classCount++;
+	}
+}
+
+#if 0 // NS_BLOCKS_AVAILABLE
+- (void)upgradeAllObjectsForClassesNeedingUpgradeUsingBlock:(BNRStoredObjectIterBlock)iterBlock
+{
+	
+}
+#endif
+
+
+//MARK: logging utils
+
+- (void)logAllObjects
+{
+    [self makeEveryStoredObjectPerformSelector:@selector(logDescription)];
+}
+
 @end

@@ -83,8 +83,6 @@ typedef void(^BNRStoredObjectIterBlock)(UInt32 rowID, BNRStoredObject *object, B
 @property (nonatomic, assign) BOOL usesPerInstanceVersioning;
 @property (nonatomic, retain) NSString *encryptionKey;
 
-- (id)init;
-
 #pragma mark Fetching
 
 // Fetches the single object of class |c| at row |n|.
@@ -140,6 +138,17 @@ typedef void(^BNRStoredObjectIterBlock)(UInt32 rowID, BNRStoredObject *object, B
 #pragma mark Retain-cycle breaking
 
 - (void)dissolveAllRelationships;
+
+#pragma mark Bulk object upgrading
+
+- (BOOL)upgradeAllBNRStoredObjectsOfClass:(Class)classToUpgrade;
+- (void)upgradeAllObjectsForAnyClassesNeedingUpgrade;
+
+- (id)init;
+
+#pragma mark Logging utils
+
+- (void)logAllObjects;
 
 @end
 
