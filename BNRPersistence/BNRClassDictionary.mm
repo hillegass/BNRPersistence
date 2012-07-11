@@ -34,6 +34,21 @@
 }
 - (void)dealloc
 {
+#if 1  // silence a compiler complaint - but better double-check this
+	typedef hash_map<Class, id, hash<Class>, equal_to<Class> > bnr_hashmap_t;
+	for(bnr_hashmap_t::iterator i(mapTable->begin()), j(mapTable->end()); i!=j; ++i){ 
+		//NSLog(@"class:%@ id:%p", NSStringFromClass((id)i->first), i->second);
+		[(id)i->second release];
+	}
+#else // original code
+	hash_map<Class, id, hash<Class>, equal_to<Class> >::iterator iter = mapTable->begin();
+    while (iter != mapTable->end()) {
+		[(id)iter->second release];
+        iter++;
+    }
+    mapTable->clear();
+#endif
+	
     delete mapTable;
     [super dealloc];
 }
