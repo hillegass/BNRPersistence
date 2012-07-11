@@ -485,7 +485,7 @@ const char *BNRToCString(NSString *str, int *lenPtr)
     NSMutableSet *result = [NSMutableSet set];
     char *buffer;
     int size;
-    while (buffer = (char *)tchdbiternext(db, &size)) {
+    while ((buffer = (char *)tchdbiternext(db, &size)) != nil) {
         NSString *newKey = [[NSString alloc] initWithBytesNoCopy:buffer
                                                           length:size
                                                         encoding:NSUTF8StringEncoding

@@ -177,15 +177,15 @@
 #endif
     }
 
-	NSLog(@"numBucketsInTable:%lu", numBuckets);
-	NSLog(@"bytes used by table (numBuckets * sizeof(UniquingListNode *)):%d", numBuckets * sizeof(UniquingListNode *));
+	NSLog(@"numBucketsInTable:%d", numBuckets);
+	NSLog(@"bytes used by table (numBuckets * sizeof(UniquingListNode *)):%lu", numBuckets * sizeof(UniquingListNode *));
 	
-	NSLog(@"sizeof(UniquingListNode):%d", sizeof(UniquingListNode));
+	NSLog(@"sizeof(UniquingListNode):%lu", sizeof(UniquingListNode));
 	NSUInteger totalNodeSize = (numBucketsInUse * sizeof(UniquingListNode));
 	NSLog(@"bytes used by all UniquingListNodes in all buckets:%lu", totalNodeSize);
 	
 	NSUInteger bytesUsed = (numBuckets * sizeof(UniquingListNode *)) + totalNodeSize;
-	NSLog(@"%d BNRStoredObjects mapped in %lu buckets, total bytes used:%lu", totalObjects, numBucketsInUse, bytesUsed);
+	NSLog(@"%lu BNRStoredObjects mapped in %lu buckets, total bytes used:%lu", totalObjects, numBucketsInUse, bytesUsed);
 }
 
 @end

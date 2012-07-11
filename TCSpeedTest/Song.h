@@ -27,6 +27,6 @@
     NSString *title;
     unsigned int seconds;
 }
-@property (copy) NSString *title;
-@property (assign) unsigned int seconds;
+@property (nonatomic, copy) NSString *title;
+@property (nonatomic, assign) unsigned int seconds;
 @end
