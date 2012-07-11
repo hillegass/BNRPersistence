@@ -23,11 +23,11 @@
 #import <Foundation/Foundation.h>
 @class BNRStoredObject;
 
-struct UniquingListNode 
+typedef struct UniquingListNode 
 {
     BNRStoredObject *storedObject;
     struct UniquingListNode *next;
-};
+} UniquingListNode;
 
 /*! 
  @class BNRUniquingTable
@@ -39,12 +39,13 @@ struct UniquingListNode
 // arises
 
 @interface BNRUniquingTable : NSObject {
-    UInt32 tableSize;
-    struct UniquingListNode **table;
+    UInt32 numBuckets;
+    UniquingListNode **table;
     
 }
 - (BNRStoredObject *)objectForClass:(Class)c rowID:(UInt32)row;
 - (void)setObject:(BNRStoredObject *)obj forClass:(Class)c rowID:(UInt32)row;
 - (void)removeObjectForClass:(Class)c rowID:(UInt32)row;
 - (void)makeAllObjectsPerformSelector:(SEL)s;
+- (void)logTable;
 @end
