@@ -243,8 +243,7 @@
     // FIXME: I suspect that this could also be made faster with 
     // clever multithreading
     UInt32 len = [self readUInt32];
-    NSMutableArray *result = [[NSMutableArray alloc] initWithCapacity:len];
-    [result autorelease];
+    NSMutableArray *result = [NSMutableArray arrayWithCapacity:len];
     int i;
     for (i = 0; i < len; i++) {
         BNRStoredObject *obj = [self readObjectReferenceOfClass:c
@@ -318,7 +317,12 @@
 
 - (NSDate *)readDate
 {
-    Float64 timeInterval = [self readFloat64];
+    Float64 timeInterval = [self readFloat64];	// an NSTimeInterval away from NSDate's referenceDate
+	
+	if (timeInterval == 0) {		// BMonk 2/25/11 important fix for reading out nil NSDates (-writeDate below stores them as a 0).
+		return nil;					// This allows saving/reading nil NSDates, but prevents storing the one exact date that is at
+									// time interval 0 away from the reference date, i.e. the first instant of 1 January 2001, GMT.
+	}
     return [NSDate dateWithTimeIntervalSinceReferenceDate:timeInterval];
 }
 
