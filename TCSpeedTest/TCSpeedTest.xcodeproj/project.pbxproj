@@ -41,7 +41,6 @@
 		934ECE721116290500F8C0E5 /* BNRUniquingTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 9366D9F811120568000A897D /* BNRUniquingTable.m */; };
 		934ECE731116290500F8C0E5 /* SpeedTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 93644C6811134E01008CA083 /* SpeedTest.m */; };
 		934ECE751116290500F8C0E5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08FB779EFE84155DC02AAC07 /* Foundation.framework */; };
-		934ECE761116290500F8C0E5 /* libtokyocabinet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 93D5050A110B8AB300E5D2F0 /* libtokyocabinet.a */; };
 		934ECE871116296200F8C0E5 /* SimpleUpdateTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 934ECE861116296200F8C0E5 /* SimpleUpdateTest.m */; };
 		934ECFC7111B3C7F00F8C0E5 /* BNRIndexManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 934ECFC6111B3C7F00F8C0E5 /* BNRIndexManager.m */; };
 		934ECFC8111B3C7F00F8C0E5 /* BNRIndexManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 934ECFC6111B3C7F00F8C0E5 /* BNRIndexManager.m */; };
@@ -72,9 +71,7 @@
 		937F31FA11318E6B0035B7EC /* BNRIndexManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 934ECFC6111B3C7F00F8C0E5 /* BNRIndexManager.m */; };
 		937F31FB11318E6B0035B7EC /* BNRTCIndexManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9324D3661129AB7D00E8C193 /* BNRTCIndexManager.m */; };
 		937F31FD11318E6B0035B7EC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08FB779EFE84155DC02AAC07 /* Foundation.framework */; };
-		937F31FE11318E6B0035B7EC /* libtokyocabinet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 93D5050A110B8AB300E5D2F0 /* libtokyocabinet.a */; };
 		937F320711318EA60035B7EC /* FullTextInsertTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 937F320611318EA60035B7EC /* FullTextInsertTest.m */; };
-		937F32C311319BAE0035B7EC /* libtokyodystopia.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9324D36C1129ABD900E8C193 /* libtokyodystopia.a */; };
 		937F33171131AAA60035B7EC /* BNRBackendCursor.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D504D2110B883700E5D2F0 /* BNRBackendCursor.m */; };
 		937F33181131AAA60035B7EC /* BNRClassDictionary.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93D504D4110B883700E5D2F0 /* BNRClassDictionary.mm */; };
 		937F33191131AAA60035B7EC /* BNRClassMetaData.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D504D6110B883700E5D2F0 /* BNRClassMetaData.m */; };
@@ -89,8 +86,6 @@
 		937F33221131AAA60035B7EC /* BNRIndexManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 934ECFC6111B3C7F00F8C0E5 /* BNRIndexManager.m */; };
 		937F33231131AAA60035B7EC /* BNRTCIndexManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9324D3661129AB7D00E8C193 /* BNRTCIndexManager.m */; };
 		937F33271131AAA60035B7EC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08FB779EFE84155DC02AAC07 /* Foundation.framework */; };
-		937F33281131AAA60035B7EC /* libtokyocabinet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 93D5050A110B8AB300E5D2F0 /* libtokyocabinet.a */; };
-		937F33291131AAA60035B7EC /* libtokyodystopia.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9324D36C1129ABD900E8C193 /* libtokyodystopia.a */; };
 		937F33341131AB210035B7EC /* FullTextFetchText.m in Sources */ = {isa = PBXBuildFile; fileRef = 937F33331131AB210035B7EC /* FullTextFetchText.m */; };
 		937F33751131CA600035B7EC /* Song.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D50517110B8B2700E5D2F0 /* Song.m */; };
 		937F33761131CA690035B7EC /* Song.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D50517110B8B2700E5D2F0 /* Song.m */; };
@@ -108,9 +103,7 @@
 		93A7B54411E64EA900C671F3 /* SpeedTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 93644C6811134E01008CA083 /* SpeedTest.m */; };
 		93A7B54511E64EA900C671F3 /* BNRIndexManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 934ECFC6111B3C7F00F8C0E5 /* BNRIndexManager.m */; };
 		93A7B54711E64EA900C671F3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08FB779EFE84155DC02AAC07 /* Foundation.framework */; };
-		93A7B54811E64EA900C671F3 /* libtokyocabinet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 93D5050A110B8AB300E5D2F0 /* libtokyocabinet.a */; };
 		93A7B55F11E64F1F00C671F3 /* NamedBufferInsertTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 93A7B55E11E64F1F00C671F3 /* NamedBufferInsertTest.m */; };
-		93A7B60011E6591700C671F3 /* libcrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 93A7B5FF11E6591700C671F3 /* libcrypto.dylib */; };
 		93A7B62611E65C4600C671F3 /* BNRCrypto.m in Sources */ = {isa = PBXBuildFile; fileRef = 93A7B62311E65C4600C671F3 /* BNRCrypto.m */; };
 		93A7B62711E65C4600C671F3 /* BNRDataBuffer+Encryption.m in Sources */ = {isa = PBXBuildFile; fileRef = 93A7B62511E65C4600C671F3 /* BNRDataBuffer+Encryption.m */; };
 		93A7B62811E65C4600C671F3 /* BNRCrypto.m in Sources */ = {isa = PBXBuildFile; fileRef = 93A7B62311E65C4600C671F3 /* BNRCrypto.m */; };
@@ -143,20 +136,39 @@
 		93A7B65311E65D6300C671F3 /* BNRCrypto.m in Sources */ = {isa = PBXBuildFile; fileRef = 93A7B62311E65C4600C671F3 /* BNRCrypto.m */; };
 		93A7B65411E65D6300C671F3 /* BNRDataBuffer+Encryption.m in Sources */ = {isa = PBXBuildFile; fileRef = 93A7B62511E65C4600C671F3 /* BNRDataBuffer+Encryption.m */; };
 		93A7B65611E65D6300C671F3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08FB779EFE84155DC02AAC07 /* Foundation.framework */; };
-		93A7B65711E65D6300C671F3 /* libtokyocabinet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 93D5050A110B8AB300E5D2F0 /* libtokyocabinet.a */; };
-		93A7B65811E65D6300C671F3 /* libcrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 93A7B5FF11E6591700C671F3 /* libcrypto.dylib */; };
 		93A7B66F11E65DBC00C671F3 /* NamedBufferFetchTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 93A7B66E11E65DBC00C671F3 /* NamedBufferFetchTest.m */; };
-		93A7B6C311E69A5900C671F3 /* libcrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 93A7B5FF11E6591700C671F3 /* libcrypto.dylib */; };
-		93A7B6C411E69A5D00C671F3 /* libcrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 93A7B5FF11E6591700C671F3 /* libcrypto.dylib */; };
-		93A7B6C511E69A6200C671F3 /* libcrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 93A7B5FF11E6591700C671F3 /* libcrypto.dylib */; };
-		93A7B6C611E69A6600C671F3 /* libcrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 93A7B5FF11E6591700C671F3 /* libcrypto.dylib */; };
-		93A7B6C711E69A6C00C671F3 /* libcrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 93A7B5FF11E6591700C671F3 /* libcrypto.dylib */; };
-		93A7B6C811E69A7900C671F3 /* libcrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 93A7B5FF11E6591700C671F3 /* libcrypto.dylib */; };
-		93A7B6C911E69A7900C671F3 /* libcrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 93A7B5FF11E6591700C671F3 /* libcrypto.dylib */; };
+		93B18CFF177B67500006134A /* libcrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 93B18CFE177B67500006134A /* libcrypto.dylib */; };
+		93B18D00177B67580006134A /* libcrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 93B18CFE177B67500006134A /* libcrypto.dylib */; };
+		93B18D01177B67590006134A /* libcrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 93B18CFE177B67500006134A /* libcrypto.dylib */; };
+		93B18D02177B67590006134A /* libcrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 93B18CFE177B67500006134A /* libcrypto.dylib */; };
+		93B18D03177B675A0006134A /* libcrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 93B18CFE177B67500006134A /* libcrypto.dylib */; };
+		93B18D04177B675B0006134A /* libcrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 93B18CFE177B67500006134A /* libcrypto.dylib */; };
+		93B18D05177B675B0006134A /* libcrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 93B18CFE177B67500006134A /* libcrypto.dylib */; };
+		93B18D06177B675B0006134A /* libcrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 93B18CFE177B67500006134A /* libcrypto.dylib */; };
+		93B18D07177B675C0006134A /* libcrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 93B18CFE177B67500006134A /* libcrypto.dylib */; };
+		93B18D09177B67C20006134A /* libtokyocabinet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 93B18D08177B67C20006134A /* libtokyocabinet.a */; };
+		93B18D0A177B67CD0006134A /* libtokyocabinet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 93B18D08177B67C20006134A /* libtokyocabinet.a */; };
+		93B18D0B177B67CE0006134A /* libtokyocabinet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 93B18D08177B67C20006134A /* libtokyocabinet.a */; };
+		93B18D0C177B67CE0006134A /* libtokyocabinet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 93B18D08177B67C20006134A /* libtokyocabinet.a */; };
+		93B18D0D177B67CE0006134A /* libtokyocabinet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 93B18D08177B67C20006134A /* libtokyocabinet.a */; };
+		93B18D0E177B67CF0006134A /* libtokyocabinet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 93B18D08177B67C20006134A /* libtokyocabinet.a */; };
+		93B18D0F177B67D00006134A /* libtokyocabinet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 93B18D08177B67C20006134A /* libtokyocabinet.a */; };
+		93B18D10177B67D00006134A /* libtokyocabinet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 93B18D08177B67C20006134A /* libtokyocabinet.a */; };
+		93B18D11177B67D10006134A /* libtokyocabinet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 93B18D08177B67C20006134A /* libtokyocabinet.a */; };
+		93B18D14177B68180006134A /* libtokyodystopia.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 93B18D12177B680E0006134A /* libtokyodystopia.a */; };
+		93B18D15177B68190006134A /* libtokyodystopia.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 93B18D12177B680E0006134A /* libtokyodystopia.a */; };
+		93B18D17177B6B000006134A /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93B18D16177B6B000006134A /* Security.framework */; };
+		93B18D18177B6BCA0006134A /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93B18D16177B6B000006134A /* Security.framework */; };
+		93B18D19177B6BCA0006134A /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93B18D16177B6B000006134A /* Security.framework */; };
+		93B18D1A177B6BCB0006134A /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93B18D16177B6B000006134A /* Security.framework */; };
+		93B18D1B177B6BCB0006134A /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93B18D16177B6B000006134A /* Security.framework */; };
+		93B18D1C177B6BCC0006134A /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93B18D16177B6B000006134A /* Security.framework */; };
+		93B18D1D177B6BCC0006134A /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93B18D16177B6B000006134A /* Security.framework */; };
+		93B18D1E177B6BCD0006134A /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93B18D16177B6B000006134A /* Security.framework */; };
+		93B18D1F177B6BCE0006134A /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93B18D16177B6B000006134A /* Security.framework */; };
 		93D5081A110CB22A00E5D2F0 /* Playlist.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D50515110B8B2700E5D2F0 /* Playlist.m */; };
 		93D5081C110CB22A00E5D2F0 /* Song.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D50517110B8B2700E5D2F0 /* Song.m */; };
 		93D5081F110CB23D00E5D2F0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08FB779EFE84155DC02AAC07 /* Foundation.framework */; };
-		93D50820110CB23D00E5D2F0 /* libtokyocabinet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 93D5050A110B8AB300E5D2F0 /* libtokyocabinet.a */; };
 		93D50825110CB29000E5D2F0 /* ComplexInsertTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D50824110CB29000E5D2F0 /* ComplexInsertTest.m */; };
 		93D50828110CB3E800E5D2F0 /* BNRBackendCursor.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D504D2110B883700E5D2F0 /* BNRBackendCursor.m */; };
 		93D50829110CB3E800E5D2F0 /* BNRClassDictionary.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93D504D4110B883700E5D2F0 /* BNRClassDictionary.mm */; };
@@ -179,7 +191,6 @@
 		93D508AE110D2E3F00E5D2F0 /* Playlist.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D50515110B8B2700E5D2F0 /* Playlist.m */; };
 		93D508AF110D2E3F00E5D2F0 /* Song.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D50517110B8B2700E5D2F0 /* Song.m */; };
 		93D508B2110D2E3F00E5D2F0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08FB779EFE84155DC02AAC07 /* Foundation.framework */; };
-		93D508B3110D2E3F00E5D2F0 /* libtokyocabinet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 93D5050A110B8AB300E5D2F0 /* libtokyocabinet.a */; };
 		93D508BA110D2E9F00E5D2F0 /* ComplexFetchTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D508B9110D2E9F00E5D2F0 /* ComplexFetchTest.m */; };
 		93D50932110D49BB00E5D2F0 /* BNRBackendCursor.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D504D2110B883700E5D2F0 /* BNRBackendCursor.m */; };
 		93D50933110D49BB00E5D2F0 /* BNRClassDictionary.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93D504D4110B883700E5D2F0 /* BNRClassDictionary.mm */; };
@@ -192,7 +203,6 @@
 		93D5093C110D49BB00E5D2F0 /* BNRTCBackendCursor.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D504F2110B883700E5D2F0 /* BNRTCBackendCursor.m */; };
 		93D5093E110D49BB00E5D2F0 /* Song.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D50517110B8B2700E5D2F0 /* Song.m */; };
 		93D50941110D49BB00E5D2F0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08FB779EFE84155DC02AAC07 /* Foundation.framework */; };
-		93D50942110D49BB00E5D2F0 /* libtokyocabinet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 93D5050A110B8AB300E5D2F0 /* libtokyocabinet.a */; };
 		93D50957110D4A0F00E5D2F0 /* SimpleInsertTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D50956110D4A0F00E5D2F0 /* SimpleInsertTest.m */; };
 		93D50A0F110D51E000E5D2F0 /* BNRBackendCursor.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D504D2110B883700E5D2F0 /* BNRBackendCursor.m */; };
 		93D50A10110D51E000E5D2F0 /* BNRClassDictionary.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93D504D4110B883700E5D2F0 /* BNRClassDictionary.mm */; };
@@ -205,7 +215,6 @@
 		93D50A19110D51E000E5D2F0 /* BNRTCBackendCursor.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D504F2110B883700E5D2F0 /* BNRTCBackendCursor.m */; };
 		93D50A1B110D51E000E5D2F0 /* Song.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D50517110B8B2700E5D2F0 /* Song.m */; };
 		93D50A1E110D51E000E5D2F0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08FB779EFE84155DC02AAC07 /* Foundation.framework */; };
-		93D50A1F110D51E000E5D2F0 /* libtokyocabinet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 93D5050A110B8AB300E5D2F0 /* libtokyocabinet.a */; };
 		93D50A2A110D520D00E5D2F0 /* SimpleFetchTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D50A29110D520D00E5D2F0 /* SimpleFetchTest.m */; };
 /* End PBXBuildFile section */
 
@@ -288,7 +297,6 @@
 		66C0B2F815AE01570066DEC4 /* BNRResizableUniquingTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNRResizableUniquingTable.m; sourceTree = "<group>"; };
 		9324D3651129AB7D00E8C193 /* BNRTCIndexManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BNRTCIndexManager.h; path = ../BNRPersistence/BNRTCIndexManager.h; sourceTree = SOURCE_ROOT; };
 		9324D3661129AB7D00E8C193 /* BNRTCIndexManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BNRTCIndexManager.m; path = ../BNRPersistence/BNRTCIndexManager.m; sourceTree = SOURCE_ROOT; };
-		9324D36C1129ABD900E8C193 /* libtokyodystopia.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libtokyodystopia.a; path = /usr/local/lib/libtokyodystopia.a; sourceTree = "<absolute>"; };
 		934ECE7A1116290500F8C0E5 /* SimpleUpdateTest */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SimpleUpdateTest; sourceTree = BUILT_PRODUCTS_DIR; };
 		934ECE861116296200F8C0E5 /* SimpleUpdateTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleUpdateTest.m; sourceTree = "<group>"; };
 		934ECFC5111B3C7F00F8C0E5 /* BNRIndexManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BNRIndexManager.h; path = ../BNRPersistence/BNRIndexManager.h; sourceTree = SOURCE_ROOT; };
@@ -303,13 +311,16 @@
 		937F33331131AB210035B7EC /* FullTextFetchText.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FullTextFetchText.m; sourceTree = "<group>"; };
 		93A7B54C11E64EA900C671F3 /* NamedBufferInsertTest */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = NamedBufferInsertTest; sourceTree = BUILT_PRODUCTS_DIR; };
 		93A7B55E11E64F1F00C671F3 /* NamedBufferInsertTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NamedBufferInsertTest.m; sourceTree = "<group>"; };
-		93A7B5FF11E6591700C671F3 /* libcrypto.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcrypto.dylib; path = usr/lib/libcrypto.dylib; sourceTree = SDKROOT; };
 		93A7B62211E65C4600C671F3 /* BNRCrypto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BNRCrypto.h; path = ../BNRPersistence/BNRCrypto.h; sourceTree = SOURCE_ROOT; };
 		93A7B62311E65C4600C671F3 /* BNRCrypto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BNRCrypto.m; path = ../BNRPersistence/BNRCrypto.m; sourceTree = SOURCE_ROOT; };
 		93A7B62411E65C4600C671F3 /* BNRDataBuffer+Encryption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "BNRDataBuffer+Encryption.h"; path = "../BNRPersistence/BNRDataBuffer+Encryption.h"; sourceTree = SOURCE_ROOT; };
 		93A7B62511E65C4600C671F3 /* BNRDataBuffer+Encryption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "BNRDataBuffer+Encryption.m"; path = "../BNRPersistence/BNRDataBuffer+Encryption.m"; sourceTree = SOURCE_ROOT; };
 		93A7B65C11E65D6300C671F3 /* NamedBufferFetchTest */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = NamedBufferFetchTest; sourceTree = BUILT_PRODUCTS_DIR; };
 		93A7B66E11E65DBC00C671F3 /* NamedBufferFetchTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NamedBufferFetchTest.m; sourceTree = "<group>"; };
+		93B18CFE177B67500006134A /* libcrypto.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcrypto.dylib; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/usr/lib/libcrypto.dylib; sourceTree = DEVELOPER_DIR; };
+		93B18D08177B67C20006134A /* libtokyocabinet.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libtokyocabinet.a; path = /usr/local/lib/libtokyocabinet.a; sourceTree = "<absolute>"; };
+		93B18D12177B680E0006134A /* libtokyodystopia.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libtokyodystopia.a; path = /usr/local/lib/libtokyodystopia.a; sourceTree = "<absolute>"; };
+		93B18D16177B6B000006134A /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
 		93D504D1110B883700E5D2F0 /* BNRBackendCursor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BNRBackendCursor.h; path = ../BNRPersistence/BNRBackendCursor.h; sourceTree = SOURCE_ROOT; };
 		93D504D2110B883700E5D2F0 /* BNRBackendCursor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BNRBackendCursor.m; path = ../BNRPersistence/BNRBackendCursor.m; sourceTree = SOURCE_ROOT; };
 		93D504D3110B883700E5D2F0 /* BNRClassDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BNRClassDictionary.h; path = ../BNRPersistence/BNRClassDictionary.h; sourceTree = SOURCE_ROOT; };
@@ -328,7 +339,6 @@
 		93D504F0110B883700E5D2F0 /* BNRTCBackend.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = BNRTCBackend.mm; path = ../BNRPersistence/BNRTCBackend.mm; sourceTree = SOURCE_ROOT; };
 		93D504F1110B883700E5D2F0 /* BNRTCBackendCursor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BNRTCBackendCursor.h; path = ../BNRPersistence/BNRTCBackendCursor.h; sourceTree = SOURCE_ROOT; };
 		93D504F2110B883700E5D2F0 /* BNRTCBackendCursor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BNRTCBackendCursor.m; path = ../BNRPersistence/BNRTCBackendCursor.m; sourceTree = SOURCE_ROOT; };
-		93D5050A110B8AB300E5D2F0 /* libtokyocabinet.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libtokyocabinet.a; path = /usr/local/lib/libtokyocabinet.a; sourceTree = "<absolute>"; };
 		93D50514110B8B2700E5D2F0 /* Playlist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Playlist.h; sourceTree = SOURCE_ROOT; };
 		93D50515110B8B2700E5D2F0 /* Playlist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Playlist.m; sourceTree = SOURCE_ROOT; };
 		93D50516110B8B2700E5D2F0 /* Song.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Song.h; sourceTree = SOURCE_ROOT; };
@@ -348,9 +358,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				93A7B6C711E69A6C00C671F3 /* libcrypto.dylib in Frameworks */,
+				93B18D0E177B67CF0006134A /* libtokyocabinet.a in Frameworks */,
 				934ECE751116290500F8C0E5 /* Foundation.framework in Frameworks */,
-				934ECE761116290500F8C0E5 /* libtokyocabinet.a in Frameworks */,
+				93B18D1B177B6BCB0006134A /* Security.framework in Frameworks */,
+				93B18D03177B675A0006134A /* libcrypto.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -359,9 +370,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				937F31FD11318E6B0035B7EC /* Foundation.framework in Frameworks */,
-				937F31FE11318E6B0035B7EC /* libtokyocabinet.a in Frameworks */,
-				937F32C311319BAE0035B7EC /* libtokyodystopia.a in Frameworks */,
-				93A7B6C811E69A7900C671F3 /* libcrypto.dylib in Frameworks */,
+				93B18D1C177B6BCC0006134A /* Security.framework in Frameworks */,
+				93B18D02177B67590006134A /* libcrypto.dylib in Frameworks */,
+				93B18D10177B67D00006134A /* libtokyocabinet.a in Frameworks */,
+				93B18D15177B68190006134A /* libtokyodystopia.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -370,9 +382,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				937F33271131AAA60035B7EC /* Foundation.framework in Frameworks */,
-				937F33281131AAA60035B7EC /* libtokyocabinet.a in Frameworks */,
-				937F33291131AAA60035B7EC /* libtokyodystopia.a in Frameworks */,
-				93A7B6C911E69A7900C671F3 /* libcrypto.dylib in Frameworks */,
+				93B18D1D177B6BCC0006134A /* Security.framework in Frameworks */,
+				93B18D01177B67590006134A /* libcrypto.dylib in Frameworks */,
+				93B18D0F177B67D00006134A /* libtokyocabinet.a in Frameworks */,
+				93B18D14177B68180006134A /* libtokyodystopia.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -380,9 +393,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93B18D11177B67D10006134A /* libtokyocabinet.a in Frameworks */,
 				93A7B54711E64EA900C671F3 /* Foundation.framework in Frameworks */,
-				93A7B54811E64EA900C671F3 /* libtokyocabinet.a in Frameworks */,
-				93A7B60011E6591700C671F3 /* libcrypto.dylib in Frameworks */,
+				93B18D1E177B6BCD0006134A /* Security.framework in Frameworks */,
+				93B18D00177B67580006134A /* libcrypto.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -390,9 +404,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93B18D09177B67C20006134A /* libtokyocabinet.a in Frameworks */,
+				93B18CFF177B67500006134A /* libcrypto.dylib in Frameworks */,
+				93B18D1F177B6BCE0006134A /* Security.framework in Frameworks */,
 				93A7B65611E65D6300C671F3 /* Foundation.framework in Frameworks */,
-				93A7B65711E65D6300C671F3 /* libtokyocabinet.a in Frameworks */,
-				93A7B65811E65D6300C671F3 /* libcrypto.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -400,9 +415,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				93A7B6C311E69A5900C671F3 /* libcrypto.dylib in Frameworks */,
+				93B18D17177B6B000006134A /* Security.framework in Frameworks */,
+				93B18D0A177B67CD0006134A /* libtokyocabinet.a in Frameworks */,
 				93D5081F110CB23D00E5D2F0 /* Foundation.framework in Frameworks */,
-				93D50820110CB23D00E5D2F0 /* libtokyocabinet.a in Frameworks */,
+				93B18D07177B675C0006134A /* libcrypto.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -410,9 +426,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				93A7B6C411E69A5D00C671F3 /* libcrypto.dylib in Frameworks */,
+				93B18D0B177B67CE0006134A /* libtokyocabinet.a in Frameworks */,
 				93D508B2110D2E3F00E5D2F0 /* Foundation.framework in Frameworks */,
-				93D508B3110D2E3F00E5D2F0 /* libtokyocabinet.a in Frameworks */,
+				93B18D18177B6BCA0006134A /* Security.framework in Frameworks */,
+				93B18D06177B675B0006134A /* libcrypto.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -420,9 +437,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				93A7B6C511E69A6200C671F3 /* libcrypto.dylib in Frameworks */,
+				93B18D0C177B67CE0006134A /* libtokyocabinet.a in Frameworks */,
 				93D50941110D49BB00E5D2F0 /* Foundation.framework in Frameworks */,
-				93D50942110D49BB00E5D2F0 /* libtokyocabinet.a in Frameworks */,
+				93B18D19177B6BCA0006134A /* Security.framework in Frameworks */,
+				93B18D05177B675B0006134A /* libcrypto.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -430,9 +448,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				93A7B6C611E69A6600C671F3 /* libcrypto.dylib in Frameworks */,
+				93B18D0D177B67CE0006134A /* libtokyocabinet.a in Frameworks */,
 				93D50A1E110D51E000E5D2F0 /* Foundation.framework in Frameworks */,
-				93D50A1F110D51E000E5D2F0 /* libtokyocabinet.a in Frameworks */,
+				93B18D1A177B6BCB0006134A /* Security.framework in Frameworks */,
+				93B18D04177B675B0006134A /* libcrypto.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -445,6 +464,7 @@
 				93D50506110B888600E5D2F0 /* BNRPersistence */,
 				08FB7795FE84155DC02AAC07 /* Source */,
 				08FB779DFE84155DC02AAC07 /* External Frameworks and Libraries */,
+				93B18D16177B6B000006134A /* Security.framework */,
 				1AB674ADFE9D54B511CA2CBB /* Products */,
 			);
 			name = TCSpeedTest;
@@ -476,9 +496,9 @@
 			isa = PBXGroup;
 			children = (
 				08FB779EFE84155DC02AAC07 /* Foundation.framework */,
-				93D5050A110B8AB300E5D2F0 /* libtokyocabinet.a */,
-				9324D36C1129ABD900E8C193 /* libtokyodystopia.a */,
-				93A7B5FF11E6591700C671F3 /* libcrypto.dylib */,
+				93B18CFE177B67500006134A /* libcrypto.dylib */,
+				93B18D08177B67C20006134A /* libtokyocabinet.a */,
+				93B18D12177B680E0006134A /* libtokyodystopia.a */,
 			);
 			name = "External Frameworks and Libraries";
 			sourceTree = "<group>";
@@ -698,6 +718,8 @@
 /* Begin PBXProject section */
 		08FB7793FE84155DC02AAC07 /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+			};
 			buildConfigurationList = 1DEB927808733DD40010E9CD /* Build configuration list for PBXProject "TCSpeedTest" */;
 			compatibilityVersion = "Xcode 3.1";
 			developmentRegion = English;
@@ -1017,6 +1039,7 @@
 				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
 				HEADER_SEARCH_PATHS = /usr/local/include;
 				INSTALL_PATH = /usr/local/bin;
+				LIBRARY_SEARCH_PATHS = /usr/local/lib;
 				OTHER_LDFLAGS = (
 					"-framework",
 					Foundation,
@@ -1025,6 +1048,7 @@
 				);
 				PREBINDING = NO;
 				PRODUCT_NAME = SimpleUpdateTest;
+				SDKROOT = macosx10.8;
 			};
 			name = Debug;
 		};
@@ -1041,6 +1065,7 @@
 				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
 				HEADER_SEARCH_PATHS = /usr/local/include;
 				INSTALL_PATH = /usr/local/bin;
+				LIBRARY_SEARCH_PATHS = /usr/local/lib;
 				OTHER_LDFLAGS = (
 					"-framework",
 					Foundation,
@@ -1049,6 +1074,7 @@
 				);
 				PREBINDING = NO;
 				PRODUCT_NAME = SimpleUpdateTest;
+				SDKROOT = macosx10.8;
 				ZERO_LINK = NO;
 			};
 			name = Release;
@@ -1067,6 +1093,7 @@
 				GCC_PREFIX_HEADER = "";
 				HEADER_SEARCH_PATHS = /usr/local/include;
 				INSTALL_PATH = /usr/local/bin;
+				LIBRARY_SEARCH_PATHS = /usr/local/lib;
 				OTHER_LDFLAGS = (
 					"-framework",
 					Foundation,
@@ -1074,6 +1101,7 @@
 				PREBINDING = NO;
 				PRODUCT_NAME = FullTextInsertTest;
 				RUN_CLANG_STATIC_ANALYZER = NO;
+				SDKROOT = macosx10.8;
 			};
 			name = Debug;
 		};
@@ -1090,6 +1118,7 @@
 				GCC_PREFIX_HEADER = "";
 				HEADER_SEARCH_PATHS = /usr/local/include;
 				INSTALL_PATH = /usr/local/bin;
+				LIBRARY_SEARCH_PATHS = /usr/local/lib;
 				OTHER_LDFLAGS = (
 					"-framework",
 					Foundation,
@@ -1097,6 +1126,7 @@
 				PREBINDING = NO;
 				PRODUCT_NAME = FullTextInsertTest;
 				RUN_CLANG_STATIC_ANALYZER = NO;
+				SDKROOT = macosx10.8;
 				ZERO_LINK = NO;
 			};
 			name = Release;
@@ -1115,6 +1145,7 @@
 				GCC_PREFIX_HEADER = "";
 				HEADER_SEARCH_PATHS = /usr/local/include;
 				INSTALL_PATH = /usr/local/bin;
+				LIBRARY_SEARCH_PATHS = /usr/local/lib;
 				OTHER_LDFLAGS = (
 					"-framework",
 					Foundation,
@@ -1122,6 +1153,7 @@
 				PREBINDING = NO;
 				PRODUCT_NAME = FullTextFetchTest;
 				RUN_CLANG_STATIC_ANALYZER = NO;
+				SDKROOT = macosx10.8;
 			};
 			name = Debug;
 		};
@@ -1138,6 +1170,7 @@
 				GCC_PREFIX_HEADER = "";
 				HEADER_SEARCH_PATHS = /usr/local/include;
 				INSTALL_PATH = /usr/local/bin;
+				LIBRARY_SEARCH_PATHS = /usr/local/lib;
 				OTHER_LDFLAGS = (
 					"-framework",
 					Foundation,
@@ -1145,6 +1178,7 @@
 				PREBINDING = NO;
 				PRODUCT_NAME = FullTextFetchTest;
 				RUN_CLANG_STATIC_ANALYZER = NO;
+				SDKROOT = macosx10.8;
 				ZERO_LINK = NO;
 			};
 			name = Release;
@@ -1163,6 +1197,7 @@
 				GCC_PREFIX_HEADER = "";
 				HEADER_SEARCH_PATHS = /usr/local/include;
 				INSTALL_PATH = /usr/local/bin;
+				LIBRARY_SEARCH_PATHS = /usr/local/lib;
 				OTHER_LDFLAGS = (
 					"-framework",
 					Foundation,
@@ -1170,6 +1205,7 @@
 				PREBINDING = NO;
 				PRODUCT_NAME = NamedBufferInsertTest;
 				RUN_CLANG_STATIC_ANALYZER = YES;
+				SDKROOT = macosx10.8;
 			};
 			name = Debug;
 		};
@@ -1186,6 +1222,7 @@
 				GCC_PREFIX_HEADER = "";
 				HEADER_SEARCH_PATHS = /usr/local/include;
 				INSTALL_PATH = /usr/local/bin;
+				LIBRARY_SEARCH_PATHS = /usr/local/lib;
 				OTHER_LDFLAGS = (
 					"-framework",
 					Foundation,
@@ -1193,6 +1230,7 @@
 				PREBINDING = NO;
 				PRODUCT_NAME = NamedBufferInsertTest;
 				RUN_CLANG_STATIC_ANALYZER = YES;
+				SDKROOT = macosx10.8;
 				ZERO_LINK = NO;
 			};
 			name = Release;
@@ -1211,6 +1249,7 @@
 				GCC_PREFIX_HEADER = "";
 				HEADER_SEARCH_PATHS = /usr/local/include;
 				INSTALL_PATH = /usr/local/bin;
+				LIBRARY_SEARCH_PATHS = /usr/local/lib;
 				OTHER_LDFLAGS = (
 					"-framework",
 					Foundation,
@@ -1218,6 +1257,7 @@
 				PREBINDING = NO;
 				PRODUCT_NAME = NamedBufferFetchTest;
 				RUN_CLANG_STATIC_ANALYZER = YES;
+				SDKROOT = macosx10.8;
 			};
 			name = Debug;
 		};
@@ -1234,6 +1274,7 @@
 				GCC_PREFIX_HEADER = "";
 				HEADER_SEARCH_PATHS = /usr/local/include;
 				INSTALL_PATH = /usr/local/bin;
+				LIBRARY_SEARCH_PATHS = /usr/local/lib;
 				OTHER_LDFLAGS = (
 					"-framework",
 					Foundation,
@@ -1241,6 +1282,7 @@
 				PREBINDING = NO;
 				PRODUCT_NAME = NamedBufferFetchTest;
 				RUN_CLANG_STATIC_ANALYZER = YES;
+				SDKROOT = macosx10.8;
 				ZERO_LINK = NO;
 			};
 			name = Release;
@@ -1259,6 +1301,7 @@
 				GCC_PREFIX_HEADER = "";
 				HEADER_SEARCH_PATHS = /usr/local/include;
 				INSTALL_PATH = /usr/local/bin;
+				LIBRARY_SEARCH_PATHS = /usr/local/lib;
 				OTHER_LDFLAGS = (
 					"-framework",
 					Foundation,
@@ -1266,6 +1309,7 @@
 				PREBINDING = NO;
 				PRODUCT_NAME = ComplexInsertTest;
 				RUN_CLANG_STATIC_ANALYZER = YES;
+				SDKROOT = macosx10.8;
 			};
 			name = Debug;
 		};
@@ -1282,6 +1326,7 @@
 				GCC_PREFIX_HEADER = "";
 				HEADER_SEARCH_PATHS = /usr/local/include;
 				INSTALL_PATH = /usr/local/bin;
+				LIBRARY_SEARCH_PATHS = /usr/local/lib;
 				OTHER_LDFLAGS = (
 					"-framework",
 					Foundation,
@@ -1289,6 +1334,7 @@
 				PREBINDING = NO;
 				PRODUCT_NAME = ComplexInsertTest;
 				RUN_CLANG_STATIC_ANALYZER = YES;
+				SDKROOT = macosx10.8;
 				ZERO_LINK = NO;
 			};
 			name = Release;
@@ -1307,6 +1353,7 @@
 				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
 				HEADER_SEARCH_PATHS = /usr/local/include;
 				INSTALL_PATH = /usr/local/bin;
+				LIBRARY_SEARCH_PATHS = /usr/local/lib;
 				OTHER_LDFLAGS = (
 					"-framework",
 					Foundation,
@@ -1315,6 +1362,7 @@
 				);
 				PREBINDING = NO;
 				PRODUCT_NAME = ComplexFetchTest;
+				SDKROOT = macosx10.8;
 			};
 			name = Debug;
 		};
@@ -1331,6 +1379,7 @@
 				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
 				HEADER_SEARCH_PATHS = /usr/local/include;
 				INSTALL_PATH = /usr/local/bin;
+				LIBRARY_SEARCH_PATHS = /usr/local/lib;
 				OTHER_LDFLAGS = (
 					"-framework",
 					Foundation,
@@ -1339,6 +1388,7 @@
 				);
 				PREBINDING = NO;
 				PRODUCT_NAME = ComplexFetchTest;
+				SDKROOT = macosx10.8;
 				ZERO_LINK = NO;
 			};
 			name = Release;
@@ -1357,6 +1407,7 @@
 				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
 				HEADER_SEARCH_PATHS = /usr/local/include;
 				INSTALL_PATH = /usr/local/bin;
+				LIBRARY_SEARCH_PATHS = /usr/local/lib;
 				OTHER_LDFLAGS = (
 					"-framework",
 					Foundation,
@@ -1365,6 +1416,7 @@
 				);
 				PREBINDING = NO;
 				PRODUCT_NAME = SimpleInsertTest;
+				SDKROOT = macosx10.8;
 			};
 			name = Debug;
 		};
@@ -1381,6 +1433,7 @@
 				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
 				HEADER_SEARCH_PATHS = /usr/local/include;
 				INSTALL_PATH = /usr/local/bin;
+				LIBRARY_SEARCH_PATHS = /usr/local/lib;
 				OTHER_LDFLAGS = (
 					"-framework",
 					Foundation,
@@ -1389,6 +1442,7 @@
 				);
 				PREBINDING = NO;
 				PRODUCT_NAME = SimpleInsertTest;
+				SDKROOT = macosx10.8;
 				ZERO_LINK = NO;
 			};
 			name = Release;
@@ -1407,6 +1461,7 @@
 				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
 				HEADER_SEARCH_PATHS = /usr/local/include;
 				INSTALL_PATH = /usr/local/bin;
+				LIBRARY_SEARCH_PATHS = /usr/local/lib;
 				OTHER_LDFLAGS = (
 					"-framework",
 					Foundation,
@@ -1415,6 +1470,7 @@
 				);
 				PREBINDING = NO;
 				PRODUCT_NAME = SimpleFetchTest;
+				SDKROOT = macosx10.8;
 			};
 			name = Debug;
 		};
@@ -1431,6 +1487,7 @@
 				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
 				HEADER_SEARCH_PATHS = /usr/local/include;
 				INSTALL_PATH = /usr/local/bin;
+				LIBRARY_SEARCH_PATHS = /usr/local/lib;
 				OTHER_LDFLAGS = (
 					"-framework",
 					Foundation,
@@ -1439,6 +1496,7 @@
 				);
 				PREBINDING = NO;
 				PRODUCT_NAME = SimpleFetchTest;
+				SDKROOT = macosx10.8;
 				ZERO_LINK = NO;
 			};
 			name = Release;
@@ -1446,20 +1504,24 @@
 		93D50A38110D52C500E5D2F0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				PRODUCT_NAME = All;
+				SDKROOT = macosx10.8;
 			};
 			name = Debug;
 		};
 		93D50A39110D52C500E5D2F0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				PRODUCT_NAME = All;
+				SDKROOT = macosx10.8;
 				ZERO_LINK = NO;
 			};
 			name = Release;

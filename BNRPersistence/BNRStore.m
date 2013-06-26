@@ -726,8 +726,8 @@
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"<BNRStore-%@ to insert:%d, to update %d, to delete %d>",
-        backend, [toBeInserted count], [toBeUpdated count], [toBeDeleted count]];
+    return [NSString stringWithFormat:@"<BNRStore-%@ to insert:%lu, to update %lu, to delete %lu>",
+        backend, (unsigned long)[toBeInserted count], (unsigned long)[toBeUpdated count], (unsigned long)[toBeDeleted count]];
 }
 
 //MARK: Bulk upgrade
@@ -779,7 +779,7 @@
 		{
 			BOOL success = [self upgradeAllBNRStoredObjectsOfClass:c];
 			if (!success) {
-				NSString *failureReason = [NSString stringWithFormat:@"Schema of class \"%@\" needs upgrade; metaData versionNumber:%d, %@ currentClassVersionNumber:%d", 
+				NSString *failureReason = [NSString stringWithFormat:@"Schema of class \"%@\" needs upgrade; metaData versionNumber:%d currentClassVersionNumber:%c", 
 								NSStringFromClass(c),
 								oldVersion, 
 								[c currentClassVersionNumber] 

@@ -269,8 +269,8 @@
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"<%@: rowID = %lu>", 
-            NSStringFromClass([self class]), [self rowID]];
+    return [NSString stringWithFormat:@"<%@: rowID = %u>", 
+            NSStringFromClass([self class]), (unsigned int)[self rowID]];
 }
 
 - (void)logDescription

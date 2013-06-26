@@ -46,17 +46,17 @@ int main (int argc, const char * argv[]) {
     //   for (Song *song in songsThatMatch) {
     //        [song title];
     //    }
-    NSLog(@"%d song titles contain 'choice'", [songsThatMatch count]);
+    NSLog(@"%lu song titles contain 'choice'", (unsigned long)[songsThatMatch count]);
     
     songsThatMatch = [store objectsForClass:[Song class]
                                matchingText:@"[[*brain*]]"
                                      forKey:@"title"];
-    NSLog(@"%d song titles contain 'brain'", [songsThatMatch count]);
+    NSLog(@"%lu song titles contain 'brain'", (unsigned long)[songsThatMatch count]);
     
     songsThatMatch = [store objectsForClass:[Song class]
                                matchingText:@"[[*pets*]]"
                                      forKey:@"title"];
-    NSLog(@"%d song titles contain 'pets'", [songsThatMatch count]);
+    NSLog(@"%lu song titles contain 'pets'", (unsigned long)[songsThatMatch count]);
     
     uint64_t end = mach_absolute_time();
     

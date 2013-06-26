@@ -259,7 +259,7 @@
 // MARK: -
 // =============================//
 
-@interface BNRClassKey : NSObject
+@interface BNRClassKey : NSObject <NSCopying>
 {
     Class keyClass;
     NSString *key;

@@ -30,7 +30,7 @@
  */
 
 #ifdef __cplusplus
-#include <ext/hash_map> using namespace stdext;
+#include <ext/hash_map> //using namespace stdext;
 using std::pair;
 using namespace __gnu_cxx;
 

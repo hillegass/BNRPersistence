@@ -40,7 +40,9 @@ int main (int argc, const char * argv[]) {
     
     FILE *fileHandle = fopen("eopub1m.txt", "r");
     if (!fileHandle) {
-        NSLog(@"%@", @"test file 'eopub1m.txt' not found; ensure it is in app's working dir (typically /TCSpeedTest/build/Debug, etc.)");
+        char *cwd = getcwd(NULL, 0);
+        NSLog(@"test file 'eopub1m.txt' not found; ensure it is in app's working dir (%s)", cwd);
+        free(cwd);
         exit(EXIT_FAILURE);
     }
     
