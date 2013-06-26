@@ -29,15 +29,16 @@
 
 - (id)init
 {
-    [super init];
-    // Primary keys start at 2
-    lastPrimaryKey = 1;
-    versionNumber = 1;
-    classID = 0;
-    
-    // Randomize the salt to start with; if a class is being loaded the salt will be set in -readContentFromBuffer:.
-    BNRRandomBytes(encryptionKeySalt, 8);
-    
+    self = [super init];
+	if (self) {
+		// Primary keys start at 2
+		lastPrimaryKey = 1;
+		versionNumber = 1;
+		classID = 0;
+		
+		// Randomize the salt to start with; if a class is being loaded the salt will be set in -readContentFromBuffer:.
+		BNRRandomBytes(encryptionKeySalt, 8);
+	}
     return self;
 }
 - (void)readContentFromBuffer:(BNRDataBuffer *)d

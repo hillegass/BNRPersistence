@@ -45,6 +45,9 @@ typedef pair<Class, TCHDB *> TCFileHashedPair;
 
 #endif 
 
+
+#define iCloudBNRTCBackendSupportEnabled (0 & (MAC_OS_X_VERSION_MAX_ALLOWED >= 1070)) // iCLoud support not ready yet
+
 @interface BNRTCBackend : BNRStoreBackend {
     NSString *path;
 #ifdef __cplusplus
@@ -53,9 +56,19 @@ typedef pair<Class, TCHDB *> TCFileHashedPair;
     void *dbTable; 
 #endif
     TCHDB *namedBufferDB;
+
+	BOOL usesWriteSync;	// will cause every write to sync to the physical storage media; slower, but much less fragile in cases of crash or power outage.
+
+	// TC Transaction support
+	BOOL usesTransactions;
+	NSMutableSet *openTransactions;
 }
+- (id)initWithPath:(NSString *)p useTransactions:(BOOL)useTransactionsFlag useWriteSyncronization:(BOOL)useWriteSyncronizationFlag error:(NSError **)err; // designated intializer
 - (id)initWithPath:(NSString *)p error:(NSError **)err;
+
 - (TCHDB *)fileForClass:(Class)c;
 - (NSString *)path;
 
+@property (readonly)	BOOL usesWriteSync;
+@property (assign)		BOOL usesTransactions;
 @end

@@ -22,7 +22,6 @@
 
 #import <Foundation/Foundation.h>
 #import "BNRStore.h"
-@class BNRDatamaker;
 
 /*! BNRStoredObject is the superclass for all objects that get saved into the store */
 
@@ -39,6 +38,11 @@
     UInt32 status;
     
 }
+
+#pragma mark Versioning and upgrading support
++ (unsigned char)currentClassVersionNumber;
++ (void)configureInStore:(BNRStore *)s;
++ (BOOL)upgradeAllInstancesinStore:(BNRStore *)storeToUpgrade;
 
 #pragma mark Getting data in and out
 // readContentFromBuffer: is used during loading
@@ -84,5 +88,8 @@
 // checkForContent is a convenience method that checks to see
 // if the object has fetched its data and fetchs it if necessary.
 - (void)checkForContent;
+
+#pragma mark Logging utils
+- (void)logDescription;
 
 @end
