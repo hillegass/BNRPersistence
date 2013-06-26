@@ -1,9 +1,19 @@
 #import "SpeedTest.h"
 
 int main (int argc, const char * argv[]) {
+	// Note that the elapsed time is affected by the size of the file stored in /var/complextest (@COMPLEXTEST_PATH).
+	// If many (dozens of) tests runs are completed without deleting it, tests will begin to slow, 
+	// with the time being spent in TC calls. A benchmark with millions of objects in the store,
+	// like FullTextInsertTest, may be useful.
+	
+#define kNumRepetitions 10
+	for (int i = 0; i < kNumRepetitions; i++) {
+
+
     NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
     int playlistCount = PLAYLIST_COUNT;
 
+	NSLog(@"Using %@\n", kUseBNRResizableUniquingTable ? @"BNRResizableUniquingTable" : @"BNRUniquingTable");
     NSLog(@"%s: Inserting %d playlists, %d songs, %d songs per playlist",
           getprogname(), playlistCount, SONG_COUNT, SONGS_PER_LIST);
 
@@ -18,7 +28,7 @@ int main (int argc, const char * argv[]) {
     
     for (int i = 0; i < SONG_COUNT; i++) {
         Song *song = [[Song alloc] init];
-        [song setTitle:@"Test Song"];
+        [song setTitle:[NSString stringWithFormat:@"Test Song %d", i]];
         [song setSeconds:i];
         [songs addObject:song];
         [store insertObject:song];
@@ -48,6 +58,11 @@ int main (int argc, const char * argv[]) {
         return EXIT_FAILURE;
     }
     
+	
+	// uncomment to get get a sense of the time taken to release everything vs. time to build it.
+	//uint64_t middle = mach_absolute_time();
+    //LogElapsedTime(start, middle);
+
     // Interestingly, it is quicker to release the store before the StoredObjects
     [store release];
     [songs release];
@@ -57,5 +72,6 @@ int main (int argc, const char * argv[]) {
 
     uint64_t end = mach_absolute_time();
     LogElapsedTime(start, end);
+	}
     return EXIT_SUCCESS;
 }

@@ -26,7 +26,7 @@
 
 /*! BNRStoreBackend is an abstract class.  The concrete subclass uses a particular
  key-value store.  At different times, these subclasses have used BerkeleyDB, 
- GDBM, and TokyoCabinent.  I think Tokyo Tyrant would be a fun next experiment.
+ GDBM, and TokyoCabinet.  I think Tokyo Tyrant would be a fun next experiment.
  */
 
 @interface BNRStoreBackend : NSObject {
@@ -35,7 +35,8 @@
 
 
 #pragma mark Transaction support
-- (BOOL)beginTransaction;
+- (BOOL)usesTransactions;
+- (BOOL)beginTransactionForClasses:(NSSet *)classes;
 - (BOOL)commitTransaction;
 - (BOOL)abortTransaction;
 - (BOOL)hasOpenTransaction;

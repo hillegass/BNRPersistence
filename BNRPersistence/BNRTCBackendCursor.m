@@ -27,12 +27,14 @@
 
 - (id)initWithFile:(TCHDB *)f
 {
-    [super init];
-    file = f;
-    bool successful = tchdbiterinit(file);
-    if (!successful) {
-        int ecode = tchdbecode(file);
-        NSLog(@"Bad tchdbiterinit in initWithFile: %s", tchdberrmsg(ecode));
+    self = [super init];
+    if (self) {
+		file = f;
+		bool successful = tchdbiterinit(file);
+		if (!successful) {
+			int ecode = tchdbecode(file);
+			NSLog(@"Bad tchdbiterinit in initWithFile: %s", tchdberrmsg(ecode));
+		}
     }
     
     return self;

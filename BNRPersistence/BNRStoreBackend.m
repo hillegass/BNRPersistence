@@ -27,7 +27,12 @@
 @implementation BNRStoreBackend
 
 #pragma mark Transaction support
-- (BOOL)beginTransaction
+
+- (BOOL)usesTransactions
+{
+    return NO;
+}
+- (BOOL)beginTransactionForClasses:(NSSet *)classes
 {
     return NO;
 }

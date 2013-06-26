@@ -27,9 +27,14 @@
 #import "BNRBackendCursor.h"
 #import "BNRDataBuffer.h"
 #import "BNRClassMetaData.h"
-#import "BNRUniquingTable.h"
 #import "BNRIndexManager.h"
 #import "BNRDataBuffer+Encryption.h"
+
+#if kUseBNRResizableUniquingTable
+	#import "BNRResizableUniquingTable.h"
+#else
+	#import "BNRUniquingTable.h"
+#endif
 
 #ifndef PAGE_SIZE
 #define PAGE_SIZE (4096)
@@ -43,18 +48,35 @@
 @end
 
 
+@interface BNRStore (FilePresenter)
+// iCloud - currently disabled; full support requires iCloudBNRStoreSupportEnabled and more testing
+- (void)registerAsFilePresenter;
+- (void)unregisterAsFilePresenter;
+- (BOOL)isRegisteredAsFilePresenter; 
+@end
+
+
 @implementation BNRStore
 @synthesize undoManager, indexManager, delegate, usesPerInstanceVersioning, encryptionKey;
 
 - (id)init
 {
-    [super init];
-    uniquingTable = [[BNRUniquingTable alloc] init];
-    toBeInserted = [[NSMutableSet alloc] init];
-    toBeDeleted = [[NSMutableSet alloc] init];
-    toBeUpdated = [[NSMutableSet alloc] init];
-    classMetaData = [[BNRClassDictionary alloc] init];
-    usesPerInstanceVersioning = YES; // Adds an 8-bit number to every record, but enables versioning...
+    self = [super init];
+    if (self) {
+#if kUseBNRResizableUniquingTable	// see size/speed tradeoffs in BNRResizableUniquingTable. kUseBNRResizableUniquingTable will be required for ARC.
+        uniquingTable = [[BNRResizableUniquingTable alloc] init];
+#else
+		uniquingTable = [[BNRUniquingTable alloc] init];
+#endif
+		if (!uniquingTable) {
+			return nil;
+		}
+		toBeInserted = [[NSMutableSet alloc] init];
+		toBeDeleted = [[NSMutableSet alloc] init];
+		toBeUpdated = [[NSMutableSet alloc] init];
+		classMetaData = [[BNRClassDictionary alloc] init];
+		usesPerInstanceVersioning = YES; // Adds an 8-bit number to every record, but enables versioning...
+    }
     return self;
 }
 
@@ -75,7 +97,6 @@
     [uniquingTable makeAllObjectsPerformSelector:s];
 }
 
-
 - (void)dissolveAllRelationships
 {
     [self makeEveryStoredObjectPerformSelector:@selector(dissolveAllRelationships)];
@@ -83,14 +104,22 @@
 
 - (void)dealloc
 {
+	[self unregisterAsFilePresenter];
+	
     [uniquingTable release];
     [toBeInserted release];
     [toBeDeleted release];
     [toBeUpdated release];
+    
     [indexManager close];
     [indexManager release];
+    
     [backend release];
     [classMetaData release];
+	
+	[undoManager release];		// added BMonk 4/2/11
+	[encryptionKey release];	// added BMonk 4/2/11
+	
     [super dealloc];
 }
     
@@ -101,7 +130,7 @@
     while (classes[classCount] != NULL) {
         classCount++;
         
-        if (classCount == 255) {
+        if (classCount >= 255) {
             [NSException raise:@"BNRStore classes array is full"
                         format:@"Class %@ was not added to %@", NSStringFromClass(c), self];
         }
@@ -327,9 +356,10 @@
     if (usesPerInstanceVersioning) {
         [snap consumeVersion];
     }
+    
     [obj readContentFromBuffer:snap];
     [self insertObject:obj];
-    [obj release];
+   // [obj release];              // XCode4 analyzer complains incorrect decrement; object is already autoreleased - BMonk 7/30/11
 }
 
 - (void)deleteObject:(BNRStoredObject *)obj
@@ -442,15 +472,88 @@
     }
 }
 
+//MARK: Transaction support
+
+- (NSSet *)classesInvolvedInSave
+{
+	NSMutableSet *classesInvolvedInSave = [NSMutableSet set];
+			
+	for (BNRStoredObject *obj in toBeInserted) {
+        Class c = [obj class];
+		[classesInvolvedInSave addObject:c];
+	}
+	
+	for (BNRStoredObject *obj in toBeUpdated) {
+        Class c = [obj class];
+		[classesInvolvedInSave addObject:c];
+	}
+	
+	for (BNRStoredObject *obj in toBeDeleted) {
+        Class c = [obj class];
+		[classesInvolvedInSave addObject:c];
+	}
+	
+	// Instead of the above, could use 
+	// [classesInvolvedInSave addObjectsFromArray:[toBeInserted valueForKey:@"class"]];
+	// [classesInvolvedInSave addObjectsFromArray:[toBeUpdated valueForKey:@"class"]];
+	// [classesInvolvedInSave addObjectsFromArray:[toBeDeleted valueForKey:@"class"]];
+	// but I suppose it's no faster, and is more brittle.
+	
+	// Another approach: create a union of the BNRStoredObjects in toBe<Inserted,Updated,Deleted>
+	// and then use a single loop to extract the Classes, but once again the speed
+	// difference is likely negligible: most saves only involve a few stored objects.
+
+	return [[classesInvolvedInSave copy] autorelease];
+}
+
+- (NSSet *)beginTransaction
+{
+#if iCloudBNRStoreSupportEnabled
+	if (NSClassFromString(@"NSFileCoordinator")) {
+		coordinator = [[NSClassFromString(@"NSFileCoordinator") alloc] performSelector:@selector(initWithFilePresenter:) withObject:self];
+	}
+#endif
+	
+	NSSet *affectedClasses = [self classesInvolvedInSave];
+	[backend beginTransactionForClasses:affectedClasses];
+	return affectedClasses;
+}
+
+- (BOOL)commitTransaction
+{
+	BOOL committedOK = [backend commitTransaction];
+	
+#if iCloudBNRStoreSupportEnabled
+	if (committedOK) {
+		[coordinator release];
+	}
+#endif
+	
+	return committedOK;
+}
+
+- (BOOL)abortTransaction
+{
+	BOOL result = [backend abortTransaction];;
+	
+#if iCloudBNRStoreSupportEnabled
+	[coordinator release];
+#endif
+	
+	return result;
+}
+
+// MARK: Saving
+
 - (BOOL)saveChanges:(NSError **)errorPtr
 {
     [self willChangeValueForKey:@"hasUnsavedChanges"];
 
     BNRDataBuffer *buffer = [[BNRDataBuffer alloc] initWithCapacity:65536];
-    [backend beginTransaction];
+    NSSet *affectedClasses = [self beginTransaction];
     
+	// Inserts
     //NSLog(@"inserting %d objects", [toBeInserted count]);
-     
     for (BNRStoredObject *obj in toBeInserted) {
         Class c = [obj class];
         UInt32 rowID = [obj rowID];
@@ -474,9 +577,8 @@
         
     }
     
-    //NSLog(@"updating %d objects", [toBeUpdated count]);
-
     // Updates
+    //NSLog(@"updating %d objects", [toBeUpdated count]);
     for (BNRStoredObject *obj in toBeUpdated) {
         Class c = [obj class];
         UInt32 rowID = [obj rowID];
@@ -499,8 +601,8 @@
         }
         
     }
-    // Deletes
     
+    // Deletes
     //NSLog(@"deleting %d objects", [toBeDeleted count]);
     for (BNRStoredObject *obj in toBeDeleted) {
         Class c = [obj class];
@@ -520,12 +622,9 @@
         
     }
     
-    // Write out class meta data
-    // FIXME: things will be faster if you only 
-    // save ones that have been changed
-    int i = 0;
-    Class c;
-    while ((c = classes[i]) != NULL) {
+	
+	// Update metadata
+	for (Class c in affectedClasses) {
         BNRClassMetaData *d = [classMetaData objectForClass:c];
         if (d) {
             [d writeContentToBuffer:buffer];
@@ -536,18 +635,18 @@
                           rowID:1];
             [buffer clearBuffer];
         }
-        i++;
     }
+	
     [buffer release];
     
-    BOOL successful = [backend commitTransaction];
+    BOOL successful = [self commitTransaction];
     if (successful) {
         [toBeInserted removeAllObjects];
         [toBeUpdated removeAllObjects];
         [toBeDeleted removeAllObjects];
     } else {
         NSLog(@"Error: save was not successful");
-        [backend abortTransaction];
+        [self abortTransaction];
     }
     
     [self didChangeValueForKey:@"hasUnsavedChanges"];        
@@ -562,9 +661,11 @@
 }
 - (void)setBackend:(BNRStoreBackend *)be
 {
+	[self unregisterAsFilePresenter];
     [be retain];
     [backend release];
     backend = be;
+	[self registerAsFilePresenter];
 }
 
 #pragma mark Class meta data
@@ -628,4 +729,239 @@
     return [NSString stringWithFormat:@"<BNRStore-%@ to insert:%d, to update %d, to delete %d>",
         backend, [toBeInserted count], [toBeUpdated count], [toBeDeleted count]];
 }
+
+//MARK: Bulk upgrade
+
+// alternate approach to BNRStoredObject's -upgradeInstancesinStore to achieve the same result
+// Call example: [myBNRStore upgradeBNRStoredObjectClass:[MyBNRStoredObject class]];
+- (BOOL)upgradeAllBNRStoredObjectsOfClass:(Class)classToUpgrade {
+	
+	// 1. Load each object according to how its -readContentFromBuffer behaves for its pre-upgraded -versionNumber
+	
+	// For huge numbers of objects, this could become an issue. May need to load in chunks.
+	NSArray *allObjectsInClass = [self allObjectsForClass:classToUpgrade];
+	for (id obj in allObjectsInClass) {
+		[obj checkForContent];			
+		[self willUpdateObject:obj];
+	}
+	
+	// 2. Upgrade class metadata -versionNumber and class -version to match class's -currentClassVersionNumber
+	unsigned char currentVersion = [classToUpgrade currentClassVersionNumber];
+	
+	BNRClassMetaData *metaData = [self metaDataForClass:classToUpgrade];
+	[metaData setVersionNumber:currentVersion];
+	[classToUpgrade setVersion:currentVersion];
+	
+	// 3. Write each object back out, according to how its -writeContentToBuffer behaves for its new, post-upgrade -versionNumber.
+	//
+	// Note if this gets called on a class whose implmentation hasn't actually changed, 
+	// (i.e. its version == its currentVersionNumber), nothing bad happens. The only effect of the "upgrade" 
+	// is the inefficiency of reading and writing each object, along with updated file mod dates on disk.
+	
+	NSError *error = nil;
+	if (![self saveChanges:&error]) {
+		// FIXME: Needs error sheet
+
+		NSLog( @"Failed to upgrade class %@ instances to version:%d, error:%@", NSStringFromClass([self class]), currentVersion, [error localizedDescription] );
+		return NO;
+	}
+	return YES;
+}
+
+- (void)upgradeAllObjectsForAnyClassesNeedingUpgrade
+{
+    int classCount = 0;
+    while (classes[classCount] != NULL) {
+		
+		Class c = classes[classCount];
+		unsigned char oldVersion = [self versionForClass:c];
+		if (oldVersion < [c currentClassVersionNumber]) 
+		{
+			BOOL success = [self upgradeAllBNRStoredObjectsOfClass:c];
+			if (!success) {
+				NSString *failureReason = [NSString stringWithFormat:@"Schema of class \"%@\" needs upgrade; metaData versionNumber:%d, %@ currentClassVersionNumber:%d", 
+								NSStringFromClass(c),
+								oldVersion, 
+								[c currentClassVersionNumber] 
+								];
+				NSLog(@"%@", failureReason);
+				@throw [NSException exceptionWithName:@"DB Schema Error" 
+											   reason:failureReason
+											 userInfo:nil];
+			}
+		}
+		
+		classCount++;
+	}
+}
+
+#if 0 // NS_BLOCKS_AVAILABLE
+- (void)upgradeAllObjectsForClassesNeedingUpgradeUsingBlock:(BNRStoredObjectIterBlock)iterBlock
+{
+	
+}
+#endif
+
+
+//MARK: logging utils
+
+- (void)logAllObjects
+{
+    [self makeEveryStoredObjectPerformSelector:@selector(logDescription)];
+}
+
+- (void)logUniquingTable 
+{
+	[uniquingTable logTable];
+}
+
+
+//MARK: iCloud suport
+
+-(void)registerAsFilePresenter {
+#if iCloudBNRStoreSupportEnabled
+	if ([backend respondsToSelector:@selector(path)] && ![self isRegisteredAsFilePresenter] && NSClassFromString(@"NSFileCoordinator")) {
+		[NSClassFromString(@"NSFileCoordinator") performSelector:@selector(addFilePresenter:) withObject:self];
+	}
+#endif
+}
+
+-(void)unregisterAsFilePresenter {
+#if iCloudBNRStoreSupportEnabled
+	if ([self isRegisteredAsFilePresenter] && NSClassFromString(@"NSFileCoordinator")) {
+		[NSClassFromString(@"NSFileCoordinator") performSelector:@selector(removeFilePresenter:) withObject:self];
+	}
+#endif
+}
+
+ - (BOOL)isRegisteredAsFilePresenter {
+#if iCloudBNRStoreSupportEnabled
+	 if (NSClassFromString(@"NSFileCoordinator")) {
+		 NSArray *presenters = [NSClassFromString(@"NSFileCoordinator") performSelector:@selector(filePresenters)];
+		 for (id<NSFilePresenter>obj in presenters) {
+			 if (obj == self) {
+				 return YES;
+			 }
+		 }
+	 }
+#endif
+	 return NO;
+ }
+
+// MARK: NSFilePresenter protocol methods
+#if iCloudBNRStoreSupportEnabled
+		 
+- (NSURL *)presentedItemURL {
+	NSLog(@"%@", @"presentedItemURL");
+	if ([self backend] respondsToSelector:@selector(path)) {
+		NSString *path = [(BNRTCBackend *)[self backend] path];
+		return [NSURL fileURLWithPath:path isDirectory:YES];;
+	}
+	return nil;
+}
+
+- (NSOperationQueue *)presentedItemOperationQueue {
+	NSLog(@"%@", @"presentedItemOperationQueue");
+	return [NSOperationQueue mainQueue];
+}
+
+- (void)accommodatePresentedItemDeletionWithCompletionHandler:(void (^)(NSError *errorOrNil))completionHandler
+{
+	NSLog(@"%@", @"accommodatePresentedItemDeletionWithCompletionHandler");
+	NSError *error = [NSError errorWithDomain:@"BNRStoreDomain" code:-1 userInfo:[NSDictionary dictionaryWithObject:@"BNRStore not yet ready to accomodate coordinated deletion" forKey:NSLocalizedDescriptionKey]];
+	// pass nil to indicate success
+	completionHandler(error);
+}
+
+- (void)accommodatePresentedSubitemDeletionAtURL:(NSURL *)url completionHandler:(void (^)(NSError *errorOrNil))completionHandler
+{
+	NSLog(@"%@ at URL:%@", @"accommodatePresentedSubitemDeletionAtURL", [url description]);
+	NSError *error = [NSError errorWithDomain:@"BNRStoreDomain" code:-2 userInfo:[NSDictionary dictionaryWithObject:@"BNRStore not yet ready to accomodate coordinated subitem deletion" forKey:NSLocalizedDescriptionKey]];
+	// pass nil to indicate success
+	completionHandler(error);
+}
+
+- (void)presentedItemDidChange {
+	NSLog(@"%@", @"presentedItemDidChange");
+}
+
+- (void)presentedItemDidGainVersion:(NSFileVersion *)version {
+	NSLog(@"presentedItemDidGainVersion:%@", [version description]);
+}
+
+- (void)presentedItemDidLoseVersion:(NSFileVersion *)version {
+	NSLog(@"presentedItemDidLoseVersion:%@", [version description]);
+}
+
+- (void)presentedItemDidMoveToURL:(NSURL *)newURL {
+	NSLog(@"presentedItemDidMoveToURL:%@", [newURL description]);
+}
+
+- (void)presentedItemDidResolveConflictVersion:(NSFileVersion *)version {
+	NSLog(@"presentedItemDidResolveConflictVersion:%@", [version description]);
+}
+
+- (void)presentedSubitemAtURL:(NSURL *)url didGainVersion:(NSFileVersion *)version {
+	NSLog(@"presentedSubitemAtURL:%@ didGainVersion:%@", [url description], [version description]);
+}
+
+- (void)presentedSubitemAtURL:(NSURL *)url didLoseVersion:(NSFileVersion *)version {
+	NSLog(@"presentedSubitemAtURL:%@ didLoseVersion:%@", [url description], [version description]);
+}
+
+- (void)presentedSubitemAtURL:(NSURL *)oldURL didMoveToURL:(NSURL *)newURL {
+	NSLog(@"presentedSubitemAtURL:%@ didMoveToURL:%@", [oldURL description], [newURL description]);
+}
+
+- (void)presentedSubitemAtURL:(NSURL *)url didResolveConflictVersion:(NSFileVersion *)version {
+	NSLog(@"presentedSubitemAtURL:%@ didResolveConflictVersion:%@", [url description], [version description]);
+}
+
+- (void)presentedSubitemDidAppearAtURL:(NSURL *)url {
+	NSLog(@"presentedSubitemDidAppearAtURL:%@", [url description]);
+}
+
+- (void)presentedSubitemDidChangeAtURL:(NSURL *)url {
+	NSLog(@"presentedSubitemDidChangeAtURL:%@", [url description]);
+}
+
+- (void)relinquishPresentedItemToReader:((void (^)(void (^reacquirer)(void))))reader {
+	NSLog(@"%@", @"relinquishPresentedItemToReader");
+    // Prepare for another object to read the file.
+	//self.fileIsWritable = NO;
+	
+	// Now let the reader know that it can have the file.
+	// But pass a reacquisition block so that this object
+	// can update itself when the reader is done.
+	reader(^{
+		NSLog(@"%@", @"read reacquirer called");
+		//self.fileIsWritable = YES;
+	});
+}
+
+- (void)relinquishPresentedItemToWriter:((void (^)(void (^reacquirer)(void))))writer {
+	NSLog(@"%@", @"relinquishPresentedItemToWriter");
+	// Prepare for another object to write to the file.
+	//self.fileIsWritable = NO;
+	
+	// Now let the writer know that it can have the file.
+	// But pass a reacquisition block so that this object
+	// can update itself when the writer is done.
+	writer(^{
+		NSLog(@"%@", @"write reacquirer called");
+		//self.fileIsWritable = YES;
+	});
+}
+
+- (void)savePresentedItemChangesWithCompletionHandler:(void (^)(NSError *errorOrNil))completionHandler {
+	NSLog(@"%@", @"savePresentedItemChangesWithCompletionHandler");
+	
+	NSError *error = [NSError errorWithDomain:@"BNRStoreDomain" code:-3 userInfo:[NSDictionary dictionaryWithObject:@"BNRStore not yet ready for savePresentedItemChangesWithCompletionHandler" forKey:NSLocalizedDescriptionKey]];
+	// pass nil to indicate success
+	completionHandler(error);
+}
+
+#endif // iCloudBNRStoreSupportEnabled
+
+
 @end

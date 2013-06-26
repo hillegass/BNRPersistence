@@ -26,8 +26,15 @@
 @interface BNRTCIndexManager : BNRIndexManager {
     NSString *path;
     NSMutableDictionary *textIndexes;
+	BOOL usesIndexFileWriteSync;		// will cause every write to sync to the physical storage media; slower, but much less fragile in cases of crash or power outage
+	BOOL usesIndexFileCompression;		// will compress offline TC index files; index files can go from a default of ~8.5MB to as little as 12KB!
 }
+@property (readonly) BOOL usesIndexFileWriteSync;
+@property (readonly) BOOL usesIndexFileCompression;
+
+- (id)initWithPath:(NSString *)p useWriteSyncronization:(BOOL)useWriteSyncFlag compressIndexFiles:(BOOL)compressIndexFilesFlag error:(NSError **)err; // designated initializer
 - (id)initWithPath:(NSString *)p error:(NSError **)err;
+
 - (TCIDB *)textIndexForClass:(Class)c 
                          key:(NSString *)k;
 - (NSString *)path;
