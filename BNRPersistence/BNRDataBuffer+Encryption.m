@@ -22,10 +22,10 @@
                       It is the caller's responsiblity to free() this memory.
  @param outDataLength (output) Number of bytes of data in outData.
  */
-void CryptHelper(NSString *key, const UInt32 *salt, CCOperation operation, const void *data, size_t length, void **outData, size_t *outDataLength)
+BOOL CryptHelper(NSString *key, const UInt32 *salt, CCOperation operation, const void *data, size_t length, void **outData, size_t *outDataLength)
 {
     if (key == nil || [key length] == 0)
-        return;
+        return NO;
     
     *outData = NULL;
     *outDataLength = 0;
@@ -44,7 +44,7 @@ void CryptHelper(NSString *key, const UInt32 *salt, CCOperation operation, const
 
     if (status != kCCSuccess) {
         NSLog(@"CCCryptorCreate(): error %d", status);
-        return;
+        return NO;
     }
     
     int outputLength = CCCryptorGetOutputLength(cryptor, length, true);
@@ -52,7 +52,7 @@ void CryptHelper(NSString *key, const UInt32 *salt, CCOperation operation, const
     if (outputBuffer == NULL)
     {
         NSLog(@"BFEncrypt(): Memory allocation error.");
-        return;
+        return NO;
     }
     
     size_t bytesOutput = 0;
@@ -62,7 +62,7 @@ void CryptHelper(NSString *key, const UInt32 *salt, CCOperation operation, const
     if (status != kCCSuccess)
     {
         free(outputBuffer);
-        return;
+        return NO;
     }
     writePtr += bytesOutput;
     outputLength -= bytesOutput;
@@ -72,7 +72,7 @@ void CryptHelper(NSString *key, const UInt32 *salt, CCOperation operation, const
     if (status != kCCSuccess)
     {
         free(outputBuffer);
-        return;
+        return NO;
     }
     totalBytesOutput += bytesOutput;
     
@@ -80,6 +80,7 @@ void CryptHelper(NSString *key, const UInt32 *salt, CCOperation operation, const
     *outDataLength = totalBytesOutput;
     
     CCCryptorRelease(cryptor);
+    return YES;
 }
 
 @implementation BNRDataBuffer (Encryption)
@@ -97,8 +98,8 @@ void CryptHelper(NSString *key, const UInt32 *salt, CCOperation operation, const
     
     void *decryptedBuffer = NULL;
     size_t decryptedBufferLength;
-    CryptHelper(key, littleSalt, kCCDecrypt, buffer, length, &decryptedBuffer, &decryptedBufferLength);
-    if (decryptedBufferLength >= 8 && memcmp(decryptedBuffer, littleSalt, 8) == 0)
+    BOOL success = CryptHelper(key, littleSalt, kCCDecrypt, buffer, length, &decryptedBuffer, &decryptedBufferLength);
+    if (success && decryptedBufferLength >= 8 && memcmp(decryptedBuffer, littleSalt, 8) == 0)
     {
         // Salt matches, so we believe the given key is good.
         // Let's move the data into our own buffer.
