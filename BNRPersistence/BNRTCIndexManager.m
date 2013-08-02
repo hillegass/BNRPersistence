@@ -130,7 +130,7 @@
 		return nil;
 	}
 	
-	NSError *error;
+	NSError *error = nil;
 	if(![ti loadTCIndexFile:&error]) {
 		NSLog(@"%@", [error localizedDescription]);
 		// Note: ti is already autoreleased
@@ -177,7 +177,10 @@
 	}
 
 	TCIDB *newDB = tcidbnew();
-	
+	if (!newDB) {
+        return NULL;
+    }
+    
 	if (usesIndexFileCompression) {
 		// When combined with tcidboptimize() (below), reduces the default size of
 		// new or sparsely-populated index files from ~8.5MB to ~600K. 
@@ -211,7 +214,7 @@
 	}
 	
 	TCIDBFile = newDB;
-	return TCIDBFile;
+	return newDB;
 }
 
 #if kImplementCacheUnloading
