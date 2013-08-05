@@ -41,7 +41,7 @@ int main (int argc, const char * argv[]) {
     FILE *fileHandle = fopen("eopub1m.txt", "r");
     if (!fileHandle) {
         char *cwd = getcwd(NULL, 0);
-        NSLog(@"test file 'eopub1m.txt' not found; ensure it is in app's working dir (%s)", cwd);
+        NSLog(@"test file 'eopub1m.txt' not found; ensure it is in app's current working dir (%s)", cwd);
         free(cwd);
         exit(EXIT_FAILURE);
     }
