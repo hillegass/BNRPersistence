@@ -21,7 +21,7 @@ void BNRRandomBytes(void *buffer, int length)
 }
 
 #else // Older OS X
-barf
+
 #import <openssl/rand.h>
 #import <libkern/OSTypes.h>
 
