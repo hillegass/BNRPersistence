@@ -43,7 +43,7 @@ BOOL CryptHelper(NSString *key, const UInt32 *salt, CCOperation operation, const
     CCCryptorStatus status = CCCryptorCreate(operation, kCCAlgorithmAES128, options, md, 4*sizeof(UInt32), NULL, &cryptor);
 
     if (status != kCCSuccess) {
-        NSLog(@"CCCryptorCreate(): error %d", status);
+        NSLog(@"CCCryptorCreate(): error:%d", status);
         return NO;
     }
     
@@ -51,7 +51,8 @@ BOOL CryptHelper(NSString *key, const UInt32 *salt, CCOperation operation, const
     void *outputBuffer = malloc(outputLength);
     if (outputBuffer == NULL)
     {
-        NSLog(@"BFEncrypt(): Memory allocation error.");
+        NSLog(@"BFEncrypt(): Memory allocation error:%d, %s", errno, strerror(errno));
+        CCCryptorRelease(cryptor);
         return NO;
     }
     
@@ -61,6 +62,8 @@ BOOL CryptHelper(NSString *key, const UInt32 *salt, CCOperation operation, const
     status = CCCryptorUpdate(cryptor, data, length, writePtr, outputLength, &bytesOutput);
     if (status != kCCSuccess)
     {
+        NSLog(@"CCCryptorUpdate(): error:%d", status);
+        CCCryptorRelease(cryptor);
         free(outputBuffer);
         return NO;
     }
@@ -71,6 +74,8 @@ BOOL CryptHelper(NSString *key, const UInt32 *salt, CCOperation operation, const
     status = CCCryptorFinal(cryptor, writePtr, outputLength, &bytesOutput);
     if (status != kCCSuccess)
     {
+        NSLog(@"CCCryptorFinal(): error:%d", status);
+        CCCryptorRelease(cryptor);
         free(outputBuffer);
         return NO;
     }

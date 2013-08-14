@@ -23,7 +23,7 @@
 												// (original BNRUniquing table used ~6MB, total memory footprint 21MB for 100,000 entries)
 												// insertion time with new uniquing table for 100,000 objects (MBAir) ranged from 1131ms-1605ms over ten looped runs with a new empty file; old uniquing table ranged 980ms to 1242ms over ten looped runs, new empty file)
 
-#define kCreateMapTableViaCInterface 1
+#define kCreateMapTableViaCInterface (1)
 #define kHashValueOfZeroIsOK (kCreateMapTableViaCInterface)
 
 - (id)init
