@@ -13,6 +13,7 @@
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
 		28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow.xib */; };
+		3F19901417BB5CCD0012B2AF /* BNRSalt.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F19901217BB5CCD0012B2AF /* BNRSalt.m */; };
 		663EDCA6116E7D9900D00CB9 /* BNRDataBuffer+Encryption.m in Sources */ = {isa = PBXBuildFile; fileRef = 663EDCA3116E7D9900D00CB9 /* BNRDataBuffer+Encryption.m */; };
 		663EDCA7116E7D9900D00CB9 /* BNRIndexManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 663EDCA5116E7D9900D00CB9 /* BNRIndexManager.m */; };
 		663EDCB3116E82FB00D00CB9 /* BNRCrypto.m in Sources */ = {isa = PBXBuildFile; fileRef = 663EDCB2116E82FB00D00CB9 /* BNRCrypto.m */; };
@@ -44,6 +45,13 @@
 			remoteGlobalIDString = D2AAC07E0554694100DB518D;
 			remoteInfo = TokyoCabinet;
 		};
+		3F19901017BB5CAB0012B2AF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3F19900A17BB5C050012B2AF /* TokyoCabinet.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D2AAC07D0554694100DB518D;
+			remoteInfo = TokyoCabinet;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +65,8 @@
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* PhoneSpeedTest_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhoneSpeedTest_Prefix.pch; sourceTree = "<group>"; };
 		3F19900A17BB5C050012B2AF /* TokyoCabinet.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = TokyoCabinet.xcodeproj; path = ../TokyoCabinet/TokyoCabinet.xcodeproj; sourceTree = "<group>"; };
+		3F19901217BB5CCD0012B2AF /* BNRSalt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BNRSalt.m; path = ../../BNRPersistence/BNRSalt.m; sourceTree = "<group>"; };
+		3F19901317BB5CCD0012B2AF /* BNRSalt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BNRSalt.h; path = ../../BNRPersistence/BNRSalt.h; sourceTree = "<group>"; };
 		663EDCA2116E7D9900D00CB9 /* BNRDataBuffer+Encryption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "BNRDataBuffer+Encryption.h"; path = "../BNRPersistence/BNRDataBuffer+Encryption.h"; sourceTree = SOURCE_ROOT; };
 		663EDCA3116E7D9900D00CB9 /* BNRDataBuffer+Encryption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "BNRDataBuffer+Encryption.m"; path = "../BNRPersistence/BNRDataBuffer+Encryption.m"; sourceTree = SOURCE_ROOT; };
 		663EDCA4116E7D9900D00CB9 /* BNRIndexManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BNRIndexManager.h; path = ../BNRPersistence/BNRIndexManager.h; sourceTree = SOURCE_ROOT; };
@@ -218,6 +228,8 @@
 				9366D825110F3F98000A897D /* BNRTCBackendCursor.m */,
 				663EDCA2116E7D9900D00CB9 /* BNRDataBuffer+Encryption.h */,
 				663EDCA3116E7D9900D00CB9 /* BNRDataBuffer+Encryption.m */,
+				3F19901317BB5CCD0012B2AF /* BNRSalt.h */,
+				3F19901217BB5CCD0012B2AF /* BNRSalt.m */,
 				663EDCB1116E82FB00D00CB9 /* BNRCrypto.h */,
 				663EDCB2116E82FB00D00CB9 /* BNRCrypto.m */,
 			);
@@ -238,6 +250,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				3F19901117BB5CAB0012B2AF /* PBXTargetDependency */,
 			);
 			name = PhoneSpeedTest;
 			productName = PhoneSpeedTest;
@@ -316,10 +329,19 @@
 				663EDCA6116E7D9900D00CB9 /* BNRDataBuffer+Encryption.m in Sources */,
 				663EDCA7116E7D9900D00CB9 /* BNRIndexManager.m in Sources */,
 				663EDCB3116E82FB00D00CB9 /* BNRCrypto.m in Sources */,
+				3F19901417BB5CCD0012B2AF /* BNRSalt.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3F19901117BB5CAB0012B2AF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = TokyoCabinet;
+			targetProxy = 3F19901017BB5CAB0012B2AF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		1D6058940D05DD3E006BFB54 /* Debug */ = {
@@ -333,10 +355,6 @@
 				GCC_PREFIX_HEADER = PhoneSpeedTest_Prefix.pch;
 				HEADER_SEARCH_PATHS = /usr/local/include;
 				INFOPLIST_FILE = "PhoneSpeedTest-Info.plist";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/../TokyoCabinet/build/Debug-iphoneos\"",
-				);
 				PRODUCT_NAME = PhoneSpeedTest;
 			};
 			name = Debug;
@@ -350,10 +368,6 @@
 				GCC_PREFIX_HEADER = PhoneSpeedTest_Prefix.pch;
 				HEADER_SEARCH_PATHS = /usr/local/include;
 				INFOPLIST_FILE = "PhoneSpeedTest-Info.plist";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/../TokyoCabinet/build/Debug-iphoneos\"",
-				);
 				PRODUCT_NAME = PhoneSpeedTest;
 			};
 			name = Release;
