@@ -48,7 +48,8 @@
     classID = [d readUInt8];
     if ([d length] > 6)
     {
-        for (int i = 0; i < 2; i++)
+        size_t keylen = sizeof(encryptionKeySalt)/sizeof(*encryptionKeySalt);
+        for (int i = 0; i < keylen; i++)
             encryptionKeySalt[i] = [d readUInt32];
     }
         
@@ -58,7 +59,9 @@
     [d writeUInt32:lastPrimaryKey];
     [d writeUInt8:versionNumber];
     [d writeUInt8:classID];
-    for (int i = 0; i < 2; i++)
+
+    size_t keylen = sizeof(encryptionKeySalt)/sizeof(*encryptionKeySalt);
+    for (int i = 0; i < keylen; i++)
         [d writeUInt32:encryptionKeySalt[i]];
 }
 - (unsigned char )classID
