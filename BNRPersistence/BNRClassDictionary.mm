@@ -52,19 +52,19 @@ struct BNRClassDictionaryImpl {
     self = [super init];
     if (self) {
         impl = new BNRClassDictionaryImpl;
-		mapTable = new hash_map<Class, id>(389);
+        mapTable = new hash_map<Class, id>(389);
     }
     return self;
 }
 
 - (void)dealloc
 {
-	for(BNRHashMap::iterator i(mapTable->begin()), e(mapTable->end());
+    for(BNRHashMap::iterator i(mapTable->begin()), e(mapTable->end());
         i != e; ++i) {
-		//NSLog(@"class:%@ id:%p", NSStringFromClass((id)i->first), i->second);
-		[(id)i->second release];
-	}
-	
+        //NSLog(@"class:%@ id:%p", NSStringFromClass((id)i->first), i->second);
+        [(id)i->second release];
+    }
+
     delete mapTable;
     delete impl;
     [super dealloc];
