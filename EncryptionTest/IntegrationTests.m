@@ -7,13 +7,14 @@
 //
 
 #import <SenTestingKit/SenTestingKit.h>
-#import "IntegrationTests.h"
 #import "Person.h"
 #import "BNRTCBackend.h"
 #import "BNRStore.h"
 #import "BNRDataBuffer.h"
 
-@interface IntegrationTests ()
+@interface IntegrationTests : SenTestCase {
+    BNRStore *store;
+}
 - (void)reopen;
 @end
 
