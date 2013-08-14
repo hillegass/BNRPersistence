@@ -22,6 +22,7 @@
 
 
 #import <Foundation/Foundation.h>
+#import "BNRSalt.h"
 @class BNRDataBuffer;
 
 /*!
@@ -55,7 +56,7 @@
     unsigned char classID;
     volatile UInt32 lastPrimaryKey;
     unsigned char versionNumber;
-    UInt32 encryptionKeySalt[2];
+    BNRSalt salt;
 } 
 
 /*!
@@ -108,6 +109,6 @@
  @method encryptionKeySalt
  @abstract Returns the encryption key salt value used on with this class's data.
  */
-- (const UInt32 *)encryptionKeySalt;
+- (const BNRSalt *)encryptionKeySalt;
 
 @end

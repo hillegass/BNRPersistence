@@ -37,7 +37,7 @@
 		classID = 0;
 		
 		// Randomize the salt to start with; if a class is being loaded the salt will be set in -readContentFromBuffer:.
-		BNRRandomBytes(encryptionKeySalt, 8);
+		BNRRandomBytes(&salt.word, sizeof(salt.word));
 	}
     return self;
 }
@@ -48,9 +48,8 @@
     classID = [d readUInt8];
     if ([d length] > 6)
     {
-        size_t keylen = sizeof(encryptionKeySalt)/sizeof(*encryptionKeySalt);
-        for (int i = 0; i < keylen; i++)
-            encryptionKeySalt[i] = [d readUInt32];
+        for (int i = 0; i < BNR_SALT_WORD_COUNT; i++)
+            salt.word[i] = [d readUInt32];
     }
         
 }
@@ -60,9 +59,8 @@
     [d writeUInt8:versionNumber];
     [d writeUInt8:classID];
 
-    size_t keylen = sizeof(encryptionKeySalt)/sizeof(*encryptionKeySalt);
-    for (int i = 0; i < keylen; i++)
-        [d writeUInt32:encryptionKeySalt[i]];
+    for (int i = 0; i < BNR_SALT_WORD_COUNT; i++)
+        [d writeUInt32:salt.word[i]];
 }
 - (unsigned char )classID
 {
@@ -90,8 +88,8 @@
     versionNumber = x;
 }
 
-- (const UInt32 *)encryptionKeySalt
+- (const BNRSalt *)encryptionKeySalt
 {
-    return encryptionKeySalt;
+    return &salt;
 }
 @end
