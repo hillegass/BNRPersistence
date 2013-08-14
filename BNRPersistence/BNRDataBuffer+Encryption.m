@@ -132,7 +132,11 @@ BOOL CryptHelper(NSString *key, const BNRSalt *salt, CCOperation operation, cons
 
     BNRSalt littleSalt = *salt;
     BNRSaltToLittle(&littleSalt);
-    
+
+    /* (jws/2013-08-14)FIXME: We should be using in-place cryption where
+     * possible, and taking advantage of being able to feed buffers one by one
+     * into the Update() function, rather than having to manually paste things
+     * together all the time. */
     // Create a scratch buffer so we can prepend the 8 bytes of salt.
     // We will look for these salt bytes when decrypting to confirm that we were successful.
     int scratchBufferLength = 8 + length;
