@@ -22,44 +22,61 @@
 
 #import "BNRClassDictionary.h"
 
-@implementation BNRClassDictionary
+#include <ext/hash_map> //using namespace stdext;
+using std::pair;
+using namespace __gnu_cxx;
 
+namespace __gnu_cxx {
+    template<>
+    struct hash<Class>
+    {
+        size_t operator()(const Class ptr) const
+        {
+            return (size_t)ptr;
+        };
+    };
+}
+
+typedef hash_map<Class, id> BNRHashMap;
+typedef pair<Class, id> HashedPair;
+
+struct BNRClassDictionaryImpl {
+    BNRHashMap *mapTable;
+};
+
+#define mapTable impl->mapTable
+
+@implementation BNRClassDictionary
 - (id)init
 {
     self = [super init];
     if (self) {
-		mapTable = new hash_map<Class, id, hash<Class>, equal_to<Class> >(389);
+        impl = new BNRClassDictionaryImpl;
+		mapTable = new hash_map<Class, id>(389);
     }
     return self;
 }
+
 - (void)dealloc
 {
-#if (1)  // silence a compiler complaint - but better double-check this
-	typedef hash_map<Class, id, hash<Class>, equal_to<Class> > bnr_hashmap_t;
-	for(bnr_hashmap_t::iterator i(mapTable->begin()), j(mapTable->end()); i!=j; ++i){ 
+	for(BNRHashMap::iterator i(mapTable->begin()), e(mapTable->end());
+        i != e; ++i) {
 		//NSLog(@"class:%@ id:%p", NSStringFromClass((id)i->first), i->second);
 		[(id)i->second release];
 	}
-#else // original code
-	hash_map<Class, id, hash<Class>, equal_to<Class> >::iterator iter = mapTable->begin();
-    while (iter != mapTable->end()) {
-		[(id)iter->second release];
-        iter++;
-    }
-    mapTable->clear();
-#endif
 	
     delete mapTable;
+    delete impl;
     [super dealloc];
 }
 
 - (void)setObject:(id)obj forClass:(Class)c
 {
-   // NSMapInsert(mapTable, c, obj);
     id oldValue = (*mapTable)[c];
     if (oldValue == obj) {
         return;
     }
+
     [obj retain];
     [oldValue release];
     (*mapTable)[c] = obj;
