@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		3F198FF917BB42560012B2AF /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F198FF817BB42560012B2AF /* Security.framework */; };
 		3F198FFA17BB42690012B2AF /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F198FF817BB42560012B2AF /* Security.framework */; };
+		3F198FFC17BB4EC70012B2AF /* BNRSalt.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F198FFB17BB4EC70012B2AF /* BNRSalt.m */; };
+		3F198FFE17BB51FC0012B2AF /* BNRSalt.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F198FFB17BB4EC70012B2AF /* BNRSalt.m */; };
 		663ED62D116BE0E700D00CB9 /* BNRBackendCursor.m in Sources */ = {isa = PBXBuildFile; fileRef = 663ED614116BE0E700D00CB9 /* BNRBackendCursor.m */; };
 		663ED62E116BE0E700D00CB9 /* BNRClassDictionary.mm in Sources */ = {isa = PBXBuildFile; fileRef = 663ED616116BE0E700D00CB9 /* BNRClassDictionary.mm */; };
 		663ED62F116BE0E700D00CB9 /* BNRClassMetaData.m in Sources */ = {isa = PBXBuildFile; fileRef = 663ED618116BE0E700D00CB9 /* BNRClassMetaData.m */; };
@@ -65,6 +67,8 @@
 		08FB779EFE84155DC02AAC07 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		32A70AAB03705E1F00C91783 /* EncryptionTest_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EncryptionTest_Prefix.pch; sourceTree = "<group>"; };
 		3F198FF817BB42560012B2AF /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = ../../../../../System/Library/Frameworks/Security.framework; sourceTree = "<group>"; };
+		3F198FFB17BB4EC70012B2AF /* BNRSalt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNRSalt.m; sourceTree = "<group>"; };
+		3F198FFD17BB4ED10012B2AF /* BNRSalt.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BNRSalt.h; sourceTree = "<group>"; };
 		663ED613116BE0E700D00CB9 /* BNRBackendCursor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNRBackendCursor.h; sourceTree = "<group>"; };
 		663ED614116BE0E700D00CB9 /* BNRBackendCursor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNRBackendCursor.m; sourceTree = "<group>"; };
 		663ED615116BE0E700D00CB9 /* BNRClassDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNRClassDictionary.h; sourceTree = "<group>"; };
@@ -202,6 +206,8 @@
 				663ED628116BE0E700D00CB9 /* BNRTCBackendCursor.m */,
 				663ED62B116BE0E700D00CB9 /* BNRUniquingTable.h */,
 				663ED62C116BE0E700D00CB9 /* BNRUniquingTable.m */,
+				3F198FFD17BB4ED10012B2AF /* BNRSalt.h */,
+				3F198FFB17BB4EC70012B2AF /* BNRSalt.m */,
 				663ED6F0116BF0BD00D00CB9 /* BNRDataBuffer+Encryption.h */,
 				663ED6F1116BF0BD00D00CB9 /* BNRDataBuffer+Encryption.m */,
 			);
@@ -330,6 +336,7 @@
 				663ED961116CCE8100D00CB9 /* BufferEncryptionTests.m in Sources */,
 				663EDD11116EA47B00D00CB9 /* BNRCrypto.m in Sources */,
 				663EDF2C116FDFE200D00CB9 /* GeneralTests.m in Sources */,
+				3F198FFE17BB51FC0012B2AF /* BNRSalt.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -353,6 +360,7 @@
 				663ED6F2116BF0BD00D00CB9 /* BNRDataBuffer+Encryption.m in Sources */,
 				663ED7CA116C19E800D00CB9 /* Person.m in Sources */,
 				663EDD12116EA47B00D00CB9 /* BNRCrypto.m in Sources */,
+				3F198FFC17BB4EC70012B2AF /* BNRSalt.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
