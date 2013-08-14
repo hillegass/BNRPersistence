@@ -8,10 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import "BNRDataBuffer.h"
+#import "BNRSalt.h"
 
 @interface BNRDataBuffer (Encryption)
 
-- (BOOL)decryptWithKey:(NSString *)key salt:(const UInt32 *)salt;
-- (void)encryptWithKey:(NSString *)key salt:(const UInt32 *)salt;
+- (BOOL)decryptWithKey:(NSString *)key salt:(const BNRSalt *)salt;
+- (void)encryptWithKey:(NSString *)key salt:(const BNRSalt *)salt;
 
 @end

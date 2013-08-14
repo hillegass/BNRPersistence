@@ -15,7 +15,7 @@
 
 #import <Security/SecRandom.h>
 
-void BNRRandomBytes(void *buffer, int length)
+void BNRRandomBytes(void *buffer, size_t length)
 {
     SecRandomCopyBytes(kSecRandomDefault, length, (uint8_t*)buffer);
 }
@@ -25,8 +25,9 @@ void BNRRandomBytes(void *buffer, int length)
 #import <openssl/rand.h>
 #import <libkern/OSTypes.h>
 
-void BNRRandomBytes(void *buffer, int length)
+void BNRRandomBytes(void *buffer, size_t length)
 {
-    RAND_pseudo_bytes((UInt8*)buffer, length);
+    /* This function was deprecated with OS X 10.7. */
+    RAND_pseudo_bytes((UInt8*)buffer, (int)length);
 }
 #endif

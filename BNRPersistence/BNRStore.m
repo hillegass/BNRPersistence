@@ -138,25 +138,28 @@
     classes[classCount] = c;
 }
 
+- (void)getSalt:(BNRSalt *)salt forClass:(Class)c rowID:(UInt32)rowID
+{
+    NSParameterAssert(salt != nil);
+    BNRClassMetaData *metaData = [self metaDataForClass:c];
+    *salt = *[metaData encryptionKeySalt];
+    StirBNRSaltWithWords(salt, 0, rowID);
+}
+
 - (BOOL)decryptBuffer:(BNRDataBuffer *)buffer ofClass:(Class)c rowID:(UInt32)rowID
 {
     if (buffer == nil)
         return YES;
-    
-    BNRClassMetaData *metaData = [self metaDataForClass:c];
-    
-    UInt32 salt[2];
-    memcpy(salt, [metaData encryptionKeySalt], 8);
-    salt[1] = salt[1] ^ rowID;
-    
-    return [buffer decryptWithKey:encryptionKey salt:salt];
+
+    BNRSalt salt;
+    [self getSalt:&salt forClass:c rowID:rowID];
+    return [buffer decryptWithKey:encryptionKey salt:&salt];
 }
 - (void)encryptBuffer:(BNRDataBuffer *)buffer ofClass:(Class)c rowID:(UInt32)rowID
 {
-    UInt32 salt[2];
-    memcpy(salt, [[self metaDataForClass:c] encryptionKeySalt], 8);
-    salt[1] = salt[1] ^ rowID;
-    [buffer encryptWithKey:encryptionKey salt:salt]; // does not encrypt if encryptionKey is empty.
+    BNRSalt salt;
+    [self getSalt:&salt forClass:c rowID:rowID];
+    [buffer encryptWithKey:encryptionKey salt:&salt]; // does not encrypt if encryptionKey is empty.
 }
 
 #pragma mark Fetching

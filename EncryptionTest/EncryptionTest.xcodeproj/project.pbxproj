@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F198FF917BB42560012B2AF /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F198FF817BB42560012B2AF /* Security.framework */; };
+		3F198FFA17BB42690012B2AF /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F198FF817BB42560012B2AF /* Security.framework */; };
+		3F198FFC17BB4EC70012B2AF /* BNRSalt.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F198FFB17BB4EC70012B2AF /* BNRSalt.m */; };
+		3F198FFE17BB51FC0012B2AF /* BNRSalt.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F198FFB17BB4EC70012B2AF /* BNRSalt.m */; };
 		663ED62D116BE0E700D00CB9 /* BNRBackendCursor.m in Sources */ = {isa = PBXBuildFile; fileRef = 663ED614116BE0E700D00CB9 /* BNRBackendCursor.m */; };
 		663ED62E116BE0E700D00CB9 /* BNRClassDictionary.mm in Sources */ = {isa = PBXBuildFile; fileRef = 663ED616116BE0E700D00CB9 /* BNRClassDictionary.mm */; };
 		663ED62F116BE0E700D00CB9 /* BNRClassMetaData.m in Sources */ = {isa = PBXBuildFile; fileRef = 663ED618116BE0E700D00CB9 /* BNRClassMetaData.m */; };
@@ -62,6 +66,9 @@
 		08FB7796FE84155DC02AAC07 /* EncryptionTestMain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EncryptionTestMain.m; sourceTree = "<group>"; };
 		08FB779EFE84155DC02AAC07 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		32A70AAB03705E1F00C91783 /* EncryptionTest_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EncryptionTest_Prefix.pch; sourceTree = "<group>"; };
+		3F198FF817BB42560012B2AF /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = ../../../../../System/Library/Frameworks/Security.framework; sourceTree = "<group>"; };
+		3F198FFB17BB4EC70012B2AF /* BNRSalt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNRSalt.m; sourceTree = "<group>"; };
+		3F198FFD17BB4ED10012B2AF /* BNRSalt.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BNRSalt.h; sourceTree = "<group>"; };
 		663ED613116BE0E700D00CB9 /* BNRBackendCursor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNRBackendCursor.h; sourceTree = "<group>"; };
 		663ED614116BE0E700D00CB9 /* BNRBackendCursor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNRBackendCursor.m; sourceTree = "<group>"; };
 		663ED615116BE0E700D00CB9 /* BNRClassDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNRClassDictionary.h; sourceTree = "<group>"; };
@@ -91,17 +98,14 @@
 		663ED6F1116BF0BD00D00CB9 /* BNRDataBuffer+Encryption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BNRDataBuffer+Encryption.m"; sourceTree = "<group>"; };
 		663ED7C8116C19E800D00CB9 /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
 		663ED7C9116C19E800D00CB9 /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
-		663ED7D5116C1ACB00D00CB9 /* IntegrationTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntegrationTests.h; sourceTree = "<group>"; };
 		663ED7D6116C1ACB00D00CB9 /* IntegrationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntegrationTests.m; sourceTree = "<group>"; };
 		663ED7E3116C1B4A00D00CB9 /* EncryptionTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EncryptionTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		663ED7E4116C1B4A00D00CB9 /* EncryptionTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "EncryptionTests-Info.plist"; sourceTree = "<group>"; };
 		663ED814116C1E2300D00CB9 /* libtokyocabinet.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libtokyocabinet.dylib; path = usr/local/lib/libtokyocabinet.dylib; sourceTree = SDKROOT; };
 		663ED816116C1E4100D00CB9 /* libcrypto.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcrypto.dylib; path = usr/lib/libcrypto.dylib; sourceTree = SDKROOT; };
-		663ED95F116CCE8100D00CB9 /* BufferEncryptionTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BufferEncryptionTests.h; sourceTree = "<group>"; };
 		663ED960116CCE8100D00CB9 /* BufferEncryptionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BufferEncryptionTests.m; sourceTree = "<group>"; };
 		663EDD0F116EA47B00D00CB9 /* BNRCrypto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNRCrypto.h; sourceTree = "<group>"; };
 		663EDD10116EA47B00D00CB9 /* BNRCrypto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNRCrypto.m; sourceTree = "<group>"; };
-		663EDF2A116FDFE200D00CB9 /* GeneralTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneralTests.h; sourceTree = "<group>"; };
 		663EDF2B116FDFE200D00CB9 /* GeneralTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeneralTests.m; sourceTree = "<group>"; };
 		8DD76FA10486AA7600D96B5E /* EncryptionTest */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = EncryptionTest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -111,6 +115,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F198FFA17BB42690012B2AF /* Security.framework in Frameworks */,
 				663ED815116C1E2300D00CB9 /* libtokyocabinet.dylib in Frameworks */,
 				663ED817116C1E4100D00CB9 /* libcrypto.dylib in Frameworks */,
 			);
@@ -120,6 +125,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F198FF917BB42560012B2AF /* Security.framework in Frameworks */,
 				8DD76F9C0486AA7600D96B5E /* Foundation.framework in Frameworks */,
 				663ED655116BE40700D00CB9 /* Cocoa.framework in Frameworks */,
 			);
@@ -131,6 +137,7 @@
 		08FB7794FE84155DC02AAC07 /* EncryptionTest */ = {
 			isa = PBXGroup;
 			children = (
+				3F198FF817BB42560012B2AF /* Security.framework */,
 				08FB7795FE84155DC02AAC07 /* Source */,
 				08FB779DFE84155DC02AAC07 /* External Frameworks and Libraries */,
 				1AB674ADFE9D54B511CA2CBB /* Products */,
@@ -199,6 +206,8 @@
 				663ED628116BE0E700D00CB9 /* BNRTCBackendCursor.m */,
 				663ED62B116BE0E700D00CB9 /* BNRUniquingTable.h */,
 				663ED62C116BE0E700D00CB9 /* BNRUniquingTable.m */,
+				3F198FFD17BB4ED10012B2AF /* BNRSalt.h */,
+				3F198FFB17BB4EC70012B2AF /* BNRSalt.m */,
 				663ED6F0116BF0BD00D00CB9 /* BNRDataBuffer+Encryption.h */,
 				663ED6F1116BF0BD00D00CB9 /* BNRDataBuffer+Encryption.m */,
 			);
@@ -211,11 +220,8 @@
 			children = (
 				663ED7C8116C19E800D00CB9 /* Person.h */,
 				663ED7C9116C19E800D00CB9 /* Person.m */,
-				663EDF2A116FDFE200D00CB9 /* GeneralTests.h */,
 				663EDF2B116FDFE200D00CB9 /* GeneralTests.m */,
-				663ED7D5116C1ACB00D00CB9 /* IntegrationTests.h */,
 				663ED7D6116C1ACB00D00CB9 /* IntegrationTests.m */,
-				663ED95F116CCE8100D00CB9 /* BufferEncryptionTests.h */,
 				663ED960116CCE8100D00CB9 /* BufferEncryptionTests.m */,
 			);
 			name = "Unit Tests";
@@ -267,7 +273,11 @@
 			isa = PBXProject;
 			buildConfigurationList = 1DEB927808733DD40010E9CD /* Build configuration list for PBXProject "EncryptionTest" */;
 			compatibilityVersion = "Xcode 3.1";
+			developmentRegion = English;
 			hasScannedForEncodings = 1;
+			knownRegions = (
+				en,
+			);
 			mainGroup = 08FB7794FE84155DC02AAC07 /* EncryptionTest */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -326,6 +336,7 @@
 				663ED961116CCE8100D00CB9 /* BufferEncryptionTests.m in Sources */,
 				663EDD11116EA47B00D00CB9 /* BNRCrypto.m in Sources */,
 				663EDF2C116FDFE200D00CB9 /* GeneralTests.m in Sources */,
+				3F198FFE17BB51FC0012B2AF /* BNRSalt.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -349,6 +360,7 @@
 				663ED6F2116BF0BD00D00CB9 /* BNRDataBuffer+Encryption.m in Sources */,
 				663ED7CA116C19E800D00CB9 /* Person.m in Sources */,
 				663EDD12116EA47B00D00CB9 /* BNRCrypto.m in Sources */,
+				3F198FFC17BB4EC70012B2AF /* BNRSalt.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -407,7 +419,6 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = NO;
-				SDKROOT = macosx10.6;
 			};
 			name = Debug;
 		};
@@ -420,7 +431,6 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				PREBINDING = NO;
-				SDKROOT = macosx10.6;
 			};
 			name = Release;
 		};
