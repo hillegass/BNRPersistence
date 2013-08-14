@@ -36,6 +36,16 @@
 		9366DA731112158A000A897D /* BNRClassDictionary.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9366DA6E1112158A000A897D /* BNRClassDictionary.mm */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		3F19900E17BB5C070012B2AF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3F19900A17BB5C050012B2AF /* TokyoCabinet.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D2AAC07E0554694100DB518D;
+			remoteInfo = TokyoCabinet;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D3623240D0F684500981E51 /* PhoneSpeedTestAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhoneSpeedTestAppDelegate.h; sourceTree = "<group>"; };
@@ -46,6 +56,7 @@
 		28AD733E0D9D9553002E5188 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* PhoneSpeedTest_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhoneSpeedTest_Prefix.pch; sourceTree = "<group>"; };
+		3F19900A17BB5C050012B2AF /* TokyoCabinet.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = TokyoCabinet.xcodeproj; path = ../TokyoCabinet/TokyoCabinet.xcodeproj; sourceTree = "<group>"; };
 		663EDCA2116E7D9900D00CB9 /* BNRDataBuffer+Encryption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "BNRDataBuffer+Encryption.h"; path = "../BNRPersistence/BNRDataBuffer+Encryption.h"; sourceTree = SOURCE_ROOT; };
 		663EDCA3116E7D9900D00CB9 /* BNRDataBuffer+Encryption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "BNRDataBuffer+Encryption.m"; path = "../BNRPersistence/BNRDataBuffer+Encryption.m"; sourceTree = SOURCE_ROOT; };
 		663EDCA4116E7D9900D00CB9 /* BNRIndexManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BNRIndexManager.h; path = ../BNRPersistence/BNRIndexManager.h; sourceTree = SOURCE_ROOT; };
@@ -130,6 +141,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				3F19900A17BB5C050012B2AF /* TokyoCabinet.xcodeproj */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
@@ -169,6 +181,14 @@
 				663EDD07116EA45700D00CB9 /* Security.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3F19900B17BB5C050012B2AF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3F19900F17BB5C070012B2AF /* libTokyoCabinet.a */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		9366D80C110F3F58000A897D /* BNRPersistence */ = {
@@ -231,15 +251,35 @@
 			isa = PBXProject;
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "PhoneSpeedTest" */;
 			compatibilityVersion = "Xcode 3.1";
+			developmentRegion = English;
 			hasScannedForEncodings = 1;
+			knownRegions = (
+				en,
+			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 3F19900B17BB5C050012B2AF /* Products */;
+					ProjectRef = 3F19900A17BB5C050012B2AF /* TokyoCabinet.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				1D6058900D05DD3D006BFB54 /* PhoneSpeedTest */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		3F19900F17BB5C070012B2AF /* libTokyoCabinet.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libTokyoCabinet.a;
+			remoteRef = 3F19900E17BB5C070012B2AF /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		1D60588D0D05DD3D006BFB54 /* Resources */ = {
@@ -326,8 +366,9 @@
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				PREBINDING = NO;
-				SDKROOT = iphoneos3.1.2;
+				SDKROOT = iphoneos;
 			};
 			name = Debug;
 		};
@@ -339,8 +380,9 @@
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				PREBINDING = NO;
-				SDKROOT = iphoneos3.1.2;
+				SDKROOT = iphoneos;
 			};
 			name = Release;
 		};
