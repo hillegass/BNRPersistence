@@ -27,6 +27,15 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		3F19900117BB5BAA0012B2AF /* BNRSalt.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F198FFF17BB5B930012B2AF /* BNRSalt.m */; };
+		3F19900217BB5BAA0012B2AF /* BNRSalt.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F198FFF17BB5B930012B2AF /* BNRSalt.m */; };
+		3F19900317BB5BAB0012B2AF /* BNRSalt.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F198FFF17BB5B930012B2AF /* BNRSalt.m */; };
+		3F19900417BB5BAC0012B2AF /* BNRSalt.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F198FFF17BB5B930012B2AF /* BNRSalt.m */; };
+		3F19900517BB5BAD0012B2AF /* BNRSalt.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F198FFF17BB5B930012B2AF /* BNRSalt.m */; };
+		3F19900617BB5BAE0012B2AF /* BNRSalt.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F198FFF17BB5B930012B2AF /* BNRSalt.m */; };
+		3F19900717BB5BAE0012B2AF /* BNRSalt.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F198FFF17BB5B930012B2AF /* BNRSalt.m */; };
+		3F19900817BB5BAF0012B2AF /* BNRSalt.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F198FFF17BB5B930012B2AF /* BNRSalt.m */; };
+		3F19900917BB5BB00012B2AF /* BNRSalt.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F198FFF17BB5B930012B2AF /* BNRSalt.m */; };
 		934ECE661116290500F8C0E5 /* BNRBackendCursor.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D504D2110B883700E5D2F0 /* BNRBackendCursor.m */; };
 		934ECE671116290500F8C0E5 /* BNRClassDictionary.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93D504D4110B883700E5D2F0 /* BNRClassDictionary.mm */; };
 		934ECE681116290500F8C0E5 /* BNRClassMetaData.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D504D6110B883700E5D2F0 /* BNRClassMetaData.m */; };
@@ -293,6 +302,8 @@
 
 /* Begin PBXFileReference section */
 		08FB779EFE84155DC02AAC07 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		3F198FFF17BB5B930012B2AF /* BNRSalt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BNRSalt.m; path = ../BNRPersistence/BNRSalt.m; sourceTree = "<group>"; };
+		3F19900017BB5B930012B2AF /* BNRSalt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BNRSalt.h; path = ../BNRPersistence/BNRSalt.h; sourceTree = "<group>"; };
 		66C0B2F715AE01570066DEC4 /* BNRResizableUniquingTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNRResizableUniquingTable.h; sourceTree = "<group>"; };
 		66C0B2F815AE01570066DEC4 /* BNRResizableUniquingTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNRResizableUniquingTable.m; sourceTree = "<group>"; };
 		9324D3651129AB7D00E8C193 /* BNRTCIndexManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BNRTCIndexManager.h; path = ../BNRPersistence/BNRTCIndexManager.h; sourceTree = SOURCE_ROOT; };
@@ -522,6 +533,8 @@
 		9366DA0711120583000A897D /* DataStructures */ = {
 			isa = PBXGroup;
 			children = (
+				3F19900017BB5B930012B2AF /* BNRSalt.h */,
+				3F198FFF17BB5B930012B2AF /* BNRSalt.m */,
 				93D504D3110B883700E5D2F0 /* BNRClassDictionary.h */,
 				93D504D4110B883700E5D2F0 /* BNRClassDictionary.mm */,
 				9366D9F711120568000A897D /* BNRUniquingTable.h */,
@@ -765,6 +778,7 @@
 				934ECFC7111B3C7F00F8C0E5 /* BNRIndexManager.m in Sources */,
 				93A7B62C11E65C4600C671F3 /* BNRCrypto.m in Sources */,
 				93A7B62D11E65C4600C671F3 /* BNRDataBuffer+Encryption.m in Sources */,
+				3F19900517BB5BAD0012B2AF /* BNRSalt.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -789,6 +803,7 @@
 				937F320711318EA60035B7EC /* FullTextInsertTest.m in Sources */,
 				93A7B62A11E65C4600C671F3 /* BNRCrypto.m in Sources */,
 				93A7B62B11E65C4600C671F3 /* BNRDataBuffer+Encryption.m in Sources */,
+				3F19900617BB5BAE0012B2AF /* BNRSalt.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -813,6 +828,7 @@
 				937F33341131AB210035B7EC /* FullTextFetchText.m in Sources */,
 				93A7B62811E65C4600C671F3 /* BNRCrypto.m in Sources */,
 				93A7B62911E65C4600C671F3 /* BNRDataBuffer+Encryption.m in Sources */,
+				3F19900717BB5BAE0012B2AF /* BNRSalt.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -836,6 +852,7 @@
 				93A7B55F11E64F1F00C671F3 /* NamedBufferInsertTest.m in Sources */,
 				93A7B62611E65C4600C671F3 /* BNRCrypto.m in Sources */,
 				93A7B62711E65C4600C671F3 /* BNRDataBuffer+Encryption.m in Sources */,
+				3F19900817BB5BAF0012B2AF /* BNRSalt.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -859,6 +876,7 @@
 				93A7B65311E65D6300C671F3 /* BNRCrypto.m in Sources */,
 				93A7B65411E65D6300C671F3 /* BNRDataBuffer+Encryption.m in Sources */,
 				93A7B66F11E65DBC00C671F3 /* NamedBufferFetchTest.m in Sources */,
+				3F19900917BB5BB00012B2AF /* BNRSalt.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -883,6 +901,7 @@
 				934ECFCA111B3C7F00F8C0E5 /* BNRIndexManager.m in Sources */,
 				93A7B63411E65C4600C671F3 /* BNRCrypto.m in Sources */,
 				93A7B63511E65C4600C671F3 /* BNRDataBuffer+Encryption.m in Sources */,
+				3F19900117BB5BAA0012B2AF /* BNRSalt.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -907,6 +926,7 @@
 				934ECFCB111B3C7F00F8C0E5 /* BNRIndexManager.m in Sources */,
 				93A7B63011E65C4600C671F3 /* BNRCrypto.m in Sources */,
 				93A7B63111E65C4600C671F3 /* BNRDataBuffer+Encryption.m in Sources */,
+				3F19900217BB5BAA0012B2AF /* BNRSalt.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -931,6 +951,7 @@
 				934ECFC9111B3C7F00F8C0E5 /* BNRIndexManager.m in Sources */,
 				93A7B63211E65C4600C671F3 /* BNRCrypto.m in Sources */,
 				93A7B63311E65C4600C671F3 /* BNRDataBuffer+Encryption.m in Sources */,
+				3F19900317BB5BAB0012B2AF /* BNRSalt.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -955,6 +976,7 @@
 				934ECFC8111B3C7F00F8C0E5 /* BNRIndexManager.m in Sources */,
 				93A7B62E11E65C4600C671F3 /* BNRCrypto.m in Sources */,
 				93A7B62F11E65C4600C671F3 /* BNRDataBuffer+Encryption.m in Sources */,
+				3F19900417BB5BAC0012B2AF /* BNRSalt.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
