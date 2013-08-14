@@ -6,14 +6,16 @@
 //  Copyright 2010 Big Nerd Ranch. All rights reserved.
 //
 
-#import "GeneralTests.h"
+#import <SenTestingKit/SenTestingKit.h>
 #import "Person.h"
 #import "BNRTCBackend.h"
 #import "BNRStore.h"
 
 extern NSString * const IntegrationTestsDatabasePath;
 
-@interface GeneralTests ()
+@interface GeneralTests : SenTestCase {
+    BNRStore *store;
+}
 - (void)reopen;
 @end
 

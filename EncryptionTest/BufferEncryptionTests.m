@@ -6,10 +6,17 @@
 //  Copyright 2010 Big Nerd Ranch. All rights reserved.
 //
 
-#import "BufferEncryptionTests.h"
+#import <SenTestingKit/SenTestingKit.h>
 #import "BNRDataBuffer.h"
 #import "BNRDataBuffer+Encryption.h"
 #import "BNRCrypto.h"
+
+@interface BufferEncryptionTests : SenTestCase {
+    BNRDataBuffer *buffer;
+    NSMutableData *randomData;
+    UInt32 salt[2];
+}
+@end
 
 @interface NSData (RandomizedData)
 + (id)dataWithRandomBytesOfLength:(int)length;
