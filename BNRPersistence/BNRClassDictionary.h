@@ -21,6 +21,7 @@
 // THE SOFTWARE.
 
 #import <Foundation/Foundation.h>
+struct BNRClassDictionaryImpl;
 
 /*!
  @class BNRClassDictionary
@@ -28,37 +29,11 @@
  the values are objects. 
  @discussion Objects are retained.
  */
-
-#ifdef __cplusplus
-#include <ext/hash_map> //using namespace stdext;
-using std::pair;
-using namespace __gnu_cxx;
-
-
-namespace __gnu_cxx {
-    template<>
-    struct hash<Class>
-    {
-        size_t operator()(const Class ptr) const
-        {
-            return (size_t)ptr;
-        };
-    };
-}    
-
-
-typedef pair<Class, id> HashedPair;
-
-#endif 
-
 @interface BNRClassDictionary : NSObject 
 {
-#ifdef __cplusplus
-    hash_map<Class, id, hash<Class>, equal_to<Class> > *mapTable;
-#else
-    void *mapTable; 
-#endif
+    struct BNRClassDictionaryImpl *impl;
 }
+
 /*!
  @method init
  @abstract The designated initializer for this class

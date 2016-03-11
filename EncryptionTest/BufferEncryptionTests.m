@@ -14,7 +14,7 @@
 @interface BufferEncryptionTests : SenTestCase {
     BNRDataBuffer *buffer;
     NSMutableData *randomData;
-    UInt32 salt[2];
+    BNRSalt salt;
 }
 @end
 
@@ -45,7 +45,7 @@
     memcpy(copyOfData, [randomData bytes], [randomData length]);
     buffer = [[BNRDataBuffer alloc] initWithData:copyOfData length:[randomData length]];
     
-    BNRRandomBytes(salt, 8);
+    BNRRandomBytes(salt.word, 8);
 }
 - (void)tearDown
 {
@@ -65,34 +65,34 @@
 }
 - (void)testEmptyKey
 {
-    [buffer encryptWithKey:@"" salt:salt];
+    [buffer encryptWithKey:@"" salt:&salt];
     STAssertTrue([self bufferMatchesOriginalData], @"Encryption with empty key should not encrypt.");
 }
 - (void)testNilKey
 {
-    [buffer encryptWithKey:nil salt:salt];
+    [buffer encryptWithKey:nil salt:&salt];
     STAssertTrue([self bufferMatchesOriginalData], @"Encryption with nil key should not encrypt.");
 }
 - (void)testBasicCycle
 {
-    [buffer encryptWithKey:@"howdy" salt:salt];
+    [buffer encryptWithKey:@"howdy" salt:&salt];
     STAssertFalse([self bufferMatchesOriginalData], @"Encrypted bytes should not match clear bytes.");
-    [buffer decryptWithKey:@"howdy" salt:salt];
+    [buffer decryptWithKey:@"howdy" salt:&salt];
     STAssertTrue([self bufferMatchesOriginalData], @"Decrypted data should match");
 }
 - (void)testBasicCycleBadPassword
 {
-    [buffer encryptWithKey:@"howdy" salt:salt];
+    [buffer encryptWithKey:@"howdy" salt:&salt];
     STAssertFalse([self bufferMatchesOriginalData], @"Encrypted bytes should not match clear bytes.");
-    [buffer decryptWithKey:@"howdy1" salt:salt];
+    [buffer decryptWithKey:@"howdy1" salt:&salt];
     STAssertFalse([self bufferMatchesOriginalData], @"Decrypted data with different password should not match");
 }
 - (void)testBasicCycleBadPasswordRepeated
 {
     // Make sure that our encryption doesn't cook up the same key for the password repeated (such as a block cipher might).
-    [buffer encryptWithKey:@"howdy" salt:salt];
+    [buffer encryptWithKey:@"howdy" salt:&salt];
     STAssertFalse([self bufferMatchesOriginalData], @"Encrypted bytes should not match clear bytes.");
-    [buffer decryptWithKey:@"howdyhowdy" salt:salt];
+    [buffer decryptWithKey:@"howdyhowdy" salt:&salt];
     STAssertFalse([self bufferMatchesOriginalData], @"Decrypted data with different password should not match");
 }
 
