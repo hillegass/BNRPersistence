@@ -74,7 +74,7 @@ typedef struct {                         // type of structure for a full-text st
 } TDBFTSSTROCR;
 
 typedef struct {                         // type of structure for a full-text number occurrence
-  int64_t pkid;                          // primery key number
+  int64_t pkid;                          // primary key number
   int32_t off;                           // offset of the token
   uint16_t seq;                          // sequence number
   uint16_t hash;                         // hash value for counting sort
